@@ -2969,26 +2969,103 @@ function fallbackGenerate(subject, difficulty) {
 }
 
 window.remoteFallback = {
+  // Math
+  generateMathEasy,
+  generateMathMedium,
+  generateMathHard,
+  generateMathTF,
+
+  // Algebra
   generateAlgebraEasy,
   generateAlgebraMedium,
   generateAlgebraHard,
   generateAlgebraTF,
+
+  // Geometry
   generateGeometryEasy,
   generateGeometryMedium,
   generateGeometryHard,
   generateGeometryTF,
+
+  // Trigonometry
   generateTrigEasy,
   generateTrigMedium,
   generateTrigTF,
+
+  // Calculus
   generateCalculusEasy,
   generateCalculusMedium,
   generateCalculusTF,
+
+  // Physics
   generatePhysicsEasy,
   generatePhysicsMedium,
   generatePhysicsTF,
+
+  // Chemistry
   generateChemistryEasy,
   generateChemistryMedium,
   generateChemistryTF,
-  // …include ALL other subjects you moved…
+
+  // Biology
+  generateBiologyEasy,
+  generateBiologyMedium,
+  generateBiologyHard,
+  generateBiologyTF,
+
+  // Science
+  generateScienceEasy,
+  generateScienceMedium,
+  generateScienceHard,
+  generateScienceTF,
+
+  // History
+  generateHistoryEasy,
+  generateHistoryMedium,
+  generateHistoryHard,
+  generateHistoryTF,
+  generateHistoryMixed,
+
+  // Geography
+  generateGeographyEasy,
+  generateGeographyMedium,
+  generateGeographyHard,
+  generateGeographyTF,
+  generateGeographyMixed,
+
+  // Language / ELA
+  generateLanguageEasy,
+  generateLanguageMedium,
+  generateLanguageHard,
+  generateLanguageTF,
+  generateELAMixed,
+
+  // Preschool
+  generatePreschoolEasy,
+  generatePreschoolMedium,
+  generatePreschoolHard,
+  generatePreschoolTF,
+  generatePreschoolMixed,
+
+  // Logic
+  generateLogicEasy,
+  generateLogicMedium,
+  generateLogicHard,
+  generateLogicTF,
+  generateLogicMixed,
+
+  // General Knowledge
+  generateGeneralEasy,
+  generateGeneralMedium,
+  generateGeneralHard,
+  generateGeneralTF,
+  generateGeneralKnowledgeMixed,
+
+  // Computer Science
+  generateCSMixed,
+
+  // Master Router
   fallbackGenerate
 };
+
+
