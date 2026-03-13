@@ -1,25 +1,143 @@
-:root {
-  --tanuki-purple: #4B1E78;
-  --tanuki-purple-light: #7D3FB2;
-  --tanuki-gold: #F5D06F;
-  --tanuki-white: #FFFFFF;
-  --tanuki-bg: radial-gradient(circle at top, #7D3FB2 0%, #2A103F 55%, #12051F 100%);
-  --tanuki-radius-lg: 24px;
-  --tanuki-shadow-soft: 0 0 40px rgba(0, 0, 0, 0.45);
+.ritual-root {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+.ritual-bg-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(245, 208, 111, 0.18), transparent 60%);
+  pointer-events: none;
 }
 
-html, body {
-  height: 100%;
+.ritual-content {
+  position: relative;
+  z-index: 1;
+  width: min(420px, 90vw);
+  padding: 32px 24px 24px;
+  border-radius: var(--tanuki-radius-lg);
+  background: rgba(18, 5, 31, 0.85);
+  box-shadow: var(--tanuki-shadow-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
 }
 
-body {
-  font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--tanuki-bg);
+/* Orb + Tanuki */
+
+.tanuki-orb {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 20%, #F5D06F, #7D3FB2 55%, #2A103F 100%);
+  box-shadow: 0 0 40px rgba(245, 208, 111, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: orb-breathe 4s ease-in-out infinite;
+}
+
+.tanuki-orb-glow {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 2px solid rgba(245, 208, 111, 0.4);
+  opacity: 0.6;
+  animation: orb-glow 4s ease-in-out infinite;
+}
+
+.tanuki-silhouette {
+  width: 70%;
+  height: 70%;
+  border-radius: 50% 50% 45% 45%;
+  background: rgba(18, 5, 31, 0.9);
+  position: relative;
+}
+
+/* Simple ears */
+.tanuki-silhouette::before,
+.tanuki-silhouette::after {
+  content: "";
+  position: absolute;
+  top: -18%;
+  width: 28%;
+  height: 32%;
+  border-radius: 50% 50% 0 0;
+  background: rgba(18, 5, 31, 0.9);
+}
+
+.tanuki-silhouette::before {
+  left: 8%;
+}
+
+.tanuki-silhouette::after {
+  right: 8%;
+}
+
+/* Text */
+
+.ritual-text {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ritual-phase {
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+}
+
+.ritual-subtext {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* Button */
+
+.ritual-button {
+  margin-top: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: none;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, var(--tanuki-purple-light), var(--tanuki-gold));
   color: var(--tanuki-white);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+
+.ritual-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.ritual-button:not(:disabled):active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Animations */
+
+@keyframes orb-breathe {
+  0%   { transform: scale(0.96); }
+  50%  { transform: scale(1.04); }
+  100% { transform: scale(0.96); }
+}
+
+@keyframes orb-glow {
+  0%   { opacity: 0.4; }
+  50%  { opacity: 0.9; }
+  100% { opacity: 0.4; }
 }
