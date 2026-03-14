@@ -1,1 +1,41 @@
+.gate-root {
+  background: var(--tanuki-bg);
+  color: var(--tanuki-white);
+  min-height: 100vh;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+}
+
+.gate-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.gate-line {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.gate-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gate-button {
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background: var(--tanuki-purple-light);
+  color: var(--tanuki-white);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.gate-button:hover {
+  background: var(--tanuki-purple);
+}
 
