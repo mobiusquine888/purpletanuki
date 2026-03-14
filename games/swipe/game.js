@@ -11,24 +11,34 @@ const startBtn = document.getElementById("startBtn");
 const directions = ["↑", "↓", "←", "→"];
 let currentDirection = null;
 
+/* -------------------------
+   START GAME
+------------------------- */
 startBtn.addEventListener("click", startGame);
 
 function startGame() {
+  // Reset state
   score = 0;
   timeLeft = 15;
   scoreEl.textContent = score;
   timeEl.textContent = timeLeft;
 
+  // Reset UI
   startBtn.style.display = "none";
   arrowEl.classList.remove("hidden");
 
+  // Clear any old intervals
+  clearInterval(timerInterval);
+  clearInterval(arrowInterval);
+
   spawnArrow();
   startTimer();
-
-  // Enable swipe detection
   setupSwipe();
 }
 
+/* -------------------------
+   TIMER
+------------------------- */
 function startTimer() {
   timerInterval = setInterval(() => {
     timeLeft--;
@@ -40,6 +50,9 @@ function startTimer() {
   }, 1000);
 }
 
+/* -------------------------
+   ARROW SPAWNING
+------------------------- */
 function spawnArrow() {
   arrowInterval = setInterval(() => {
     currentDirection = directions[Math.floor(Math.random() * directions.length)];
@@ -47,6 +60,9 @@ function spawnArrow() {
   }, 900);
 }
 
+/* -------------------------
+   END GAME
+------------------------- */
 function endGame() {
   clearInterval(timerInterval);
   clearInterval(arrowInterval);
@@ -57,16 +73,24 @@ function endGame() {
   alert(`Time's up! You scored ${score} points.`);
 }
 
-/* SWIPE DETECTION */
+/* -------------------------
+   SWIPE DETECTION
+------------------------- */
 function setupSwipe() {
   let startX = 0;
   let startY = 0;
+
+  // Remove old listeners to prevent stacking
+  document.onmousedown = null;
+  document.onmouseup = null;
+  document.ontouchstart = null;
+  document.ontouchend = null;
 
   document.addEventListener("touchstart", (e) => {
     const t = e.touches[0];
     startX = t.clientX;
     startY = t.clientY;
-  });
+  }, { passive: true });
 
   document.addEventListener("touchend", (e) => {
     const t = e.changedTouches[0];
@@ -88,6 +112,6 @@ function setupSwipe() {
       score++;
       scoreEl.textContent = score;
     }
-  });
+  }, { passive: true });
 }
 
