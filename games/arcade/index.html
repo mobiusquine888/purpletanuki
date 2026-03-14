@@ -12,23 +12,28 @@
 </head>
 <body>
   <div class="arcade-root">
+
     <header class="arcade-header">
+      <!-- ⭐ Centered Title Block -->
       <div class="arcade-title-block">
         <h1 class="arcade-title">Purple Tanuki Arcade</h1>
         <p class="arcade-subtitle">Choose a ritual, a game, or a challenge.</p>
       </div>
 
+      <!-- Right-side status panel -->
       <div class="arcade-status">
         <div class="status-item">
           <span class="status-label">Level</span>
           <span id="status-level" class="status-value">1</span>
         </div>
+
         <div class="status-item">
           <span class="status-label">XP</span>
           <div class="status-bar">
             <div id="status-xp-fill" class="status-bar-fill" style="width: 20%;"></div>
           </div>
         </div>
+
         <div class="status-item">
           <span class="status-label">Streak</span>
           <span id="status-streak" class="status-value">0 days</span>
@@ -37,6 +42,7 @@
     </header>
 
     <main class="arcade-main">
+
       <section class="arcade-left">
         <div class="tanuki-orb-shell">
           <div class="tanuki-orb-core">
@@ -47,6 +53,7 @@
             </div>
           </div>
         </div>
+
         <p id="tanuki-line" class="tanuki-line">
           I’m ready when you are. Pick a game!
         </p>
@@ -54,6 +61,7 @@
 
       <section class="arcade-right">
         <h2 class="arcade-section-title">Games</h2>
+
         <div class="arcade-grid">
 
           <!-- Academic game -->
@@ -63,14 +71,14 @@
             <div class="arcade-card-desc">Answer questions, earn XP, and grow your Tanuki.</div>
           </button>
 
-          <!-- ⭐ NEW: PRACTICE MODE BUTTON -->
+          <!-- Practice Mode -->
           <button class="arcade-card" onclick="window.location.href='../practice/index.html'">
             <div class="arcade-card-title">Practice Mode</div>
             <div class="arcade-card-tag">Academic</div>
             <div class="arcade-card-desc">Choose a subject and difficulty. Train your skills.</div>
           </button>
 
-          <!-- Example minigames -->
+          <!-- Minigames -->
           <button class="arcade-card" data-game="reaction">
             <div class="arcade-card-title">Star Catch</div>
             <div class="arcade-card-tag">Reaction</div>
@@ -98,6 +106,7 @@
 
         </div>
       </section>
+
     </main>
   </div>
 
