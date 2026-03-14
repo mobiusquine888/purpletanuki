@@ -1,3 +1,4 @@
+/* Push game below the Purple Tanuki banner */
 .game-root {
   display: flex;
   flex-direction: column;
@@ -6,8 +7,11 @@
   background: var(--tanuki-bg);
   color: var(--tanuki-white);
   padding: 16px;
+  padding-top: 96px; /* ⭐ FIX: ensures title + arrow are visible */
   box-sizing: border-box;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .game-header {
