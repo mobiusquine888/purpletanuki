@@ -1,13 +1,14 @@
-/* ROOT LAYOUT */
+/* ROOT LAYOUT — FIXES THE SCROLLING ISSUE */
 .game-root {
-  height: 100vh;                 /* full screen */
   display: flex;
   flex-direction: column;
+  height: 100%;              /* instead of 100vh */
+  width: 100%;
   background: var(--tanuki-bg);
   color: var(--tanuki-white);
   padding: 16px;
-  gap: 16px;
-  overflow: hidden;              /* prevents scrolling */
+  box-sizing: border-box;
+  overflow: hidden;          /* prevents scrolling */
 }
 
 /* HEADER */
@@ -15,6 +16,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;            /* prevents header from collapsing */
 }
 
 .game-title {
@@ -33,9 +35,9 @@
 
 /* GAME AREA — FIXED HEIGHT SO START BUTTON IS ALWAYS VISIBLE */
 .game-area {
-  flex: 1;
-  height: 55vh;                  /* forces visible space on all phones */
-  min-height: 280px;             /* prevents collapse */
+  flex: 1;                   /* takes remaining space */
+  min-height: 240px;         /* ensures stars have room */
+  max-height: 60vh;          /* prevents pushing Start button off-screen */
   position: relative;
   border-radius: 12px;
   background: rgba(255,255,255,0.05);
@@ -64,9 +66,10 @@
   display: flex;
   justify-content: space-between;
   font-size: 1.1rem;
+  flex-shrink: 0;            /* prevents collapse */
 }
 
-/* START BUTTON — ALWAYS VISIBLE */
+/* START BUTTON — ALWAYS VISIBLE, NEVER BELOW FOLD */
 .start-btn {
   padding: 12px;
   border: none;
@@ -75,6 +78,7 @@
   color: white;
   font-size: 1.1rem;
   cursor: pointer;
-  align-self: center;            /* centers horizontally */
-  margin-bottom: 8px;            /* keeps it above bottom edge */
+  align-self: center;
+  flex-shrink: 0;            /* ensures it stays visible */
+  margin-bottom: 8px;
 }
