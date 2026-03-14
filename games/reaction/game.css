@@ -1,14 +1,19 @@
-/* ROOT LAYOUT — FIXES THE SCROLLING ISSUE */
+/* ============================================================
+   GAME 1 — STAR CATCH
+   PURPLE TANUKI CONSOLE REFORGE
+   ============================================================ */
+
+/* ROOT LAYOUT */
 .game-root {
   display: flex;
   flex-direction: column;
-  height: 100%;              /* instead of 100vh */
+  height: 100%;
   width: 100%;
   background: var(--tanuki-bg);
   color: var(--tanuki-white);
   padding: 16px;
   box-sizing: border-box;
-  overflow: hidden;          /* prevents scrolling */
+  overflow: hidden;
 }
 
 /* HEADER */
@@ -16,32 +21,40 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-shrink: 0;            /* prevents header from collapsing */
+  flex-shrink: 0;
 }
 
 .game-title {
-  font-size: 1.4rem;
-  letter-spacing: 0.05em;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
 }
 
+/* Small back button in header (optional) */
 .back-btn {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.12);
   border: none;
   padding: 8px 12px;
-  border-radius: 8px;
-  color: white;
+  border-radius: 10px;
+  color: var(--tanuki-white);
   cursor: pointer;
+  transition: 0.15s ease;
 }
 
-/* GAME AREA — FIXED HEIGHT SO START BUTTON IS ALWAYS VISIBLE */
+.back-btn:hover {
+  background: rgba(255,255,255,0.22);
+}
+
+/* GAME AREA */
 .game-area {
-  flex: 1;                   /* takes remaining space */
-  min-height: 240px;         /* ensures stars have room */
-  max-height: 60vh;          /* prevents pushing Start button off-screen */
+  flex: 1;
+  min-height: 240px;
+  max-height: 60vh;
   position: relative;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.05);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.08);
   overflow: hidden;
+  margin-top: 16px;
 }
 
 /* STAR OBJECT */
@@ -66,34 +79,49 @@
   display: flex;
   justify-content: space-between;
   font-size: 1.1rem;
-  flex-shrink: 0;            /* prevents collapse */
+  margin-top: 12px;
+  flex-shrink: 0;
 }
 
-/* START BUTTON — ALWAYS VISIBLE, NEVER BELOW FOLD */
+/* START BUTTON */
 .start-btn {
-  padding: 12px;
+  padding: 14px;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   background: var(--tanuki-purple-light);
-  color: white;
+  color: var(--tanuki-white);
   font-size: 1.1rem;
   cursor: pointer;
   align-self: center;
-  flex-shrink: 0;            /* ensures it stays visible */
-  margin-bottom: 8px;
+  flex-shrink: 0;
+  margin-top: 16px;
+  transition: 0.15s ease;
 }
+
+.start-btn:hover {
+  background: var(--tanuki-purple);
+}
+
+/* ============================================================
+   BACK TO ARCADE — MATCH PRACTICE MODE EXACTLY
+   ============================================================ */
+
 .home-btn {
-  position: fixed;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 12px 22px;
-  background: rgba(255,255,255,0.2);
-  color: white;
+  position: static;              /* no floating */
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  background: var(--tanuki-purple-light);
+  color: var(--tanuki-white);
   border: none;
   border-radius: 14px;
   font-size: 1.1rem;
-  backdrop-filter: blur(6px);
-  z-index: 999999999;
   cursor: pointer;
+  transition: 0.15s ease;
+  text-align: center;
+  white-space: nowrap;           /* keeps it on one line */
+}
+
+.home-btn:hover {
+  background: var(--tanuki-purple);
 }
