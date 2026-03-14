@@ -13,22 +13,28 @@ body {
   min-height: 100vh;
 }
 
-/* Main container — now with proper top spacing for phones */
+/* Main container — tuned for phone spacing */
 #practice-container {
   width: 100%;
   max-width: 600px;
   padding: 20px;
-  padding-top: 55px;      /* ⭐ NEW: lowers the whole UI */
+  padding-top: 65px;      /* ⭐ Lowered UI for better phone spacing */
   box-sizing: border-box;
 }
 
-/* Title — spaced down and softened */
+/* Title — centered perfectly and visually balanced */
 .title {
+  display: flex;               /* ⭐ Ensures perfect centering */
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
   text-align: center;
+
   font-size: 2.1rem;
   font-weight: 700;
   margin-top: 0;
-  margin-bottom: 28px;    /* ⭐ NEW: more breathing room */
+  margin-bottom: 32px;         /* ⭐ More breathing room below */
   color: #5b3fa4;
 }
 
@@ -206,3 +212,4 @@ body {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
