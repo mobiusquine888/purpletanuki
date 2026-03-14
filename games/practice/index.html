@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Purple Tanuki — Practice Mode</title>
+
+  <link rel="stylesheet" href="../global.css" />
+  <link rel="stylesheet" href="practice.css" />
+</head>
+
+<body>
+
+  <div id="practice-container">
+
+    <h1 class="title">Practice Mode</h1>
+
+    <div id="settings-panel">
+
+      <div class="setting">
+        <label for="subject-select">Subject</label>
+        <select id="subject-select">
+          <option value="math">Math</option>
+          <option value="algebra">Algebra</option>
+          <option value="geometry">Geometry</option>
+          <option value="trig">Trigonometry</option>
+          <option value="calculus">Calculus</option>
+          <option value="physics">Physics</option>
+          <option value="chemistry">Chemistry</option>
+          <option value="biology">Biology</option>
+          <option value="science">Science</option>
+          <option value="history">History</option>
+          <option value="geography">Geography</option>
+          <option value="language">Language / ELA</option>
+          <option value="preschool">Preschool</option>
+          <option value="logic">Logic</option>
+          <option value="general">General Knowledge</option>
+          <option value="cs">Computer Science</option>
+        </select>
+      </div>
+
+      <div class="setting">
+        <label for="difficulty-select">Difficulty</label>
+        <select id="difficulty-select">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+          <option value="mixed">Mixed</option>
+        </select>
+      </div>
+
+      <div class="setting">
+        <label for="count-select">Number of Questions</label>
+        <select id="count-select">
+          <option value="5">5 Questions</option>
+          <option value="10">10 Questions</option>
+          <option value="15">15 Questions</option>
+          <option value="20">20 Questions</option>
+        </select>
+      </div>
+
+      <button id="start-btn">Start Practice</button>
+
+    </div>
+
+    <div id="card-container"></div>
+
+  </div>
+
+  <script src="../fallback.js"></script>
+  <script src="practice.js"></script>
+
+</body>
+</html>
