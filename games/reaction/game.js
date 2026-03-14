@@ -33,6 +33,9 @@ function endGame() {
   alert(`Time's up! You scored ${score} points.`);
 
   startBtn.style.display = "block";
+
+  // ⭐ STEP 4 — Unlock target after ritual
+  ritualComplete();
 }
 
 function spawnStar() {
@@ -58,4 +61,21 @@ function spawnStar() {
 }
 
 startBtn.addEventListener("click", startGame);
+
+
+// ============================================================
+// ⭐ RITUAL COMPLETE — STEP 4
+// ============================================================
+
+function ritualComplete() {
+  const target = localStorage.getItem("nextUnlockTarget");
+
+  if (target === "youtube") {
+    localStorage.removeItem("nextUnlockTarget");
+    window.location.href = "https://www.youtube.com";
+    return;
+  }
+
+  // Future unlock targets can be added here
+}
 
