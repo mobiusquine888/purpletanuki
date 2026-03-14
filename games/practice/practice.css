@@ -1,105 +1,101 @@
 /* ============================================================
-   PRACTICE MODE — PHONE OPTIMIZED
+   PRACTICE MODE — PURPLE TANUKI THEME MATCH
    ============================================================ */
 
 body {
   margin: 0;
   padding: 0;
   font-family: "Nunito", sans-serif;
-  background: linear-gradient(180deg, #f7f2ff 0%, #e8ddff 100%);
-  color: #3a2a5e;
+  background: var(--tanuki-bg);
+  color: var(--tanuki-white);
   display: flex;
   justify-content: center;
   min-height: 100vh;
 }
 
-/* Main container — tuned for phone spacing */
+/* Main container — centered like the arcade hub */
 #practice-container {
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   padding: 20px;
-  padding-top: 65px;      /* ⭐ Lowered UI for better phone spacing */
+  padding-top: 80px; /* similar vertical feel to arcade */
   box-sizing: border-box;
 }
 
-/* Title — centered perfectly and visually balanced */
+/* Title — matches game title energy */
 .title {
-  display: flex;               /* ⭐ Ensures perfect centering */
-  justify-content: center;
-  align-items: center;
-
   width: 100%;
   text-align: center;
-
-  font-size: 2.1rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 800;
   margin-top: 0;
-  margin-bottom: 32px;         /* ⭐ More breathing room below */
-  color: #5b3fa4;
+  margin-bottom: 24px;
+  color: var(--tanuki-white);
 }
 
-/* Settings panel */
+/* Settings panel — soft card, no harsh white app look */
 #settings-panel {
-  background: white;
-  padding: 20px;
+  background: rgba(255, 255, 255, 0.10);
+  padding: 18px;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(80, 50, 120, 0.15);
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
+/* Individual setting blocks */
 .setting {
-  margin-bottom: 15px;
+  margin-bottom: 14px;
 }
 
 .setting label {
   display: block;
   font-size: 0.9rem;
   margin-bottom: 6px;
-  color: #5b3fa4;
+  color: var(--tanuki-white);
+  font-weight: 600;
 }
 
+/* Dropdowns — on-brand, soft, readable */
 .setting select {
   width: 100%;
   padding: 10px;
   border-radius: 10px;
-  border: 2px solid #d6c8ff;
-  background: #faf7ff;
+  border: none;
+  background: rgba(255, 255, 255, 0.18);
   font-size: 1rem;
-  color: #3a2a5e;
+  color: var(--tanuki-white);
   outline: none;
 }
 
-/* Start button */
+/* Start button — matches Star Catch / arcade buttons */
 #start-btn {
   width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  background: #7a4bff;
-  color: white;
+  padding: 14px;
+  margin-top: 12px;
+  background: var(--tanuki-purple-light);
+  color: var(--tanuki-white);
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.15s ease;
 }
 
 #start-btn:hover {
-  background: #6939e6;
+  background: var(--tanuki-purple);
 }
 
-/* Challenge card */
+/* Challenge card — soft overlay card */
 .challenge-card {
-  background: white;
-  padding: 20px;
+  background: rgba(0, 0, 0, 0.18);
+  padding: 18px;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(80, 50, 120, 0.15);
   animation: fadeIn 0.3s ease-out;
 }
 
 .question-text {
-  font-size: 1.3rem;
-  margin-bottom: 20px;
-  color: #4a357d;
+  font-size: 1.2rem;
+  margin-bottom: 18px;
+  color: var(--tanuki-white);
 }
 
 /* Multiple choice */
@@ -111,16 +107,17 @@ body {
 
 .option-btn {
   padding: 12px;
-  background: #f3ecff;
-  border: 2px solid #d6c8ff;
+  background: rgba(255, 255, 255, 0.10);
+  border: none;
   border-radius: 12px;
   font-size: 1rem;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.15s ease;
+  color: var(--tanuki-white);
 }
 
 .option-btn:hover {
-  background: #e8ddff;
+  background: rgba(255, 255, 255, 0.18);
 }
 
 /* Text input */
@@ -128,26 +125,28 @@ body {
   width: 100%;
   padding: 12px;
   border-radius: 10px;
-  border: 2px solid #d6c8ff;
-  background: #faf7ff;
+  border: none;
+  background: rgba(255, 255, 255, 0.18);
   margin-bottom: 12px;
   font-size: 1rem;
+  color: var(--tanuki-white);
 }
 
+/* Submit button */
 .submit-btn {
   width: 100%;
   padding: 12px;
-  background: #7a4bff;
-  color: white;
+  background: var(--tanuki-purple-light);
+  color: var(--tanuki-white);
   border: none;
   border-radius: 12px;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.15s ease;
 }
 
 .submit-btn:hover {
-  background: #6939e6;
+  background: var(--tanuki-purple);
 }
 
 /* True/False */
@@ -160,51 +159,52 @@ body {
 .tf-btn {
   flex: 1;
   padding: 12px;
-  background: #f3ecff;
-  border: 2px solid #d6c8ff;
+  background: rgba(255, 255, 255, 0.10);
+  border: none;
   border-radius: 12px;
   font-size: 1rem;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.15s ease;
+  color: var(--tanuki-white);
 }
 
 .tf-btn:hover {
-  background: #e8ddff;
+  background: rgba(255, 255, 255, 0.18);
 }
 
 /* Summary card */
 .summary-card {
-  background: white;
-  padding: 25px;
+  background: rgba(0, 0, 0, 0.18);
+  padding: 22px;
   border-radius: 16px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(80, 50, 120, 0.15);
   animation: fadeIn 0.3s ease-out;
 }
 
 .summary-card h2 {
   margin-bottom: 10px;
-  color: #5b3fa4;
+  color: var(--tanuki-white);
 }
 
 .summary-card p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+  font-size: 1.1rem;
+  margin-bottom: 18px;
 }
 
+/* Restart button */
 #restart-btn {
   padding: 12px 20px;
-  background: #7a4bff;
-  color: white;
+  background: var(--tanuki-purple-light);
+  color: var(--tanuki-white);
   border: none;
   border-radius: 12px;
   font-size: 1rem;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.15s ease;
 }
 
 #restart-btn:hover {
-  background: #6939e6;
+  background: var(--tanuki-purple);
 }
 
 /* Fade animation */
