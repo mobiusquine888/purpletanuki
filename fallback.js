@@ -1,6 +1,36 @@
 // ============================================================
-// PART 3A–3E — ALL FALLBACK GENERATORS
+// FALLBACK ENGINE — UNIFIED SCHEMA
+// Every generator returns:
+// {
+//   lesson: "",
+//   type: "mc" | "text" | "tf",
+//   category: "subject",
+//   difficulty: "easy" | "medium" | "hard" | "mixed",
+//   question: "...",
+//   options: [...], // only for mc
+//   answer: any
+// }
 // ============================================================
+
+// ------------------------------------------------------------
+// CORE HELPERS
+// ------------------------------------------------------------
+function randInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function choice(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function shuffleArray(arr) {
+  const copy = arr.slice();
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
 
 // ============================================================
 // PART 3A — MATH GENERATORS
@@ -9,12 +39,10 @@
 // ---------------------------
 // MATH — EASY
 // ---------------------------
-
 function generateMathEasy() {
   const pattern = randInt(1, 4);
 
   if (pattern === 1) {
-    // Simple addition within 20
     const a = randInt(1, 10);
     const b = randInt(1, 10);
     return {
@@ -29,7 +57,6 @@ function generateMathEasy() {
   }
 
   if (pattern === 2) {
-    // Simple subtraction within 20
     const a = randInt(5, 15);
     const b = randInt(1, 5);
     return {
@@ -44,7 +71,6 @@ function generateMathEasy() {
   }
 
   if (pattern === 3) {
-    // Compare numbers
     const a = randInt(1, 20);
     const b = randInt(1, 20);
     const correct = a > b ? ">" : a < b ? "<" : "=";
@@ -59,7 +85,6 @@ function generateMathEasy() {
     };
   }
 
-  // pattern 4: simple word problem
   const apples = randInt(2, 6);
   const more = randInt(1, 4);
   return {
@@ -75,12 +100,10 @@ function generateMathEasy() {
 // ---------------------------
 // MATH — MEDIUM
 // ---------------------------
-
 function generateMathMedium() {
   const pattern = randInt(1, 4);
 
   if (pattern === 1) {
-    // Multiplication within 12x12
     const a = randInt(2, 12);
     const b = randInt(2, 12);
     return {
@@ -100,7 +123,6 @@ function generateMathMedium() {
   }
 
   if (pattern === 2) {
-    // Division with whole-number result
     const b = randInt(2, 12);
     const ans = randInt(2, 12);
     const a = b * ans;
@@ -121,7 +143,6 @@ function generateMathMedium() {
   }
 
   if (pattern === 3) {
-    // Simple fraction comparison
     const num1 = randInt(1, 5);
     const den1 = randInt(2, 6);
     const num2 = randInt(1, 5);
@@ -145,7 +166,6 @@ function generateMathMedium() {
     };
   }
 
-  // pattern 4: multi-step word problem
   const start = randInt(10, 30);
   const added = randInt(5, 15);
   const removed = randInt(1, 10);
@@ -162,12 +182,10 @@ function generateMathMedium() {
 // ---------------------------
 // MATH — HARD
 // ---------------------------
-
 function generateMathHard() {
   const pattern = randInt(1, 4);
 
   if (pattern === 1) {
-    // Two-step equation: ax + b = c
     const a = randInt(2, 9);
     const x = randInt(1, 10);
     const b = randInt(1, 10);
@@ -183,7 +201,6 @@ function generateMathHard() {
   }
 
   if (pattern === 2) {
-    // Percentage of a number
     const base = randInt(50, 200);
     const pct = choice([10, 20, 25, 30, 40, 50]);
     const ans = (base * pct) / 100;
@@ -204,7 +221,6 @@ function generateMathHard() {
   }
 
   if (pattern === 3) {
-    // Area of rectangle
     const length = randInt(5, 20);
     const width = randInt(5, 20);
     const area = length * width;
@@ -218,30 +234,28 @@ function generateMathHard() {
         area,
         area + randInt(5, 15),
         area - randInt(5, 15),
-        (length + width) * 2 // perimeter as a distractor
+        (length + width) * 2
       ]),
       answer: area
     };
   }
 
-// pattern 4: ratio / proportion
-const a = randInt(2, 9);
-const b = randInt(2, 9);
-const scale = randInt(2, 5);
-return {
-  lesson: "",
-  type: "text",
-  category: "math",
-  difficulty: "hard",
-  question: `The ratio of red to blue marbles is ${a}:${b}. If there are ${a * scale} red marbles, how many blue marbles are there?`,
-  answer: String(b * scale)
-};
+  const a = randInt(2, 9);
+  const b = randInt(2, 9);
+  const scale = randInt(2, 5);
+  return {
+    lesson: "",
+    type: "text",
+    category: "math",
+    difficulty: "hard",
+    question: `The ratio of red to blue marbles is ${a}:${b}. If there are ${a * scale} red marbles, how many blue marbles are there?`,
+    answer: String(b * scale)
+  };
 }
 
 // ---------------------------
 // MATH — TRUE/FALSE
 // ---------------------------
-
 function generateMathTF() {
   const pattern = randInt(1, 4);
 
@@ -290,7 +304,6 @@ function generateMathTF() {
     };
   }
 
-  // pattern 4
   const statement = choice([
     { text: "Zero is an even number.", val: true },
     { text: "A triangle has four sides.", val: false },
@@ -311,10 +324,7 @@ function generateMathTF() {
 // PART 3B — BIOLOGY + SCIENCE GENERATORS
 // ============================================================
 
-// ------------------------------------------------------------
 // BIOLOGY — EASY
-// ------------------------------------------------------------
-
 function generateBiologyEasy() {
   const pattern = randInt(1, 4);
 
@@ -363,10 +373,7 @@ function generateBiologyEasy() {
   };
 }
 
-// ------------------------------------------------------------
 // BIOLOGY — MEDIUM
-// ------------------------------------------------------------
-
 function generateBiologyMedium() {
   const pattern = randInt(1, 4);
 
@@ -415,10 +422,7 @@ function generateBiologyMedium() {
   };
 }
 
-// ------------------------------------------------------------
 // BIOLOGY — HARD
-// ------------------------------------------------------------
-
 function generateBiologyHard() {
   const pattern = randInt(1, 4);
 
@@ -467,10 +471,7 @@ function generateBiologyHard() {
   };
 }
 
-// ------------------------------------------------------------
 // BIOLOGY — TRUE/FALSE
-// ------------------------------------------------------------
-
 function generateBiologyTF() {
   const statements = [
     { text: "All living things are made of cells.", val: true },
@@ -490,10 +491,7 @@ function generateBiologyTF() {
   };
 }
 
-// ------------------------------------------------------------
-// SCIENCE (GENERAL) — EASY
-// ------------------------------------------------------------
-
+// SCIENCE — EASY
 function generateScienceEasy() {
   const pattern = randInt(1, 4);
 
@@ -542,10 +540,7 @@ function generateScienceEasy() {
   };
 }
 
-// ------------------------------------------------------------
 // SCIENCE — MEDIUM
-// ------------------------------------------------------------
-
 function generateScienceMedium() {
   const pattern = randInt(1, 4);
 
@@ -594,10 +589,7 @@ function generateScienceMedium() {
   };
 }
 
-// ------------------------------------------------------------
 // SCIENCE — HARD
-// ------------------------------------------------------------
-
 function generateScienceHard() {
   const pattern = randInt(1, 4);
 
@@ -646,10 +638,7 @@ function generateScienceHard() {
   };
 }
 
-// ------------------------------------------------------------
 // SCIENCE — TRUE/FALSE
-// ------------------------------------------------------------
-
 function generateScienceTF() {
   const statements = [
     { text: "Light travels faster than sound.", val: true },
@@ -673,12 +662,7 @@ function generateScienceTF() {
 // PART 3C — HISTORY + GEOGRAPHY GENERATORS
 // ============================================================
 
-//
-// ---------------------------
 // HISTORY — EASY
-// ---------------------------
-//
-
 function generateHistoryEasy() {
   const pattern = randInt(1, 4);
 
@@ -727,12 +711,7 @@ function generateHistoryEasy() {
   };
 }
 
-//
-// ---------------------------
 // HISTORY — MEDIUM
-// ---------------------------
-//
-
 function generateHistoryMedium() {
   const pattern = randInt(1, 4);
 
@@ -781,12 +760,7 @@ function generateHistoryMedium() {
   };
 }
 
-//
-// ---------------------------
 // HISTORY — HARD
-// ---------------------------
-//
-
 function generateHistoryHard() {
   const pattern = randInt(1, 4);
 
@@ -835,12 +809,7 @@ function generateHistoryHard() {
   };
 }
 
-//
-// ---------------------------
 // HISTORY — TRUE/FALSE
-// ---------------------------
-//
-
 function generateHistoryTF() {
   const statements = [
     { text: "The Declaration of Independence was signed in 1776.", val: true },
@@ -860,12 +829,38 @@ function generateHistoryTF() {
   };
 }
 
-//
-// ---------------------------
-// GEOGRAPHY — EASY
-// ---------------------------
-//
+// HISTORY — MIXED (UNIFIED)
+function generateHistoryMixed() {
+  const q = choice([
+    {
+      question: "Who was the first President of the United States?",
+      options: ["George Washington", "Abraham Lincoln", "Thomas Jefferson", "John Adams"],
+      answer: "George Washington"
+    },
+    {
+      question: "In which year did World War II end?",
+      options: ["1945", "1939", "1918", "1963"],
+      answer: "1945"
+    },
+    {
+      question: "The ancient city of Rome is located in which modern country?",
+      options: ["Italy", "Greece", "France", "Spain"],
+      answer: "Italy"
+    }
+  ]);
 
+  return {
+    lesson: "",
+    type: "mc",
+    category: "history",
+    difficulty: "mixed",
+    question: q.question,
+    options: shuffleArray(q.options),
+    answer: q.answer
+  };
+}
+
+// GEOGRAPHY — EASY
 function generateGeographyEasy() {
   const pattern = randInt(1, 4);
 
@@ -914,12 +909,7 @@ function generateGeographyEasy() {
   };
 }
 
-//
-// ---------------------------
 // GEOGRAPHY — MEDIUM
-// ---------------------------
-//
-
 function generateGeographyMedium() {
   const pattern = randInt(1, 4);
 
@@ -968,12 +958,7 @@ function generateGeographyMedium() {
   };
 }
 
-//
-// ---------------------------
 // GEOGRAPHY — HARD
-// ---------------------------
-//
-
 function generateGeographyHard() {
   const pattern = randInt(1, 4);
 
@@ -1022,12 +1007,7 @@ function generateGeographyHard() {
   };
 }
 
-//
-// ---------------------------
 // GEOGRAPHY — TRUE/FALSE
-// ---------------------------
-//
-
 function generateGeographyTF() {
   const statements = [
     { text: "Russia is the largest country in the world by land area.", val: true },
@@ -1047,16 +1027,42 @@ function generateGeographyTF() {
   };
 }
 
+// GEOGRAPHY — MIXED (UNIFIED)
+function generateGeographyMixed() {
+  const q = choice([
+    {
+      question: "What is the largest continent by land area?",
+      options: ["Asia", "Africa", "North America", "Europe"],
+      answer: "Asia"
+    },
+    {
+      question: "Which river is the longest in the world?",
+      options: ["Nile", "Amazon", "Yangtze", "Mississippi"],
+      answer: "Nile"
+    },
+    {
+      question: "Which country is both a continent and a country?",
+      options: ["Australia", "Greenland", "India", "Brazil"],
+      answer: "Australia"
+    }
+  ]);
+
+  return {
+    lesson: "",
+    type: "mc",
+    category: "geography",
+    difficulty: "mixed",
+    question: q.question,
+    options: shuffleArray(q.options),
+    answer: q.answer
+  };
+}
+
 // ============================================================
 // PART 3D — LANGUAGE + PRESCHOOL GENERATORS
 // ============================================================
 
-//
-// ---------------------------
 // LANGUAGE — EASY
-// ---------------------------
-//
-
 function generateLanguageEasy() {
   const pattern = randInt(1, 4);
 
@@ -1105,12 +1111,7 @@ function generateLanguageEasy() {
   };
 }
 
-//
-// ---------------------------
 // LANGUAGE — MEDIUM
-// ---------------------------
-//
-
 function generateLanguageMedium() {
   const pattern = randInt(1, 4);
 
@@ -1164,12 +1165,7 @@ function generateLanguageMedium() {
   };
 }
 
-//
-// ---------------------------
 // LANGUAGE — HARD
-// ---------------------------
-//
-
 function generateLanguageHard() {
   const pattern = randInt(1, 4);
 
@@ -1228,12 +1224,7 @@ function generateLanguageHard() {
   };
 }
 
-//
-// ---------------------------
 // LANGUAGE — TRUE/FALSE
-// ---------------------------
-//
-
 function generateLanguageTF() {
   const statements = [
     { text: "A pronoun replaces a noun.", val: true },
@@ -1253,12 +1244,48 @@ function generateLanguageTF() {
   };
 }
 
-//
-// ---------------------------
-// PRESCHOOL — EASY
-// ---------------------------
-//
+// ELA / LANGUAGE — MIXED (UNIFIED)
+function generateELAMixed() {
+  const q = choice([
+    {
+      question: "Which sentence is grammatically correct?",
+      options: [
+        "She and I are going to the store.",
+        "Her and me is going to the store.",
+        "She and me are going to the store.",
+        "Her and I is going to the store."
+      ],
+      answer: "She and I are going to the store."
+    },
+    {
+      question: "Which word is a synonym for 'happy'?",
+      options: ["Joyful", "Angry", "Tired", "Confused"],
+      answer: "Joyful"
+    },
+    {
+      question: "Which sentence uses the correct form of 'their/there/they're'?",
+      options: [
+        "They're going to bring their books over there.",
+        "There going to bring they're books over their.",
+        "Their going to bring there books over they're.",
+        "They're going to bring there books over their."
+      ],
+      answer: "They're going to bring their books over there."
+    }
+  ]);
 
+  return {
+    lesson: "",
+    type: "mc",
+    category: "language",
+    difficulty: "mixed",
+    question: q.question,
+    options: shuffleArray(q.options),
+    answer: q.answer
+  };
+}
+
+// PRESCHOOL — EASY
 function generatePreschoolEasy() {
   const pattern = randInt(1, 4);
 
@@ -1307,12 +1334,7 @@ function generatePreschoolEasy() {
   };
 }
 
-//
-// ---------------------------
 // PRESCHOOL — MEDIUM
-// ---------------------------
-//
-
 function generatePreschoolMedium() {
   const pattern = randInt(1, 4);
 
@@ -1361,12 +1383,7 @@ function generatePreschoolMedium() {
   };
 }
 
-//
-// ---------------------------
 // PRESCHOOL — HARD
-// ---------------------------
-//
-
 function generatePreschoolHard() {
   const pattern = randInt(1, 4);
 
@@ -1415,12 +1432,7 @@ function generatePreschoolHard() {
   };
 }
 
-//
-// ---------------------------
 // PRESCHOOL — TRUE/FALSE
-// ---------------------------
-//
-
 function generatePreschoolTF() {
   const statements = [
     { text: "A cow says 'moo'.", val: true },
@@ -1440,16 +1452,42 @@ function generatePreschoolTF() {
   };
 }
 
+// PRESCHOOL — MIXED (UNIFIED)
+function generatePreschoolMixed() {
+  const q = choice([
+    {
+      question: "Which of these is a color?",
+      options: ["Blue", "Dog", "Car", "Chair"],
+      answer: "Blue"
+    },
+    {
+      question: "How many sides does a triangle have?",
+      options: ["3", "4", "5", "6"],
+      answer: "3"
+    },
+    {
+      question: "Which animal says 'meow'?",
+      options: ["Cat", "Dog", "Cow", "Sheep"],
+      answer: "Cat"
+    }
+  ]);
+
+  return {
+    lesson: "",
+    type: "mc",
+    category: "preschool",
+    difficulty: "mixed",
+    question: q.question,
+    options: shuffleArray(q.options),
+    answer: q.answer
+  };
+}
+
 // ============================================================
 // PART 3E — LOGIC + GENERAL GENERATORS
 // ============================================================
 
-//
-// ---------------------------
 // LOGIC — EASY
-// ---------------------------
-//
-
 function generateLogicEasy() {
   const pattern = randInt(1, 4);
 
@@ -1498,12 +1536,7 @@ function generateLogicEasy() {
   };
 }
 
-//
-// ---------------------------
 // LOGIC — MEDIUM
-// ---------------------------
-//
-
 function generateLogicMedium() {
   const pattern = randInt(1, 4);
 
@@ -1552,12 +1585,7 @@ function generateLogicMedium() {
   };
 }
 
-//
-// ---------------------------
 // LOGIC — HARD
-// ---------------------------
-//
-
 function generateLogicHard() {
   const pattern = randInt(1, 4);
 
@@ -1611,12 +1639,7 @@ function generateLogicHard() {
   };
 }
 
-//
-// ---------------------------
 // LOGIC — TRUE/FALSE
-// ---------------------------
-//
-
 function generateLogicTF() {
   const statements = [
     { text: "If two statements are both true, their AND is true.", val: true },
@@ -1636,12 +1659,38 @@ function generateLogicTF() {
   };
 }
 
-//
-// ---------------------------
-// GENERAL KNOWLEDGE — EASY
-// ---------------------------
-//
+// LOGIC — MIXED (UNIFIED)
+function generateLogicMixed() {
+  const q = choice([
+    {
+      question: "All cats are mammals. All mammals are animals. Therefore, all cats are animals. This is an example of:",
+      options: ["Deductive reasoning", "Inductive reasoning", "Circular reasoning", "False analogy"],
+      answer: "Deductive reasoning"
+    },
+    {
+      question: "What comes next in the sequence: 2, 4, 8, 16, ...?",
+      options: ["32", "20", "24", "18"],
+      answer: "32"
+    },
+    {
+      question: "If today is Wednesday, what day will it be in 10 days?",
+      options: ["Saturday", "Friday", "Sunday", "Monday"],
+      answer: "Saturday"
+    }
+  ]);
 
+  return {
+    lesson: "",
+    type: "mc",
+    category: "logic",
+    difficulty: "mixed",
+    question: q.question,
+    options: shuffleArray(q.options),
+    answer: q.answer
+  };
+}
+
+// GENERAL — EASY
 function generateGeneralEasy() {
   const pattern = randInt(1, 4);
 
@@ -1690,12 +1739,7 @@ function generateGeneralEasy() {
   };
 }
 
-//
-// ---------------------------
 // GENERAL — MEDIUM
-// ---------------------------
-//
-
 function generateGeneralMedium() {
   const pattern = randInt(1, 4);
 
@@ -1744,12 +1788,7 @@ function generateGeneralMedium() {
   };
 }
 
-//
-// ---------------------------
 // GENERAL — HARD
-// ---------------------------
-//
-
 function generateGeneralHard() {
   const pattern = randInt(1, 4);
 
@@ -1798,12 +1837,7 @@ function generateGeneralHard() {
   };
 }
 
-//
-// ---------------------------
 // GENERAL — TRUE/FALSE
-// ---------------------------
-//
-
 function generateGeneralTF() {
   const statements = [
     { text: "Water boils at 100°C.", val: true },
@@ -1823,657 +1857,42 @@ function generateGeneralTF() {
   };
 }
 
-// ------------------------------------------------------------
-// PART 3 — QUESTION GENERATORS (DETERMINISTIC FALLBACKS)
-// Robust fallback for Math, Science, and Humanities
-// ------------------------------------------------------------
-//
-// NOTE:
-// - Keep your existing generators (Math Easy/Medium/Hard, etc.) above this,
-//   or replace them with these if you prefer.
-// - All functions here are pure fallbacks: AI can override them later.
-// ------------------------------------------------------------
-
-// Small utility helpers (safe to define once)
-// ------------------------------------------------------------
-function ptPickRandom(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
-
-function ptShuffle(arr) {
-  const copy = arr.slice();
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
-
-// ------------------------------------------------------------
-// MATH FAMILY — ALGEBRA
-// ------------------------------------------------------------
-
-function generateAlgebraEasy() {
-  // Simple linear equations: ax + b = c
-  const a = Math.floor(Math.random() * 8) + 2; // 2–9
-  const x = Math.floor(Math.random() * 9) + 1; // 1–9
-  const b = Math.floor(Math.random() * 10);    // 0–9
-  const c = a * x + b;
-
-  const correct = x;
-  const choices = ptShuffle([
-    correct,
-    correct + 1,
-    correct - 1,
-    correct + 2
-  ].filter((v, i, self) => v > -10 && self.indexOf(v) === i));
-
-  return {
-    // Algebra generators use a different schema (text/choices/answer)
-    // so we do NOT add lesson here unless you want to unify formats later.
-    text: `Solve for x: ${a}x + ${b} = ${c}`,
-    choices: choices.map(String),
-    answer: String(correct),
-    type: "multiple"
-  };
-}
-
-function generateAlgebraMedium() {
-  const a = Math.floor(Math.random() * 6) + 2;  // 2–7
-  const x = Math.floor(Math.random() * 11) - 5; // -5–5
-  const b = Math.floor(Math.random() * 11) - 5; // -5–5
-  const c = a * x - b;
-
-  const correct = x;
-  const choices = ptShuffle([
-    correct,
-    correct + 2,
-    correct - 2,
-    -correct
-  ].filter((v, i, self) => self.indexOf(v) === i));
-
-  return {
-    text: `Solve for x: ${a}x - (${b}) = ${c}`,
-    choices: choices.map(String),
-    answer: String(correct),
-    type: "multiple"
-  };
-}
-
-function generateAlgebraHard() {
-  const p = Math.floor(Math.random() * 9) - 4;
-  const q = Math.floor(Math.random() * 9) - 4;
-  if (p === 0 && q === 0) return generateAlgebraHard();
-
-  const r1 = -p;
-  const r2 = -q;
-
-  const text = `Solve for x: (x ${p >= 0 ? "+ " + p : "- " + Math.abs(p)})` +
-               `(x ${q >= 0 ? "+ " + q : "- " + Math.abs(q)}) = 0`;
-
-  const correctPair = `x = ${r1}, x = ${r2}`;
-  const distractors = [
-    `x = ${r1}, x = ${-r2}`,
-    `x = ${-r1}, x = ${r2}`,
-    `x = ${r1 + 1}, x = ${r2 - 1}`
-  ];
-
-  const choices = ptShuffle([correctPair, ...distractors]);
-
-  return {
-    text,
-    choices,
-    answer: correctPair,
-    type: "multiple"
-  };
-}
-
-// ------------------------------------------------------------
-// MATH FAMILY — GEOMETRY
-// ------------------------------------------------------------
-
-function generateGeometryEasy() {
-  const w = Math.floor(Math.random() * 9) + 2;
-  const h = Math.floor(Math.random() * 9) + 2;
-  const area = w * h;
-
-  const choices = ptShuffle([
-    area,
-    area + w,
-    area - h,
-    area + 2
-  ]);
-
-  return {
-    text: `A rectangle has width ${w} units and height ${h} units. What is its area?`,
-    choices: choices.map(String),
-    answer: String(area),
-    type: "multiple"
-  };
-}
-
-function generateGeometryMedium() {
-  const legs = [
-    [3, 4, 5],
-    [5, 12, 13],
-    [6, 8, 10],
-    [8, 15, 17]
-  ];
-  const triple = ptPickRandom(legs);
-  const [a, b, c] = triple;
-
-  const missing = ptPickRandom(["hyp", "leg"]);
-  let text, correct, choices;
-
-  if (missing === "hyp") {
-    text = `A right triangle has legs of length ${a} and ${b}. What is the length of the hypotenuse?`;
-    correct = c;
-    choices = ptShuffle([c, c - 1, c + 1, a + b]);
-  } else {
-    text = `A right triangle has hypotenuse ${c} and one leg ${a}. What is the length of the other leg?`;
-    correct = b;
-    choices = ptShuffle([b, b - 1, b + 1, c - a]);
-  }
-
-  return {
-    text,
-    choices: choices.map(String),
-    answer: String(correct),
-    type: "multiple"
-  };
-}
-
-function generateGeometryHard() {
-  const r = Math.floor(Math.random() * 9) + 2;
-  const pi = 3.14;
-  const mode = ptPickRandom(["area", "circ"]);
-
-  if (mode === "area") {
-    const area = +(pi * r * r).toFixed(2);
-    const choices = ptShuffle([
-      area,
-      +(pi * (r + 1) * (r + 1)).toFixed(2),
-      +(pi * (r - 1) * (r - 1)).toFixed(2),
-      +(2 * pi * r).toFixed(2)
-    ]);
-
-    return {
-      text: `A circle has radius ${r} units. What is its area? (Use π ≈ 3.14)`,
-      choices: choices.map(String),
-      answer: String(area),
-      type: "multiple"
-    };
-  } else {
-    const circ = +(2 * pi * r).toFixed(2);
-    const choices = ptShuffle([
-      circ,
-      +(pi * r * r).toFixed(2),
-      +(2 * pi * (r + 1)).toFixed(2),
-      +(2 * pi * (r - 1)).toFixed(2)
-    ]);
-
-    return {
-      text: `A circle has radius ${r} units. What is its circumference? (Use π ≈ 3.14)`,
-      choices: choices.map(String),
-      answer: String(circ),
-      type: "multiple"
-    };
-  }
-}
-
-// ------------------------------------------------------------
-// MATH FAMILY — TRIGONOMETRY
-// ------------------------------------------------------------
-
-function generateTrigEasy() {
-  // Basic SOH-CAH-TOA recognition
-  const scenarios = [
-    {
-      text: "In a right triangle, which ratio represents sin(θ)?",
-      choices: [
-        "opposite / hypotenuse",
-        "adjacent / hypotenuse",
-        "opposite / adjacent",
-        "hypotenuse / opposite"
-      ],
-      answer: "opposite / hypotenuse"
-    },
-    {
-      text: "In a right triangle, which ratio represents cos(θ)?",
-      choices: [
-        "adjacent / hypotenuse",
-        "opposite / hypotenuse",
-        "opposite / adjacent",
-        "hypotenuse / adjacent"
-      ],
-      answer: "adjacent / hypotenuse"
-    },
-    {
-      text: "In a right triangle, which ratio represents tan(θ)?",
-      choices: [
-        "opposite / adjacent",
-        "adjacent / hypotenuse",
-        "opposite / hypotenuse",
-        "hypotenuse / opposite"
-      ],
-      answer: "opposite / adjacent"
-    }
-  ];
-  return ptPickRandom(scenarios);
-}
-
-function generateTrigMedium() {
-  const angle = ptPickRandom([30, 45, 60]);
-  const func = ptPickRandom(["sin", "cos", "tan"]);
-
-  const table = {
-    "sin": { 30: "1/2", 45: "√2/2", 60: "√3/2" },
-    "cos": { 30: "√3/2", 45: "√2/2", 60: "1/2" },
-    "tan": { 30: "√3/3", 45: "1", 60: "√3" }
-  };
-
-  const correct = table[func][angle];
-  const distractors = Object.values(table[func]).filter(v => v !== correct);
-  const choices = ptShuffle([correct, ...distractors.slice(0, 3)]);
-
-  return {
-    text: `What is ${func}(${angle}°)?`,
-    choices,
-    answer: correct,
-    type: "multiple"
-  };
-}
-
-// ------------------------------------------------------------
-// MATH FAMILY — CALCULUS
-// ------------------------------------------------------------
-
-function generateCalculusEasy() {
-  const n = Math.floor(Math.random() * 4) + 2;
-  const coeff = Math.floor(Math.random() * 5) + 1;
-
-  const text = `Find the derivative of f(x) = ${coeff}x^${n}.`;
-  const correct = `${coeff * n}x^${n - 1}`;
-
-  const choices = ptShuffle([
-    correct,
-    `${coeff * (n - 1)}x^${n - 2}`,
-    `${coeff}x^${n - 1}`,
-    `${coeff * n}x^${n}`
-  ]);
-
-  return {
-    text,
-    choices,
-    answer: correct,
-    type: "multiple"
-  };
-}
-
-function generateCalculusMedium() {
-  const n = Math.floor(Math.random() * 4) + 1;
-  const coeff = Math.floor(Math.random() * 5) + 1;
-
-  const text = `Find an antiderivative of f(x) = ${coeff}x^${n}.`;
-  const newPower = n + 1;
-  const correctCoeff = coeff / newPower;
-  const correct = `${correctCoeff}x^${newPower} + C`;
-
-  const choices = ptShuffle([
-    correct,
-    `${coeff * newPower}x^${newPower} + C`,
-    `${coeff}x^${newPower} + C`,
-    `${correctCoeff}x^${n} + C`
-  ]);
-
-  return {
-    text,
-    choices,
-    answer: correct,
-    type: "multiple"
-  };
-}
-
-// ------------------------------------------------------------
-// SCIENCE FAMILY — PHYSICS
-// ------------------------------------------------------------
-
-function generatePhysicsEasy() {
-  const m = Math.floor(Math.random() * 9) + 2;
-  const a = Math.floor(Math.random() * 9) + 1;
-  const F = m * a;
-
-  const choices = ptShuffle([
-    F,
-    F + m,
-    F - a,
-    F + 2
-  ]);
-
-  return {
-    text: `A ${m} kg object accelerates at ${a} m/s². What is the net force on it?`,
-    choices: choices.map(c => `${c} N`),
-    answer: `${F} N`,
-    type: "multiple"
-  };
-}
-
-function generatePhysicsMedium() {
-  const m = Math.floor(Math.random() * 9) + 2;
-  const v = Math.floor(Math.random() * 9) + 2;
-  const KE = 0.5 * m * v * v;
-  const rounded = Math.round(KE);
-
-  const choices = ptShuffle([
-    rounded,
-    rounded + 5,
-    rounded - 5,
-    Math.round(0.5 * m * (v + 1) * (v + 1))
-  ]);
-
-  return {
-    text: `A ${m} kg object moves at ${v} m/s. What is its kinetic energy? (Round to the nearest joule.)`,
-    choices: choices.map(c => `${c} J`),
-    answer: `${rounded} J`,
-    type: "multiple"
-  };
-}
-
-// ------------------------------------------------------------
-// SCIENCE FAMILY — CHEMISTRY
-// ------------------------------------------------------------
-
-function generateChemistryEasy() {
-  const questions = [
-    {
-      text: "What is the chemical symbol for water?",
-      choices: ["H2O", "O2", "CO2", "NaCl"],
-      answer: "H2O"
-    },
-    {
-      text: "Which subatomic particle has a negative charge?",
-      choices: ["Electron", "Proton", "Neutron", "Nucleus"],
-      answer: "Electron"
-    },
-    {
-      text: "What is the chemical symbol for sodium?",
-      choices: ["Na", "S", "N", "So"],
-      answer: "Na"
-    }
-  ];
-  return ptPickRandom(questions);
-}
-
-function generateChemistryMedium() {
-  const questions = [
-    {
-      text: "Which type of bond involves the sharing of electron pairs between atoms?",
-      choices: ["Covalent bond", "Ionic bond", "Metallic bond", "Hydrogen bond"],
-      answer: "Covalent bond"
-    },
-    {
-      text: "What is the pH of a neutral solution at 25°C?",
-      choices: ["7", "0", "1", "14"],
-      answer: "7"
-    },
-    {
-      text: "Which gas is produced when an acid reacts with a metal such as zinc?",
-      choices: ["Hydrogen", "Oxygen", "Nitrogen", "Carbon dioxide"],
-      answer: "Hydrogen"
-    }
-  ];
-  return ptPickRandom(questions);
-}
-
-// ------------------------------------------------------------
-// SCIENCE FAMILY — BIOLOGY
-// ------------------------------------------------------------
-
-function generateBiologyEasy() {
-  const questions = [
-    {
-      text: "What is the basic unit of life?",
-      choices: ["Cell", "Atom", "Molecule", "Organ"],
-      answer: "Cell"
-    },
-    {
-      text: "Which organ pumps blood throughout the human body?",
-      choices: ["Heart", "Lungs", "Liver", "Kidneys"],
-      answer: "Heart"
-    },
-    {
-      text: "What do plants use to make food during photosynthesis?",
-      choices: ["Sunlight, water, and carbon dioxide", "Oxygen and nitrogen", "Sugar and salt", "Water and protein"],
-      answer: "Sunlight, water, and carbon dioxide"
-    }
-  ];
-  return ptPickRandom(questions);
-}
-
-function generateBiologyMedium() {
-  const questions = [
-    {
-      text: "Which organelle is known as the powerhouse of the cell?",
-      choices: ["Mitochondrion", "Nucleus", "Ribosome", "Golgi apparatus"],
-      answer: "Mitochondrion"
-    },
-    {
-      text: "Which molecule carries genetic information?",
-      choices: ["DNA", "ATP", "Glucose", "RNA polymerase"],
-      answer: "DNA"
-    },
-    {
-      text: "What type of cell division produces gametes (sex cells)?",
-      choices: ["Meiosis", "Mitosis", "Binary fission", "Budding"],
-      answer: "Meiosis"
-    }
-  ];
-  return ptPickRandom(questions);
-}
-
-// ------------------------------------------------------------
-// HUMANITIES — HISTORY (MIXED)
-// ------------------------------------------------------------
-
-function generateHistoryMixed() {
-  const questions = [
-    {
-      text: "Who was the first President of the United States?",
-      choices: ["George Washington", "Abraham Lincoln", "Thomas Jefferson", "John Adams"],
-      answer: "George Washington"
-    },
-    {
-      text: "In which year did World War II end?",
-      choices: ["1945", "1939", "1918", "1963"],
-      answer: "1945"
-    },
-    {
-      text: "The ancient city of Rome is located in which modern country?",
-      choices: ["Italy", "Greece", "France", "Spain"],
-      answer: "Italy"
-    }
-  ];
-  return ptPickRandom(questions);
-}
-
-// ------------------------------------------------------------
-// HUMANITIES — GEOGRAPHY (MIXED)
-// ------------------------------------------------------------
-
-function generateGeographyMixed() {
-  const questions = [
-    {
-      text: "What is the largest continent by land area?",
-      choices: ["Asia", "Africa", "North America", "Europe"],
-      answer: "Asia"
-    },
-    {
-      text: "Which river is the longest in the world?",
-      choices: ["Nile", "Amazon", "Yangtze", "Mississippi"],
-      answer: "Nile"
-    },
-    {
-      text: "Which country is both a continent and a country?",
-      choices: ["Australia", "Greenland", "India", "Brazil"],
-      answer: "Australia"
-    }
-  ];
-  return ptPickRandom(questions);
-}
-
-// ------------------------------------------------------------
-// HUMANITIES — ELA / GRAMMAR (MIXED)
-// ------------------------------------------------------------
-
-function generateELAMixed() {
-  const questions = [
-    {
-      text: "Which sentence is grammatically correct?",
-      choices: [
-        "She and I are going to the store.",
-        "Her and me is going to the store.",
-        "She and me are going to the store.",
-        "Her and I is going to the store."
-      ],
-      answer: "She and I are going to the store."
-    },
-    {
-      text: "Which word is a synonym for 'happy'?",
-      choices: ["Joyful", "Angry", "Tired", "Confused"],
-      answer: "Joyful"
-    },
-    {
-      text: "Which sentence uses the correct form of 'their/there/they're'?",
-      choices: [
-        "They're going to bring their books over there.",
-        "There going to bring they're books over their.",
-        "Their going to bring there books over they're.",
-        "They're going to bring there books over their."
-      ],
-      answer: "They're going to bring their books over there."
-    }
-  ];
-  return ptPickRandom(questions);
-}
-
-// ------------------------------------------------------------
-// LOGIC / REASONING (MIXED)
-// ------------------------------------------------------------
-
-function generateLogicMixed() {
-  const questions = [
-    {
-      text: "All cats are mammals. All mammals are animals. Therefore, all cats are animals. This is an example of:",
-      choices: ["Deductive reasoning", "Inductive reasoning", "Circular reasoning", "False analogy"],
-      answer: "Deductive reasoning"
-    },
-    {
-      text: "What comes next in the sequence: 2, 4, 8, 16, ...?",
-      choices: ["32", "20", "24", "18"],
-      answer: "32"
-    },
-    {
-      text: "If today is Wednesday, what day will it be in 10 days?",
-      choices: ["Saturday", "Friday", "Sunday", "Monday"],
-      answer: "Saturday"
-    }
-  ];
-  return ptPickRandom(questions);
-}
-
-// ------------------------------------------------------------
-// COMPUTER SCIENCE (MIXED)
-// ------------------------------------------------------------
-
-function generateCSMixed() {
-  const questions = [
-    {
-      text: "In programming, what does 'loop' mean?",
-      choices: [
-        "Repeating a set of instructions",
-        "Storing a single value",
-        "Stopping the program",
-        "Translating code into another language"
-      ],
-      answer: "Repeating a set of instructions"
-    },
-    {
-      text: "In most languages, which symbol is commonly used for equality comparison?",
-      choices: ["==", "=", "=>", "<>"],
-      answer: "=="
-    },
-    {
-      text: "What does 'bug' mean in programming?",
-      choices: [
-        "An error or flaw in the code",
-        "A type of computer virus",
-        "A hardware component",
-        "A backup file"
-      ],
-      answer: "An error or flaw in the code"
-    }
-  ];
-  return ptPickRandom(questions);
-}
-
-// ------------------------------------------------------------
-// PRESCHOOL / EARLY LEARNING (MIXED)
-// ------------------------------------------------------------
-
-function generatePreschoolMixed() {
-  const questions = [
-    {
-      text: "Which of these is a color?",
-      choices: ["Blue", "Dog", "Car", "Chair"],
-      answer: "Blue"
-    },
-    {
-      text: "How many sides does a triangle have?",
-      choices: ["3", "4", "5", "6"],
-      answer: "3"
-    },
-    {
-      text: "Which animal says 'meow'?",
-      choices: ["Cat", "Dog", "Cow", "Sheep"],
-      answer: "Cat"
-    }
-  ];
-  return ptPickRandom(questions);
-}
-
-// ------------------------------------------------------------
-// GENERAL KNOWLEDGE (MIXED)
-// ------------------------------------------------------------
-
+// GENERAL — MIXED (UNIFIED)
 function generateGeneralKnowledgeMixed() {
-  const questions = [
+  const q = choice([
     {
-      text: "How many days are there in a leap year?",
-      choices: ["366", "365", "364", "360"],
+      question: "How many days are there in a leap year?",
+      options: ["366", "365", "364", "360"],
       answer: "366"
     },
     {
-      text: "Which planet is known as the Red Planet?",
-      choices: ["Mars", "Venus", "Jupiter", "Mercury"],
+      question: "Which planet is known as the Red Planet?",
+      options: ["Mars", "Venus", "Jupiter", "Mercury"],
       answer: "Mars"
     },
     {
-      text: "Which instrument has black and white keys?",
-      choices: ["Piano", "Drum", "Violin", "Flute"],
+      question: "Which instrument has black and white keys?",
+      options: ["Piano", "Drum", "Violin", "Flute"],
       answer: "Piano"
     }
-  ];
-  return ptPickRandom(questions);
+  ]);
+
+  return {
+    lesson: "",
+    type: "mc",
+    category: "general",
+    difficulty: "mixed",
+    question: q.question,
+    options: shuffleArray(q.options),
+    answer: q.answer
+  };
 }
 
 // ============================================================
-// PART 3 — NEW FALLBACK SUBJECTS (ALGEBRA → CHEMISTRY)
+// ADVANCED SUBJECTS — ALGEBRA → CHEMISTRY (UNIFIED)
 // ============================================================
 
-// ------------------------------------------------------------
 // ALGEBRA
-// ------------------------------------------------------------
-
 function generateAlgebraEasy() {
   const a = randInt(2, 9);
   const x = randInt(1, 10);
@@ -2548,10 +1967,7 @@ function generateAlgebraTF() {
   };
 }
 
-// ------------------------------------------------------------
 // GEOMETRY
-// ------------------------------------------------------------
-
 function generateGeometryEasy() {
   const w = randInt(2, 10);
   const h = randInt(2, 10);
@@ -2623,10 +2039,7 @@ function generateGeometryTF() {
   };
 }
 
-// ------------------------------------------------------------
 // TRIGONOMETRY
-// ------------------------------------------------------------
-
 function generateTrigEasy() {
   return {
     lesson: "",
@@ -2684,10 +2097,7 @@ function generateTrigTF() {
   };
 }
 
-// ------------------------------------------------------------
 // CALCULUS
-// ------------------------------------------------------------
-
 function generateCalculusEasy() {
   const n = randInt(2, 5);
   const c = randInt(1, 5);
@@ -2743,10 +2153,7 @@ function generateCalculusTF() {
   };
 }
 
-// ------------------------------------------------------------
 // PHYSICS
-// ------------------------------------------------------------
-
 function generatePhysicsEasy() {
   const m = randInt(2, 10);
   const a = randInt(1, 9);
@@ -2780,22 +2187,17 @@ function generatePhysicsMedium() {
 }
 
 function generatePhysicsTF() {
-  const isTrue = Math.random() < 0.5;
-
   return {
     lesson: "",
     type: "tf",
     category: "physics",
     difficulty: "mixed",
-    question: `True or False: Force = mass × acceleration.`,
+    question: "True or False: Force = mass × acceleration.",
     answer: true
   };
 }
 
-// ------------------------------------------------------------
 // CHEMISTRY
-// ------------------------------------------------------------
-
 function generateChemistryEasy() {
   return {
     lesson: "",
@@ -2826,30 +2228,67 @@ function generateChemistryMedium() {
 }
 
 function generateChemistryTF() {
-  const isTrue = Math.random() < 0.5;
-
   return {
     lesson: "",
     type: "tf",
     category: "chemistry",
     difficulty: "mixed",
-    question: `True or False: Sodium's chemical symbol is Na.`,
+    question: "True or False: Sodium's chemical symbol is Na.",
     answer: true
   };
 }
 
 // ============================================================
-// END OF PART 3 — FALLBACK GENERATORS
+// COMPUTER SCIENCE (MIXED) — UNIFIED
+// ============================================================
+function generateCSMixed() {
+  const q = choice([
+    {
+      question: "In programming, what does 'loop' mean?",
+      options: [
+        "Repeating a set of instructions",
+        "Storing a single value",
+        "Stopping the program",
+        "Translating code into another language"
+      ],
+      answer: "Repeating a set of instructions"
+    },
+    {
+      question: "In most languages, which symbol is commonly used for equality comparison?",
+      options: ["==", "=", "=>", "<>"],
+      answer: "=="
+    },
+    {
+      question: "What does 'bug' mean in programming?",
+      options: [
+        "An error or flaw in the code",
+        "A type of computer virus",
+        "A hardware component",
+        "A backup file"
+      ],
+      answer: "An error or flaw in the code"
+    }
+  ]);
+
+  return {
+    lesson: "",
+    type: "mc",
+    category: "cs",
+    difficulty: "mixed",
+    question: q.question,
+    options: shuffleArray(q.options),
+    answer: q.answer
+  };
+}
 
 // ============================================================
 // PART 3F — MERGED FALLBACK ROUTER
 // ============================================================
-
 function fallbackGenerate(subject, difficulty) {
   const d = (difficulty || "mixed").toLowerCase();
   const s = (subject || "").toLowerCase();
 
-  // --- Math (use original Math generators) ---
+  // Math
   if (s === "math") {
     if (d === "easy") return generateMathEasy();
     if (d === "medium") return generateMathMedium();
@@ -2857,7 +2296,7 @@ function fallbackGenerate(subject, difficulty) {
     return generateMathTF();
   }
 
-  // --- Algebra (use NEW generators) ---
+  // Algebra
   if (s === "algebra") {
     if (d === "easy") return generateAlgebraEasy();
     if (d === "medium") return generateAlgebraMedium();
@@ -2865,7 +2304,7 @@ function fallbackGenerate(subject, difficulty) {
     return generateAlgebraTF();
   }
 
-  // --- Geometry (use NEW generators) ---
+  // Geometry
   if (s === "geometry") {
     if (d === "easy") return generateGeometryEasy();
     if (d === "medium") return generateGeometryMedium();
@@ -2873,42 +2312,43 @@ function fallbackGenerate(subject, difficulty) {
     return generateGeometryTF();
   }
 
-  // --- Trigonometry (use NEW generators) ---
+  // Trigonometry
   if (s === "trig" || s === "trigonometry") {
     if (d === "easy") return generateTrigEasy();
     if (d === "medium") return generateTrigMedium();
     return generateTrigTF();
   }
 
-  // --- Calculus (use NEW generators) ---
+  // Calculus
   if (s === "calculus") {
     if (d === "easy") return generateCalculusEasy();
     if (d === "medium") return generateCalculusMedium();
     return generateCalculusTF();
   }
 
-  // --- Physics (use NEW generators) ---
+  // Physics
   if (s === "physics") {
     if (d === "easy") return generatePhysicsEasy();
     if (d === "medium") return generatePhysicsMedium();
     return generatePhysicsTF();
   }
 
-  // --- Chemistry (use NEW generators) ---
+  // Chemistry
   if (s === "chemistry") {
     if (d === "easy") return generateChemistryEasy();
     if (d === "medium") return generateChemistryMedium();
     return generateChemistryTF();
   }
 
-  // --- Biology (use ORIGINAL generators) ---
+  // Biology
   if (s === "biology") {
     if (d === "easy") return generateBiologyEasy();
     if (d === "medium") return generateBiologyMedium();
-    return generateBiologyEasy(); // fallback
+    if (d === "hard") return generateBiologyHard();
+    return generateBiologyTF();
   }
 
-  // --- Science (use ORIGINAL generators) ---
+  // Science
   if (s === "science") {
     if (d === "easy") return generateScienceEasy();
     if (d === "medium") return generateScienceMedium();
@@ -2916,7 +2356,7 @@ function fallbackGenerate(subject, difficulty) {
     return generateScienceTF();
   }
 
-  // --- History (use ORIGINAL or Mixed) ---
+  // History
   if (s === "history") {
     if (d === "easy") return generateHistoryEasy();
     if (d === "medium") return generateHistoryMedium();
@@ -2924,7 +2364,7 @@ function fallbackGenerate(subject, difficulty) {
     return generateHistoryMixed();
   }
 
-  // --- Geography (use ORIGINAL or Mixed) ---
+  // Geography
   if (s === "geography") {
     if (d === "easy") return generateGeographyEasy();
     if (d === "medium") return generateGeographyMedium();
@@ -2932,7 +2372,7 @@ function fallbackGenerate(subject, difficulty) {
     return generateGeographyMixed();
   }
 
-  // --- Language / ELA ---
+  // Language / ELA
   if (s === "language" || s === "ela" || s === "english") {
     if (d === "easy") return generateLanguageEasy();
     if (d === "medium") return generateLanguageMedium();
@@ -2940,7 +2380,7 @@ function fallbackGenerate(subject, difficulty) {
     return generateELAMixed();
   }
 
-  // --- Preschool ---
+  // Preschool
   if (s === "preschool") {
     if (d === "easy") return generatePreschoolEasy();
     if (d === "medium") return generatePreschoolMedium();
@@ -2948,7 +2388,7 @@ function fallbackGenerate(subject, difficulty) {
     return generatePreschoolMixed();
   }
 
-  // --- Logic ---
+  // Logic
   if (s === "logic") {
     if (d === "easy") return generateLogicEasy();
     if (d === "medium") return generateLogicMedium();
@@ -2956,7 +2396,7 @@ function fallbackGenerate(subject, difficulty) {
     return generateLogicMixed();
   }
 
-  // --- General Knowledge ---
+  // General Knowledge
   if (s === "general") {
     if (d === "easy") return generateGeneralEasy();
     if (d === "medium") return generateGeneralMedium();
@@ -2964,115 +2404,18 @@ function fallbackGenerate(subject, difficulty) {
     return generateGeneralKnowledgeMixed();
   }
 
-  // --- Default fallback ---
+  // Computer Science
+  if (s === "cs" || s === "computer science") {
+    return generateCSMixed();
+  }
+
+  // Default fallback
   return generateGeneralKnowledgeMixed();
 }
-
-window.remoteFallback = {
-  // Math
-  generateMathEasy,
-  generateMathMedium,
-  generateMathHard,
-  generateMathTF,
-
-  // Algebra
-  generateAlgebraEasy,
-  generateAlgebraMedium,
-  generateAlgebraHard,
-  generateAlgebraTF,
-
-  // Geometry
-  generateGeometryEasy,
-  generateGeometryMedium,
-  generateGeometryHard,
-  generateGeometryTF,
-
-  // Trigonometry
-  generateTrigEasy,
-  generateTrigMedium,
-  generateTrigTF,
-
-  // Calculus
-  generateCalculusEasy,
-  generateCalculusMedium,
-  generateCalculusTF,
-
-  // Physics
-  generatePhysicsEasy,
-  generatePhysicsMedium,
-  generatePhysicsTF,
-
-  // Chemistry
-  generateChemistryEasy,
-  generateChemistryMedium,
-  generateChemistryTF,
-
-  // Biology
-  generateBiologyEasy,
-  generateBiologyMedium,
-  generateBiologyHard,
-  generateBiologyTF,
-
-  // Science
-  generateScienceEasy,
-  generateScienceMedium,
-  generateScienceHard,
-  generateScienceTF,
-
-  // History
-  generateHistoryEasy,
-  generateHistoryMedium,
-  generateHistoryHard,
-  generateHistoryTF,
-  generateHistoryMixed,
-
-  // Geography
-  generateGeographyEasy,
-  generateGeographyMedium,
-  generateGeographyHard,
-  generateGeographyTF,
-  generateGeographyMixed,
-
-  // Language / ELA
-  generateLanguageEasy,
-  generateLanguageMedium,
-  generateLanguageHard,
-  generateLanguageTF,
-  generateELAMixed,
-
-  // Preschool
-  generatePreschoolEasy,
-  generatePreschoolMedium,
-  generatePreschoolHard,
-  generatePreschoolTF,
-  generatePreschoolMixed,
-
-  // Logic
-  generateLogicEasy,
-  generateLogicMedium,
-  generateLogicHard,
-  generateLogicTF,
-  generateLogicMixed,
-
-  // General Knowledge
-  generateGeneralEasy,
-  generateGeneralMedium,
-  generateGeneralHard,
-  generateGeneralTF,
-  generateGeneralKnowledgeMixed,
-
-  // Computer Science
-  generateCSMixed,
-
-  // Master Router
-  fallbackGenerate
-};
-
 
 // ============================================================
 // EXPORT — MAKE REMOTE FALLBACK AVAILABLE TO THE APP
 // ============================================================
-
 window.remoteFallback = {
   // Math
   generateMathEasy,
@@ -3172,5 +2515,3 @@ window.remoteFallback = {
   // Master Router
   fallbackGenerate
 };
-
-
