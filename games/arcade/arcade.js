@@ -21,25 +21,22 @@ setInterval(cycleTanukiLine, 8000);
 
 
 /* ============================================================
-   FOCUS MODE TOGGLE (NEW — STEP 1)
+   FOCUS MODE TOGGLE (STEP 1)
    ============================================================ */
 
 const focusToggle = document.getElementById("focus-toggle");
 
-// Update the text on screen based on stored value
 function updateFocusToggle() {
   const enabled = localStorage.getItem("focusModeEnabled") === "true";
   focusToggle.textContent = `Focus Mode: ${enabled ? "ON" : "OFF"}`;
 }
 
-// When the user taps the toggle, flip the value
 focusToggle.addEventListener("click", () => {
   const current = localStorage.getItem("focusModeEnabled") === "true";
   localStorage.setItem("focusModeEnabled", !current);
   updateFocusToggle();
 });
 
-// Initialize on load
 updateFocusToggle();
 
 
@@ -70,13 +67,21 @@ cards.forEach((card) => {
 
 
 /* ============================================================
-   YOUTUBE BUTTON (PREP FOR STEP 2)
+   YOUTUBE BUTTON — STEP 2 (Gate Ritual Redirect)
    ============================================================ */
 
 const youtubeBtn = document.getElementById("youtube-btn");
 
-// For now, YouTube still opens normally.
-// Step 2 will replace this with Gate Ritual logic.
 youtubeBtn.addEventListener("click", () => {
-  window.location.href = "https://www.youtube.com";
+  const focusMode = localStorage.getItem("focusModeEnabled") === "true";
+
+  if (!focusMode) {
+    // Arcade Mode → open YouTube normally
+    window.location.href = "https://www.youtube.com";
+    return;
+  }
+
+  // Focus Mode → send user to Gate Ritual instead
+  localStorage.setItem("nextUnlockTarget", "youtube");
+  window.location.href = "../gate/index.html";  // You will create this in Step 3
 });
