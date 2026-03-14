@@ -1,1 +1,70 @@
+.game-root {
+  min-height: 100vh;
+  background: var(--tanuki-bg);
+  color: var(--tanuki-white);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game-title {
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+}
+
+.back-btn {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.game-area {
+  flex: 1;
+  position: relative;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, #ffd86b, #ff9f1c);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(255, 200, 80, 0.8);
+  cursor: pointer;
+  animation: fadeout 1.2s linear forwards;
+}
+
+@keyframes fadeout {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.4); }
+}
+
+.score-panel {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+}
+
+.start-btn {
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: var(--tanuki-purple-light);
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
 
