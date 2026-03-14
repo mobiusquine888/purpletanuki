@@ -29,8 +29,17 @@
   gap: 24px;
 }
 
-/* Orb + Tanuki */
+/* ⭐ Breathing Tanuki Image */
+.ritual-tanuki {
+  width: 60%;
+  max-width: 400px;
+  display: block;
+  margin: 0 auto 20px auto;
+  position: relative;
+  z-index: 5;
+}
 
+/* Orb + Tanuki */
 .tanuki-orb {
   position: relative;
   width: 180px;
@@ -82,7 +91,6 @@
 }
 
 /* Text */
-
 .ritual-text {
   text-align: center;
   display: flex;
@@ -101,7 +109,6 @@
 }
 
 /* Button */
-
 .ritual-button {
   margin-top: 8px;
   width: 100%;
@@ -129,7 +136,6 @@
 }
 
 /* Animations */
-
 @keyframes orb-breathe {
   0%   { transform: scale(0.96); }
   50%  { transform: scale(1.04); }
