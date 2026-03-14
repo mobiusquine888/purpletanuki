@@ -15,7 +15,7 @@
     <header class="arcade-header">
       <div class="arcade-title-block">
         <h1 class="arcade-title">Purple Tanuki Arcade</h1>
-        <p className="arcade-subtitle">Choose a ritual, a game, or a challenge.</p>
+        <p class="arcade-subtitle">Choose a ritual, a game, or a challenge.</p>
       </div>
 
       <div class="arcade-status">
@@ -55,11 +55,19 @@
       <section class="arcade-right">
         <h2 class="arcade-section-title">Games</h2>
         <div class="arcade-grid">
+
           <!-- Academic game -->
           <button class="arcade-card" data-game="knowledge">
             <div class="arcade-card-title">Study Gate</div>
             <div class="arcade-card-tag">Academic</div>
             <div class="arcade-card-desc">Answer questions, earn XP, and grow your Tanuki.</div>
+          </button>
+
+          <!-- ⭐ NEW: PRACTICE MODE BUTTON -->
+          <button class="arcade-card" onclick="window.location.href='../practice/index.html'">
+            <div class="arcade-card-title">Practice Mode</div>
+            <div class="arcade-card-tag">Academic</div>
+            <div class="arcade-card-desc">Choose a subject and difficulty. Train your skills.</div>
           </button>
 
           <!-- Example minigames -->
@@ -81,12 +89,13 @@
             <div class="arcade-card-desc">Swipe in the direction of the light.</div>
           </button>
 
-          <!-- Add more as you build them -->
+          <!-- Coming soon -->
           <button class="arcade-card arcade-card-disabled">
             <div class="arcade-card-title">Coming Soon</div>
             <div class="arcade-card-tag">Locked</div>
             <div class="arcade-card-desc">A new ritual is forming…</div>
           </button>
+
         </div>
       </section>
     </main>
@@ -95,4 +104,3 @@
   <script src="arcade.js"></script>
 </body>
 </html>
-
