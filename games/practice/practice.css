@@ -1,3 +1,7 @@
+/* ============================================================
+   PRACTICE MODE — PHONE OPTIMIZED
+   ============================================================ */
+
 body {
   margin: 0;
   padding: 0;
@@ -9,21 +13,26 @@ body {
   min-height: 100vh;
 }
 
+/* Main container — now with proper top spacing for phones */
 #practice-container {
   width: 100%;
   max-width: 600px;
   padding: 20px;
+  padding-top: 55px;      /* ⭐ NEW: lowers the whole UI */
   box-sizing: border-box;
 }
 
+/* Title — spaced down and softened */
 .title {
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 2.1rem;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-top: 0;
+  margin-bottom: 28px;    /* ⭐ NEW: more breathing room */
   color: #5b3fa4;
 }
 
+/* Settings panel */
 #settings-panel {
   background: white;
   padding: 20px;
@@ -54,6 +63,7 @@ body {
   outline: none;
 }
 
+/* Start button */
 #start-btn {
   width: 100%;
   padding: 12px;
@@ -71,6 +81,7 @@ body {
   background: #6939e6;
 }
 
+/* Challenge card */
 .challenge-card {
   background: white;
   padding: 20px;
@@ -85,6 +96,7 @@ body {
   color: #4a357d;
 }
 
+/* Multiple choice */
 .options-wrapper {
   display: flex;
   flex-direction: column;
@@ -105,6 +117,7 @@ body {
   background: #e8ddff;
 }
 
+/* Text input */
 .text-input {
   width: 100%;
   padding: 12px;
@@ -131,6 +144,7 @@ body {
   background: #6939e6;
 }
 
+/* True/False */
 .tf-wrapper {
   display: flex;
   justify-content: space-between;
@@ -152,6 +166,7 @@ body {
   background: #e8ddff;
 }
 
+/* Summary card */
 .summary-card {
   background: white;
   padding: 25px;
@@ -186,6 +201,7 @@ body {
   background: #6939e6;
 }
 
+/* Fade animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
