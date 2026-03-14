@@ -207,8 +207,27 @@ body {
   background: var(--tanuki-purple);
 }
 
+/* ⭐ Back to Arcade button — now matches Game 1 */
+.home-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  background: var(--tanuki-purple-light);
+  color: var(--tanuki-white);
+  border: none;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.home-btn:hover {
+  background: var(--tanuki-purple);
+}
+
 /* Fade animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
