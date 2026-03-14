@@ -1,0 +1,192 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+  background: linear-gradient(180deg, #f7f2ff 0%, #e8ddff 100%);
+  color: #3a2a5e;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#practice-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #5b3fa4;
+}
+
+#settings-panel {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(80, 50, 120, 0.15);
+  margin-bottom: 25px;
+}
+
+.setting {
+  margin-bottom: 15px;
+}
+
+.setting label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: #5b3fa4;
+}
+
+.setting select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #d6c8ff;
+  background: #faf7ff;
+  font-size: 1rem;
+  color: #3a2a5e;
+  outline: none;
+}
+
+#start-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: #7a4bff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#start-btn:hover {
+  background: #6939e6;
+}
+
+.challenge-card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(80, 50, 120, 0.15);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.question-text {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #4a357d;
+}
+
+.options-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  padding: 12px;
+  background: #f3ecff;
+  border: 2px solid #d6c8ff;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.option-btn:hover {
+  background: #e8ddff;
+}
+
+.text-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid #d6c8ff;
+  background: #faf7ff;
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #7a4bff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.submit-btn:hover {
+  background: #6939e6;
+}
+
+.tf-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.tf-btn {
+  flex: 1;
+  padding: 12px;
+  background: #f3ecff;
+  border: 2px solid #d6c8ff;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tf-btn:hover {
+  background: #e8ddff;
+}
+
+.summary-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(80, 50, 120, 0.15);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.summary-card h2 {
+  margin-bottom: 10px;
+  color: #5b3fa4;
+}
+
+.summary-card p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+#restart-btn {
+  padding: 12px 20px;
+  background: #7a4bff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#restart-btn:hover {
+  background: #6939e6;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
