@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Swipe Path</title>
 
-  <!-- FIXED: WebView-safe absolute path + cache-buster -->
-  <link rel="stylesheet" href="/games/swipe/game.css?v=3" />
+  <!-- ⭐ Load global Tanuki theme FIRST -->
+  <link rel="stylesheet" href="/global/theme.css?v=4" />
+
+  <!-- ⭐ Then load game-specific CSS -->
+  <link rel="stylesheet" href="/games/swipe/game.css?v=4" />
 </head>
 
 <body>
@@ -35,9 +38,8 @@
     Home
   </button>
 
-  <!-- FIXED: absolute JS path + cache-buster -->
-  <script src="/games/swipe/game.js?v=3"></script>
+  <!-- ⭐ JS with cache-buster -->
+  <script src="/games/swipe/game.js?v=4"></script>
 </body>
 </html>
-
 
