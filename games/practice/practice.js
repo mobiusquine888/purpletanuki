@@ -139,4 +139,24 @@ function endSession() {
   document.getElementById("restart-btn").addEventListener("click", () => {
     cardContainer.innerHTML = "";
   });
+
+  // ⭐ STEP 4 — Unlock target after ritual
+  ritualComplete();
+}
+
+
+// ============================================================
+// RITUAL COMPLETE — STEP 4
+// ============================================================
+
+function ritualComplete() {
+  const target = localStorage.getItem("nextUnlockTarget");
+
+  if (target === "youtube") {
+    localStorage.removeItem("nextUnlockTarget");
+    window.location.href = "https://www.youtube.com";
+    return;
+  }
+
+  // Future targets can be added here
 }
