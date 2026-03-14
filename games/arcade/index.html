@@ -14,111 +14,44 @@
 <body>
   <div class="arcade-root">
 
-    <!-- ============================================================
-         HEADER — CENTERED TITLE + RIGHT STATUS PANEL
-         ============================================================ -->
-    <header class="arcade-header">
-
-      <div class="arcade-title-block">
-        <h1 class="arcade-title">Purple Tanuki Arcade</h1>
-        <p class="arcade-subtitle">Choose a ritual, a game, or a challenge.</p>
-      </div>
-
-      <div class="arcade-status">
-        <div class="status-item">
-          <span class="status-label">Level</span>
-          <span id="status-level" class="status-value">1</span>
-        </div>
-
-        <div class="status-item">
-          <span class="status-label">XP</span>
-          <div class="status-bar">
-            <div id="status-xp-fill" class="status-bar-fill" style="width: 20%;"></div>
-          </div>
-        </div>
-
-        <div class="status-item">
-          <span class="status-label">Streak</span>
-          <span id="status-streak" class="status-value">0 days</span>
-        </div>
-      </div>
-
+    <!-- SIMPLE HEADER -->
+    <header class="simple-header">
+      <h1 class="simple-title">Purple Tanuki Arcade</h1>
     </header>
 
-    <!-- ============================================================
-         MAIN CONTENT
-         ============================================================ -->
-    <main class="arcade-main">
-
-      <!-- LEFT SIDE — TANUKI ORB -->
-      <section class="arcade-left">
-        <div class="tanuki-orb-shell">
-          <div class="tanuki-orb-core">
-            <div class="tanuki-face">
-              <div class="tanuki-eye tanuki-eye-left"></div>
-              <div class="tanuki-eye tanuki-eye-right"></div>
-              <div class="tanuki-mouth"></div>
-            </div>
-          </div>
+    <!-- TANUKI ORB -->
+    <div class="simple-orb-shell">
+      <div class="simple-orb-core">
+        <div class="tanuki-face">
+          <div class="tanuki-eye tanuki-eye-left"></div>
+          <div class="tanuki-eye tanuki-eye-right"></div>
+          <div class="tanuki-mouth"></div>
         </div>
+      </div>
+    </div>
 
-        <p id="tanuki-line" class="tanuki-line">
-          I’m ready when you are. Pick a game!
-        </p>
-      </section>
+    <p class="simple-line">I'm ready when you are.</p>
 
-      <!-- RIGHT SIDE — GAME GRID -->
-      <section class="arcade-right">
-        <h2 class="arcade-section-title">Games</h2>
+    <!-- SIMPLE BUTTONS -->
+    <div class="simple-buttons">
 
-        <div class="arcade-grid">
+      <!-- GAME 1 -->
+      <button class="simple-button" onclick="window.location.href='../reaction/index.html'">
+        Star Catch
+      </button>
 
-          <!-- Academic game -->
-          <button class="arcade-card" data-game="knowledge">
-            <div class="arcade-card-title">Study Gate</div>
-            <div class="arcade-card-tag">Academic</div>
-            <div class="arcade-card-desc">Answer questions, earn XP, and grow your Tanuki.</div>
-          </button>
+      <!-- GAME 2 -->
+      <button class="simple-button" onclick="window.location.href='../practice/index.html'">
+        Practice Mode
+      </button>
 
-          <!-- Practice Mode -->
-          <button class="arcade-card" onclick="window.location.href='../practice/index.html'">
-            <div class="arcade-card-title">Practice Mode</div>
-            <div class="arcade-card-tag">Academic</div>
-            <div class="arcade-card-desc">Choose a subject and difficulty. Train your skills.</div>
-          </button>
+      <!-- GATE UNLOCKED -->
+      <button class="simple-button" onclick="window.location.href='https://www.youtube.com'">
+        Gate Unlocked → YouTube
+      </button>
 
-          <!-- Minigames -->
-          <button class="arcade-card" data-game="reaction">
-            <div class="arcade-card-title">Star Catch</div>
-            <div class="arcade-card-tag">Reaction</div>
-            <div class="arcade-card-desc">Tap the stars before they fade.</div>
-          </button>
+    </div>
 
-          <button class="arcade-card" data-game="memory">
-            <div class="arcade-card-title">Moon Memory</div>
-            <div class="arcade-card-tag">Memory</div>
-            <div class="arcade-card-desc">Match glowing sigils in pairs.</div>
-          </button>
-
-          <button class="arcade-card" data-game="swipe">
-            <div class="arcade-card-title">Path Swipe</div>
-            <div class="arcade-card-tag">Swipe</div>
-            <div class="arcade-card-desc">Swipe in the direction of the light.</div>
-          </button>
-
-          <!-- Coming soon -->
-          <button class="arcade-card arcade-card-disabled">
-            <div class="arcade-card-title">Coming Soon</div>
-            <div class="arcade-card-tag">Locked</div>
-            <div class="arcade-card-desc">A new ritual is forming…</div>
-          </button>
-
-        </div>
-      </section>
-
-    </main>
   </div>
-
-  <script src="arcade.js"></script>
 </body>
 </html>
