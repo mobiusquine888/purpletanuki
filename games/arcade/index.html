@@ -10,17 +10,20 @@
   <!-- Arcade-specific styles -->
   <link rel="stylesheet" href="arcade.css">
 </head>
+
 <body>
   <div class="arcade-root">
 
+    <!-- ============================================================
+         HEADER — CENTERED TITLE + RIGHT STATUS PANEL
+         ============================================================ -->
     <header class="arcade-header">
-      <!-- ⭐ Centered Title Block -->
+
       <div class="arcade-title-block">
         <h1 class="arcade-title">Purple Tanuki Arcade</h1>
         <p class="arcade-subtitle">Choose a ritual, a game, or a challenge.</p>
       </div>
 
-      <!-- Right-side status panel -->
       <div class="arcade-status">
         <div class="status-item">
           <span class="status-label">Level</span>
@@ -39,10 +42,15 @@
           <span id="status-streak" class="status-value">0 days</span>
         </div>
       </div>
+
     </header>
 
+    <!-- ============================================================
+         MAIN CONTENT
+         ============================================================ -->
     <main class="arcade-main">
 
+      <!-- LEFT SIDE — TANUKI ORB -->
       <section class="arcade-left">
         <div class="tanuki-orb-shell">
           <div class="tanuki-orb-core">
@@ -59,6 +67,7 @@
         </p>
       </section>
 
+      <!-- RIGHT SIDE — GAME GRID -->
       <section class="arcade-right">
         <h2 class="arcade-section-title">Games</h2>
 
