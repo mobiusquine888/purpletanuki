@@ -13,10 +13,12 @@ body {
   justify-content: center;
 }
 
+/* ⭐ FIX: Push Arcade Hub down so the global header doesn't overlap */
 .arcade-root {
   width: 100%;
   max-width: 500px;
   padding: 20px;
+  padding-top: 90px; /* ← NEW: moves title down below purple header */
   text-align: center;
 }
 
@@ -107,4 +109,5 @@ body {
     padding: 12px;
   }
 }
+
 
