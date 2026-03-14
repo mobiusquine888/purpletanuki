@@ -1,5 +1,5 @@
 /* ============================================================
-   PURPLE TANUKI ARCADE — CLEAN, STABLE, ORIGINAL FEEL
+   PURPLE TANUKI — SIMPLE ARCADE HUB (FINAL REFORGE)
    ============================================================ */
 
 body {
@@ -15,106 +15,32 @@ body {
 
 .arcade-root {
   width: 100%;
-  max-width: 900px;
-  padding: 16px;
-  box-sizing: border-box;
-}
-
-/* ============================================================
-   HEADER — CENTERED TITLE, ORIGINAL SIZE, NO LAYOUT SHIFT
-   ============================================================ */
-
-.arcade-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-/* ⭐ Center the title block without enlarging it */
-.arcade-title-block {
-  flex: 1;
+  max-width: 500px;
+  padding: 20px;
   text-align: center;
 }
 
-.arcade-title {
-  font-size: 1.8rem;     /* ⭐ Restored to readable size */
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.simple-header {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.simple-title {
+  font-size: 1.9rem;
   font-weight: 800;
-  margin-bottom: 4px;
   color: var(--tanuki-white);
 }
 
-.arcade-subtitle {
-  font-size: 0.95rem;
-  opacity: 0.85;
-}
-
 /* ============================================================
-   STATUS PANEL (Level / XP / Streak)
+   TANUKI ORB — SIMPLE, CLEAN, CENTERED
    ============================================================ */
 
-.arcade-status {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  text-align: right;
-}
-
-.status-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.status-label {
-  font-size: 0.8rem;
-  opacity: 0.8;
-}
-
-.status-value {
-  font-size: 0.95rem;
-  font-weight: 700;
-}
-
-.status-bar {
-  width: 70px;
-  height: 8px;
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.status-bar-fill {
-  height: 100%;
-  background: var(--tanuki-gold);
-  border-radius: 6px;
-}
-
-/* ============================================================
-   MAIN LAYOUT — RESTORED ORIGINAL SPACING
-   ============================================================ */
-
-.arcade-main {
-  display: flex;
-  gap: 20px;
-}
-
-.arcade-left {
-  flex: 1;
-  text-align: center;
-}
-
-.arcade-right {
-  flex: 1;
-}
-
-/* ============================================================
-   TANUKI ORB — RESTORED ORIGINAL SIZE
-   ============================================================ */
-
-.tanuki-orb-shell {
-  width: 160px;          /* ⭐ Slightly smaller to reduce scroll */
+.simple-orb-shell {
+  width: 160px;
   height: 160px;
   margin: 0 auto 12px;
   border-radius: 50%;
@@ -122,10 +48,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: var(--tanuki-shadow-soft);
 }
 
-.tanuki-orb-core {
+.simple-orb-core {
   width: 115px;
   height: 115px;
   border-radius: 50%;
@@ -135,85 +60,51 @@ body {
   align-items: center;
 }
 
-.tanuki-line {
+.simple-line {
   font-size: 1.05rem;
   opacity: 0.9;
+  margin-bottom: 25px;
 }
 
 /* ============================================================
-   GAME GRID — RESTORED ORIGINAL FEEL
+   BUTTONS — SIMPLE, BRIGHT, FRIENDLY
    ============================================================ */
 
-.arcade-section-title {
-  font-size: 1.5rem;
-  margin-bottom: 12px;
-  text-align: center;
+.simple-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.arcade-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-}
-
-/* Cards — brighter, less transparent, no dark overlay */
-.arcade-card {
-  background: rgba(255, 255, 255, 0.22);   /* ⭐ Brighter */
-  border: 2px solid rgba(255, 255, 255, 0.25);
-  padding: 16px;
-  border-radius: var(--tanuki-radius-lg);
+.simple-button {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.2rem;
+  border-radius: 14px;
+  background: var(--tanuki-purple-light);
+  color: var(--tanuki-white);
+  border: none;
   cursor: pointer;
-  transition: 0.2s;
-  text-align: left;
+  transition: 0.15s ease;
 }
 
-.arcade-card:hover {
-  background: rgba(255, 255, 255, 0.28);
+.simple-button:hover {
+  background: var(--tanuki-purple);
   transform: translateY(-2px);
 }
 
-.arcade-card-disabled {
-  opacity: 0.4;
-  cursor: default;
-}
-
-.arcade-card-title {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.arcade-card-tag {
-  font-size: 0.8rem;
-  opacity: 0.8;
-  margin-bottom: 8px;
-}
-
-.arcade-card-desc {
-  font-size: 0.9rem;
-  opacity: 0.9;
-}
-
 /* ============================================================
-   MOBILE OPTIMIZATION — RESTORED ORIGINAL BEHAVIOR
+   MOBILE OPTIMIZATION
    ============================================================ */
 
-@media (max-width: 700px) {
-  .arcade-main {
-    flex-direction: column;
-    text-align: center;
+@media (max-width: 480px) {
+  .simple-title {
+    font-size: 1.7rem;
   }
 
-  .arcade-header {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .arcade-status {
-    text-align: center;
-  }
-
-  .arcade-grid {
-    grid-template-columns: 1fr;
+  .simple-button {
+    font-size: 1.1rem;
+    padding: 12px;
   }
 }
+
