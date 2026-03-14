@@ -1,13 +1,26 @@
+/* ============================================================
+   PURPLE TANUKI — GLOBAL THEME (REFORGED)
+   ============================================================ */
+
 :root {
   --tanuki-purple: #4B1E78;
   --tanuki-purple-light: #7D3FB2;
   --tanuki-gold: #F5D06F;
   --tanuki-white: #FFFFFF;
-  --tanuki-bg: radial-gradient(circle at top, #7D3FB2 0%, #2A103F 55%, #12051F 100%);
+
+  /* Signature mystical gradient */
+  --tanuki-bg: radial-gradient(
+    circle at top,
+    #7D3FB2 0%,
+    #2A103F 55%,
+    #12051F 100%
+  );
+
   --tanuki-radius-lg: 24px;
   --tanuki-shadow-soft: 0 0 40px rgba(0, 0, 0, 0.45);
 }
 
+/* Reset + layout foundation */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,9 +31,11 @@ html, body {
   height: 100%;
 }
 
+/* Global body styling */
 body {
   font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--tanuki-bg);
   color: var(--tanuki-white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
-
