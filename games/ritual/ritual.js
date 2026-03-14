@@ -32,7 +32,7 @@ buttonEl.addEventListener("click", () => {
 
   setTimeout(() => {
     // TODO: update this URL to your real Arcade Hub
-    window.location.href = "/games/index.html";
+    window.location.href = "/games/arcade/index.html";
   }, 500);
 });
 
