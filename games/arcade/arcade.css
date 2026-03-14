@@ -1,5 +1,5 @@
 /* ============================================================
-   PURPLE TANUKI ARCADE — REFORGED + MOBILE OPTIMIZED
+   PURPLE TANUKI ARCADE — CLEAN, STABLE, ORIGINAL FEEL
    ============================================================ */
 
 body {
@@ -16,37 +16,37 @@ body {
 .arcade-root {
   width: 100%;
   max-width: 900px;
-  padding: 20px;
+  padding: 16px;
   box-sizing: border-box;
 }
 
 /* ============================================================
-   HEADER — CENTERED TITLE + RIGHT STATUS PANEL
+   HEADER — CENTERED TITLE, ORIGINAL SIZE, NO LAYOUT SHIFT
    ============================================================ */
 
 .arcade-header {
   display: flex;
-  justify-content: space-between; /* keep status panel on right */
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   width: 100%;
 }
 
-/* ⭐ Center the title block globally */
+/* ⭐ Center the title block without enlarging it */
 .arcade-title-block {
   flex: 1;
   text-align: center;
 }
 
 .arcade-title {
-  font-size: 2.2rem;
+  font-size: 1.8rem;     /* ⭐ Restored to readable size */
   font-weight: 800;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   color: var(--tanuki-white);
 }
 
 .arcade-subtitle {
-  font-size: 1rem;
+  font-size: 0.95rem;
   opacity: 0.85;
 }
 
@@ -57,7 +57,7 @@ body {
 .arcade-status {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
   text-align: right;
 }
 
@@ -68,17 +68,17 @@ body {
 }
 
 .status-label {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   opacity: 0.8;
 }
 
 .status-value {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
 }
 
 .status-bar {
-  width: 80px;
+  width: 70px;
   height: 8px;
   background: rgba(255, 255, 255, 0.25);
   border-radius: 6px;
@@ -92,12 +92,12 @@ body {
 }
 
 /* ============================================================
-   MAIN LAYOUT
+   MAIN LAYOUT — RESTORED ORIGINAL SPACING
    ============================================================ */
 
 .arcade-main {
   display: flex;
-  gap: 30px;
+  gap: 20px;
 }
 
 .arcade-left {
@@ -110,15 +110,15 @@ body {
 }
 
 /* ============================================================
-   TANUKI ORB
+   TANUKI ORB — RESTORED ORIGINAL SIZE
    ============================================================ */
 
 .tanuki-orb-shell {
-  width: 180px;
-  height: 180px;
-  margin: 0 auto 15px;
+  width: 160px;          /* ⭐ Slightly smaller to reduce scroll */
+  height: 160px;
+  margin: 0 auto 12px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.10);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -126,41 +126,41 @@ body {
 }
 
 .tanuki-orb-core {
-  width: 130px;
-  height: 130px;
+  width: 115px;
+  height: 115px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.18);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .tanuki-line {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   opacity: 0.9;
 }
 
 /* ============================================================
-   GAME GRID
+   GAME GRID — RESTORED ORIGINAL FEEL
    ============================================================ */
 
 .arcade-section-title {
-  font-size: 1.6rem;
-  margin-bottom: 15px;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
   text-align: center;
 }
 
 .arcade-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 15px;
+  gap: 12px;
 }
 
-/* Cards */
+/* Cards — brighter, less transparent, no dark overlay */
 .arcade-card {
-  background: rgba(255, 255, 255, 0.12);
-  border: 2px solid rgba(255, 255, 255, 0.18);
-  padding: 18px;
+  background: rgba(255, 255, 255, 0.22);   /* ⭐ Brighter */
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  padding: 16px;
   border-radius: var(--tanuki-radius-lg);
   cursor: pointer;
   transition: 0.2s;
@@ -168,7 +168,7 @@ body {
 }
 
 .arcade-card:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.28);
   transform: translateY(-2px);
 }
 
@@ -178,24 +178,24 @@ body {
 }
 
 .arcade-card-title {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 4px;
 }
 
 .arcade-card-tag {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   opacity: 0.8;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .arcade-card-desc {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   opacity: 0.9;
 }
 
 /* ============================================================
-   MOBILE OPTIMIZATION
+   MOBILE OPTIMIZATION — RESTORED ORIGINAL BEHAVIOR
    ============================================================ */
 
 @media (max-width: 700px) {
@@ -206,7 +206,7 @@ body {
 
   .arcade-header {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
 
   .arcade-status {
