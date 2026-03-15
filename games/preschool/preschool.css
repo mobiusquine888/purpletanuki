@@ -1,1 +1,152 @@
+/* ============================================================
+   PRESCHOOL TUTOR — FINAL REFORGE
+   ============================================================ */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+  background: var(--tanuki-bg);
+  color: var(--tanuki-white);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+/* ROOT CONTAINER */
+.preschool-root {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  padding-top: 90px; /* keeps it below the global purple header */
+  text-align: center;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+/* ============================================================
+   HERO IMAGE
+   ============================================================ */
+
+.tanuki-hero {
+  width: 55vw;
+  max-width: 260px;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+/* ============================================================
+   SUBJECT LIST
+   ============================================================ */
+
+.subject-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.subject-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.2rem;
+  border-radius: 14px;
+  background: var(--tanuki-purple-light);
+  color: var(--tanuki-white);
+  border: none;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.subject-btn:hover {
+  background: var(--tanuki-purple);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   LESSON VIEW
+   ============================================================ */
+
+#lesson-view,
+#mastery-view,
+#final-view {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  border-radius: 16px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+#lesson-view h2,
+#mastery-view h2,
+#final-view h2 {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+#lesson-view ul,
+#mastery-view ul,
+#final-view ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+#lesson-view button,
+#mastery-view button,
+#final-view button {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.2rem;
+  border-radius: 14px;
+  background: var(--tanuki-purple-light);
+  color: var(--tanuki-white);
+  border: none;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+#lesson-view button:hover,
+#mastery-view button:hover,
+#final-view button:hover {
+  background: var(--tanuki-purple);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   HIDDEN CLASS
+   ============================================================ */
+
+.hidden {
+  display: none;
+}
+
+/* ============================================================
+   MOBILE OPTIMIZATION
+   ============================================================ */
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .subject-btn {
+    font-size: 1.1rem;
+    padding: 12px;
+  }
+
+  #lesson-view,
+  #mastery-view,
+  #final-view {
+    padding: 16px;
+  }
+}
 
