@@ -1,5 +1,34 @@
+/* ---------------------------------------------------------
+   RUNE LANTERN MEMORY — FULL REFORGED STYLESHEET
+   Drop this entire file into /games/memory/memory.css
+   --------------------------------------------------------- */
+
+/* Import global Tanuki theme */
+@import url('../theme/tanuki-theme.css');
+
+/* Hide the Purple Tanuki Arcade header inside the game */
+.simple-header {
+    display: none !important;
+}
+
+/* Remove global top padding/margin applied by the theme */
+body {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Game card spacing */
+.game-card {
+    margin-top: 20px;
+}
+
+/* ---------------------------------------------------------
+   MEMORY GRID + CELL STYLES (your original, preserved)
+   --------------------------------------------------------- */
+
 #memoryGrid {
     height: 180px;
+    min-height: 180px; /* ensures visibility before JS loads */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
@@ -32,6 +61,10 @@
     box-shadow: 0 0 20px #ff6b6b;
 }
 
+/* ---------------------------------------------------------
+   STATUS TEXT
+   --------------------------------------------------------- */
+
 .game-status {
     text-align: center;
     margin-top: 0.5rem;
@@ -39,4 +72,5 @@
     color: var(--primary-color);
     min-height: 20px;
 }
+
 
