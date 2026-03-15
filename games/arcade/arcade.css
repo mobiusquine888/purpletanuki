@@ -13,12 +13,12 @@ body {
   justify-content: center;
 }
 
-/* ⭐ FIX: Push Arcade Hub down so the global header doesn't overlap */
+/* ⭐ Push Arcade Hub down so the global header doesn't overlap */
 .arcade-root {
   width: 100%;
   max-width: 500px;
   padding: 20px;
-  padding-top: 90px; /* ← NEW: moves title down below purple header */
+  padding-top: 90px;
   text-align: center;
 }
 
@@ -38,26 +38,20 @@ body {
 }
 
 /* ============================================================
-   TANUKI IMAGE (REFORGED)
+   TANUKI HERO IMAGE (NEW)
    ============================================================ */
 
-.simple-orb-shell {
-  width: 160px;
-  height: 160px;
-  margin: 0 auto 12px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.10);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* ❌ Removed the circular orb container entirely */
+/* ❌ Removed the 160×160 constraint */
+/* ❌ Removed the 115px tiny image size */
 
-/* ⭐ NEW: The actual Tanuki image */
-.arcade-tanuki-image {
-  width: 115px;
+/* ⭐ NEW: Full hero image */
+.arcade-tanuki-hero {
+  width: 55vw;          /* responsive hero size on phones */
+  max-width: 260px;     /* prevents it from getting too large on tablets */
   height: auto;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 18px;  /* centered with breathing room */
   image-rendering: crisp-edges;
 }
 
@@ -108,5 +102,6 @@ body {
     padding: 12px;
   }
 }
+
 
 
