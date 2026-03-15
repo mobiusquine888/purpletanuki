@@ -79,3 +79,4 @@ buttonEl.addEventListener("click", () => {
 startRitual();
 
 
+
