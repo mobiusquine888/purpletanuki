@@ -57,17 +57,8 @@ buttonEl.addEventListener("click", () => {
   document.body.style.opacity = "0";
 
   setTimeout(() => {
-    // ⭐ Auto-route based on difficulty selection stored earlier
-    const difficulty = localStorage.getItem("ritualDifficulty") || "easy";
-
-    if (difficulty === "easy") {
-      // Practice Mode for easy subjects
-      window.location.href = "../practice/index.html";
-    } else {
-      // Star Catch for medium/hard or focus challenges
-      window.location.href = "../reaction/index.html";
-    }
-
+    // ⭐ REFORGED: Always return to the Arcade Hub
+    window.location.href = "../arcade/index.html";
   }, 600);
 });
 
@@ -77,6 +68,7 @@ buttonEl.addEventListener("click", () => {
 // ============================================================
 
 startRitual();
+
 
 
 
