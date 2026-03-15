@@ -38,7 +38,7 @@ body {
 }
 
 /* ============================================================
-   TANUKI ORB — SIMPLE, CLEAN, CENTERED
+   TANUKI IMAGE (REFORGED)
    ============================================================ */
 
 .simple-orb-shell {
@@ -52,14 +52,13 @@ body {
   align-items: center;
 }
 
-.simple-orb-core {
+/* ⭐ NEW: The actual Tanuki image */
+.arcade-tanuki-image {
   width: 115px;
-  height: 115px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.18);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  image-rendering: crisp-edges;
 }
 
 .simple-line {
