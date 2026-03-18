@@ -1,5 +1,6 @@
 // ===============================
 //  GRADE 3 TUTOR — FULL ENGINE
+//  CHUNK 1: CURRICULUM DATA
 // ===============================
 
 // SUBJECT + LESSON DATA (2 lessons per subject)
@@ -644,4 +645,775 @@ const g3Subjects = {
   geometry: {
     label: "Geometry",
     group: "Math",
-    lessons
+    lessons: [
+      {
+        id: "geo1",
+        title: "Quadrilaterals",
+        body: `
+          <p>A <strong>quadrilateral</strong> is a shape with 4 sides.</p>
+          <p>Squares and rectangles are quadrilaterals.</p>
+        `,
+        quiz: [
+          {
+            q: "A quadrilateral has:",
+            options: ["3 sides", "4 sides", "5 sides", "6 sides"],
+            answer: 1
+          },
+          {
+            q: "Which is a quadrilateral?",
+            options: ["Triangle", "Square", "Circle", "Pentagon"],
+            answer: 1
+          },
+          {
+            q: "Rectangles are:",
+            options: [
+              "Not quadrilaterals",
+              "Quadrilaterals",
+              "Circles",
+              "Triangles"
+            ],
+            answer: 1
+          }
+        ]
+      },
+      {
+        id: "geo2",
+        title: "Lines & Angles",
+        body: `
+          <p>A <strong>right angle</strong> is a square corner.</p>
+          <p>Lines can be parallel, intersecting, or perpendicular.</p>
+        `,
+        quiz: [
+          {
+            q: "A right angle looks like:",
+            options: [
+              "A sharp point",
+              "A straight line",
+              "A square corner",
+              "A circle"
+            ],
+            answer: 2
+          },
+          {
+            q: "Parallel lines:",
+            options: [
+              "Cross each other",
+              "Never meet",
+              "Form circles",
+              "Are always vertical"
+            ],
+            answer: 1
+          },
+          {
+            q: "Perpendicular lines:",
+            options: [
+              "Never meet",
+              "Meet and form right angles",
+              "Are curved",
+              "Are dotted"
+            ],
+            answer: 1
+          }
+        ]
+      }
+    ]
+  },
+
+  // ============================
+  // SCIENCE
+  // ============================
+
+  lifeScience: {
+    label: "Life Science",
+    group: "Science",
+    lessons: [
+      {
+        id: "ls1",
+        title: "Life Cycles",
+        body: `
+          <p>Living things go through a <strong>life cycle</strong>.</p>
+          <p>Many animals change as they grow, like a caterpillar becoming a butterfly.</p>
+        `,
+        quiz: [
+          {
+            q: "A life cycle shows:",
+            options: [
+              "Weather patterns",
+              "How a living thing grows and changes",
+              "Rock types",
+              "Planet orbits"
+            ],
+            answer: 1
+          },
+          {
+            q: "A butterfly starts as a:",
+            options: ["Frog", "Seed", "Caterpillar", "Rock"],
+            answer: 2
+          },
+          {
+            q: "Which is part of a plant’s life cycle?",
+            options: ["Melting", "Evaporation", "Germination", "Freezing"],
+            answer: 2
+          }
+        ]
+      },
+      {
+        id: "ls2",
+        title: "Habitats",
+        body: `
+          <p>A <strong>habitat</strong> is the place where an animal or plant lives.</p>
+          <p>Habitats provide food, water, shelter, and space.</p>
+        `,
+        quiz: [
+          {
+            q: "A habitat is:",
+            options: [
+              "A kind of weather",
+              "A place where living things live",
+              "A type of rock",
+              "A kind of machine"
+            ],
+            answer: 1
+          },
+          {
+            q: "Habitats must provide:",
+            options: [
+              "Food and water",
+              "Only toys",
+              "Only sunlight",
+              "Only air"
+            ],
+            answer: 0
+          },
+          {
+            q: "A desert is:",
+            options: [
+              "Cold and icy",
+              "Very wet",
+              "Dry with little rain",
+              "Underwater"
+            ],
+            answer: 2
+          }
+        ]
+      }
+    ]
+  },
+
+  physicalScience: {
+    label: "Physical Science",
+    group: "Science",
+    lessons: [
+      {
+        id: "ps1",
+        title: "States of Matter",
+        body: `
+          <p>Matter is anything that has mass and takes up space.</p>
+          <p>The three main states are <strong>solid</strong>, <strong>liquid</strong>, and <strong>gas</strong>.</p>
+        `,
+        quiz: [
+          {
+            q: "Matter is:",
+            options: [
+              "Only air",
+              "Anything that has mass and takes up space",
+              "Only water",
+              "Only solids"
+            ],
+            answer: 1
+          },
+          {
+            q: "Water as ice is a:",
+            options: ["Solid", "Liquid", "Gas", "Sound"],
+            answer: 0
+          },
+          {
+            q: "Water vapor is:",
+            options: ["Solid", "Liquid", "Gas", "Rock"],
+            answer: 2
+          }
+        ]
+      },
+      {
+        id: "ps2",
+        title: "Forces & Motion",
+        body: `
+          <p>A <strong>force</strong> is a push or a pull.</p>
+          <p>Forces can change an object’s speed or direction.</p>
+        `,
+        quiz: [
+          {
+            q: "A force is:",
+            options: [
+              "A color",
+              "A push or a pull",
+              "A sound",
+              "A shape"
+            ],
+            answer: 1
+          },
+          {
+            q: "Forces can change:",
+            options: [
+              "An object’s speed or direction",
+              "The weather",
+              "The time of day",
+              "The calendar"
+            ],
+            answer: 0
+          },
+          {
+            q: "Which is a force?",
+            options: ["Thinking", "Sleeping", "Pushing a box", "Smelling"],
+            answer: 2
+          }
+        ]
+      }
+    ]
+  },
+
+  earthScience: {
+    label: "Earth Science",
+    group: "Science",
+    lessons: [
+      {
+        id: "es1",
+        title: "Weather & Climate",
+        body: `
+          <p><strong>Weather</strong> is what the air is like today.</p>
+          <p><strong>Climate</strong> is the usual weather in a place over a long time.</p>
+        `,
+        quiz: [
+          {
+            q: "Weather describes:",
+            options: [
+              "The usual pattern over many years",
+              "What the air is like right now",
+              "Only temperature",
+              "Only clouds"
+            ],
+            answer: 1
+          },
+          {
+            q: "Climate describes:",
+            options: [
+              "Today’s rain",
+              "Tomorrow’s forecast",
+              "Usual weather over many years",
+              "Only wind"
+            ],
+            answer: 2
+          },
+          {
+            q: "A place with hot, rainy weather most of the year has a:",
+            options: ["Desert climate", "Polar climate", "Tropical climate", "Mountain climate"],
+            answer: 2
+          }
+        ]
+      },
+      {
+        id: "es2",
+        title: "Earth’s Resources",
+        body: `
+          <p><strong>Natural resources</strong> are things we use from Earth, like water, soil, and trees.</p>
+          <p>Some resources can be renewed, and some cannot.</p>
+        `,
+        quiz: [
+          {
+            q: "Which is a natural resource?",
+            options: ["Plastic toy", "Water", "Computer", "Car"],
+            answer: 1
+          },
+          {
+            q: "Trees can be:",
+            options: ["Natural resources", "Planets", "Machines", "Rocks"],
+            answer: 0
+          },
+          {
+            q: "Which resource cannot be replaced quickly?",
+            options: ["Sunlight", "Wind", "Coal", "Rain"],
+            answer: 2
+          }
+        ]
+      }
+    ]
+  },
+
+  // ============================
+  // SOCIAL STUDIES
+  // ============================
+
+  communities: {
+    label: "Communities",
+    group: "Social Studies",
+    lessons: [
+      {
+        id: "c1",
+        title: "Types of Communities",
+        body: `
+          <p>There are <strong>urban</strong>, <strong>suburban</strong>, and <strong>rural</strong> communities.</p>
+          <p>Each type has different buildings, jobs, and ways of living.</p>
+        `,
+        quiz: [
+          {
+            q: "An urban community is:",
+            options: [
+              "In the countryside",
+              "A small town",
+              "A big city",
+              "A farm"
+            ],
+            answer: 2
+          },
+          {
+            q: "A rural community usually has:",
+            options: [
+              "Skyscrapers",
+              "Farms and open land",
+              "Subways",
+              "Crowded streets"
+            ],
+            answer: 1
+          },
+          {
+            q: "A suburban community is:",
+            options: [
+              "In the ocean",
+              "Near a city with houses and schools",
+              "On a mountain top",
+              "Only farms"
+            ],
+            answer: 1
+          }
+        ]
+      },
+      {
+        id: "c2",
+        title: "Community Helpers",
+        body: `
+          <p>Community helpers are people whose jobs keep us safe and healthy.</p>
+          <p>Examples include firefighters, doctors, teachers, and police officers.</p>
+        `,
+        quiz: [
+          {
+            q: "Which is a community helper?",
+            options: ["Firefighter", "Dragon", "Robot", "Cartoon character"],
+            answer: 0
+          },
+          {
+            q: "Teachers help by:",
+            options: [
+              "Fixing cars",
+              "Growing crops",
+              "Helping students learn",
+              "Putting out fires"
+            ],
+            answer: 2
+          },
+          {
+            q: "Doctors help the community by:",
+            options: [
+              "Building roads",
+              "Caring for people’s health",
+              "Delivering mail",
+              "Teaching math"
+            ],
+            answer: 1
+          }
+        ]
+      }
+    ]
+  },
+
+  geography: {
+    label: "Geography",
+    group: "Social Studies",
+    lessons: [
+      {
+        id: "geoSS1",
+        title: "Maps & Globes",
+        body: `
+          <p>A <strong>map</strong> is a flat drawing of a place.</p>
+          <p>A <strong>globe</strong> is a model of Earth.</p>
+        `,
+        quiz: [
+          {
+            q: "A map is:",
+            options: [
+              "A flat drawing of a place",
+              "A 3D model of Earth",
+              "A kind of weather",
+              "A type of plant"
+            ],
+            answer: 0
+          },
+          {
+            q: "A globe is:",
+            options: [
+              "A flat picture",
+              "A model of Earth",
+              "A kind of rock",
+              "A type of animal"
+            ],
+            answer: 1
+          },
+          {
+            q: "Which tool shows directions like north, south, east, and west?",
+            options: ["Ruler", "Compass rose", "Thermometer", "Clock"],
+            answer: 1
+          }
+        ]
+      },
+      {
+        id: "geoSS2",
+        title: "Landforms",
+        body: `
+          <p><strong>Landforms</strong> are shapes on Earth’s surface, like mountains, valleys, and plains.</p>
+        `,
+        quiz: [
+          {
+            q: "Which is a landform?",
+            options: ["Mountain", "Airplane", "Pencil", "Computer"],
+            answer: 0
+          },
+          {
+            q: "A valley is:",
+            options: [
+              "A tall, steep landform",
+              "A low area between hills or mountains",
+              "A large body of water",
+              "A flat, high area"
+            ],
+            answer: 1
+          },
+          {
+            q: "Plains are:",
+            options: [
+              "Flat areas of land",
+              "Very tall mountains",
+              "Deep oceans",
+              "Underground caves"
+            ],
+            answer: 0
+          }
+        ]
+      }
+    ]
+  }
+
+}; // END g3Subjects
+// ===============================
+//  CHUNK 2: RENDERING ENGINE
+// ===============================
+
+// DOM references
+const g3SubjectList = document.getElementById("g3-subject-list");
+const g3LessonCard = document.getElementById("g3-lesson-card");
+const g3LessonTitle = document.getElementById("g3-lesson-title");
+const g3LessonBody = document.getElementById("g3-lesson-body");
+const g3StartQuizBtn = document.getElementById("g3-start-quiz-btn");
+
+const g3QuizCard = document.getElementById("g3-quiz-card");
+const g3QuizTitle = document.getElementById("g3-quiz-title");
+const g3QuizBody = document.getElementById("g3-quiz-body");
+
+const g3ProgressFill = document.getElementById("g3-progress-fill");
+const g3ProgressPercent = document.getElementById("g3-progress-percent");
+
+// Internal state
+let g3CurrentSubject = null;
+let g3CurrentLesson = null;
+let g3CurrentQuiz = null;
+
+// ===============================
+//  SIDEBAR RENDERING
+// ===============================
+
+function renderSubjectList() {
+  g3SubjectList.innerHTML = "";
+
+  Object.entries(g3Subjects).forEach(([key, subject]) => {
+    const completed = getLessonCompletionCount(key);
+    const total = subject.lessons.length;
+
+    const btn = document.createElement("button");
+    btn.className = "g3-subject-btn";
+    btn.innerHTML = `
+      <span>${subject.label}</span>
+      <span class="g3-subject-meta">${completed}/${total}</span>
+    `;
+
+    btn.onclick = () => selectSubject(key);
+
+    g3SubjectList.appendChild(btn);
+  });
+}
+
+function selectSubject(subjectKey) {
+  g3CurrentSubject = subjectKey;
+  g3CurrentLesson = null;
+
+  // highlight active button
+  [...g3SubjectList.children].forEach(btn => btn.classList.remove("active"));
+  const idx = Object.keys(g3Subjects).indexOf(subjectKey);
+  g3SubjectList.children[idx].classList.add("active");
+
+  renderLessonList();
+}
+
+// ===============================
+//  LESSON LIST + LESSON RENDERING
+// ===============================
+
+function renderLessonList() {
+  const subject = g3Subjects[g3CurrentSubject];
+  g3LessonTitle.textContent = subject.label;
+  g3LessonBody.innerHTML = `
+    <p>Select a lesson below:</p>
+    <ul>
+      ${subject.lessons
+        .map(
+          (lesson, i) => `
+        <li style="margin-bottom:6px;">
+          <button class="g3-secondary-btn" onclick="openLesson(${i})">
+            ${lesson.title}
+          </button>
+        </li>
+      `
+        )
+        .join("")}
+    </ul>
+  `;
+
+  g3StartQuizBtn.style.display = "none";
+  g3QuizCard.style.display = "none";
+  g3LessonCard.style.display = "block";
+}
+
+function openLesson(index) {
+  const subject = g3Subjects[g3CurrentSubject];
+  const lesson = subject.lessons[index];
+
+  g3CurrentLesson = index;
+  g3CurrentQuiz = lesson.quiz;
+
+  g3LessonTitle.textContent = lesson.title;
+  g3LessonBody.innerHTML = lesson.body;
+
+  g3StartQuizBtn.style.display = "inline-flex";
+  g3QuizCard.style.display = "none";
+  g3LessonCard.style.display = "block";
+}
+
+// ===============================
+//  QUIZ RENDERING
+// ===============================
+
+function startQuiz() {
+  const subject = g3Subjects[g3CurrentSubject];
+  const lesson = subject.lessons[g3CurrentLesson];
+
+  g3QuizTitle.textContent = `${lesson.title} — Quiz`;
+
+  g3QuizBody.innerHTML = lesson.quiz
+    .map(
+      (q, i) => `
+      <div class="g3-quiz-question">
+        <div class="g3-quiz-question-title">${i + 1}. ${q.q}</div>
+        <div class="g3-quiz-options">
+          ${q.options
+            .map(
+              (opt, j) => `
+            <label class="g3-quiz-option">
+              <input type="radio" name="q${i}" value="${j}">
+              ${opt}
+            </label>
+          `
+            )
+            .join("")}
+        </div>
+      </div>
+    `
+    )
+    .join("");
+
+  g3LessonCard.style.display = "none";
+  g3QuizCard.style.display = "block";
+}
+
+function backToLesson() {
+  g3QuizCard.style.display = "none";
+  g3LessonCard.style.display = "block";
+}
+
+// ===============================
+//  QUIZ SUBMISSION
+// ===============================
+
+function submitQuiz() {
+  const lesson = g3Subjects[g3CurrentSubject].lessons[g3CurrentLesson];
+  const quiz = lesson.quiz;
+
+  let correct = 0;
+
+  quiz.forEach((q, i) => {
+    const selected = document.querySelector(`input[name="q${i}"]:checked`);
+    if (selected && Number(selected.value) === q.answer) {
+      correct++;
+    }
+  });
+
+  if (correct === quiz.length) {
+    markLessonComplete(g3CurrentSubject, g3CurrentLesson);
+    triggerSparkles();
+    updateProgressUI();
+    alert("Perfect! Lesson complete.");
+  } else {
+    alert("Keep trying! You can do it.");
+  }
+}
+// ===============================
+//  CHUNK 3: PROGRESS + SPARKLES + GRADUATION
+// ===============================
+
+// ===============================
+//  PROGRESS TRACKING
+// ===============================
+
+function getStoredProgress() {
+  const raw = localStorage.getItem("g3Progress");
+  return raw ? JSON.parse(raw) : {};
+}
+
+function saveProgress(data) {
+  localStorage.setItem("g3Progress", JSON.stringify(data));
+}
+
+function markLessonComplete(subjectKey, lessonIndex) {
+  const progress = getStoredProgress();
+
+  if (!progress[subjectKey]) {
+    progress[subjectKey] = {};
+  }
+
+  progress[subjectKey][lessonIndex] = true;
+  saveProgress(progress);
+
+  checkForGraduation();
+}
+
+function getLessonCompletionCount(subjectKey) {
+  const progress = getStoredProgress();
+  const subject = g3Subjects[subjectKey];
+
+  if (!progress[subjectKey]) return 0;
+
+  return Object.values(progress[subjectKey]).filter(Boolean).length;
+}
+
+function getTotalCompletionPercent() {
+  const progress = getStoredProgress();
+  let completed = 0;
+  let total = 0;
+
+  Object.entries(g3Subjects).forEach(([key, subject]) => {
+    subject.lessons.forEach((_, i) => {
+      total++;
+      if (progress[key] && progress[key][i]) {
+        completed++;
+      }
+    });
+  });
+
+  return Math.round((completed / total) * 100);
+}
+
+function updateProgressUI() {
+  const percent = getTotalCompletionPercent();
+  g3ProgressFill.style.width = percent + "%";
+  g3ProgressPercent.textContent = percent + "%";
+}
+
+// ===============================
+//  SPARKLES
+// ===============================
+
+function triggerSparkles() {
+  const layer = document.querySelector(".g3-sparkles-layer");
+  if (!layer) return;
+
+  for (let i = 0; i < 12; i++) {
+    const s = document.createElement("div");
+    s.className = "g3-sparkle";
+    s.textContent = "✨";
+    s.style.left = Math.random() * 100 + "%";
+    s.style.top = Math.random() * 100 + "%";
+    layer.appendChild(s);
+
+    setTimeout(() => s.remove(), 700);
+  }
+}
+
+// ===============================
+//  GRADUATION MODAL
+// ===============================
+
+function checkForGraduation() {
+  const percent = getTotalCompletionPercent();
+  if (percent === 100) {
+    showGraduationModal();
+  }
+}
+
+function showGraduationModal() {
+  const overlay = document.getElementById("g3-grad-overlay");
+  const modal = document.getElementById("g3-grad-modal");
+
+  if (!overlay || !modal) return;
+
+  overlay.style.display = "flex";
+}
+
+function closeGraduationModal() {
+  const overlay = document.getElementById("g3-grad-overlay");
+  if (overlay) overlay.style.display = "none";
+}
+
+// ===============================
+//  GATE UNLOCK → YOUTUBE
+// ===============================
+
+const g3GateBtn = document.getElementById("youtube-btn");
+if (g3GateBtn) {
+  g3GateBtn.onclick = () => {
+    const percent = getTotalCompletionPercent();
+    if (percent === 100) {
+      window.location.href = "https://www.youtube.com";
+    } else {
+      alert("Finish all Grade 3 lessons to unlock the Gate!");
+    }
+  };
+}
+
+// ===============================
+//  HOME NAVIGATION
+// ===============================
+
+const g3HomeBtn = document.getElementById("g3-home-btn");
+if (g3HomeBtn) {
+  g3HomeBtn.onclick = () => {
+    window.location.href = "../arcade/index.html";
+  };
+}
+
+// ===============================
+//  INITIALIZATION
+// ===============================
+
+function initGrade3() {
+  renderSubjectList();
+  updateProgressUI();
+}
+
+initGrade3();
+
