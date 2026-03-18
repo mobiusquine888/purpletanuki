@@ -28,7 +28,37 @@ body {
 .preschool-line {
   font-size: 1.05rem;
   opacity: 0.9;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+}
+
+/* PROGRESS BAR */
+.progress-wrapper {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.progress-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffb6ff, #b794ff, #7dd3fc);
+  transition: width 0.3s ease;
 }
 
 /* CATEGORY LIST */
@@ -40,18 +70,27 @@ body {
 
 .category-item {
   width: 100%;
-  padding: 16px;
+  padding: 14px 16px;
   border-radius: 14px;
   border: none;
   background: rgba(255, 255, 255, 0.08);
   cursor: pointer;
   transition: 0.15s ease;
-  font-size: 1.2rem;
-  font-weight: 700;
+  text-align: left;
 }
 
 .category-item:hover {
   background: rgba(255, 255, 255, 0.14);
+}
+
+.category-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.category-subtitle {
+  font-size: 0.85rem;
+  opacity: 0.8;
 }
 
 /* LESSON CARD */
@@ -105,5 +144,74 @@ body {
   font-size: 0.95rem;
   cursor: pointer;
 }
+
+/* GRADUATION MODAL */
+.grad-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.grad-modal {
+  background: rgba(20, 20, 40, 0.96);
+  border-radius: 18px;
+  padding: 24px 20px;
+  max-width: 320px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+.grad-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.grad-text {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 18px;
+}
+
+.grad-btn {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(90deg, #f97316, #ec4899, #6366f1);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* SPARKLES */
+.sparkles-container {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 1.4rem;
+  animation: sparkle-fall 700ms ease-out forwards;
+}
+
+@keyframes sparkle-fall {
+  0% {
+    transform: translateY(0) scale(0.7);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px) scale(1.2);
+    opacity: 0;
+  }
+}
+
 
 
