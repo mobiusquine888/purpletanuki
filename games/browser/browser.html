@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tanuki Browser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="browser.css">
+</head>
+
+<body>
+
+  <!-- HEADER BAR -->
+  <div class="browser-bar">
+    <button id="backBtn">←</button>
+    <button id="forwardBtn">→</button>
+
+    <input id="urlInput" type="text" placeholder="Enter a website…" />
+
+    <button id="goBtn">Go</button>
+  </div>
+
+  <!-- MAIN BROWSER WINDOW -->
+  <iframe id="browserFrame" src="about:blank"></iframe>
+
+  <!-- JS -->
+  <script src="browser.js"></script>
+
+</body>
+</html>
