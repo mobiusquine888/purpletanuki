@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Purple Tanuki — Grade 3 Tutor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="grade3.css" />
+</head>
+<body>
+  <div id="g3-app">
+    <header class="g3-header">
+      <div class="g3-header-left">
+        <button class="g3-home-btn" onclick="goHome()">🏠 Arcade</button>
+        <h1 class="g3-title">Grade 3 Tutor</h1>
+      </div>
+      <div class="g3-header-right">
+        <div class="g3-progress-wrapper">
+          <span class="g3-progress-label">Grade 3 Progress</span>
+          <div class="g3-progress-bar">
+            <div id="g3-progress-fill"></div>
+          </div>
+          <span id="g3-progress-percent" class="g3-progress-percent">0%</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="g3-main">
+      <aside class="g3-sidebar">
+        <h2 class="g3-sidebar-title">Subjects</h2>
+        <div id="g3-subject-list" class="g3-subject-list"></div>
+      </aside>
+
+      <section class="g3-content">
+        <!-- LESSON CARD -->
+        <div id="g3-lesson-card" class="g3-card g3-lesson-card">
+          <h2 id="g3-lesson-title" class="g3-card-title">Choose a subject to begin</h2>
+          <div id="g3-lesson-body" class="g3-card-body">
+            <p>
+              Select a subject on the left to see Grade 3 lessons.
+              Each lesson ends with a short quiz to build mastery.
+            </p>
+          </div>
+          <button
+            id="g3-start-quiz-btn"
+            class="g3-primary-btn"
+            style="display:none;"
+            onclick="startQuiz()"
+          >
+            Start Quiz
+          </button>
+        </div>
+
+        <!-- QUIZ CARD -->
+        <div id="g3-quiz-card" class="g3-card g3-quiz-card" style="display:none;">
+          <h2 id="g3-quiz-title" class="g3-card-title">Quiz</h2>
+          <div id="g3-quiz-body" class="g3-card-body"></div>
+          <div class="g3-quiz-actions">
+            <button class="g3-secondary-btn" onclick="backToLesson()">Back to Lesson</button>
+            <button class="g3-primary-btn" onclick="submitQuiz()">Submit Quiz</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- GRADUATION MODAL -->
+    <div id="g3-grad-overlay" class="g3-grad-overlay">
+      <div class="g3-grad-modal">
+        <h2>Grade 3 Complete!</h2>
+        <p>You’ve mastered the full Grade 3 spectrum. Ready for your reward?</p>
+        <button class="g3-primary-btn" onclick="unlockGrade3Reward()">
+          Unlock Grade 3 Reward
+        </button>
+        <button class="g3-secondary-btn" onclick="closeGraduation()">
+          Stay in Grade 3
+        </button>
+      </div>
+    </div>
+
+    <!-- SPARKLES LAYER -->
+    <div id="g3-sparkles" class="g3-sparkles-layer"></div>
+  </div>
+
+  <script src="grade3.js"></script>
+</body>
+</html>
