@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
   <div class="arcade-root">
 
     <!-- SIMPLE HEADER -->
@@ -23,33 +22,13 @@
     <!-- TANUKI HERO IMAGE -->
     <img src="images/tanuki_arcade.png" class="arcade-tanuki-hero" alt="Purple Tanuki">
 
-    <p class="simple-line">I'm ready when you are.</p>
-
-    <!-- ⭐ URL BAR MOVED HERE (inside the Arcade) -->
-    <div class="browser-chrome">
-      <div class="browser-dots">
-        <span class="dot red"></span>
-        <span class="dot yellow"></span>
-        <span class="dot green"></span>
-      </div>
-
-      <input
-        id="arcade-url-input"
-        class="browser-url"
-        type="text"
-        placeholder="https://www.youtube.com"
-        autocomplete="off"
-      />
-
-      <button id="arcade-go-btn" class="browser-go-btn">Go</button>
-    </div>
-    <!-- END URL BAR -->
+    <p class="simple-line">Choose your world.</p>
 
     <!-- SIMPLE BUTTONS -->
     <div class="simple-buttons">
 
       <!-- ============================
-           CURRICULUM WORLDS
+           CURRICULUM WORLDS ONLY
            ============================ -->
       <div class="simple-section-label">Curriculum Worlds</div>
 
@@ -57,50 +36,28 @@
         Preschool Tutor
       </button>
 
-      <button class="simple-button" onclick="window.location.href='../kindergarten/kindergarten.html'">
+      <button class="simple-button" onclick="window.location.href='../kindergarten/index.html'">
         Kindergarten Tutor
       </button>
 
-      <button class="simple-button" onclick="window.location.href='../grade1/grade1.html'">
-        Grade 1 Tutor
+      <button class="simple-button" onclick="window.location.href='../grade1/index.html'">
+        1st Grade Tutor
       </button>
 
-      <button class="simple-button" onclick="window.location.href='../grade2/grade2.html'">
-        Grade 2 Tutor
+      <button class="simple-button" onclick="window.location.href='../grade2/index.html'">
+        2nd Grade Tutor
       </button>
 
-      <!-- ⭐ NEW: GRADE 3 TUTOR -->
-      <button class="simple-button" onclick="window.location.href='../grade3/grade3.html'">
-        Grade 3 Tutor
+      <button class="simple-button" onclick="window.location.href='../grade3/index.html'">
+        3rd Grade Tutor
       </button>
 
-      <!-- ============================
-           ARCADE GAMES
-           ============================ -->
-      <div class="simple-section-label">Arcade Games</div>
-
-      <button class="simple-button" onclick="window.location.href='../reaction/index.html'">
-        Star Catch (Game 1)
+      <button class="simple-button" onclick="window.location.href='../grade4/index.html'">
+        4th Grade Tutor
       </button>
 
-      <button class="simple-button" onclick="window.location.href='../memory/index.html'">
-        Rune Lantern Memory (Game 2)
-      </button>
+      <!-- Future grades will be added here as they are built -->
 
-      <!-- ============================
-           GATE & FOCUS
-           ============================ -->
-      <div class="simple-section-label">Gate & Focus</div>
-
-      <button class="simple-button" id="youtube-btn">
-        Gate Unlocked → YouTube
-      </button>
-
-    </div>
-
-    <!-- FOCUS MODE TOGGLE -->
-    <div id="focus-toggle" class="focus-toggle">
-      Focus Mode: OFF
     </div>
 
   </div>
@@ -109,5 +66,6 @@
   <script src="arcade.js"></script>
 </body>
 </html>
+
 
 
