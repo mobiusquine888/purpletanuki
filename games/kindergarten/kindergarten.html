@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kindergarten Tutor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../theme/tanuki-theme.css">
+  <link rel="stylesheet" href="kindergarten.css">
+</head>
+
+<body>
+  <div class="k-root">
+
+    <header class="k-header">
+      <h1 class="k-title">Kindergarten Tutor</h1>
+      <p class="k-line">
+        Tap the right answer to fill the bar. When it’s full, you finish Kindergarten!
+      </p>
+    </header>
+
+    <!-- HOME BUTTON -->
+    <button class="home-btn" onclick="goHome()">Home</button>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-wrapper">
+      <div class="progress-label">
+        Kindergarten Progress
+        <span id="progressText">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- CATEGORY LIST -->
+    <div class="category-list">
+
+      <button class="category-item" onclick="startLesson('letters')">
+        <div class="category-title">Letters & Sounds</div>
+        <div class="category-subtitle" id="lettersStatus">0 / 12</div>
+      </button>
+
+      <button class="category-item" onclick="startLesson('sight')">
+        <div class="category-title">Sight Words</div>
+        <div class="category-subtitle" id="sightStatus">0 / 10</div>
+      </button>
+
+      <button class="category-item" onclick="startLesson('numbers')">
+        <div class="category-title">Numbers to 20</div>
+        <div class="category-subtitle" id="numbersStatus">0 / 12</div>
+      </button>
+
+      <button class="category-item" onclick="startLesson('addition')">
+        <div class="category-title">Addition</div>
+        <div class="category-subtitle" id="additionStatus">0 / 10</div>
+      </button>
+
+      <button class="category-item" onclick="startLesson('patterns')">
+        <div class="category-title">Patterns</div>
+        <div class="category-subtitle" id="patternsStatus">0 / 8</div>
+      </button>
+
+      <button class="category-item" onclick="startLesson('memory')">
+        <div class="category-title">Memory</div>
+        <div class="category-subtitle" id="memoryStatus">0 / 8</div>
+      </button>
+
+    </div>
+
+    <!-- INTERACTIVE LESSON -->
+    <div id="lessonCard" class="lesson-card" style="display:none;">
+      <div id="lessonPrompt" class="lesson-prompt"></div>
+
+      <div class="lesson-choices">
+        <div class="choice" id="choice1"></div>
+        <div class="choice" id="choice2"></div>
+        <div class="choice" id="choice3"></div>
+      </div>
+
+      <button class="back-btn" onclick="goBack()">Back</button>
+    </div>
+
+    <!-- GRADUATION MODAL -->
+    <div id="gradOverlay" class="grad-overlay" style="display:none;">
+      <div class="grad-modal">
+        <div class="grad-title">You finished Kindergarten!</div>
+        <div class="grad-text">
+          You filled the bar and completed all Kindergarten activities.
+        </div>
+        <button class="grad-btn" onclick="unlockReward()">Unlock Reward</button>
+      </div>
+    </div>
+
+    <!-- SPARKLES CONTAINER -->
+    <div id="sparklesContainer" class="sparkles-container"></div>
+
+  </div>
+
+  <script src="kindergarten.js"></script>
+</body>
+</html>
 
