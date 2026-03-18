@@ -139,9 +139,9 @@ function goBack() {
   document.querySelector(".category-list").style.display = "flex";
 }
 
-// HOME BUTTON
+// HOME BUTTON — FIXED PATH
 function goHome() {
-  window.location.href = "../arcade/arcade.html";
+  window.location.href = "../arcade.html";
 }
 
 // Progress + mastery
@@ -241,4 +241,5 @@ function spawnSparkles() {
 // Initialize UI
 Object.keys(progress).forEach(updateCategoryStatus);
 updateProgressBar();
+
 
