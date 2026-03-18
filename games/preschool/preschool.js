@@ -81,7 +81,6 @@ const lessons = {
 
   patterns: {
     generate() {
-      // Simple AB pattern for now
       const correct = "🔵";
       const wrong1 = "⭐";
       const wrong2 = "🔴";
@@ -140,6 +139,11 @@ function goBack() {
   document.querySelector(".category-list").style.display = "flex";
 }
 
+// HOME BUTTON
+function goHome() {
+  window.location.href = "../arcade/arcade.html";
+}
+
 // Progress + mastery
 function incrementProgress(type) {
   if (progress[type] < goals[type]) {
@@ -193,8 +197,7 @@ function showGraduation() {
 }
 
 function unlockReward() {
-  // Replace with your real unlock URL
-  window.location.href = "https://example.com/your-reward";
+  window.location.href = "https://www.youtube.com";
 }
 
 // Utilities
