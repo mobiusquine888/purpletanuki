@@ -2,40 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Purple Tanuki – Ritual Gate</title>
+  <title>Purple Tanuki – Begin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Global Tanuki theme -->
   <link rel="stylesheet" href="/games/theme/tanuki-theme.css">
-  <!-- Ritual-specific styles -->
-  <link rel="stylesheet" href="ritual.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #1a0f2e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      color: white;
+      font-family: Nunito, sans-serif;
+      text-align: center;
+    }
+
+    .intro-container {
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    .tanuki-img {
+      width: 180px;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards, float 4s ease-in-out infinite;
+    }
+
+    .intro-text {
+      margin-top: 20px;
+      font-size: 1.4rem;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards 0.8s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
 </head>
+
 <body>
-  <div class="ritual-root">
-    <div class="ritual-bg-glow"></div>
+  <div class="intro-container">
+    <img src="/games/intro/tanuki_intro.png" class="tanuki-img">
 
-    <div class="ritual-content">
-
-      <!-- ⭐ Breathing Tanuki (no circle, no orb) -->
-      <div class="tanuki-orb-wrapper">
-        <img src="images/tanuki_neutral.png?v=7" class="tanuki-orb-image">
-      </div>
-
-      <div class="ritual-text">
-        <div id="ritual-phase" class="ritual-phase">Breathe with me…</div>
-
-        <!-- ⭐ FIXED: Breathing lines now split cleanly -->
-        <div id="ritual-subtext" class="ritual-subtext">
-          Inhale as the light grows.<br>
-          Exhale as it fades.
-        </div>
-      </div>
-
-      <button id="ritual-button" class="ritual-button" disabled>
-        Opening gate…
-      </button>
+    <div class="intro-text">
+      Take a breath with me…
     </div>
   </div>
-  <script src="ritual.js"></script>
+
+  <script>
+    // ⭐ After 4 seconds → go to Browser
+    setTimeout(() => {
+      window.location.href = "https://purpletanuki.com/browser/index.html";
+    }, 4000);
+  </script>
 </body>
 </html>
+
