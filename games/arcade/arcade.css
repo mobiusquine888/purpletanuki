@@ -72,12 +72,12 @@ body {
   justify-content: center;
 }
 
-/* ⭐ Push Arcade Hub down so the global header doesn't overlap */
+/* ⭐ Push Arcade Hub down so the URL bar doesn't overlap */
 .arcade-root {
   width: 100%;
   max-width: 500px;
   padding: 20px;
-  padding-top: 90px;
+  padding-top: 20px;   /* ⭐ FIXED: was 90px */
   text-align: center;
 }
 
@@ -187,6 +187,4 @@ body {
     font-size: 1rem;
   }
 }
-
-
 
