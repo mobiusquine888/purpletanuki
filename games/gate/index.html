@@ -5,25 +5,59 @@
   <title>Gate Ritual</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Your global Tanuki theme -->
   <link rel="stylesheet" href="../theme/tanuki-theme.css">
+
+  <!-- Local Gate Ritual styling -->
   <link rel="stylesheet" href="gate.css">
 </head>
 
 <body>
   <div class="gate-root">
 
+    <!-- Title -->
     <h1 class="gate-title">Gate Ritual</h1>
 
-    <p class="gate-line">Before you go, let's do a quick challenge.</p>
+    <!-- Dynamic message (filled by JS) -->
+    <p id="siteMessage" class="gate-line">
+      Preparing ritual…
+    </p>
 
+    <!-- Tanuki image (optional, can replace with your own asset) -->
+    <img src="tanuki_gate.png" class="gate-tanuki" alt="Tanuki">
+
+    <!-- Buttons -->
     <div class="gate-buttons">
-      <button id="star-btn" class="gate-button">Play Star Catch</button>
-      <button id="practice-btn" class="gate-button">Start Practice</button>
+      <button id="star-btn" class="gate-button">Complete Ritual</button>
+      <button id="practice-btn" class="gate-button">Practice Instead</button>
     </div>
 
   </div>
 
+  <!-- Inline script to read ?site= and update the message -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const targetUrl = params.get("site");
+
+    let hostname = "";
+    try {
+      hostname = new URL(targetUrl).hostname;
+    } catch (e) {
+      hostname = "";
+    }
+
+    const msg = document.getElementById("siteMessage");
+
+    if (hostname) {
+      msg.textContent = `To enter ${hostname}, complete this ritual.`;
+    } else {
+      msg.textContent = "Complete this ritual to continue.";
+    }
+  </script>
+
+  <!-- Your unlock logic -->
   <script src="gate.js"></script>
 </body>
 </html>
+
 
