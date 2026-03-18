@@ -16,73 +16,48 @@
       <h1 class="preschool-title">Preschool Tutor</h1>
     </header>
 
-    <img src="images/tanuki_preschool.png"
-         class="preschool-hero"
-         alt="Purple Tanuki Preschool">
-
-    <p class="preschool-line">Choose what you want to explore.</p>
+    <p class="preschool-line">Tap to begin learning.</p>
 
     <!-- CATEGORY LIST -->
     <div class="category-list">
 
-      <button class="category-item" onclick="openLesson('letters')">
-        <img src="images/icon_letters.png" class="category-icon" alt="">
-        <div class="category-text">
-          <div class="category-title">Letters</div>
-          <div class="category-subtitle">A–Z, sounds, tracing</div>
-        </div>
+      <button class="category-item" onclick="startLesson('letters')">
+        <div class="category-title">Letters</div>
       </button>
 
-      <button class="category-item" onclick="openLesson('numbers')">
-        <img src="images/icon_numbers.png" class="category-icon" alt="">
-        <div class="category-text">
-          <div class="category-title">Numbers</div>
-          <div class="category-subtitle">Counting, order, compare</div>
-        </div>
+      <button class="category-item" onclick="startLesson('numbers')">
+        <div class="category-title">Numbers</div>
       </button>
 
-      <button class="category-item" onclick="openLesson('shapesColors')">
-        <img src="images/icon_shapes.png" class="category-icon" alt="">
-        <div class="category-text">
-          <div class="category-title">Shapes & Colors</div>
-          <div class="category-subtitle">Circles, stars, color fun</div>
-        </div>
+      <button class="category-item" onclick="startLesson('shapes')">
+        <div class="category-title">Shapes</div>
       </button>
 
-      <button class="category-item" onclick="openLesson('patterns')">
-        <img src="images/icon_patterns.png" class="category-icon" alt="">
-        <div class="category-text">
-          <div class="category-title">Patterns</div>
-          <div class="category-subtitle">AB, AAB, what comes next?</div>
-        </div>
+      <button class="category-item" onclick="startLesson('colors')">
+        <div class="category-title">Colors</div>
       </button>
 
-      <button class="category-item" onclick="openLesson('vocabulary')">
-        <img src="images/icon_vocabulary.png" class="category-icon" alt="">
-        <div class="category-text">
-          <div class="category-title">Vocabulary</div>
-          <div class="category-subtitle">Words, opposites, categories</div>
-        </div>
+      <button class="category-item" onclick="startLesson('patterns')">
+        <div class="category-title">Patterns</div>
       </button>
 
-      <button class="category-item" onclick="openLesson('memory')">
-        <img src="images/icon_memory.png" class="category-icon" alt="">
-        <div class="category-text">
-          <div class="category-title">Memory</div>
-          <div class="category-subtitle">Matching, recall, focus</div>
-        </div>
+      <button class="category-item" onclick="startLesson('memory')">
+        <div class="category-title">Memory</div>
       </button>
 
     </div>
 
-    <!-- LESSON CARD -->
+    <!-- INTERACTIVE LESSON -->
     <div id="lessonCard" class="lesson-card" style="display:none;">
-      <div id="lessonTitle" class="lesson-title"></div>
-      <div id="lessonBody" class="lesson-body"></div>
+      <div id="lessonPrompt" class="lesson-prompt"></div>
 
-      <button class="back-btn" onclick="goBackToCategories()">
-        Back to Preschool Tutor
-      </button>
+      <div class="lesson-choices">
+        <div class="choice" id="choice1"></div>
+        <div class="choice" id="choice2"></div>
+        <div class="choice" id="choice3"></div>
+      </div>
+
+      <button class="back-btn" onclick="goBack()">Back</button>
     </div>
 
   </div>
@@ -90,3 +65,4 @@
   <script src="preschool.js"></script>
 </body>
 </html>
+
