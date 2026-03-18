@@ -31,8 +31,8 @@ function startRitual() {
   setTimeout(() => {
     ritualReady = true;
 
-    // Tanuki shifts to “ready” pose
-    tanukiImg.src = "images/tanuki_ready.png?v=1";
+    // ⭐ FIXED: Correct absolute path for ready pose
+    tanukiImg.src = "/games/ritual/images/tanuki_ready.png?v=1";
     tanukiImg.style.animation = "tanuki-ready-pop 0.6s ease forwards";
 
     // Update text
@@ -68,7 +68,6 @@ buttonEl.addEventListener("click", () => {
 // ============================================================
 
 startRitual();
-
 
 
 
