@@ -31,6 +31,21 @@ body {
   margin-bottom: 16px;
 }
 
+/* HOME BUTTON */
+.home-btn {
+  margin-bottom: 16px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.16);
+  color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.home-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
 /* PROGRESS BAR */
 .progress-wrapper {
   margin-bottom: 18px;
@@ -88,9 +103,11 @@ body {
   font-weight: 700;
 }
 
+/* FIXED: WHITE PROGRESS TEXT */
 .category-subtitle {
   font-size: 0.85rem;
-  opacity: 0.8;
+  opacity: 0.9;
+  color: white; /* ← REFORGED */
 }
 
 /* LESSON CARD */
