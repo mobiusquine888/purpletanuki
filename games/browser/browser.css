@@ -1,0 +1,95 @@
+/* ===============================
+   TANUKI BROWSER — STYLES
+   =============================== */
+
+:root {
+  --bg: #0a0518;
+  --surface: #140b33;
+  --surface-soft: #1b1042;
+  --accent: #a86bff;
+  --accent-soft: rgba(168, 107, 255, 0.25);
+  --text-main: #f7f2ff;
+  --text-soft: #c9bde8;
+  --radius: 14px;
+}
+
+/* PAGE BACKGROUND */
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top, #2a145a 0, #070317 45%, #02000a 100%);
+  font-family: system-ui, "Nunito", sans-serif;
+  color: var(--text-main);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===============================
+   TOP BROWSER BAR
+   =============================== */
+
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  background: rgba(20, 10, 50, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.browser-bar button {
+  background: var(--surface-soft);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-main);
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.browser-bar button:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+#urlInput {
+  flex: 1;
+  padding: 7px 10px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(5, 2, 18, 0.9);
+  color: var(--text-main);
+  font-size: 14px;
+}
+
+#urlInput::placeholder {
+  color: var(--text-soft);
+}
+
+/* ===============================
+   MAIN BROWSER WINDOW
+   =============================== */
+
+#browserFrame {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: #000;
+}
+
+/* ===============================
+   MOBILE FRIENDLY
+   =============================== */
+
+@media (max-width: 600px) {
+  .browser-bar {
+    flex-wrap: wrap;
+  }
+
+  #urlInput {
+    width: 100%;
+    order: 3;
+  }
+}
