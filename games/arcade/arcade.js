@@ -58,3 +58,60 @@ youtubeBtn.addEventListener("click", () => {
   // Focus Mode → redirect to Gate Ritual
   window.location.href = "../gate/index.html";
 });
+
+
+/* ============================================================
+   NEW: URL BAR LOGIC (Fake Browser Behavior)
+   ============================================================ */
+
+const urlInput = document.getElementById("arcade-url-input");
+const goBtn = document.getElementById("arcade-go-btn");
+
+// Normalize URL (add https:// if missing)
+function normalizeUrl(raw) {
+  let url = raw.trim();
+  if (!url) return "";
+  if (!url.startsWith("http://") && !url.startsWith("https://")) {
+    url = "https://" + url;
+  }
+  return url;
+}
+
+goBtn.addEventListener("click", () => {
+  const raw = urlInput.value;
+  const url = normalizeUrl(raw);
+
+  if (!url) {
+    alert("Try typing a site first.");
+    return;
+  }
+
+  const isYouTube =
+    url.includes("youtube.com") || url.includes("youtu.be");
+
+  const focusMode = localStorage.getItem("focusModeEnabled") === "true";
+
+  // If Focus Mode is OFF → allow YouTube normally
+  if (!focusMode) {
+    if (isYouTube) {
+      window.location.href = "https://www.youtube.com";
+      return;
+    } else {
+      alert("Tanuki only opens YouTube for now.");
+      return;
+    }
+  }
+
+  // Focus Mode ON → block and redirect to Gate Ritual
+  if (isYouTube) {
+    alert("Tanuki says: Not yet. Let's do your learning quest first.");
+    setTimeout(() => {
+      window.location.href = "../gate/index.html";
+    }, 800);
+    return;
+  }
+
+  // Any other site → block gently
+  alert("Tanuki only opens special sites after your learning quest.");
+});
+
