@@ -1,1 +1,356 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+  background: var(--tanuki-bg);
+  color: var(--tanuki-white);
+}
+
+.g1-root {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* HEADER */
+
+.g1-header {
+  margin-bottom: 16px;
+}
+
+.g1-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.g1-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.g1-home-btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.16);
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.g1-home-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.g1-subtitle {
+  margin-top: 6px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* GLOBAL PROGRESS */
+
+.g1-progress-shell {
+  margin-bottom: 16px;
+}
+
+.g1-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+.g1-progress-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.g1-progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f97316, #ec4899, #6366f1);
+  transition: width 0.3s ease;
+}
+
+/* LAYOUT */
+
+.g1-main {
+  display: flex;
+  gap: 16px;
+}
+
+/* SIDEBAR */
+
+.g1-sidebar {
+  width: 32%;
+  min-width: 220px;
+}
+
+.g1-section-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.g1-subject-btn {
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.g1-subject-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.g1-subject-btn.active {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.g1-subject-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: white;
+}
+
+.g1-subject-status {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  color: white;
+}
+
+/* PANEL */
+
+.g1-panel {
+  flex: 1;
+}
+
+/* CARDS */
+
+.g1-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 14px 14px 12px;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+}
+
+.g1-card-header {
+  margin-bottom: 8px;
+}
+
+.g1-card-subject {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+}
+
+.g1-card-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+/* LESSON BODY */
+
+.g1-lesson-body {
+  flex: 1;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+.g1-lesson-body p {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.g1-lesson-body ul {
+  padding-left: 18px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+/* FOOTER BUTTONS */
+
+.g1-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.g1-primary-btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(90deg, #22c55e, #14b8a6);
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.g1-primary-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.g1-secondary-btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.16);
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* QUIZ */
+
+.g1-quiz-card {
+  position: relative;
+}
+
+.g1-quiz-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  opacity: 0.9;
+  margin-bottom: 6px;
+}
+
+.g1-quiz-prompt {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.g1-quiz-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.g1-choice-btn {
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.g1-choice-btn.correct {
+  background: rgba(34, 197, 94, 0.4);
+}
+
+.g1-choice-btn.wrong {
+  background: rgba(239, 68, 68, 0.4);
+}
+
+.g1-quiz-footer {
+  justify-content: space-between;
+}
+
+/* GRADUATION MODAL */
+
+.g1-grad-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.g1-grad-modal {
+  background: rgba(20, 20, 40, 0.96);
+  border-radius: 18px;
+  padding: 22px 18px;
+  max-width: 320px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+.g1-grad-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.g1-grad-text {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 16px;
+}
+
+.g1-grad-btn {
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(90deg, #f97316, #ec4899, #6366f1);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* SPARKLES */
+
+.g1-sparkles {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.g1-sparkle {
+  position: absolute;
+  font-size: 1.4rem;
+  animation: g1-sparkle-rise 700ms ease-out forwards;
+}
+
+@keyframes g1-sparkle-rise {
+  0% {
+    transform: translateY(0) scale(0.7);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 720px) {
+  .g1-main {
+    flex-direction: column;
+  }
+  .g1-sidebar {
+    width: 100%;
+  }
+}
 
