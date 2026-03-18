@@ -1,1 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grade 1 Tutor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../theme/tanuki-theme.css">
+  <link rel="stylesheet" href="grade1.css">
+</head>
+
+<body>
+  <div class="g1-root">
+
+    <header class="g1-header">
+      <div class="g1-header-top">
+        <h1 class="g1-title">Grade 1 Tutor</h1>
+        <button class="g1-home-btn" onclick="goHome()">Home</button>
+      </div>
+      <p class="g1-subtitle">
+        Pick a subject, read the quick lesson, then take the quiz to fill your Grade 1 bar.
+      </p>
+    </header>
+
+    <!-- GLOBAL PROGRESS -->
+    <section class="g1-progress-shell">
+      <div class="g1-progress-label">
+        Grade 1 Progress
+        <span id="g1-progress-text">0%</span>
+      </div>
+      <div class="g1-progress-bar">
+        <div id="g1-progress-fill" class="g1-progress-fill"></div>
+      </div>
+    </section>
+
+    <main class="g1-main">
+
+      <!-- SUBJECT LIST -->
+      <aside class="g1-sidebar">
+        <div class="g1-section-label">Subjects</div>
+
+        <button class="g1-subject-btn" data-subject="phonics" onclick="selectSubject('phonics')">
+          <div class="g1-subject-title">Phonics & Reading</div>
+          <div class="g1-subject-status" id="phonics-status">0 / 4 lessons</div>
+        </button>
+
+        <button class="g1-subject-btn" data-subject="sight" onclick="selectSubject('sight')">
+          <div class="g1-subject-title">Sight Words</div>
+          <div class="g1-subject-status" id="sight-status">0 / 3 lessons</div>
+        </button>
+
+        <button class="g1-subject-btn" data-subject="math" onclick="selectSubject('math')">
+          <div class="g1-subject-title">Math Facts</div>
+          <div class="g1-subject-status" id="math-status">0 / 4 lessons</div>
+        </button>
+
+        <button class="g1-subject-btn" data-subject="time" onclick="selectSubject('time')">
+          <div class="g1-subject-title">Time & Money</div>
+          <div class="g1-subject-status" id="time-status">0 / 3 lessons</div>
+        </button>
+
+        <button class="g1-subject-btn" data-subject="science" onclick="selectSubject('science')">
+          <div class="g1-subject-title">Science & World</div>
+          <div class="g1-subject-status" id="science-status">0 / 3 lessons</div>
+        </button>
+
+        <button class="g1-subject-btn" data-subject="logic" onclick="selectSubject('logic')">
+          <div class="g1-subject-title">Logic & Patterns</div>
+          <div class="g1-subject-status" id="logic-status">0 / 3 lessons</div>
+        </button>
+      </aside>
+
+      <!-- LESSON + QUIZ PANEL -->
+      <section class="g1-panel">
+
+        <!-- LESSON VIEW -->
+        <div id="g1-lesson-card" class="g1-card g1-lesson-card">
+          <div class="g1-card-header">
+            <div id="g1-lesson-subject-label" class="g1-card-subject">Choose a subject</div>
+            <div id="g1-lesson-title" class="g1-card-title">Welcome to Grade 1</div>
+          </div>
+
+          <div id="g1-lesson-body" class="g1-lesson-body">
+            <p>
+              Pick a subject on the left. Each lesson teaches you something new. Then take a short quiz to
+              show what you know and fill your Grade 1 bar.
+            </p>
+          </div>
+
+          <div class="g1-card-footer">
+            <button id="g1-start-quiz-btn" class="g1-primary-btn" onclick="startQuiz()" disabled>
+              Start Quiz
+            </button>
+          </div>
+        </div>
+
+        <!-- QUIZ VIEW -->
+        <div id="g1-quiz-card" class="g1-card g1-quiz-card" style="display:none;">
+          <div class="g1-card-header">
+            <div id="g1-quiz-subject-label" class="g1-card-subject">Subject</div>
+            <div id="g1-quiz-title" class="g1-card-title">Quiz</div>
+          </div>
+
+          <div class="g1-quiz-meta">
+            <span id="g1-quiz-lesson-label">Lesson 1</span>
+            <span id="g1-quiz-q-progress">Question 1 / 3</span>
+          </div>
+
+          <div id="g1-quiz-prompt" class="g1-quiz-prompt"></div>
+
+          <div class="g1-quiz-choices">
+            <button class="g1-choice-btn" id="g1-choice-1"></button>
+            <button class="g1-choice-btn" id="g1-choice-2"></button>
+            <button class="g1-choice-btn" id="g1-choice-3"></button>
+          </div>
+
+          <div class="g1-card-footer g1-quiz-footer">
+            <button class="g1-secondary-btn" onclick="backToLesson()">Back to Lesson</button>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <!-- GRADUATION MODAL -->
+    <div id="g1-grad-overlay" class="g1-grad-overlay" style="display:none;">
+      <div class="g1-grad-modal">
+        <div class="g1-grad-title">You finished Grade 1!</div>
+        <div class="g1-grad-text">
+          You completed all Grade 1 lessons and quizzes. That’s real schoolwork. Tanuki is proud of you.
+        </div>
+        <button class="g1-grad-btn" onclick="unlockGrade1Reward()">Unlock Reward</button>
+      </div>
+    </div>
+
+    <!-- SPARKLES -->
+    <div id="g1-sparkles" class="g1-sparkles"></div>
+
+  </div>
+
+  <script src="grade1.js"></script>
+</body>
+</html>
 
