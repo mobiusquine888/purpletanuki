@@ -13,26 +13,6 @@
 
 <body>
 
-  <!-- ⭐ NEW: Fake Browser URL Bar -->
-  <div class="browser-chrome">
-    <div class="browser-dots">
-      <span class="dot red"></span>
-      <span class="dot yellow"></span>
-      <span class="dot green"></span>
-    </div>
-
-    <input
-      id="arcade-url-input"
-      class="browser-url"
-      type="text"
-      placeholder="https://www.youtube.com"
-      autocomplete="off"
-    />
-
-    <button id="arcade-go-btn" class="browser-go-btn">Go</button>
-  </div>
-  <!-- END URL BAR -->
-
   <div class="arcade-root">
 
     <!-- SIMPLE HEADER -->
@@ -44,6 +24,26 @@
     <img src="images/tanuki_arcade.png" class="arcade-tanuki-hero" alt="Purple Tanuki">
 
     <p class="simple-line">I'm ready when you are.</p>
+
+    <!-- ⭐ URL BAR MOVED HERE (inside the Arcade) -->
+    <div class="browser-chrome">
+      <div class="browser-dots">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+
+      <input
+        id="arcade-url-input"
+        class="browser-url"
+        type="text"
+        placeholder="https://www.youtube.com"
+        autocomplete="off"
+      />
+
+      <button id="arcade-go-btn" class="browser-go-btn">Go</button>
+    </div>
+    <!-- END URL BAR -->
 
     <!-- SIMPLE BUTTONS -->
     <div class="simple-buttons">
@@ -96,5 +96,4 @@
   <script src="arcade.js"></script>
 </body>
 </html>
-
 
