@@ -2,7 +2,7 @@
    PURPLE TANUKI — SIMPLE ARCADE HUB (FINAL REFORGE)
    ============================================================ */
 
-/* ⭐ NEW: URL BAR (Fake Browser Chrome) */
+/* ⭐ URL BAR (Fake Browser Chrome) — now inside layout */
 .browser-chrome {
   width: 100%;
   box-sizing: border-box;
@@ -13,11 +13,9 @@
   background: rgba(10, 6, 30, 0.98);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 
-  /* ⭐ FIXED: Make it a true top bar */
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
+  /* ⭐ Correct behavior INSIDE the Arcade */
+  position: relative;
+  margin: 20px 0;
 }
 
 .browser-dots {
@@ -75,15 +73,11 @@ body {
   justify-content: center;
 }
 
-/* ⭐ Push Arcade Hub down so it clears the fixed URL bar */
+/* ⭐ No need for huge padding now */
 .arcade-root {
   width: 100%;
   max-width: 500px;
   padding: 20px;
-
-  /* ⭐ FINAL FIX: Perfect spacing under the fixed bar */
-  padding-top: 70px;
-
   text-align: center;
 }
 
