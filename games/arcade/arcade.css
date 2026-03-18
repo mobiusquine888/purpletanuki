@@ -38,14 +38,9 @@ body {
 }
 
 /* ============================================================
-   TANUKI HERO IMAGE (NEW)
+   TANUKI HERO IMAGE (FINAL)
    ============================================================ */
 
-/* ❌ Removed the circular orb container entirely */
-/* ❌ Removed the 160×160 constraint */
-/* ❌ Removed the 115px tiny image size */
-
-/* ⭐ NEW: Full hero image */
 .arcade-tanuki-hero {
   width: 55vw;          /* responsive hero size on phones */
   max-width: 260px;     /* prevents it from getting too large on tablets */
@@ -71,6 +66,15 @@ body {
   gap: 14px;
 }
 
+.simple-section-label {
+  margin-top: 18px;
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  opacity: 0.85;
+  text-align: left;
+}
+
 .simple-button {
   width: 100%;
   padding: 14px;
@@ -89,6 +93,24 @@ body {
 }
 
 /* ============================================================
+   FOCUS MODE TOGGLE
+   ============================================================ */
+
+.focus-toggle {
+  margin-top: 30px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.focus-toggle:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ============================================================
    MOBILE OPTIMIZATION
    ============================================================ */
 
@@ -100,6 +122,10 @@ body {
   .simple-button {
     font-size: 1.1rem;
     padding: 12px;
+  }
+
+  .simple-section-label {
+    font-size: 1rem;
   }
 }
 
