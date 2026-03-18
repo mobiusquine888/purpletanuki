@@ -1,152 +1,154 @@
-/* ============================================================
-   PRESCHOOL TUTOR — FINAL REFORGE
-   ============================================================ */
-
+/* BASE LAYOUT */
 body {
   margin: 0;
   padding: 0;
   font-family: "Nunito", sans-serif;
   background: var(--tanuki-bg);
   color: var(--tanuki-white);
-  min-height: 100vh;
   display: flex;
   justify-content: center;
 }
 
-/* ROOT CONTAINER */
 .preschool-root {
   width: 100%;
   max-width: 500px;
   padding: 20px;
-  padding-top: 90px; /* keeps it below the global purple header */
   text-align: center;
 }
 
-/* ============================================================
-   HEADER
-   ============================================================ */
+/* HEADER */
+.preschool-header {
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
 
-.title {
+.preschool-title {
   font-size: 2rem;
   font-weight: 800;
-  margin-bottom: 20px;
 }
 
-/* ============================================================
-   HERO IMAGE
-   ============================================================ */
-
-.tanuki-hero {
+/* HERO */
+.preschool-hero {
   width: 55vw;
-  max-width: 260px;
+  max-width: 240px;
   height: auto;
   display: block;
-  margin: 0 auto 20px;
+  margin: 0 auto 16px;
 }
 
-/* ============================================================
-   SUBJECT LIST
-   ============================================================ */
-
-.subject-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+.preschool-line {
+  font-size: 1.05rem;
+  opacity: 0.9;
   margin-bottom: 20px;
 }
 
-.subject-btn {
+/* CATEGORY LIST */
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.category-item {
   width: 100%;
-  padding: 14px;
-  font-size: 1.2rem;
+  padding: 10px 12px;
   border-radius: 14px;
-  background: var(--tanuki-purple-light);
-  color: var(--tanuki-white);
   border: none;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  text-align: left;
   cursor: pointer;
   transition: 0.15s ease;
 }
 
-.subject-btn:hover {
-  background: var(--tanuki-purple);
-  transform: translateY(-2px);
+.category-item:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
 }
 
-/* ============================================================
-   LESSON VIEW
-   ============================================================ */
+.category-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  margin-right: 10px;
+  object-fit: contain;
+}
 
-#lesson-view,
-#mastery-view,
-#final-view {
-  background: rgba(255, 255, 255, 0.08);
-  padding: 20px;
+.category-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.category-subtitle {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* LESSON CARD */
+.lesson-card {
+  margin-top: 24px;
+  padding: 18px 16px;
   border-radius: 16px;
-  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.08);
   text-align: left;
 }
 
-#lesson-view h2,
-#mastery-view h2,
-#final-view h2 {
-  text-align: center;
-  margin-bottom: 12px;
+.lesson-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
-#lesson-view ul,
-#mastery-view ul,
-#final-view ul {
+.lesson-body {
+  font-size: 1rem;
+  line-height: 1.5;
+  opacity: 0.95;
+  margin-bottom: 18px;
+}
+
+.lesson-body ul {
   padding-left: 20px;
-  margin-bottom: 20px;
+  margin: 8px 0 12px;
 }
 
-#lesson-view button,
-#mastery-view button,
-#final-view button {
-  width: 100%;
-  padding: 14px;
-  font-size: 1.2rem;
-  border-radius: 14px;
-  background: var(--tanuki-purple-light);
-  color: var(--tanuki-white);
+.lesson-body li {
+  margin-bottom: 4px;
+}
+
+/* BACK BUTTON */
+.back-btn {
+  padding: 10px 16px;
+  border-radius: 12px;
   border: none;
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--tanuki-white);
+  font-size: 0.95rem;
   cursor: pointer;
   transition: 0.15s ease;
 }
 
-#lesson-view button:hover,
-#mastery-view button:hover,
-#final-view button:hover {
-  background: var(--tanuki-purple);
-  transform: translateY(-2px);
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
 }
 
-/* ============================================================
-   HIDDEN CLASS
-   ============================================================ */
-
-.hidden {
-  display: none;
-}
-
-/* ============================================================
-   MOBILE OPTIMIZATION
-   ============================================================ */
-
+/* MOBILE TWEAKS */
 @media (max-width: 480px) {
-  .title {
-    font-size: 1.7rem;
+  .preschool-title {
+    font-size: 1.8rem;
   }
 
-  .subject-btn {
-    font-size: 1.1rem;
-    padding: 12px;
+  .category-title {
+    font-size: 1rem;
   }
 
-  #lesson-view,
-  #mastery-view,
-  #final-view {
-    padding: 16px;
+  .category-subtitle {
+    font-size: 0.85rem;
   }
 }
 
