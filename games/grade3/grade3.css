@@ -1,0 +1,356 @@
+:root {
+  --g3-bg: #080512;
+  --g3-panel: #171028;
+  --g3-panel-soft: #1f1536;
+  --g3-accent: #7a4dff;
+  --g3-accent-strong: #4e2acb;
+  --g3-accent-soft: #bca3ff;
+  --g3-text: #f4f0ff;
+  --g3-text-soft: #c9bdf0;
+  --g3-success: #4fd18b;
+  --g3-border: #34245a;
+  --g3-radius-soft: 12px;
+  --g3-radius-sharp: 8px;
+  --g3-shadow-soft: 0 14px 40px rgba(0, 0, 0, 0.55);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Nunito", sans-serif;
+  background: radial-gradient(circle at top, #2a174d 0, #05020a 55%, #020008 100%);
+  color: var(--g3-text);
+}
+
+#g3-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+
+.g3-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  background: linear-gradient(90deg, #120a20, #1c1232);
+  border-bottom: 1px solid var(--g3-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.g3-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.g3-title {
+  font-size: 1.45rem;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.g3-home-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--g3-text);
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.g3-home-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+/* PROGRESS BAR */
+
+.g3-progress-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.g3-progress-label {
+  font-size: 0.8rem;
+  color: var(--g3-text-soft);
+}
+
+.g3-progress-bar {
+  width: 160px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+#g3-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--g3-accent), var(--g3-success));
+  transition: width 0.25s ease-out;
+}
+
+.g3-progress-percent {
+  font-size: 0.8rem;
+  min-width: 32px;
+  text-align: right;
+}
+
+/* LAYOUT */
+
+.g3-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 16px;
+  padding: 16px;
+}
+
+.g3-sidebar {
+  background: var(--g3-panel);
+  border-radius: var(--g3-radius-soft);
+  padding: 12px;
+  box-shadow: var(--g3-shadow-soft);
+  border: 1px solid var(--g3-border);
+}
+
+.g3-sidebar-title {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: var(--g3-accent-soft);
+}
+
+.g3-subject-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+}
+
+.g3-subject-btn {
+  width: 100%;
+  text-align: left;
+  border-radius: var(--g3-radius-sharp);
+  border: 1px solid transparent;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--g3-text-soft);
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+
+.g3-subject-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
+}
+
+.g3-subject-btn.active {
+  background: rgba(122, 77, 255, 0.18);
+  border-color: var(--g3-accent);
+  color: var(--g3-text);
+}
+
+.g3-subject-meta {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+/* CONTENT */
+
+.g3-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.g3-card {
+  background: var(--g3-panel-soft);
+  border-radius: var(--g3-radius-soft);
+  padding: 14px 16px;
+  box-shadow: var(--g3-shadow-soft);
+  border: 1px solid var(--g3-border);
+}
+
+.g3-card-title {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.g3-card-body {
+  font-size: 0.95rem;
+  color: var(--g3-text-soft);
+}
+
+.g3-card-body p {
+  margin: 0 0 8px;
+}
+
+.g3-card-body ul {
+  margin: 6px 0 8px 18px;
+  padding: 0;
+}
+
+/* BUTTONS */
+
+.g3-primary-btn,
+.g3-secondary-btn {
+  border-radius: 999px;
+  border: none;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+}
+
+.g3-primary-btn {
+  background: linear-gradient(135deg, var(--g3-accent), var(--g3-accent-strong));
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(78, 42, 203, 0.6);
+}
+
+.g3-primary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(78, 42, 203, 0.8);
+}
+
+.g3-secondary-btn {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--g3-text-soft);
+}
+
+.g3-secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* QUIZ */
+
+.g3-quiz-card {
+  margin-top: 4px;
+}
+
+.g3-quiz-question {
+  margin-bottom: 10px;
+}
+
+.g3-quiz-question-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.g3-quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.g3-quiz-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.g3-quiz-option input {
+  accent-color: var(--g3-accent);
+}
+
+.g3-quiz-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* GRADUATION */
+
+.g3-grad-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 0, 15, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.g3-grad-modal {
+  background: var(--g3-panel);
+  border-radius: 18px;
+  padding: 18px 20px;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--g3-accent-soft);
+}
+
+/* SPARKLES */
+
+.g3-sparkles-layer {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.g3-sparkle {
+  position: absolute;
+  font-size: 1.1rem;
+  opacity: 0;
+  animation: g3-sparkle-float 0.7s ease-out forwards;
+}
+
+@keyframes g3-sparkle-float {
+  0% {
+    transform: translateY(10px) scale(0.8);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-18px) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+  .g3-main {
+    grid-template-columns: 1fr;
+  }
+
+  .g3-sidebar {
+    order: 2;
+  }
+
+  .g3-content {
+    order: 1;
+  }
+}
