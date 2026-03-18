@@ -14,35 +14,51 @@
 
     <header class="preschool-header">
       <h1 class="preschool-title">Preschool Tutor</h1>
+      <p class="preschool-line">Tap to learn and fill the bar.</p>
     </header>
 
-    <p class="preschool-line">Tap to begin learning.</p>
+    <!-- PROGRESS BAR -->
+    <div class="progress-wrapper">
+      <div class="progress-label">
+        Preschool Progress
+        <span id="progressText">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+    </div>
 
     <!-- CATEGORY LIST -->
     <div class="category-list">
 
       <button class="category-item" onclick="startLesson('letters')">
         <div class="category-title">Letters</div>
+        <div class="category-subtitle" id="lettersStatus">0 / 10</div>
       </button>
 
       <button class="category-item" onclick="startLesson('numbers')">
         <div class="category-title">Numbers</div>
+        <div class="category-subtitle" id="numbersStatus">0 / 10</div>
       </button>
 
       <button class="category-item" onclick="startLesson('shapes')">
         <div class="category-title">Shapes</div>
+        <div class="category-subtitle" id="shapesStatus">0 / 8</div>
       </button>
 
       <button class="category-item" onclick="startLesson('colors')">
         <div class="category-title">Colors</div>
+        <div class="category-subtitle" id="colorsStatus">0 / 8</div>
       </button>
 
       <button class="category-item" onclick="startLesson('patterns')">
         <div class="category-title">Patterns</div>
+        <div class="category-subtitle" id="patternsStatus">0 / 6</div>
       </button>
 
       <button class="category-item" onclick="startLesson('memory')">
         <div class="category-title">Memory</div>
+        <div class="category-subtitle" id="memoryStatus">0 / 6</div>
       </button>
 
     </div>
@@ -60,9 +76,22 @@
       <button class="back-btn" onclick="goBack()">Back</button>
     </div>
 
+    <!-- GRADUATION MODAL -->
+    <div id="gradOverlay" class="grad-overlay" style="display:none;">
+      <div class="grad-modal">
+        <div class="grad-title">You finished Preschool!</div>
+        <div class="grad-text">
+          You filled the bar and completed all activities.
+        </div>
+        <button class="grad-btn" onclick="unlockReward()">Unlock Reward</button>
+      </div>
+    </div>
+
+    <!-- SPARKLES CONTAINER -->
+    <div id="sparklesContainer" class="sparkles-container"></div>
+
   </div>
 
   <script src="preschool.js"></script>
 </body>
 </html>
-
