@@ -6,7 +6,7 @@ const tanukiLines = [
   "I’m ready when you are. Pick a game!",
   "Every game you play feeds my magic.",
   "Study Gate boosts your XP the fastest.",
-  "Short bursts are best. One game at a time.",
+  "Short bursts are best. One game at a time."
 ];
 
 let tanukiLineIndex = 0;
@@ -21,7 +21,7 @@ setInterval(cycleTanukiLine, 8000);
 
 
 /* ============================================================
-   FOCUS MODE TOGGLE (STEP 1)
+   FOCUS MODE TOGGLE
    ============================================================ */
 
 const focusToggle = document.getElementById("focus-toggle");
@@ -41,33 +41,7 @@ updateFocusToggle();
 
 
 /* ============================================================
-   GAME CARD CLICK HANDLERS (unchanged)
-   ============================================================ */
-
-const cards = document.querySelectorAll(".arcade-card:not(.arcade-card-disabled)");
-
-cards.forEach((card) => {
-  card.addEventListener("click", () => {
-    const game = card.getAttribute("data-game");
-    if (!game) return;
-
-    const routes = {
-      knowledge: "/games/knowledge/index.html",
-      reaction: "/games/reaction/index.html",
-      memory: "/games/memory/index.html",
-      swipe: "/games/swipe/index.html",
-    };
-
-    const target = routes[game];
-    if (!target) return;
-
-    window.location.href = target;
-  });
-});
-
-
-/* ============================================================
-   YOUTUBE BUTTON — STEP 2 (Gate Ritual Redirect)
+   YOUTUBE BUTTON — Gate Ritual Redirect
    ============================================================ */
 
 const youtubeBtn = document.getElementById("youtube-btn");
@@ -81,7 +55,6 @@ youtubeBtn.addEventListener("click", () => {
     return;
   }
 
-  // Focus Mode → send user to Gate Ritual instead
-  localStorage.setItem("nextUnlockTarget", "youtube");
-  window.location.href = "../gate/index.html";  // You will create this in Step 3
+  // Focus Mode → redirect to Gate Ritual
+  window.location.href = "../gate/index.html";
 });
