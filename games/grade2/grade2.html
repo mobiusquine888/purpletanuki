@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Purple Tanuki — Grade 2 Tutor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="grade2.css" />
+</head>
+<body>
+  <div id="g2-app">
+    <header class="g2-header">
+      <div class="g2-header-left">
+        <button class="g2-home-btn" onclick="goHome()">🏠 Arcade</button>
+        <h1 class="g2-title">Grade 2 Tutor</h1>
+      </div>
+      <div class="g2-header-right">
+        <div class="g2-progress-wrapper">
+          <span class="g2-progress-label">Grade 2 Progress</span>
+          <div class="g2-progress-bar">
+            <div id="g2-progress-fill"></div>
+          </div>
+          <span id="g2-progress-percent" class="g2-progress-percent">0%</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="g2-main">
+      <aside class="g2-sidebar">
+        <h2 class="g2-sidebar-title">Subjects</h2>
+        <div id="g2-subject-list" class="g2-subject-list"></div>
+      </aside>
+
+      <section class="g2-content">
+        <div id="g2-lesson-card" class="g2-card g2-lesson-card">
+          <h2 id="g2-lesson-title" class="g2-card-title">Choose a subject to begin</h2>
+          <div id="g2-lesson-body" class="g2-card-body">
+            <p>Select a subject on the left to see lessons. Each lesson ends with a short quiz to build mastery.</p>
+          </div>
+          <button id="g2-start-quiz-btn" class="g2-primary-btn" style="display:none;" onclick="startQuiz()">
+            Start Quiz
+          </button>
+        </div>
+
+        <div id="g2-quiz-card" class="g2-card g2-quiz-card" style="display:none;">
+          <h2 id="g2-quiz-title" class="g2-card-title">Quiz</h2>
+          <div id="g2-quiz-body" class="g2-card-body"></div>
+          <div class="g2-quiz-actions">
+            <button class="g2-secondary-btn" onclick="backToLesson()">Back to Lesson</button>
+            <button class="g2-primary-btn" onclick="submitQuiz()">Submit Quiz</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="g2-grad-overlay" class="g2-grad-overlay">
+      <div class="g2-grad-modal">
+        <h2>Grade 2 Complete!</h2>
+        <p>You’ve mastered the full Grade 2 spectrum. Ready for your reward?</p>
+        <button class="g2-primary-btn" onclick="unlockGrade2Reward()">Unlock Grade 2 Reward</button>
+        <button class="g2-secondary-btn" onclick="closeGraduation()">Stay in Grade 2</button>
+      </div>
+    </div>
+
+    <div id="g2-sparkles" class="g2-sparkles-layer"></div>
+  </div>
+
+  <script src="grade2.js"></script>
+</body>
+</html>
