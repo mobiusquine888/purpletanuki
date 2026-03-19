@@ -2,11 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Purple Tanuki – Begin</title>
+  <title>Purple Tanuki – Welcome</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Global Tanuki theme -->
-  <link rel="stylesheet" href="/games/theme/tanuki-theme.css">
 
   <style>
     body {
@@ -16,32 +13,14 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      overflow: hidden;
       color: white;
       font-family: Nunito, sans-serif;
       text-align: center;
     }
 
-    .intro-container {
-      animation: fadeIn 1.5s ease forwards;
-    }
-
-    .tanuki-img {
+    .tanuki {
       width: 180px;
-      opacity: 0;
-      animation: fadeIn 2s ease forwards, float 4s ease-in-out infinite;
-    }
-
-    .intro-text {
-      margin-top: 20px;
-      font-size: 1.4rem;
-      opacity: 0;
-      animation: fadeIn 2s ease forwards 0.8s;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      animation: float 4s ease-in-out infinite;
     }
 
     @keyframes float {
@@ -53,18 +32,17 @@
 </head>
 
 <body>
-  <div class="intro-container">
-    <img src="/games/ritual/images/tanuki_neutral.png" class="tanuki-img">
-    <div class="intro-text">Take a breath with me…</div>
+  <div>
+    <img src="/games/ritual/images/tanuki_neutral.png" class="tanuki">
+    <p>Take a breath with me…</p>
   </div>
 
   <script>
-    // After 4 seconds → go to Browser
+    // After 3 seconds → go to Arcade
     setTimeout(() => {
-      window.location.href = "/browser/index.html";
-    }, 4000);
+      window.location.href = "/games/arcade/index.html";
+    }, 3000);
   </script>
 </body>
 </html>
-
 
