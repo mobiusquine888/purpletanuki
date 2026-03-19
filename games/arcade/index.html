@@ -2,57 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Purple Tanuki Arcade</title>
+  <title>Purple Tanuki – Arcade</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="../theme/tanuki-theme.css">
-  <link rel="stylesheet" href="arcade.css">
+  <style>
+    body {
+      margin: 0;
+      background: #120a1f;
+      color: white;
+      font-family: Nunito, sans-serif;
+      text-align: center;
+      padding-top: 40px;
+    }
+
+    h1 { margin-bottom: 20px; }
+
+    .btn {
+      display: block;
+      margin: 12px auto;
+      padding: 14px 20px;
+      width: 220px;
+      background: #6a4bc3;
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="arcade-root">
+  <h1>Choose Your Challenge</h1>
 
-    <header class="simple-header">
-      <h1 class="simple-title">Purple Tanuki Arcade</h1>
-    </header>
+  <a class="btn" href="/games/arcade/grade7.html">7th Grade Challenge</a>
+  <a class="btn" href="/games/arcade/quick.html">Quick Practice</a>
+  <a class="btn" href="/games/arcade/practice.html">Subject Practice</a>
 
-    <img src="images/tanuki_arcade.png" class="arcade-tanuki-hero" alt="Purple Tanuki">
-
-    <p class="simple-line">Choose your world.</p>
-
-    <div class="simple-buttons">
-
-      <div class="simple-section-label">Curriculum Worlds</div>
-
-      <button class="simple-button" onclick="window.location.href='../preschool/preschool.html'">
-        Preschool Tutor
-      </button>
-
-      <button class="simple-button" onclick="window.location.href='../kindergarten/kindergarten.html'">
-        Kindergarten Tutor
-      </button>
-
-      <button class="simple-button" onclick="window.location.href='../grade1/grade1.html'">
-        1st Grade Tutor
-      </button>
-
-      <button class="simple-button" onclick="window.location.href='../grade2/grade2.html'">
-        2nd Grade Tutor
-      </button>
-
-      <button class="simple-button" onclick="window.location.href='../grade3/grade3.html'">
-        3rd Grade Tutor
-      </button>
-
-      <button class="simple-button" onclick="window.location.href='../grade4/grade4.html'">
-        4th Grade Tutor
-      </button>
-
-    </div>
-
-  </div>
-
-  <script src="arcade.js"></script>
 </body>
 </html>
 
