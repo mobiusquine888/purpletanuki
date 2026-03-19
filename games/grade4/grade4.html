@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>4th Grade Tutor — Purple Tanuki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../theme/tanuki-theme.css">
+  <link rel="stylesheet" href="grade4.css">
+</head>
+
+<body>
+  <div class="g4-root">
+
+    <!-- HEADER -->
+    <header class="g4-header">
+      <button class="g4-home-btn" onclick="goHome()">Home</button>
+      <h1 class="g4-title">4th Grade Tutor</h1>
+    </header>
+
+    <!-- GLOBAL PROGRESS -->
+    <div class="g4-progress-bar">
+      <div id="g4-progress-fill" class="g4-progress-fill"></div>
+    </div>
+    <div id="g4-progress-text" class="g4-progress-text">0%</div>
+
+    <!-- SUBJECT BUTTONS -->
+    <div class="g4-subjects">
+      <button class="g4-subject-btn" data-subject="reading" onclick="selectSubject('reading')">
+        Reading & Writing
+        <div id="reading-status" class="g4-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g4-subject-btn" data-subject="math" onclick="selectSubject('math')">
+        Math
+        <div id="math-status" class="g4-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g4-subject-btn" data-subject="science" onclick="selectSubject('science')">
+        Science
+        <div id="science-status" class="g4-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g4-subject-btn" data-subject="social" onclick="selectSubject('social')">
+        Social Studies
+        <div id="social-status" class="g4-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g4-subject-btn" data-subject="logic" onclick="selectSubject('logic')">
+        Logic & Patterns
+        <div id="logic-status" class="g4-status-text">0 / 3 lessons</div>
+      </button>
+    </div>
+
+    <!-- LESSON CARD -->
+    <div id="g4-lesson-card" class="g4-card" style="display:none;">
+      <div class="g4-card-header">
+        <div id="g4-lesson-subject-label" class="g4-card-subject"></div>
+        <div id="g4-lesson-title" class="g4-card-title"></div>
+      </div>
+
+      <div id="g4-lesson-body" class="g4-card-body"></div>
+
+      <button id="g4-start-quiz-btn" class="g4-start-btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- QUIZ CARD -->
+    <div id="g4-quiz-card" class="g4-card" style="display:none;">
+      <div class="g4-card-header">
+        <div id="g4-quiz-subject-label" class="g4-card-subject"></div>
+        <div id="g4-quiz-title" class="g4-card-title"></div>
+        <div id="g4-quiz-lesson-label" class="g4-card-lesson"></div>
+        <div id="g4-quiz-q-progress" class="g4-card-progress"></div>
+      </div>
+
+      <div id="g4-quiz-prompt" class="g4-card-body"></div>
+
+      <div class="g4-choices">
+        <button id="g4-choice-1" class="g4-choice-btn"></button>
+        <button id="g4-choice-2" class="g4-choice-btn"></button>
+        <button id="g4-choice-3" class="g4-choice-btn"></button>
+      </div>
+
+      <button class="g4-back-btn" onclick="backToLesson()">Back to Lesson</button>
+    </div>
+
+    <!-- SPARKLES -->
+    <div id="g4-sparkles" class="g4-sparkles"></div>
+
+    <!-- GRADUATION OVERLAY -->
+    <div id="g4-grad-overlay" class="g4-grad-overlay" style="display:none;">
+      <div class="g4-grad-box">
+        <h2>🎉 You finished 4th Grade! 🎉</h2>
+        <p>You completed all lessons in every subject.</p>
+        <button class="g4-grad-btn" onclick="unlockGrade4Reward()">Continue</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="grade4.js"></script>
+</body>
+</html>
