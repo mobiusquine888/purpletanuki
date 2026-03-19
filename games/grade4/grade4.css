@@ -4,6 +4,7 @@
 
 .g4-root {
   padding: 20px;
+  padding-top: 120px; /* prevents overlap with Purple Tanuki banner */
   font-family: Nunito, sans-serif;
   color: #f0eaff;
 }
@@ -21,6 +22,8 @@
   padding: 10px 16px;
   border-radius: 8px;
   font-size: 1rem;
+  position: relative; /* ensures visibility */
+  z-index: 10;        /* ensures clickability */
 }
 
 .g4-title {
@@ -179,3 +182,4 @@
   border-radius: 10px;
   font-size: 1rem;
 }
+
