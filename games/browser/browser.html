@@ -2,29 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tanuki Browser</title>
+  <title>Purple Tanuki – Browser</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="browser.css">
+  <style>
+    body {
+      margin: 0;
+      background: #0d0718;
+      color: white;
+      font-family: Nunito, sans-serif;
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    #urlBar {
+      width: 80%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    iframe {
+      width: 90%;
+      height: 70vh;
+      border: none;
+      border-radius: 10px;
+      background: white;
+    }
+  </style>
 </head>
 
 <body>
+  <input id="urlBar" placeholder="Enter a website…" />
 
-  <!-- HEADER BAR -->
-  <div class="browser-bar">
-    <button id="backBtn">←</button>
-    <button id="forwardBtn">→</button>
+  <iframe id="viewer"></iframe>
 
-    <input id="urlInput" type="text" placeholder="Enter a website…" />
+  <script>
+    const blocked = ["youtube.com", "tiktok.com", "roblox.com"];
 
-    <button id="goBtn">Go</button>
-  </div>
+    document.getElementById("urlBar").addEventListener("change", () => {
+      const url = document.getElementById("urlBar").value;
 
-  <!-- MAIN BROWSER WINDOW -->
-  <iframe id="browserFrame" src="about:blank"></iframe>
+      // Check for blocked sites
+      if (blocked.some(b => url.includes(b))) {
+        window.location.href = "/games/ritual/index.html";
+        return;
+      }
 
-  <!-- JS -->
-  <script src="browser.js"></script>
-
+      // Load safe site
+      document.getElementById("viewer").src = "https://" + url;
+    });
+  </script>
 </body>
 </html>
