@@ -2,58 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Purple Tanuki – Arcade Hub</title>
+  <title>Purple Tanuki Arcade</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      background: #120a1f;
-      color: white;
-      font-family: Nunito, sans-serif;
-      text-align: center;
-      padding-top: 50px;
-    }
-
-    h1 {
-      margin-bottom: 30px;
-      font-size: 2rem;
-      font-weight: 700;
-    }
-
-    .btn {
-      display: block;
-      margin: 16px auto;
-      padding: 16px 22px;
-      width: 260px;
-      background: #6a4bc3;
-      border-radius: 12px;
-      color: white;
-      text-decoration: none;
-      font-size: 1.25rem;
-      font-weight: 600;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .btn:hover {
-      background: #7d5ce0;
-      transform: translateY(-2px);
-    }
-  </style>
+  <link rel="stylesheet" href="../theme/tanuki-theme.css">
+  <link rel="stylesheet" href="arcade.css">
 </head>
 
 <body>
-  <h1>Choose Your World</h1>
+  <div class="arcade-root">
 
-  <a class="btn" href="/games/preschool/index.html">Preschool</a>
-  <a class="btn" href="/games/kindergarten/index.html">Kindergarten</a>
-  <a class="btn" href="/games/grade1/index.html">Grade 1</a>
-  <a class="btn" href="/games/grade2/index.html">Grade 2</a>
-  <a class="btn" href="/games/grade3/index.html">Grade 3</a>
-  <a class="btn" href="/games/grade4/index.html">Grade 4</a>
+    <header class="simple-header">
+      <h1 class="simple-title">Purple Tanuki Arcade</h1>
+    </header>
 
+    <img src="images/tanuki_arcade.png" class="arcade-tanuki-hero" alt="Purple Tanuki">
+
+    <p class="simple-line">Choose your world.</p>
+
+    <div class="simple-buttons">
+
+      <div class="simple-section-label">Curriculum Worlds</div>
+
+      <button class="simple-button" onclick="window.location.href='../preschool/preschool.html'">
+        Preschool Tutor
+      </button>
+
+      <button class="simple-button" onclick="window.location.href='../kindergarten/kindergarten.html'">
+        Kindergarten Tutor
+      </button>
+
+      <button class="simple-button" onclick="window.location.href='../grade1/grade1.html'">
+        1st Grade Tutor
+      </button>
+
+      <button class="simple-button" onclick="window.location.href='../grade2/grade2.html'">
+        2nd Grade Tutor
+      </button>
+
+      <button class="simple-button" onclick="window.location.href='../grade3/grade3.html'">
+        3rd Grade Tutor
+      </button>
+
+      <button class="simple-button" onclick="window.location.href='../grade4/grade4.html'">
+        4th Grade Tutor
+      </button>
+
+    </div>
+
+  </div>
+
+  <script src="arcade.js"></script>
 </body>
 </html>
+
 
 
 
