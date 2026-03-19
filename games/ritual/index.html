@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Purple Tanuki – Gate Ritual</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Global Tanuki theme -->
+  <link rel="stylesheet" href="/games/theme/tanuki-theme.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #1a0f2e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      font-family: Nunito, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .ritual-container {
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    .tanuki-img {
+      width: 180px;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards, float 4s ease-in-out infinite;
+    }
+
+    .ritual-text {
+      margin-top: 20px;
+      font-size: 1.4rem;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards 0.8s;
+    }
+
+    #enterBtn {
+      display: none;
+      margin-top: 25px;
+      padding: 12px 20px;
+      background: #6a4bc3;
+      border-radius: 10px;
+      color: white;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ritual-container">
+    <!-- Neutral Tanuki first -->
+    <img id="tanuki" src="/games/ritual/images/tanuki_neutral.png" class="tanuki-img">
+
+    <div id="ritualText" class="ritual-text">
+      Take a deep breath…
+    </div>
+
+    <a id="enterBtn" href="/games/arcade/index.html">Enter the Gate</a>
+  </div>
+
+  <script>
+    // After 4 seconds → switch to ready Tanuki + show button
+    setTimeout(() => {
+      document.getElementById("tanuki").src =
+        "/games/ritual/images/tanuki_ready.png";
+
+      document.getElementById("ritualText").textContent =
+        "You are ready.";
+
+      document.getElementById("enterBtn").style.display = "inline-block";
+    }, 4000);
+  </script>
+</body>
+</html>
