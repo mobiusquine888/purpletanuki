@@ -31,13 +31,13 @@ function startRitual() {
   setTimeout(() => {
     ritualReady = true;
 
-    // ⭐ FIXED: Correct absolute path for ready pose
+    // Ready pose
     tanukiImg.src = "/games/ritual/images/tanuki_ready.png?v=1";
     tanukiImg.style.animation = "tanuki-ready-pop 0.6s ease forwards";
 
     // Update text
     phaseEl.textContent = "The gate is ready.";
-    subtextEl.textContent = "Your challenge awaits.";
+    subtextEl.textContent = "You may browse now.";
     buttonEl.textContent = "Enter the gate";
     buttonEl.disabled = false;
 
@@ -57,8 +57,8 @@ buttonEl.addEventListener("click", () => {
   document.body.style.opacity = "0";
 
   setTimeout(() => {
-    // ⭐ REFORGED: Always return to the Arcade Hub
-    window.location.href = "../arcade/index.html";
+    // ⭐ REFORGED: Go to the Browser World
+    window.location.href = "/games/browser/index.html";
   }, 600);
 });
 
@@ -68,6 +68,7 @@ buttonEl.addEventListener("click", () => {
 // ============================================================
 
 startRitual();
+
 
 
 
