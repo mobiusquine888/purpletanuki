@@ -1,12 +1,24 @@
 /* ============================
-   ARCADE — GLOBAL LAYOUT
+   GLOBAL BACKGROUND — SOLID PURPLE
+   ============================ */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #1B132B; /* Solid PurpleTanuki base */
+  min-height: 100%;
+  width: 100%;
+  font-family: Nunito, sans-serif;
+  color: #f0eaff;
+}
+
+/* ============================
+   ROOT CONTAINER
    ============================ */
 
 .arc-root {
   padding: 20px;
   padding-top: 100px; /* space for browser bar */
-  font-family: Nunito, sans-serif;
-  color: #f0eaff;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -147,4 +159,5 @@
     font-size: 1.5rem;
   }
 }
+
 
