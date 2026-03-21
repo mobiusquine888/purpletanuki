@@ -7,115 +7,111 @@
 
   <link rel="stylesheet" href="../theme/tanuki-theme.css">
   <link rel="stylesheet" href="arcade.css">
-
-  <style>
-    /* Browser preview block */
-    .browser-preview {
-      margin: 30px auto 40px auto;
-      width: 90%;
-      max-width: 480px;
-      background: #1d1330;
-      border-radius: 14px;
-      padding: 16px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.4);
-    }
-
-    .browser-urlbar {
-      background: #2a1f45;
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      color: #cfc6ff;
-      text-align: left;
-      margin-bottom: 12px;
-      font-family: Nunito, sans-serif;
-    }
-
-    .browser-locked {
-      background: #3a2a60;
-      border-radius: 10px;
-      padding: 30px;
-      color: #d8cfff;
-      font-size: 1rem;
-      text-align: center;
-      opacity: 0.7;
-    }
-
-    .browser-locked small {
-      display: block;
-      margin-top: 8px;
-      font-size: 0.8rem;
-      opacity: 0.8;
-    }
-
-    .simple-section-label {
-      margin-top: 40px;
-    }
-  </style>
 </head>
 
 <body>
-  <div class="arcade-root">
 
-    <header class="simple-header">
-      <h1 class="simple-title">Purple Tanuki Arcade</h1>
-    </header>
-
-    <img src="images/tanuki_arcade.png" class="arcade-tanuki-hero" alt="Purple Tanuki">
-
-    <p class="simple-line">Choose your world.</p>
-
-    <!-- ⭐ BROWSER PREVIEW (always visible, locked until ritual) -->
-    <div class="browser-preview">
-
-      <div class="browser-urlbar">
-        https://you-may-browse-now/
-      </div>
-
-      <div class="browser-locked">
-        🔒 The Browser World is locked.
-        <small>Complete your learning ritual to unlock browsing.</small>
-      </div>
-
+  <!-- BROWSER-STYLE TOP BAR -->
+  <div class="arc-browser-bar">
+    <div class="arc-browser-controls">
+      <span class="arc-dot red"></span>
+      <span class="arc-dot yellow"></span>
+      <span class="arc-dot green"></span>
     </div>
 
-    <!-- ⭐ CURRICULUM WORLDS -->
-    <div class="simple-buttons">
+    <div class="arc-browser-url">
+      <span class="arc-url-text">https://purple-tanuki.app/arcade</span>
+    </div>
+  </div>
 
-      <div class="simple-section-label">Curriculum Worlds</div>
+  <div class="arc-root">
 
-      <button class="simple-button" onclick="window.location.href='../preschool/preschool.html'">
-        Preschool Tutor
-      </button>
+    <!-- HEADER -->
+    <header class="arc-header-clean">
+      <h1 class="arc-title">Purple Tanuki Learning Arcade</h1>
+    </header>
 
-      <button class="simple-button" onclick="window.location.href='../kindergarten/kindergarten.html'">
-        Kindergarten Tutor
-      </button>
+    <!-- K–12 CORE -->
+    <div class="arc-section">
+      <h2 class="arc-section-title">K–12 Core Curriculum</h2>
+      <div class="arc-buttons">
 
-      <button class="simple-button" onclick="window.location.href='../grade1/grade1.html'">
-        1st Grade Tutor
-      </button>
+        <!-- Preschool & Kindergarten -->
+        <button class="arc-btn" onclick="openGrade('preschool')">Preschool</button>
+        <button class="arc-btn" onclick="openGrade('k')">Kindergarten</button>
 
-      <button class="simple-button" onclick="window.location.href='../grade2/grade2.html'">
-        2nd Grade Tutor
-      </button>
+        <!-- Grades 1–5 -->
+        <button class="arc-btn" onclick="openGrade('1')">1st Grade</button>
+        <button class="arc-btn" onclick="openGrade('2')">2nd Grade</button>
+        <button class="arc-btn" onclick="openGrade('3')">3rd Grade</button>
+        <button class="arc-btn" onclick="openGrade('4')">4th Grade</button>
+        <button class="arc-btn" onclick="openGrade('5')">5th Grade</button>
 
-      <button class="simple-button" onclick="window.location.href='../grade3/grade3.html'">
-        3rd Grade Tutor
-      </button>
+        <!-- Grades 6–8 -->
+        <button class="arc-btn" onclick="openGrade('6')">6th Grade</button>
+        <button class="arc-btn" onclick="openGrade('7')">7th Grade</button>
+        <button class="arc-btn" onclick="openGrade('8')">8th Grade</button>
 
-      <button class="simple-button" onclick="window.location.href='../grade4/grade4.html'">
-        4th Grade Tutor
-      </button>
+        <!-- High School -->
+        <button class="arc-btn" onclick="openGrade('9')">9th Grade</button>
+        <button class="arc-btn" onclick="openGrade('10')">10th Grade</button>
+        <button class="arc-btn" onclick="openGrade('11')">11th Grade</button>
+        <button class="arc-btn" onclick="openGrade('12')">12th Grade</button>
 
+      </div>
+    </div>
+
+    <!-- LIFE SKILLS -->
+    <div class="arc-section">
+      <h2 class="arc-section-title">Life Skills</h2>
+      <div class="arc-buttons">
+        <button class="arc-btn" onclick="openLifeSkills()">Life Skills Module</button>
+      </div>
+    </div>
+
+    <!-- ELECTIVES -->
+    <div class="arc-section">
+      <h2 class="arc-section-title">High School Electives</h2>
+      <div class="arc-buttons">
+        <button class="arc-btn" onclick="openElectives()">Electives Module</button>
+      </div>
+    </div>
+
+    <!-- AP SUBJECTS -->
+    <div class="arc-section">
+      <h2 class="arc-section-title">Advanced Placement (AP)</h2>
+      <div class="arc-buttons">
+        <button class="arc-btn" onclick="openAP()">AP Subjects Module</button>
+      </div>
+    </div>
+
+    <!-- CTE (COMING SOON) -->
+    <div class="arc-section">
+      <h2 class="arc-section-title">Career & Technical Education (CTE)</h2>
+      <div class="arc-buttons">
+        <button class="arc-btn arc-disabled">CTE Module (Coming Soon)</button>
+      </div>
     </div>
 
   </div>
 
-  <script src="arcade.js"></script>
+  <script>
+    function openGrade(level) {
+      window.location.href = `../grades/grade${level}/grade${level}.html`;
+    }
+
+    function openLifeSkills() {
+      window.location.href = "../lifeskills/lifeskills.html";
+    }
+
+    function openElectives() {
+      window.location.href = "../electives/electives.html";
+    }
+
+    function openAP() {
+      window.location.href = "../ap/ap.html";
+    }
+  </script>
+
 </body>
 </html>
-
-
-
-
