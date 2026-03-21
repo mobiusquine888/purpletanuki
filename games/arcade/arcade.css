@@ -1,189 +1,150 @@
-/* ============================================================
-   PURPLE TANUKI — SIMPLE ARCADE HUB (FINAL REFORGE)
-   ============================================================ */
+/* ============================
+   ARCADE — GLOBAL LAYOUT
+   ============================ */
 
-/* ⭐ URL BAR (Fake Browser Chrome) — now inside layout */
-.browser-chrome {
+.arc-root {
+  padding: 20px;
+  padding-top: 100px; /* space for browser bar */
+  font-family: Nunito, sans-serif;
+  color: #f0eaff;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ============================
+   BROWSER-STYLE TOP BAR
+   ============================ */
+
+.arc-browser-bar {
   width: 100%;
-  box-sizing: border-box;
+  background: #1b132b;
+  padding: 8px 14px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  background: rgba(10, 6, 30, 0.98);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
-
-  /* ⭐ Correct behavior INSIDE the Arcade */
-  position: relative;
-  margin: 20px 0;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
 }
 
-.browser-dots {
+.arc-browser-controls {
   display: flex;
-  gap: 4px;
+  gap: 6px;
 }
 
-.browser-dots .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
+.arc-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
   display: inline-block;
 }
 
-.browser-dots .red { background: #ff5f57; }
-.browser-dots .yellow { background: #febc2e; }
-.browser-dots .green { background: #28c840; }
+.arc-dot.red { background: #ff5f57; }
+.arc-dot.yellow { background: #ffbd2e; }
+.arc-dot.green { background: #28c840; }
 
-.browser-url {
+.arc-browser-url {
   flex: 1;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: none;
-  font-size: 0.9rem;
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
-}
-
-.browser-url::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.browser-go-btn {
+  background: #2a1f45;
   padding: 6px 12px;
-  border-radius: 999px;
-  border: none;
-  background: var(--tanuki-purple-light);
-  color: #fff;
-  cursor: pointer;
+  border-radius: 8px;
+  color: #d8cfff;
   font-size: 0.9rem;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-/* ============================================================
-   BASE LAYOUT
-   ============================================================ */
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Nunito", sans-serif;
-  background: var(--tanuki-bg);
-  color: var(--tanuki-white);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
+.arc-url-text {
+  opacity: 0.8;
 }
 
-.arcade-root {
-  width: 100%;
-  max-width: 500px;
-  padding: 20px;
-  text-align: center;
-}
-
-/* ============================================================
+/* ============================
    HEADER
-   ============================================================ */
+   ============================ */
 
-.simple-header {
-  margin-top: 50px;   /* ⭐ FIXED: was 10px — now clears global header */
-  margin-bottom: 20px;
+.arc-header-clean {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.simple-title {
-  font-size: 1.9rem;
-  font-weight: 800;
-  color: var(--tanuki-white);
+.arc-title {
+  font-size: 1.8rem;
+  color: #d8cfff;
+  font-weight: 700;
 }
 
-/* ============================================================
-   TANUKI HERO IMAGE (FINAL)
-   ============================================================ */
+/* ============================
+   SECTION TITLES
+   ============================ */
 
-.arcade-tanuki-hero {
-  width: 55vw;
-  max-width: 260px;
-  height: auto;
-  display: block;
-  margin: 0 auto 18px;
-  image-rendering: crisp-edges;
+.arc-section {
+  margin-top: 40px;
 }
 
-.simple-line {
-  font-size: 1.05rem;
-  opacity: 0.9;
-  margin-bottom: 25px;
+.arc-section-title {
+  font-size: 1.3rem;
+  color: #cfc6ff;
+  margin-bottom: 16px;
 }
 
-/* ============================================================
-   BUTTONS — SIMPLE, BRIGHT, FRIENDLY
-   ============================================================ */
+/* ============================
+   BUTTON GRID
+   ============================ */
 
-.simple-buttons {
-  display: flex;
-  flex-direction: column;
+.arc-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   gap: 14px;
 }
 
-.simple-section-label {
-  margin-top: 18px;
-  margin-bottom: 6px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  opacity: 0.85;
-  text-align: left;
-}
+/* ============================
+   BUTTONS
+   ============================ */
 
-.simple-button {
-  width: 100%;
-  padding: 14px;
-  font-size: 1.2rem;
-  border-radius: 14px;
-  background: var(--tanuki-purple-light);
-  color: var(--tanuki-white);
+.arc-btn {
+  background: #2a1f45;
+  color: #e8ddff;
   border: none;
-  cursor: pointer;
-  transition: 0.15s ease;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  text-align: center;
+  transition: background 0.2s ease, transform 0.1s ease;
 }
 
-.simple-button:hover {
-  background: var(--tanuki-purple);
+.arc-btn:hover {
+  background: #6a4fbf;
   transform: translateY(-2px);
 }
 
-/* ============================================================
-   FOCUS MODE TOGGLE
-   ============================================================ */
-
-.focus-toggle {
-  margin-top: 30px;
-  padding: 10px 14px;
-  font-size: 1rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.12);
-  cursor: pointer;
-  transition: 0.15s ease;
+.arc-btn:active {
+  transform: translateY(0px);
 }
 
-.focus-toggle:hover {
-  background: rgba(255, 255, 255, 0.18);
+/* DISABLED BUTTON */
+.arc-disabled {
+  opacity: 0.4;
+  pointer-events: none;
 }
 
-/* ============================================================
+/* ============================
    MOBILE OPTIMIZATION
-   ============================================================ */
+   ============================ */
 
-@media (max-width: 480px) {
-  .simple-title {
-    font-size: 1.7rem;
+@media (max-width: 600px) {
+  .arc-buttons {
+    grid-template-columns: 1fr;
   }
 
-  .simple-button {
-    font-size: 1.1rem;
-    padding: 12px;
-  }
-
-  .simple-section-label {
+  .arc-btn {
     font-size: 1rem;
+    padding: 14px;
+  }
+
+  .arc-title {
+    font-size: 1.5rem;
   }
 }
 
