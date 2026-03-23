@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>10th Grade Tutor — Purple Tanuki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../theme/tanuki-theme.css">
+  <link rel="stylesheet" href="grade10.css">
+</head>
+
+<body>
+  <div class="g10-root">
+
+    <!-- HEADER -->
+    <header class="g10-header">
+      <button class="g10-home-btn" onclick="goHome()">Home</button>
+      <h1 class="g10-title">10th Grade Tutor</h1>
+    </header>
+
+    <!-- GLOBAL PROGRESS -->
+    <div class="g10-progress-bar">
+      <div id="g10-progress-fill" class="g10-progress-fill"></div>
+    </div>
+    <div id="g10-progress-text" class="g10-progress-text">0%</div>
+
+    <!-- SUBJECT BUTTONS -->
+    <div class="g10-subjects">
+      <button class="g10-subject-btn" data-subject="reading" onclick="selectSubject('reading')">
+        English Language Arts
+        <div id="reading-status" class="g10-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g10-subject-btn" data-subject="math" onclick="selectSubject('math')">
+        Algebra II & Geometry
+        <div id="math-status" class="g10-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g10-subject-btn" data-subject="science" onclick="selectSubject('science')">
+        Biology & Chemistry
+        <div id="science-status" class="g10-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g10-subject-btn" data-subject="social" onclick="selectSubject('social')">
+        World History & Civics
+        <div id="social-status" class="g10-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g10-subject-btn" data-subject="logic" onclick="selectSubject('logic')">
+        Logic, Reasoning & Problem Solving
+        <div id="logic-status" class="g10-status-text">0 / 3 lessons</div>
+      </button>
+    </div>
+
+    <!-- LESSON CARD -->
+    <div id="g10-lesson-card" class="g10-card" style="display:none;">
+      <div class="g10-card-header">
+        <div id="g10-lesson-subject-label" class="g10-card-subject"></div>
+        <div id="g10-lesson-title" class="g10-card-title"></div>
+      </div>
+
+      <div id="g10-lesson-body" class="g10-card-body"></div>
+
+      <button id="g10-start-quiz-btn" class="g10-start-btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- QUIZ CARD -->
+    <div id="g10-quiz-card" class="g10-card" style="display:none;">
+      <div class="g10-card-header">
+        <div id="g10-quiz-subject-label" class="g10-card-subject"></div>
+        <div id="g10-quiz-title" class="g10-card-title"></div>
+        <div id="g10-quiz-lesson-label" class="g10-card-lesson"></div>
+        <div id="g10-quiz-q-progress" class="g10-card-progress"></div>
+      </div>
+
+      <div id="g10-quiz-prompt" class="g10-card-body"></div>
+
+      <div class="g10-choices">
+        <button id="g10-choice-1" class="g10-choice-btn"></button>
+        <button id="g10-choice-2" class="g10-choice-btn"></button>
+        <button id="g10-choice-3" class="g10-choice-btn"></button>
+      </div>
+
+      <button class="g10-back-btn" onclick="backToLesson()">Back to Lesson</button>
+    </div>
+
+    <!-- SPARKLES -->
+    <div id="g10-sparkles" class="g10-sparkles"></div>
+
+    <!-- GRADUATION OVERLAY -->
+    <div id="g10-grad-overlay" class="g10-grad-overlay" style="display:none;">
+      <div class="g10-grad-box">
+        <h2>🎉 You finished 10th Grade! 🎉</h2>
+        <p>You completed all lessons in every subject.</p>
+        <button class="g10-grad-btn" onclick="unlockGrade10Reward()">Continue</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="grade10.js"></script>
+</body>
+</html>
