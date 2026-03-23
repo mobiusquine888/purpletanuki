@@ -1,5 +1,5 @@
 // ===============================
-//  TANUKI BROWSER — LOGIC
+//  TANUKI BROWSER — REFORGED
 // ===============================
 
 // DOM references
@@ -10,37 +10,27 @@ const forwardBtn = document.getElementById("forwardBtn");
 const browserFrame = document.getElementById("browserFrame");
 
 // ===============================
-//  DANGEROUS SITES LIST
+//  LOAD PARENT SETTINGS
 // ===============================
 
-const blockedSites = [
-  "youtube.com",
-  "m.youtube.com",
-  "tiktok.com",
-  "reddit.com",
-  "instagram.com",
-  "twitter.com",
-  "x.com"
-];
+const parentSettings = JSON.parse(localStorage.getItem("pt_parent_settings")) || {
+  unlockDuration: 7
+};
+
+const UNLOCK_MINUTES = Number(parentSettings.unlockDuration || 7);
 
 // ===============================
-//  UNLOCK TIMER
+//  LOAD THE URL FROM ARCADE
 // ===============================
 
-function isSiteUnlocked(hostname) {
-  const key = "unlock_" + hostname;
-  const expires = localStorage.getItem(key);
+const activeUrl = localStorage.getItem("pt_active_url");
 
-  if (!expires) return false;
-
-  const now = Date.now();
-  return now < Number(expires);
-}
-
-function unlockSite(hostname, minutes) {
-  const key = "unlock_" + hostname;
-  const expires = Date.now() + minutes * 60 * 1000;
-  localStorage.setItem(key, expires);
+if (!activeUrl) {
+  alert("No site selected. Returning to Arcade.");
+  window.location.href = "/games/arcade/index.html";
+} else {
+  urlInput.value = activeUrl;
+  browserFrame.src = activeUrl;
 }
 
 // ===============================
@@ -49,11 +39,9 @@ function unlockSite(hostname, minutes) {
 
 function cleanUrl(raw) {
   let url = raw.trim();
-
   if (!url.startsWith("http://") && !url.startsWith("https://")) {
     url = "https://" + url;
   }
-
   return url;
 }
 
@@ -66,25 +54,18 @@ function loadUrl() {
   const url = cleanUrl(raw);
 
   try {
-    const hostname = new URL(url).hostname;
-
-    // Check if site is blocked
-    if (blockedSites.some(site => hostname.includes(site))) {
-
-      // If not unlocked → send to Gate Ritual
-      if (!isSiteUnlocked(hostname)) {
-        browserFrame.src = "../gate/index.html?site=" + encodeURIComponent(url);
-        return;
-      }
-    }
-
-    // Otherwise load normally
     browserFrame.src = url;
-
+    localStorage.setItem("pt_active_url", url);
   } catch (e) {
     alert("Invalid URL");
   }
 }
+
+goBtn.onclick = loadUrl;
+
+urlInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") loadUrl();
+});
 
 // ===============================
 //  BACK / FORWARD
@@ -94,28 +75,30 @@ backBtn.onclick = () => browserFrame.contentWindow.history.back();
 forwardBtn.onclick = () => browserFrame.contentWindow.history.forward();
 
 // ===============================
-//  GO BUTTON
+//  7-MINUTE TIMER
 // ===============================
 
-goBtn.onclick = loadUrl;
+let timeLeft = UNLOCK_MINUTES * 60; // seconds
 
-// Press Enter to go
-urlInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") loadUrl();
-});
+const timer = setInterval(() => {
+  timeLeft--;
 
-// ===============================
-//  MESSAGE FROM GATE RITUAL
-// ===============================
-
-window.addEventListener("message", (event) => {
-  if (event.data.type === "unlock") {
-    const hostname = event.data.hostname;
-    const minutes = event.data.minutes;
-
-    unlockSite(hostname, minutes);
-
-    // Load the site they originally wanted
-    browserFrame.src = event.data.url;
+  // 1-minute warning
+  if (timeLeft === 60) {
+    alert("The portal flickers… your time is almost up.");
   }
-});
+
+  // Time expired
+  if (timeLeft <= 0) {
+    clearInterval(timer);
+
+    // Lock the portal again
+    localStorage.removeItem("pt_portal_unlocked");
+
+    alert("The portal closes. Return to the ritual to reopen it.");
+
+    // Return to Gate Ritual
+    window.location.href = "/games/ritual/index.html";
+  }
+}, 1000);
+
