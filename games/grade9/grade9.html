@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>9th Grade Tutor — Purple Tanuki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../theme/tanuki-theme.css">
+  <link rel="stylesheet" href="grade9.css">
+</head>
+
+<body>
+  <div class="g9-root">
+
+    <!-- HEADER -->
+    <header class="g9-header">
+      <button class="g9-home-btn" onclick="goHome()">Home</button>
+      <h1 class="g9-title">9th Grade Tutor</h1>
+    </header>
+
+    <!-- GLOBAL PROGRESS -->
+    <div class="g9-progress-bar">
+      <div id="g9-progress-fill" class="g9-progress-fill"></div>
+    </div>
+    <div id="g9-progress-text" class="g9-progress-text">0%</div>
+
+    <!-- SUBJECT BUTTONS -->
+    <div class="g9-subjects">
+      <button class="g9-subject-btn" data-subject="reading" onclick="selectSubject('reading')">
+        English Language Arts
+        <div id="reading-status" class="g9-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g9-subject-btn" data-subject="math" onclick="selectSubject('math')">
+        Algebra & Geometry
+        <div id="math-status" class="g9-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g9-subject-btn" data-subject="science" onclick="selectSubject('science')">
+        Biology & Physical Science
+        <div id="science-status" class="g9-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g9-subject-btn" data-subject="social" onclick="selectSubject('social')">
+        World History & Civics
+        <div id="social-status" class="g9-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g9-subject-btn" data-subject="logic" onclick="selectSubject('logic')">
+        Logic, Reasoning & Problem Solving
+        <div id="logic-status" class="g9-status-text">0 / 3 lessons</div>
+      </button>
+    </div>
+
+    <!-- LESSON CARD -->
+    <div id="g9-lesson-card" class="g9-card" style="display:none;">
+      <div class="g9-card-header">
+        <div id="g9-lesson-subject-label" class="g9-card-subject"></div>
+        <div id="g9-lesson-title" class="g9-card-title"></div>
+      </div>
+
+      <div id="g9-lesson-body" class="g9-card-body"></div>
+
+      <button id="g9-start-quiz-btn" class="g9-start-btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- QUIZ CARD -->
+    <div id="g9-quiz-card" class="g9-card" style="display:none;">
+      <div class="g9-card-header">
+        <div id="g9-quiz-subject-label" class="g9-card-subject"></div>
+        <div id="g9-quiz-title" class="g9-card-title"></div>
+        <div id="g9-quiz-lesson-label" class="g9-card-lesson"></div>
+        <div id="g9-quiz-q-progress" class="g9-card-progress"></div>
+      </div>
+
+      <div id="g9-quiz-prompt" class="g9-card-body"></div>
+
+      <div class="g9-choices">
+        <button id="g9-choice-1" class="g9-choice-btn"></button>
+        <button id="g9-choice-2" class="g9-choice-btn"></button>
+        <button id="g9-choice-3" class="g9-choice-btn"></button>
+      </div>
+
+      <button class="g9-back-btn" onclick="backToLesson()">Back to Lesson</button>
+    </div>
+
+    <!-- SPARKLES -->
+    <div id="g9-sparkles" class="g9-sparkles"></div>
+
+    <!-- GRADUATION OVERLAY -->
+    <div id="g9-grad-overlay" class="g9-grad-overlay" style="display:none;">
+      <div class="g9-grad-box">
+        <h2>🎉 You finished 9th Grade! 🎉</h2>
+        <p>You completed all lessons in every subject.</p>
+        <button class="g9-grad-btn" onclick="unlockGrade9Reward()">Continue</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="grade9.js"></script>
+</body>
+</html>
