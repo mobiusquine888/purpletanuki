@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AP Subjects — Purple Tanuki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../theme/tanuki-theme.css">
+  <link rel="stylesheet" href="ap.css">
+</head>
+
+<body>
+  <div class="ap-root">
+
+    <!-- HEADER -->
+    <header class="ap-header">
+      <button class="ap-home-btn" onclick="goHome()">Home</button>
+      <h1 class="ap-title">Advanced Placement (AP)</h1>
+    </header>
+
+    <!-- GLOBAL PROGRESS -->
+    <div class="ap-progress-bar">
+      <div id="ap-progress-fill" class="ap-progress-fill"></div>
+    </div>
+    <div id="ap-progress-text" class="ap-progress-text">0%</div>
+
+    <!-- SUBJECT BUTTONS -->
+    <div class="ap-subjects">
+
+      <!-- STEM -->
+      <button class="ap-subject-btn" data-subject="calcAB" onclick="selectSubject('calcAB')">
+        AP Calculus AB
+        <div id="calcAB-status" class="ap-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="ap-subject-btn" data-subject="calcBC" onclick="selectSubject('calcBC')">
+        AP Calculus BC
+        <div id="calcBC-status" class="ap-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="ap-subject-btn" data-subject="stats" onclick="selectSubject('stats')">
+        AP Statistics
+        <div id="stats-status" class="ap-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="ap-subject-btn" data-subject="csa" onclick="selectSubject('csa')">
+        AP Computer Science A
+        <div id="csa-status" class="ap-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="ap-subject-btn" data-subject="csp" onclick="selectSubject('csp')">
+        AP Computer Science Principles
+        <div id="csp-status" class="ap-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="ap-subject-btn" data-subject="bio" onclick="selectSubject('bio')">
+        AP Biology
+        <div id="bio-status" class="ap-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="ap-subject-btn" data-subject="chem" onclick="selectSubject('chem')">
+        AP Chemistry
+        <div id="chem-status" class="ap-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="ap-subject-btn" data-subject="phys1" onclick="selectSubject('phys1')">
+        AP Physics 1
+        <div id="phys1-status" class="ap-status-text">0 / 3 lessons</div>
+      </button>
+
+      <!-- HUMANITIES -->
+      <button class="ap-subject-btn" data-subject="lang" onclick="selectSubject('lang')">
+        AP English Language
+        <div id="lang-status" class="ap-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="ap-subject-btn" data-subject="lit" onclick="selectSubject('lit')">
+        AP English Literature
+        <div id="lit-status" class="ap-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="ap-subject-btn" data-subject="apush" onclick="selectSubject('apush')">
+        AP U.S. History
+        <div id="apush-status" class="ap-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="ap-subject-btn" data-subject="world" onclick="selectSubject('world')">
+        AP World History
+        <div id="world-status" class="ap-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="ap-subject-btn" data-subject="gov" onclick="selectSubject('gov')">
+        AP Government & Politics
+        <div id="gov-status" class="ap-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="ap-subject-btn" data-subject="psych" onclick="selectSubject('psych')">
+        AP Psychology
+        <div id="psych-status" class="ap-status-text">0 / 3 lessons</div>
+      </button>
+
+      <!-- ECONOMICS -->
+      <button class="ap-subject-btn" data-subject="micro" onclick="selectSubject('micro')">
+        AP Microeconomics
+        <div id="micro-status" class="ap-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="ap-subject-btn" data-subject="macro" onclick="selectSubject('macro')">
+        AP Macroeconomics
+        <div id="macro-status" class="ap-status-text">0 / 3 lessons</div>
+      </button>
+
+      <!-- ARTS -->
+      <button class="ap-subject-btn" data-subject="arthist" onclick="selectSubject('arthist')">
+        AP Art History
+        <div id="arthist-status" class="ap-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="ap-subject-btn" data-subject="musictheory" onclick="selectSubject('musictheory')">
+        AP Music Theory
+        <div id="musictheory-status" class="ap-status-text">0 / 3 lessons</div>
+      </button>
+
+    </div>
+
+    <!-- LESSON CARD -->
+    <div id="ap-lesson-card" class="ap-card" style="display:none;">
+      <div class="ap-card-header">
+        <div id="ap-lesson-subject-label" class="ap-card-subject"></div>
+        <div id="ap-lesson-title" class="ap-card-title"></div>
+      </div>
+
+      <div id="ap-lesson-body" class="ap-card-body"></div>
+
+      <button id="ap-start-quiz-btn" class="ap-start-btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- QUIZ CARD -->
+    <div id="ap-quiz-card" class="ap-card" style="display:none;">
+      <div class="ap-card-header">
+        <div id="ap-quiz-subject-label" class="ap-card-subject"></div>
+        <div id="ap-quiz-title" class="ap-card-title"></div>
+        <div id="ap-quiz-lesson-label" class="ap-card-lesson"></div>
+        <div id="ap-quiz-q-progress" class="ap-card-progress"></div>
+      </div>
+
+      <div id="ap-quiz-prompt" class="ap-card-body"></div>
+
+      <div class="ap-choices">
+        <button id="ap-choice-1" class="ap-choice-btn"></button>
+        <button id="ap-choice-2" class="ap-choice-btn"></button>
+        <button id="ap-choice-3" class="ap-choice-btn"></button>
+      </div>
+
+      <button class="ap-back-btn" onclick="backToLesson()">Back to Lesson</button>
+    </div>
+
+    <!-- SPARKLES -->
+    <div id="ap-sparkles" class="ap-sparkles"></div>
+
+    <!-- COMPLETION OVERLAY -->
+    <div id="ap-grad-overlay" class="ap-grad-overlay" style="display:none;">
+      <div class="ap-grad-box">
+        <h2>🎉 AP Module Complete! 🎉</h2>
+        <p>You finished all AP subjects.</p>
+        <button class="ap-grad-btn" onclick="goHome()">Return Home</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="ap.js"></script>
+</body>
+</html>
