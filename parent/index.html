@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PurpleTanuki Parent Portal</title>
+  <link rel="stylesheet" href="parent.css" />
+</head>
+
+<body>
+
+  <div class="pp-container">
+
+    <!-- HEADER -->
+    <header class="pp-header">
+      <h1>Parent & Teacher Controls</h1>
+      <p class="pp-subtitle">Manage unlock time, allowed sites, and learning settings.</p>
+    </header>
+
+    <!-- UNLOCK DURATION -->
+    <section class="pp-card">
+      <h2>Portal Unlock Duration</h2>
+      <p>Choose how long the portal stays open after each completed lesson.</p>
+
+      <select id="unlockDuration" class="pp-select">
+        <option value="5">5 minutes</option>
+        <option value="7" selected>7 minutes (recommended)</option>
+        <option value="10">10 minutes</option>
+        <option value="15">15 minutes</option>
+        <option value="20">20 minutes</option>
+      </select>
+    </section>
+
+    <!-- ALLOWED SITES -->
+    <section class="pp-card">
+      <h2>Allowed Sites</h2>
+      <p>Choose which websites your learner can access through the portal.</p>
+
+      <div class="pp-checkbox">
+        <input type="checkbox" id="yt" checked />
+        <label for="yt">YouTube</label>
+      </div>
+
+      <div class="pp-checkbox">
+        <input type="checkbox" id="tiktok" />
+        <label for="tiktok">TikTok</label>
+      </div>
+
+      <div class="pp-checkbox">
+        <input type="checkbox" id="roblox" />
+        <label for="roblox">Roblox</label>
+      </div>
+
+      <div class="pp-checkbox">
+        <input type="checkbox" id="customSiteToggle" />
+        <label for="customSiteToggle">Allow custom URLs</label>
+      </div>
+    </section>
+
+    <!-- DIFFICULTY -->
+    <section class="pp-card">
+      <h2>Ritual Difficulty</h2>
+      <p>Adjust how challenging the Gate Ritual is.</p>
+
+      <select id="difficulty" class="pp-select">
+        <option value="easy">Easy</option>
+        <option value="medium" selected>Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </section>
+
+    <!-- SAVE BUTTON -->
+    <button id="saveSettings" class="pp-save-btn">Save Settings</button>
+
+  </div>
+
+  <script src="parent.js"></script>
+</body>
+</html>
