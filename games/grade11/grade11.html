@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>11th Grade Tutor — Purple Tanuki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../theme/tanuki-theme.css">
+  <link rel="stylesheet" href="grade11.css">
+</head>
+
+<body>
+  <div class="g11-root">
+
+    <!-- HEADER -->
+    <header class="g11-header">
+      <button class="g11-home-btn" onclick="goHome()">Home</button>
+      <h1 class="g11-title">11th Grade Tutor</h1>
+    </header>
+
+    <!-- GLOBAL PROGRESS -->
+    <div class="g11-progress-bar">
+      <div id="g11-progress-fill" class="g11-progress-fill"></div>
+    </div>
+    <div id="g11-progress-text" class="g11-progress-text">0%</div>
+
+    <!-- SUBJECT BUTTONS -->
+    <div class="g11-subjects">
+      <button class="g11-subject-btn" data-subject="reading" onclick="selectSubject('reading')">
+        English Language Arts
+        <div id="reading-status" class="g11-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g11-subject-btn" data-subject="math" onclick="selectSubject('math')">
+        Algebra II & Pre‑Calculus
+        <div id="math-status" class="g11-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g11-subject-btn" data-subject="science" onclick="selectSubject('science')">
+        Chemistry & Physics
+        <div id="science-status" class="g11-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g11-subject-btn" data-subject="social" onclick="selectSubject('social')">
+        U.S. History & Civics
+        <div id="social-status" class="g11-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g11-subject-btn" data-subject="logic" onclick="selectSubject('logic')">
+        Logic, Reasoning & Problem Solving
+        <div id="logic-status" class="g11-status-text">0 / 3 lessons</div>
+      </button>
+    </div>
+
+    <!-- LESSON CARD -->
+    <div id="g11-lesson-card" class="g11-card" style="display:none;">
+      <div class="g11-card-header">
+        <div id="g11-lesson-subject-label" class="g11-card-subject"></div>
+        <div id="g11-lesson-title" class="g11-card-title"></div>
+      </div>
+
+      <div id="g11-lesson-body" class="g11-card-body"></div>
+
+      <button id="g11-start-quiz-btn" class="g11-start-btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- QUIZ CARD -->
+    <div id="g11-quiz-card" class="g11-card" style="display:none;">
+      <div class="g11-card-header">
+        <div id="g11-quiz-subject-label" class="g11-card-subject"></div>
+        <div id="g11-quiz-title" class="g11-card-title"></div>
+        <div id="g11-quiz-lesson-label" class="g11-card-lesson"></div>
+        <div id="g11-quiz-q-progress" class="g11-card-progress"></div>
+      </div>
+
+      <div id="g11-quiz-prompt" class="g11-card-body"></div>
+
+      <div class="g11-choices">
+        <button id="g11-choice-1" class="g11-choice-btn"></button>
+        <button id="g11-choice-2" class="g11-choice-btn"></button>
+        <button id="g11-choice-3" class="g11-choice-btn"></button>
+      </div>
+
+      <button class="g11-back-btn" onclick="backToLesson()">Back to Lesson</button>
+    </div>
+
+    <!-- SPARKLES -->
+    <div id="g11-sparkles" class="g11-sparkles"></div>
+
+    <!-- GRADUATION OVERLAY -->
+    <div id="g11-grad-overlay" class="g11-grad-overlay" style="display:none;">
+      <div class="g11-grad-box">
+        <h2>🎉 You finished 11th Grade! 🎉</h2>
+        <p>You completed all lessons in every subject.</p>
+        <button class="g11-grad-btn" onclick="unlockGrade11Reward()">Continue</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="grade11.js"></script>
+</body>
+</html>
