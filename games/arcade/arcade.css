@@ -5,7 +5,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #1B132B; /* Solid PurpleTanuki base */
+  background: #1B132B;
   min-height: 100%;
   width: 100%;
   font-family: Nunito, sans-serif;
@@ -102,43 +102,42 @@ html, body {
 }
 
 /* ============================
-   BUTTON GRID
+   CARD GRID (matches your HTML)
    ============================ */
 
-.arc-buttons {
+.arc-card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   gap: 14px;
 }
 
 /* ============================
-   BUTTONS
+   CARDS (matches your HTML)
    ============================ */
 
-.arc-btn {
+.arc-card {
   background: #2a1f45;
   color: #e8ddff;
   border: none;
-  padding: 16px;
+  padding: 18px;
   border-radius: 12px;
   font-size: 1.05rem;
   text-align: center;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   transition: background 0.2s ease, transform 0.1s ease;
 }
 
-.arc-btn:hover {
+.arc-card:hover {
   background: #6a4fbf;
   transform: translateY(-2px);
 }
 
-.arc-btn:active {
+.arc-card:active {
   transform: translateY(0px);
-}
-
-/* DISABLED BUTTON */
-.arc-disabled {
-  opacity: 0.4;
-  pointer-events: none;
 }
 
 /* ============================
@@ -146,11 +145,11 @@ html, body {
    ============================ */
 
 @media (max-width: 600px) {
-  .arc-buttons {
+  .arc-card-grid {
     grid-template-columns: 1fr;
   }
 
-  .arc-btn {
+  .arc-card {
     font-size: 1rem;
     padding: 14px;
   }
