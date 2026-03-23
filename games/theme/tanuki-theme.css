@@ -1,5 +1,6 @@
 /* ============================================================
-   PURPLE TANUKI — GLOBAL THEME (REFORGED)
+   PURPLE TANUKI — GLOBAL THEME (FULLY REFORGED)
+   Clean, safe, non‑interfering global layout foundation
    ============================================================ */
 
 :root {
@@ -20,7 +21,9 @@
   --tanuki-shadow-soft: 0 0 40px rgba(0, 0, 0, 0.45);
 }
 
-/* Reset + layout foundation */
+/* ============================================================
+   RESET + BASELINE
+   ============================================================ */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -31,30 +34,49 @@ html, body {
   height: 100%;
 }
 
-/* Global body styling */
+/* ============================================================
+   GLOBAL BODY STYLING
+   ============================================================ */
 body {
   font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--tanuki-bg);
   color: var(--tanuki-white);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+
+  /* FIX: Ensure all pages start below the global banner */
+  padding-top: 80px; /* adjust if banner height changes */
 }
 
 /* ============================================================
    GLOBAL BANNER / HEADER FIXES
-   These two rules prevent the banner from blocking touches
-   and cropping the top of every page.
+   Prevents the banner from blocking touches or cropping pages
    ============================================================ */
 
-/* 1. Make the banner non-interactive so it stops blocking taps */
+/* FIX: Make the banner non-interactive so it stops blocking taps */
 .global-banner,
 .header-banner,
 .tanuki-header {
   pointer-events: none;
 }
 
-/* 2. Ensure content can scroll under it without being cropped */
-body {
-  padding-top: 80px; /* adjust to match your banner height */
+/* FIX: Ensure banners never visually crush content */
+.global-banner,
+.header-banner,
+.tanuki-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999; /* visible but non-blocking */
 }
+
+/* Optional: If your banner has a background, keep it subtle */
+.global-banner,
+.header-banner,
+.tanuki-header {
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+}
+
 
