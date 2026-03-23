@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>5th Grade Tutor — Purple Tanuki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../theme/tanuki-theme.css">
+  <link rel="stylesheet" href="grade5.css">
+</head>
+
+<body>
+  <div class="g5-root">
+
+    <!-- HEADER -->
+    <header class="g5-header">
+      <button class="g5-home-btn" onclick="goHome()">Home</button>
+      <h1 class="g5-title">5th Grade Tutor</h1>
+    </header>
+
+    <!-- GLOBAL PROGRESS -->
+    <div class="g5-progress-bar">
+      <div id="g5-progress-fill" class="g5-progress-fill"></div>
+    </div>
+    <div id="g5-progress-text" class="g5-progress-text">0%</div>
+
+    <!-- SUBJECT BUTTONS -->
+    <div class="g5-subjects">
+      <button class="g5-subject-btn" data-subject="reading" onclick="selectSubject('reading')">
+        Reading & Writing
+        <div id="reading-status" class="g5-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g5-subject-btn" data-subject="math" onclick="selectSubject('math')">
+        Math
+        <div id="math-status" class="g5-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g5-subject-btn" data-subject="science" onclick="selectSubject('science')">
+        Science
+        <div id="science-status" class="g5-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g5-subject-btn" data-subject="social" onclick="selectSubject('social')">
+        Social Studies
+        <div id="social-status" class="g5-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g5-subject-btn" data-subject="logic" onclick="selectSubject('logic')">
+        Logic & Patterns
+        <div id="logic-status" class="g5-status-text">0 / 3 lessons</div>
+      </button>
+    </div>
+
+    <!-- LESSON CARD -->
+    <div id="g5-lesson-card" class="g5-card" style="display:none;">
+      <div class="g5-card-header">
+        <div id="g5-lesson-subject-label" class="g5-card-subject"></div>
+        <div id="g5-lesson-title" class="g5-card-title"></div>
+      </div>
+
+      <div id="g5-lesson-body" class="g5-card-body"></div>
+
+      <button id="g5-start-quiz-btn" class="g5-start-btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- QUIZ CARD -->
+    <div id="g5-quiz-card" class="g5-card" style="display:none;">
+      <div class="g5-card-header">
+        <div id="g5-quiz-subject-label" class="g5-card-subject"></div>
+        <div id="g5-quiz-title" class="g5-card-title"></div>
+        <div id="g5-quiz-lesson-label" class="g5-card-lesson"></div>
+        <div id="g5-quiz-q-progress" class="g5-card-progress"></div>
+      </div>
+
+      <div id="g5-quiz-prompt" class="g5-card-body"></div>
+
+      <div class="g5-choices">
+        <button id="g5-choice-1" class="g5-choice-btn"></button>
+        <button id="g5-choice-2" class="g5-choice-btn"></button>
+        <button id="g5-choice-3" class="g5-choice-btn"></button>
+      </div>
+
+      <button class="g5-back-btn" onclick="backToLesson()">Back to Lesson</button>
+    </div>
+
+    <!-- SPARKLES -->
+    <div id="g5-sparkles" class="g5-sparkles"></div>
+
+    <!-- GRADUATION OVERLAY -->
+    <div id="g5-grad-overlay" class="g5-grad-overlay" style="display:none;">
+      <div class="g5-grad-box">
+        <h2>🎉 You finished 5th Grade! 🎉</h2>
+        <p>You completed all lessons in every subject.</p>
+        <button class="g5-grad-btn" onclick="unlockGrade5Reward()">Continue</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="grade5.js"></script>
+</body>
+</html>
