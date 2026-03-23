@@ -1,0 +1,302 @@
+/* ============================================================
+   PURPLE TANUKI — ELECTIVES UI (REFORGED)
+   Modern, polished, card‑based layout matching grade pages
+   ============================================================ */
+
+/* ROOT WRAPPER */
+.elec-root {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 100px 16px 40px; /* clears global banner */
+  color: var(--tanuki-white);
+  font-family: "Nunito", system-ui, sans-serif;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.elec-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.elec-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+}
+
+.elec-home-btn {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  color: var(--tanuki-white);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.elec-home-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-50%) scale(1.03);
+}
+
+/* ============================================================
+   GLOBAL PROGRESS BAR
+   ============================================================ */
+.elec-progress-bar {
+  width: 100%;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.elec-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--tanuki-gold);
+  transition: width 0.35s ease;
+}
+
+.elec-progress-text {
+  text-align: right;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+/* ============================================================
+   ELECTIVE BUTTONS — LARGE RECTANGULAR CARDS
+   ============================================================ */
+.elec-subjects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.elec-subject-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  border-radius: 18px;
+  padding: 18px 16px;
+  text-align: left;
+  color: var(--tanuki-white);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.12s ease, box-shadow 0.15s ease;
+  box-shadow: var(--tanuki-shadow-soft);
+}
+
+.elec-subject-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-3px);
+}
+
+.elec-status-text {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-top: 6px;
+}
+
+/* ============================================================
+   CARD BASE (LESSON + QUIZ)
+   ============================================================ */
+.elec-card {
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 20px;
+  padding: 20px 18px;
+  box-shadow: var(--tanuki-shadow-soft);
+  margin-top: 10px;
+}
+
+.elec-card-header {
+  margin-bottom: 16px;
+}
+
+.elec-card-subject {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 4px;
+}
+
+.elec-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.elec-card-lesson {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.elec-card-progress {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+/* ============================================================
+   LESSON BODY
+   ============================================================ */
+.elec-card-body {
+  font-size: 1rem;
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.elec-card-body p {
+  margin: 8px 0;
+}
+
+/* Start Quiz Button */
+.elec-start-btn {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--tanuki-purple-light);
+  border: none;
+  border-radius: 14px;
+  color: var(--tanuki-white);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.12s ease;
+}
+
+.elec-start-btn:hover {
+  background: var(--tanuki-purple);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   QUIZ CHOICES
+   ============================================================ */
+.elec-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.elec-choice-btn {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  border-radius: 14px;
+  color: var(--tanuki-white);
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.12s ease;
+}
+
+.elec-choice-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+/* Back Button */
+.elec-back-btn {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 12px;
+  color: var(--tanuki-white);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.elec-back-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ============================================================
+   SPARKLES
+   ============================================================ */
+.elec-sparkles {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.elec-sparkles-active {
+  opacity: 1;
+}
+
+/* ============================================================
+   GRADUATION OVERLAY
+   ============================================================ */
+.elec-grad-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.elec-grad-box {
+  background: rgba(255, 255, 255, 0.12);
+  padding: 24px 20px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 360px;
+  width: 100%;
+  box-shadow: var(--tanuki-shadow-soft);
+}
+
+.elec-grad-btn {
+  margin-top: 16px;
+  padding: 10px 16px;
+  background: var(--tanuki-purple-light);
+  border: none;
+  border-radius: 12px;
+  color: var(--tanuki-white);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.elec-grad-btn:hover {
+  background: var(--tanuki-purple);
+}
+
+/* ============================================================
+   MOBILE TWEAKS
+   ============================================================ */
+@media (max-width: 600px) {
+  .elec-title {
+    font-size: 1.6rem;
+  }
+
+  .elec-subject-btn {
+    font-size: 1rem;
+    padding: 16px 14px;
+  }
+}
