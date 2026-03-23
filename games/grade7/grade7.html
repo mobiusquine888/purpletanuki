@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>7th Grade Tutor — Purple Tanuki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../theme/tanuki-theme.css">
+  <link rel="stylesheet" href="grade7.css">
+</head>
+
+<body>
+  <div class="g7-root">
+
+    <!-- HEADER -->
+    <header class="g7-header">
+      <button class="g7-home-btn" onclick="goHome()">Home</button>
+      <h1 class="g7-title">7th Grade Tutor</h1>
+    </header>
+
+    <!-- GLOBAL PROGRESS -->
+    <div class="g7-progress-bar">
+      <div id="g7-progress-fill" class="g7-progress-fill"></div>
+    </div>
+    <div id="g7-progress-text" class="g7-progress-text">0%</div>
+
+    <!-- SUBJECT BUTTONS -->
+    <div class="g7-subjects">
+      <button class="g7-subject-btn" data-subject="reading" onclick="selectSubject('reading')">
+        Reading & Writing
+        <div id="reading-status" class="g7-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g7-subject-btn" data-subject="math" onclick="selectSubject('math')">
+        Math
+        <div id="math-status" class="g7-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g7-subject-btn" data-subject="science" onclick="selectSubject('science')">
+        Science
+        <div id="science-status" class="g7-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g7-subject-btn" data-subject="social" onclick="selectSubject('social')">
+        Social Studies
+        <div id="social-status" class="g7-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g7-subject-btn" data-subject="logic" onclick="selectSubject('logic')">
+        Logic & Patterns
+        <div id="logic-status" class="g7-status-text">0 / 3 lessons</div>
+      </button>
+    </div>
+
+    <!-- LESSON CARD -->
+    <div id="g7-lesson-card" class="g7-card" style="display:none;">
+      <div class="g7-card-header">
+        <div id="g7-lesson-subject-label" class="g7-card-subject"></div>
+        <div id="g7-lesson-title" class="g7-card-title"></div>
+      </div>
+
+      <div id="g7-lesson-body" class="g7-card-body"></div>
+
+      <button id="g7-start-quiz-btn" class="g7-start-btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- QUIZ CARD -->
+    <div id="g7-quiz-card" class="g7-card" style="display:none;">
+      <div class="g7-card-header">
+        <div id="g7-quiz-subject-label" class="g7-card-subject"></div>
+        <div id="g7-quiz-title" class="g7-card-title"></div>
+        <div id="g7-quiz-lesson-label" class="g7-card-lesson"></div>
+        <div id="g7-quiz-q-progress" class="g7-card-progress"></div>
+      </div>
+
+      <div id="g7-quiz-prompt" class="g7-card-body"></div>
+
+      <div class="g7-choices">
+        <button id="g7-choice-1" class="g7-choice-btn"></button>
+        <button id="g7-choice-2" class="g7-choice-btn"></button>
+        <button id="g7-choice-3" class="g7-choice-btn"></button>
+      </div>
+
+      <button class="g7-back-btn" onclick="backToLesson()">Back to Lesson</button>
+    </div>
+
+    <!-- SPARKLES -->
+    <div id="g7-sparkles" class="g7-sparkles"></div>
+
+    <!-- GRADUATION OVERLAY -->
+    <div id="g7-grad-overlay" class="g7-grad-overlay" style="display:none;">
+      <div class="g7-grad-box">
+        <h2>🎉 You finished 7th Grade! 🎉</h2>
+        <p>You completed all lessons in every subject.</p>
+        <button class="g7-grad-btn" onclick="unlockGrade7Reward()">Continue</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="grade7.js"></script>
+</body>
+</html>
