@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>8th Grade Tutor — Purple Tanuki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../theme/tanuki-theme.css">
+  <link rel="stylesheet" href="grade8.css">
+</head>
+
+<body>
+  <div class="g8-root">
+
+    <!-- HEADER -->
+    <header class="g8-header">
+      <button class="g8-home-btn" onclick="goHome()">Home</button>
+      <h1 class="g8-title">8th Grade Tutor</h1>
+    </header>
+
+    <!-- GLOBAL PROGRESS -->
+    <div class="g8-progress-bar">
+      <div id="g8-progress-fill" class="g8-progress-fill"></div>
+    </div>
+    <div id="g8-progress-text" class="g8-progress-text">0%</div>
+
+    <!-- SUBJECT BUTTONS -->
+    <div class="g8-subjects">
+      <button class="g8-subject-btn" data-subject="reading" onclick="selectSubject('reading')">
+        Reading & Writing
+        <div id="reading-status" class="g8-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g8-subject-btn" data-subject="math" onclick="selectSubject('math')">
+        Math
+        <div id="math-status" class="g8-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g8-subject-btn" data-subject="science" onclick="selectSubject('science')">
+        Science
+        <div id="science-status" class="g8-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g8-subject-btn" data-subject="social" onclick="selectSubject('social')">
+        Social Studies
+        <div id="social-status" class="g8-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g8-subject-btn" data-subject="logic" onclick="selectSubject('logic')">
+        Logic & Patterns
+        <div id="logic-status" class="g8-status-text">0 / 3 lessons</div>
+      </button>
+    </div>
+
+    <!-- LESSON CARD -->
+    <div id="g8-lesson-card" class="g8-card" style="display:none;">
+      <div class="g8-card-header">
+        <div id="g8-lesson-subject-label" class="g8-card-subject"></div>
+        <div id="g8-lesson-title" class="g8-card-title"></div>
+      </div>
+
+      <div id="g8-lesson-body" class="g8-card-body"></div>
+
+      <button id="g8-start-quiz-btn" class="g8-start-btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- QUIZ CARD -->
+    <div id="g8-quiz-card" class="g8-card" style="display:none;">
+      <div class="g8-card-header">
+        <div id="g8-quiz-subject-label" class="g8-card-subject"></div>
+        <div id="g8-quiz-title" class="g8-card-title"></div>
+        <div id="g8-quiz-lesson-label" class="g8-card-lesson"></div>
+        <div id="g8-quiz-q-progress" class="g8-card-progress"></div>
+      </div>
+
+      <div id="g8-quiz-prompt" class="g8-card-body"></div>
+
+      <div class="g8-choices">
+        <button id="g8-choice-1" class="g8-choice-btn"></button>
+        <button id="g8-choice-2" class="g8-choice-btn"></button>
+        <button id="g8-choice-3" class="g8-choice-btn"></button>
+      </div>
+
+      <button class="g8-back-btn" onclick="backToLesson()">Back to Lesson</button>
+    </div>
+
+    <!-- SPARKLES -->
+    <div id="g8-sparkles" class="g8-sparkles"></div>
+
+    <!-- GRADUATION OVERLAY -->
+    <div id="g8-grad-overlay" class="g8-grad-overlay" style="display:none;">
+      <div class="g8-grad-box">
+        <h2>🎉 You finished 8th Grade! 🎉</h2>
+        <p>You completed all lessons in every subject.</p>
+        <button class="g8-grad-btn" onclick="unlockGrade8Reward()">Continue</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="grade8.js"></script>
+</body>
+</html>
