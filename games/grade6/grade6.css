@@ -7,7 +7,7 @@
 .g6-root {
   max-width: 900px;
   margin: 0 auto;
-  padding: 20px 16px 40px;
+  padding: 100px 16px 40px; /* FIX: clears global banner */
   color: var(--tanuki-white);
   font-family: "Nunito", system-ui, sans-serif;
 }
@@ -299,5 +299,14 @@
     font-size: 1rem;
     padding: 16px 14px;
   }
+}
+
+/* ============================================================
+   GLOBAL BANNER FIX — REQUIRED FOR TOUCH + CROPPING
+   ============================================================ */
+.global-banner,
+.header-banner,
+.tanuki-header {
+  pointer-events: none;
 }
 
