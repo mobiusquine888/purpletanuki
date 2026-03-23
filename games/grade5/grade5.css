@@ -1,0 +1,184 @@
+/* ============================
+   GRADE 5 — LAYOUT & THEME
+   ============================ */
+
+.g5-root {
+  padding: 20px;
+  padding-top: 120px; /* prevents overlap with Purple Tanuki banner */
+  font-family: Nunito, sans-serif;
+  color: #f0eaff;
+}
+
+.g5-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.g5-home-btn {
+  background: #6a4fbf;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+.g5-title {
+  font-size: 1.6rem;
+  color: #d8cfff;
+}
+
+/* PROGRESS BAR */
+.g5-progress-bar {
+  width: 100%;
+  height: 14px;
+  background: #3a2a60;
+  border-radius: 8px;
+  margin: 20px 0 6px 0;
+}
+
+.g5-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #9f7bff;
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+
+.g5-progress-text {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #cfc6ff;
+}
+
+/* SUBJECT BUTTONS */
+.g5-subjects {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.g5-subject-btn {
+  background: #2a1f45;
+  color: #e8ddff;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.g5-subject-btn.active {
+  background: #6a4fbf;
+}
+
+.g5-status-text {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* CARDS */
+.g5-card {
+  background: #2a1f45;
+  border-radius: 14px;
+  padding: 20px;
+  margin-top: 30px;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.g5-card-header {
+  margin-bottom: 10px;
+}
+
+.g5-card-subject {
+  font-size: 1rem;
+  color: #cfc6ff;
+}
+
+.g5-card-title {
+  font-size: 1.3rem;
+  color: #f0eaff;
+}
+
+.g5-card-body {
+  font-size: 1rem;
+  color: #e8ddff;
+}
+
+/* QUIZ */
+.g5-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.g5-choice-btn {
+  background: #6a4fbf;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.g5-back-btn {
+  margin-top: 10px;
+  background: #3a2a60;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* SPARKLES */
+.g5-sparkles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.g5-sparkles.active {
+  opacity: 1;
+}
+
+/* GRADUATION */
+.g5-grad-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 10, 40, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.g5-grad-box {
+  background: #2a1f45;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  color: #f0eaff;
+}
+
+.g5-grad-btn {
+  margin-top: 20px;
+  background: #9f7bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+}
