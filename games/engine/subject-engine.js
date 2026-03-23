@@ -326,3 +326,24 @@
     // Fallback: go back to Arcade folder
     try {
       window.location.href = "../arcade/index.html";
+    } catch (e) {
+      window.history.back();
+    }
+  }
+
+  // Graduation button handler (called from HTML)
+  function unlockGrade6Reward() {
+    const overlay = $("g6-grad-overlay");
+    if (overlay) hide(overlay);
+    // Hook for future: unlock badge, redirect, etc.
+  }
+
+  // ---------- EXPOSE TO GLOBAL SCOPE ----------
+  window.loadSubjects = loadSubjects;
+  window.selectSubject = selectSubject;
+  window.startQuiz = startQuiz;
+  window.backToLesson = backToLesson;
+  window.goHome = goHome;
+  window.unlockGrade6Reward = window.unlockGrade6Reward || unlockGrade6Reward;
+})();
+
