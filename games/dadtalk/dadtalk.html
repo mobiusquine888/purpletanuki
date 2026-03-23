@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dad Talk — PurpleTanuki</title>
+
+  <link rel="stylesheet" href="../theme/tanuki-theme.css" />
+  <link rel="stylesheet" href="dadtalk.css" />
+</head>
+
+<body>
+
+  <div class="dt-root">
+
+    <!-- HEADER -->
+    <header class="dt-header">
+      <button class="dt-home-btn" onclick="goHome()">Home</button>
+      <h1 class="dt-title">Dad Talk</h1>
+    </header>
+
+    <!-- PROGRESS -->
+    <div class="dt-progress-bar">
+      <div id="dt-progress-fill" class="dt-progress-fill"></div>
+    </div>
+    <div id="dt-progress-text" class="dt-progress-text">0%</div>
+
+    <!-- LESSON LIST -->
+    <div class="dt-lessons">
+      <button class="dt-lesson-btn" onclick="loadLesson(0)">
+        Lesson 1: How to Handle Hard Days
+        <div id="lesson-status-0" class="dt-status-text">0 / 1 quiz</div>
+      </button>
+    </div>
+
+    <!-- LESSON CARD -->
+    <div id="dt-lesson-card" class="dt-card" style="display:none;">
+      <div class="dt-card-header">
+        <div id="dt-lesson-title" class="dt-card-title"></div>
+      </div>
+
+      <div id="dt-lesson-body" class="dt-card-body"></div>
+
+      <button id="dt-start-quiz-btn" class="dt-start-btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- QUIZ CARD -->
+    <div id="dt-quiz-card" class="dt-card" style="display:none;">
+      <div class="dt-card-header">
+        <div id="dt-quiz-title" class="dt-card-title"></div>
+        <div id="dt-quiz-progress" class="dt-card-progress"></div>
+      </div>
+
+      <div id="dt-quiz-prompt" class="dt-card-body"></div>
+
+      <div class="dt-choices">
+        <button id="dt-choice-1" class="dt-choice-btn"></button>
+        <button id="dt-choice-2" class="dt-choice-btn"></button>
+        <button id="dt-choice-3" class="dt-choice-btn"></button>
+      </div>
+
+      <button class="dt-back-btn" onclick="backToLesson()">Back to Lesson</button>
+    </div>
+
+    <!-- SPARKLES -->
+    <div id="dt-sparkles" class="dt-sparkles"></div>
+
+    <!-- COMPLETION OVERLAY -->
+    <div id="dt-grad-overlay" class="dt-grad-overlay" style="display:none;">
+      <div class="dt-grad-box">
+        <h2>🎉 Great Job! 🎉</h2>
+        <p>You completed Dad Talk Lesson 1.</p>
+        <button class="dt-grad-btn" onclick="finishDadTalk()">Continue</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="dadtalk.js"></script>
+</body>
+</html>
