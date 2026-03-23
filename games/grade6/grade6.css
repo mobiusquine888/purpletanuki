@@ -1,160 +1,303 @@
-/* grade6.css — matches other grade pages, solid purple vibe */
+/* ============================================================
+   PURPLE TANUKI — GRADE 6 UI (REFORGED)
+   Modern, polished, card‑based layout matching grade6.html
+   ============================================================ */
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #3b1b6b; /* deep PurpleTanuki purple */
-  color: #ffffff;
-}
-
+/* ROOT WRAPPER */
 .g6-root {
   max-width: 900px;
   margin: 0 auto;
-  padding: 16px 16px 32px;
+  padding: 20px 16px 40px;
+  color: var(--tanuki-white);
+  font-family: "Nunito", system-ui, sans-serif;
 }
 
+/* ============================================================
+   HEADER
+   ============================================================ */
 .g6-header {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   margin-bottom: 24px;
 }
 
 .g6-title {
   font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
   margin: 0;
 }
 
-.g6-subtitle {
+.g6-home-btn {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  color: var(--tanuki-white);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.g6-home-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-50%) scale(1.03);
+}
+
+/* ============================================================
+   GLOBAL PROGRESS BAR
+   ============================================================ */
+.g6-progress-bar {
+  width: 100%;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.g6-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--tanuki-gold);
+  transition: width 0.35s ease;
+}
+
+.g6-progress-text {
+  text-align: right;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+/* ============================================================
+   SUBJECT BUTTONS — LARGE RECTANGULAR CARDS
+   ============================================================ */
+.g6-subjects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.g6-subject-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  border-radius: 18px;
+  padding: 18px 16px;
+  text-align: left;
+  color: var(--tanuki-white);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.12s ease, box-shadow 0.15s ease;
+  box-shadow: var(--tanuki-shadow-soft);
+}
+
+.g6-subject-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-3px);
+}
+
+.g6-status-text {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-top: 6px;
+}
+
+/* ============================================================
+   CARD BASE (LESSON + QUIZ)
+   ============================================================ */
+.g6-card {
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 20px;
+  padding: 20px 18px;
+  box-shadow: var(--tanuki-shadow-soft);
+  margin-top: 10px;
+}
+
+.g6-card-header {
+  margin-bottom: 16px;
+}
+
+.g6-card-subject {
   font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 4px;
+}
+
+.g6-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.g6-card-lesson {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.g6-card-progress {
+  font-size: 0.9rem;
   opacity: 0.85;
   margin-top: 4px;
 }
 
-.g6-subject-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-bottom: 24px;
+/* ============================================================
+   LESSON BODY
+   ============================================================ */
+.g6-card-body {
+  font-size: 1rem;
+  line-height: 1.55;
+  margin-bottom: 20px;
 }
 
-.g6-subject-card {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 12px 14px;
-  cursor: pointer;
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+.g6-card-body p {
+  margin: 8px 0;
 }
 
-.g6-subject-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
-  background: rgba(255, 255, 255, 0.12);
-}
-
-.g6-subject-title {
-  font-size: 1.05rem;
-  margin: 0 0 4px;
-}
-
-.g6-subject-note {
-  font-size: 0.85rem;
-  opacity: 0.85;
-}
-
-/* Lesson + quiz area */
-
-.g6-lesson-panel {
-  background: rgba(0, 0, 0, 0.25);
-  border-radius: 14px;
-  padding: 16px 14px;
-}
-
-.g6-lesson-title {
-  font-size: 1.25rem;
-  margin: 0 0 8px;
-}
-
-.g6-lesson-body p {
-  margin: 6px 0;
-}
-
-.g6-question-block {
-  margin-top: 16px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.g6-question-text {
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.g6-choice-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.g6-choice-list li {
-  margin-bottom: 6px;
-}
-
-.g6-choice-button {
+/* Start Quiz Button */
+.g6-start-btn {
   width: 100%;
-  text-align: left;
-  padding: 8px 10px;
-  border-radius: 8px;
+  padding: 12px 16px;
+  background: var(--tanuki-purple-light);
   border: none;
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
+  border-radius: 14px;
+  color: var(--tanuki-white);
+  font-size: 1.05rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: background 0.15s ease, transform 0.12s ease;
+}
+
+.g6-start-btn:hover {
+  background: var(--tanuki-purple);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   QUIZ CHOICES
+   ============================================================ */
+.g6-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.g6-choice-btn {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  border-radius: 14px;
+  color: var(--tanuki-white);
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.12s ease;
+}
+
+.g6-choice-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+/* Back Button */
+.g6-back-btn {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 12px;
+  color: var(--tanuki-white);
   font-size: 0.95rem;
-  transition: background 0.12s ease, transform 0.08s ease;
+  cursor: pointer;
+  transition: background 0.15s ease;
 }
 
-.g6-choice-button:hover {
-  background: rgba(255, 255, 255, 0.16);
-  transform: translateY(-1px);
+.g6-back-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
-.g6-choice-button.correct {
-  background: #2bb673;
+/* ============================================================
+   SPARKLES
+   ============================================================ */
+.g6-sparkles {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
-.g6-choice-button.incorrect {
-  background: #d64545;
+.g6-sparkles-active {
+  opacity: 1;
 }
 
-.g6-feedback {
-  margin-top: 8px;
-  font-size: 0.9rem;
+/* ============================================================
+   GRADUATION OVERLAY
+   ============================================================ */
+.g6-grad-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-/* Navigation / back to arcade */
-
-.g6-nav {
-  margin-top: 20px;
+.g6-grad-box {
+  background: rgba(255, 255, 255, 0.12);
+  padding: 24px 20px;
+  border-radius: 20px;
   text-align: center;
+  max-width: 360px;
+  width: 100%;
+  box-shadow: var(--tanuki-shadow-soft);
 }
 
-.g6-nav a {
-  color: #ffe6ff;
-  text-decoration: none;
-  font-size: 0.95rem;
+.g6-grad-btn {
+  margin-top: 16px;
+  padding: 10px 16px;
+  background: var(--tanuki-purple-light);
+  border: none;
+  border-radius: 12px;
+  color: var(--tanuki-white);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
 }
 
-.g6-nav a:hover {
-  text-decoration: underline;
+.g6-grad-btn:hover {
+  background: var(--tanuki-purple);
 }
 
-/* Mobile tweaks */
-
+/* ============================================================
+   MOBILE TWEAKS
+   ============================================================ */
 @media (max-width: 600px) {
   .g6-title {
     font-size: 1.6rem;
   }
 
-  .g6-root {
-    padding: 12px 10px 24px;
+  .g6-subject-btn {
+    font-size: 1rem;
+    padding: 16px 14px;
   }
 }
+
