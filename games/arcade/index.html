@@ -1,62 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Purple Tanuki Arcade</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="../theme/tanuki-theme.css">
-  <link rel="stylesheet" href="arcade.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PurpleTanuki Arcade</title>
+  <link rel="stylesheet" href="arcade.css" />
 </head>
 
 <body>
 
-  <!-- BROWSER-STYLE TOP BAR -->
+  <!-- BROWSER BAR -->
   <div class="arc-browser-bar">
     <div class="arc-browser-controls">
       <span class="arc-dot red"></span>
       <span class="arc-dot yellow"></span>
       <span class="arc-dot green"></span>
     </div>
-
     <div class="arc-browser-url">
-      <span class="arc-url-text">https://purple-tanuki.app/arcade</span>
+      <span class="arc-url-text">purpletanuki.app/arcade</span>
     </div>
   </div>
 
   <div class="arc-root">
 
     <!-- HEADER -->
-    <header class="arc-header-clean">
-      <h1 class="arc-title">Purple Tanuki Learning Arcade</h1>
-    </header>
+    <div class="arc-header-clean">
+      <h1 class="arc-title">PurpleTanuki Arcade</h1>
+    </div>
 
-    <!-- K–12 CORE -->
+    <!-- EARLY LEARNING -->
     <div class="arc-section">
-      <h2 class="arc-section-title">K–12 Core Curriculum</h2>
+      <h2 class="arc-section-title">Early Learning</h2>
       <div class="arc-buttons">
 
-        <!-- Preschool & Kindergarten -->
-        <button class="arc-btn" onclick="openGrade('preschool')">Preschool</button>
-        <button class="arc-btn" onclick="openGrade('k')">Kindergarten</button>
+        <!-- WORKING -->
+        <a class="arc-btn" href="../preschool/preschool.html">Preschool</a>
+        <a class="arc-btn" href="../kindergarten/kindergarten.html">Kindergarten</a>
 
-        <!-- Grades 1–5 -->
-        <button class="arc-btn" onclick="openGrade('1')">1st Grade</button>
-        <button class="arc-btn" onclick="openGrade('2')">2nd Grade</button>
-        <button class="arc-btn" onclick="openGrade('3')">3rd Grade</button>
-        <button class="arc-btn" onclick="openGrade('4')">4th Grade</button>
-        <button class="arc-btn" onclick="openGrade('5')">5th Grade</button>
+      </div>
+    </div>
 
-        <!-- Grades 6–8 -->
-        <button class="arc-btn" onclick="openGrade('6')">6th Grade</button>
-        <button class="arc-btn" onclick="openGrade('7')">7th Grade</button>
-        <button class="arc-btn" onclick="openGrade('8')">8th Grade</button>
+    <!-- ELEMENTARY -->
+    <div class="arc-section">
+      <h2 class="arc-section-title">Elementary School</h2>
+      <div class="arc-buttons">
 
-        <!-- High School -->
-        <button class="arc-btn" onclick="openGrade('9')">9th Grade</button>
-        <button class="arc-btn" onclick="openGrade('10')">10th Grade</button>
-        <button class="arc-btn" onclick="openGrade('11')">11th Grade</button>
-        <button class="arc-btn" onclick="openGrade('12')">12th Grade</button>
+        <!-- WORKING -->
+        <a class="arc-btn" href="../grade1/grade1.html">1st Grade</a>
+        <a class="arc-btn" href="../grade2/grade2.html">2nd Grade</a>
+        <a class="arc-btn" href="../grade3/grade3.html">3rd Grade</a>
+        <a class="arc-btn" href="../grade4/grade4.html">4th Grade</a>
+
+        <!-- COMING SOON -->
+        <button class="arc-btn arc-disabled">5th Grade<br><small>Coming Soon</small></button>
+      </div>
+    </div>
+
+    <!-- MIDDLE SCHOOL -->
+    <div class="arc-section">
+      <h2 class="arc-section-title">Middle School</h2>
+      <div class="arc-buttons">
+
+        <button class="arc-btn arc-disabled">6th Grade<br><small>Coming Soon</small></button>
+        <button class="arc-btn arc-disabled">7th Grade<br><small>Coming Soon</small></button>
+        <button class="arc-btn arc-disabled">8th Grade<br><small>Coming Soon</small></button>
+
+      </div>
+    </div>
+
+    <!-- HIGH SCHOOL -->
+    <div class="arc-section">
+      <h2 class="arc-section-title">High School</h2>
+      <div class="arc-buttons">
+
+        <button class="arc-btn arc-disabled">9th Grade<br><small>Coming Soon</small></button>
+        <button class="arc-btn arc-disabled">10th Grade<br><small>Coming Soon</small></button>
+        <button class="arc-btn arc-disabled">11th Grade<br><small>Coming Soon</small></button>
+        <button class="arc-btn arc-disabled">12th Grade<br><small>Coming Soon</small></button>
+
+      </div>
+    </div>
+
+    <!-- ELECTIVES -->
+    <div class="arc-section">
+      <h2 class="arc-section-title">Electives</h2>
+      <div class="arc-buttons">
+
+        <button class="arc-btn arc-disabled">Electives<br><small>Coming Soon</small></button>
+
+      </div>
+    </div>
+
+    <!-- AP -->
+    <div class="arc-section">
+      <h2 class="arc-section-title">Advanced Placement</h2>
+      <div class="arc-buttons">
+
+        <button class="arc-btn arc-disabled">AP Courses<br><small>Coming Soon</small></button>
 
       </div>
     </div>
@@ -65,53 +105,16 @@
     <div class="arc-section">
       <h2 class="arc-section-title">Life Skills</h2>
       <div class="arc-buttons">
-        <button class="arc-btn" onclick="openLifeSkills()">Life Skills Module</button>
-      </div>
-    </div>
 
-    <!-- ELECTIVES -->
-    <div class="arc-section">
-      <h2 class="arc-section-title">High School Electives</h2>
-      <div class="arc-buttons">
-        <button class="arc-btn" onclick="openElectives()">Electives Module</button>
-      </div>
-    </div>
+        <!-- ACTIVE (file coming later) -->
+        <a class="arc-btn" href="../lifeskills/lifeskills.html">Life Skills Module</a>
 
-    <!-- AP SUBJECTS -->
-    <div class="arc-section">
-      <h2 class="arc-section-title">Advanced Placement (AP)</h2>
-      <div class="arc-buttons">
-        <button class="arc-btn" onclick="openAP()">AP Subjects Module</button>
-      </div>
-    </div>
-
-    <!-- CTE (COMING SOON) -->
-    <div class="arc-section">
-      <h2 class="arc-section-title">Career & Technical Education (CTE)</h2>
-      <div class="arc-buttons">
-        <button class="arc-btn arc-disabled">CTE Module (Coming Soon)</button>
       </div>
     </div>
 
   </div>
 
-  <script>
-    function openGrade(level) {
-      window.location.href = `../grades/grade${level}/grade${level}.html`;
-    }
-
-    function openLifeSkills() {
-      window.location.href = "../lifeskills/lifeskills.html";
-    }
-
-    function openElectives() {
-      window.location.href = "../electives/electives.html";
-    }
-
-    function openAP() {
-      window.location.href = "../ap/ap.html";
-    }
-  </script>
-
+  <script src="arcade.js"></script>
 </body>
 </html>
+
