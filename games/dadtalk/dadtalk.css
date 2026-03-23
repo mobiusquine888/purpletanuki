@@ -1,0 +1,233 @@
+/* ============================================================
+   PURPLE TANUKI — DAD TALK UI (REFORGED)
+   ============================================================ */
+
+.dt-root {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 100px 16px 40px;
+  color: var(--tanuki-white);
+  font-family: "Nunito", system-ui, sans-serif;
+}
+
+/* HEADER */
+.dt-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.dt-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.dt-home-btn {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  color: var(--tanuki-white);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.dt-home-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* PROGRESS */
+.dt-progress-bar {
+  width: 100%;
+  height: 14px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.dt-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--tanuki-gold);
+  transition: width 0.35s ease;
+}
+
+.dt-progress-text {
+  text-align: right;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+/* LESSON BUTTONS */
+.dt-lessons {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.dt-lesson-btn {
+  background: rgba(255,255,255,0.12);
+  border: none;
+  border-radius: 18px;
+  padding: 18px 16px;
+  text-align: left;
+  color: var(--tanuki-white);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.12s ease;
+  box-shadow: var(--tanuki-shadow-soft);
+}
+
+.dt-lesson-btn:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-3px);
+}
+
+.dt-status-text {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-top: 6px;
+}
+
+/* CARD */
+.dt-card {
+  background: rgba(0,0,0,0.35);
+  border-radius: 20px;
+  padding: 20px 18px;
+  box-shadow: var(--tanuki-shadow-soft);
+  margin-top: 10px;
+}
+
+.dt-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.dt-card-body {
+  font-size: 1rem;
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.dt-card-body p {
+  margin: 8px 0;
+}
+
+/* START QUIZ */
+.dt-start-btn {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--tanuki-purple-light);
+  border: none;
+  border-radius: 14px;
+  color: var(--tanuki-white);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.dt-start-btn:hover {
+  background: var(--tanuki-purple);
+}
+
+/* QUIZ */
+.dt-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.dt-choice-btn {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.12);
+  border: none;
+  border-radius: 14px;
+  color: var(--tanuki-white);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.dt-choice-btn:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+.dt-back-btn {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  border-radius: 12px;
+  color: var(--tanuki-white);
+  cursor: pointer;
+}
+
+.dt-back-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* SPARKLES */
+.dt-sparkles {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.dt-sparkles-active {
+  opacity: 1;
+}
+
+/* GRAD OVERLAY */
+.dt-grad-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dt-grad-box {
+  background: rgba(255,255,255,0.12);
+  padding: 24px 20px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 360px;
+  width: 100%;
+}
+
+.dt-grad-btn {
+  margin-top: 16px;
+  padding: 10px 16px;
+  background: var(--tanuki-purple-light);
+  border: none;
+  border-radius: 12px;
+  color: var(--tanuki-white);
+  cursor: pointer;
+}
+
+.dt-grad-btn:hover {
+  background: var(--tanuki-purple);
+}
