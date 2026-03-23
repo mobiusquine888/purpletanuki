@@ -31,14 +31,17 @@ function startRitual() {
   setTimeout(() => {
     ritualReady = true;
 
+    // ⭐ Unlock the portal for the Arcade
+    localStorage.setItem("pt_portal_unlocked", "true");
+
     // Ready pose
     tanukiImg.src = "/games/ritual/images/tanuki_ready.png?v=1";
     tanukiImg.style.animation = "tanuki-ready-pop 0.6s ease forwards";
 
     // Update text
     phaseEl.textContent = "The gate is ready.";
-    subtextEl.textContent = "You may browse now.";
-    buttonEl.textContent = "Enter the gate";
+    subtextEl.textContent = "Return to the Arcade to use the portal.";
+    buttonEl.textContent = "Return to Arcade";
     buttonEl.disabled = false;
 
   }, RITUAL_DURATION);
@@ -46,7 +49,7 @@ function startRitual() {
 
 
 // ============================================================
-// BUTTON → ENTER GATE
+// BUTTON → RETURN TO ARCADE
 // ============================================================
 
 buttonEl.addEventListener("click", () => {
@@ -57,8 +60,8 @@ buttonEl.addEventListener("click", () => {
   document.body.style.opacity = "0";
 
   setTimeout(() => {
-    // ⭐ REFORGED: Go to the Browser World
-    window.location.href = "/games/browser/index.html";
+    // ⭐ REFORGED: Go back to the Arcade Hub
+    window.location.href = "/games/arcade/index.html";
   }, 600);
 });
 
@@ -68,7 +71,6 @@ buttonEl.addEventListener("click", () => {
 // ============================================================
 
 startRitual();
-
 
 
 
