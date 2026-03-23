@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>12th Grade Tutor — Purple Tanuki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../theme/tanuki-theme.css">
+  <link rel="stylesheet" href="grade12.css">
+</head>
+
+<body>
+  <div class="g12-root">
+
+    <!-- HEADER -->
+    <header class="g12-header">
+      <button class="g12-home-btn" onclick="goHome()">Home</button>
+      <h1 class="g12-title">12th Grade Tutor</h1>
+    </header>
+
+    <!-- GLOBAL PROGRESS -->
+    <div class="g12-progress-bar">
+      <div id="g12-progress-fill" class="g12-progress-fill"></div>
+    </div>
+    <div id="g12-progress-text" class="g12-progress-text">0%</div>
+
+    <!-- SUBJECT BUTTONS -->
+    <div class="g12-subjects">
+      <button class="g12-subject-btn" data-subject="reading" onclick="selectSubject('reading')">
+        English Language Arts
+        <div id="reading-status" class="g12-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g12-subject-btn" data-subject="math" onclick="selectSubject('math')">
+        Pre‑Calculus & Intro Calculus
+        <div id="math-status" class="g12-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g12-subject-btn" data-subject="science" onclick="selectSubject('science')">
+        Physics & Advanced Biology
+        <div id="science-status" class="g12-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g12-subject-btn" data-subject="social" onclick="selectSubject('social')">
+        Government, Economics & Civics
+        <div id="social-status" class="g12-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="g12-subject-btn" data-subject="logic" onclick="selectSubject('logic')">
+        Logic, Reasoning & Problem Solving
+        <div id="logic-status" class="g12-status-text">0 / 3 lessons</div>
+      </button>
+    </div>
+
+    <!-- LESSON CARD -->
+    <div id="g12-lesson-card" class="g12-card" style="display:none;">
+      <div class="g12-card-header">
+        <div id="g12-lesson-subject-label" class="g12-card-subject"></div>
+        <div id="g12-lesson-title" class="g12-card-title"></div>
+      </div>
+
+      <div id="g12-lesson-body" class="g12-card-body"></div>
+
+      <button id="g12-start-quiz-btn" class="g12-start-btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- QUIZ CARD -->
+    <div id="g12-quiz-card" class="g12-card" style="display:none;">
+      <div class="g12-card-header">
+        <div id="g12-quiz-subject-label" class="g12-card-subject"></div>
+        <div id="g12-quiz-title" class="g12-card-title"></div>
+        <div id="g12-quiz-lesson-label" class="g12-card-lesson"></div>
+        <div id="g12-quiz-q-progress" class="g12-card-progress"></div>
+      </div>
+
+      <div id="g12-quiz-prompt" class="g12-card-body"></div>
+
+      <div class="g12-choices">
+        <button id="g12-choice-1" class="g12-choice-btn"></button>
+        <button id="g12-choice-2" class="g12-choice-btn"></button>
+        <button id="g12-choice-3" class="g12-choice-btn"></button>
+      </div>
+
+      <button class="g12-back-btn" onclick="backToLesson()">Back to Lesson</button>
+    </div>
+
+    <!-- SPARKLES -->
+    <div id="g12-sparkles" class="g12-sparkles"></div>
+
+    <!-- GRADUATION OVERLAY -->
+    <div id="g12-grad-overlay" class="g12-grad-overlay" style="display:none;">
+      <div class="g12-grad-box">
+        <h2>🎓 You finished 12th Grade! 🎓</h2>
+        <p>You completed all lessons in every subject.</p>
+        <button class="g12-grad-btn" onclick="unlockGrade12Reward()">Continue</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="grade12.js"></script>
+</body>
+</html>
