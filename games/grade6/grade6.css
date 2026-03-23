@@ -1,0 +1,160 @@
+/* grade6.css — matches other grade pages, solid purple vibe */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #3b1b6b; /* deep PurpleTanuki purple */
+  color: #ffffff;
+}
+
+.g6-root {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px 16px 32px;
+}
+
+.g6-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.g6-title {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.g6-subtitle {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+.g6-subject-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.g6-subject-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.g6-subject-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.g6-subject-title {
+  font-size: 1.05rem;
+  margin: 0 0 4px;
+}
+
+.g6-subject-note {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+/* Lesson + quiz area */
+
+.g6-lesson-panel {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+  padding: 16px 14px;
+}
+
+.g6-lesson-title {
+  font-size: 1.25rem;
+  margin: 0 0 8px;
+}
+
+.g6-lesson-body p {
+  margin: 6px 0;
+}
+
+.g6-question-block {
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.g6-question-text {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.g6-choice-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.g6-choice-list li {
+  margin-bottom: 6px;
+}
+
+.g6-choice-button {
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.12s ease, transform 0.08s ease;
+}
+
+.g6-choice-button:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-1px);
+}
+
+.g6-choice-button.correct {
+  background: #2bb673;
+}
+
+.g6-choice-button.incorrect {
+  background: #d64545;
+}
+
+.g6-feedback {
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+/* Navigation / back to arcade */
+
+.g6-nav {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.g6-nav a {
+  color: #ffe6ff;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.g6-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile tweaks */
+
+@media (max-width: 600px) {
+  .g6-title {
+    font-size: 1.6rem;
+  }
+
+  .g6-root {
+    padding: 12px 10px 24px;
+  }
+}
