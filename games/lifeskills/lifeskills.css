@@ -1,0 +1,185 @@
+/* ============================
+   LIFE SKILLS — LAYOUT & THEME
+   ============================ */
+
+.ls-root {
+  padding: 20px;
+  padding-top: 120px;
+  font-family: Nunito, sans-serif;
+  color: #f0eaff;
+}
+
+.ls-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ls-home-btn {
+  background: #6a4fbf;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+.ls-title {
+  font-size: 1.6rem;
+  color: #d8cfff;
+}
+
+/* PROGRESS BAR */
+.ls-progress-bar {
+  width: 100%;
+  height: 14px;
+  background: #3a2a60;
+  border-radius: 8px;
+  margin: 20px 0 6px 0;
+}
+
+.ls-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #9f7bff;
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+
+.ls-progress-text {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #cfc6ff;
+}
+
+/* SUBJECT BUTTONS */
+.ls-subjects {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.ls-subject-btn {
+  background: #2a1f45;
+  color: #e8ddff;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.ls-subject-btn.active {
+  background: #6a4fbf;
+}
+
+.ls-status-text {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* CARDS */
+.ls-card {
+  background: #2a1f45;
+  border-radius: 14px;
+  padding: 20px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ls-card-header {
+  margin-bottom: 10px;
+}
+
+.ls-card-subject {
+  font-size: 1rem;
+  color: #cfc6ff;
+}
+
+.ls-card-title {
+  font-size: 1.3rem;
+  color: #f0eaff;
+}
+
+.ls-card-body {
+  font-size: 1rem;
+  color: #e8ddff;
+}
+
+/* QUIZ */
+.ls-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ls-choice-btn {
+  background: #6a4fbf;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.ls-back-btn {
+  margin-top: 10px;
+  background: #3a2a60;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* SPARKLES */
+.ls-sparkles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ls-sparkles.active {
+  opacity: 1;
+}
+
+/* COMPLETION OVERLAY */
+.ls-grad-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 10, 40, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ls-grad-box {
+  background: #2a1f45;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  color: #f0eaff;
+}
+
+.ls-grad-btn {
+  margin-top: 20px;
+  background: #9f7bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+}
