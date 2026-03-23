@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>High School Electives — Purple Tanuki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../theme/tanuki-theme.css">
+  <link rel="stylesheet" href="electives.css">
+</head>
+
+<body>
+  <div class="el-root">
+
+    <!-- HEADER -->
+    <header class="el-header">
+      <button class="el-home-btn" onclick="goHome()">Home</button>
+      <h1 class="el-title">High School Electives</h1>
+    </header>
+
+    <!-- GLOBAL PROGRESS -->
+    <div class="el-progress-bar">
+      <div id="el-progress-fill" class="el-progress-fill"></div>
+    </div>
+    <div id="el-progress-text" class="el-progress-text">0%</div>
+
+    <!-- SUBJECT BUTTONS -->
+    <div class="el-subjects">
+      <button class="el-subject-btn" data-subject="psych" onclick="selectSubject('psych')">
+        Psychology
+        <div id="psych-status" class="el-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="el-subject-btn" data-subject="cs" onclick="selectSubject('cs')">
+        Computer Science
+        <div id="cs-status" class="el-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="el-subject-btn" data-subject="econ" onclick="selectSubject('econ')">
+        Economics
+        <div id="econ-status" class="el-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="el-subject-btn" data-subject="art" onclick="selectSubject('art')">
+        Art History
+        <div id="art-status" class="el-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="el-subject-btn" data-subject="creative" onclick="selectSubject('creative')">
+        Creative Writing
+        <div id="creative-status" class="el-status-text">0 / 3 lessons</div>
+      </button>
+    </div>
+
+    <!-- LESSON CARD -->
+    <div id="el-lesson-card" class="el-card" style="display:none;">
+      <div class="el-card-header">
+        <div id="el-lesson-subject-label" class="el-card-subject"></div>
+        <div id="el-lesson-title" class="el-card-title"></div>
+      </div>
+
+      <div id="el-lesson-body" class="el-card-body"></div>
+
+      <button id="el-start-quiz-btn" class="el-start-btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- QUIZ CARD -->
+    <div id="el-quiz-card" class="el-card" style="display:none;">
+      <div class="el-card-header">
+        <div id="el-quiz-subject-label" class="el-card-subject"></div>
+        <div id="el-quiz-title" class="el-card-title"></div>
+        <div id="el-quiz-lesson-label" class="el-card-lesson"></div>
+        <div id="el-quiz-q-progress" class="el-card-progress"></div>
+      </div>
+
+      <div id="el-quiz-prompt" class="el-card-body"></div>
+
+      <div class="el-choices">
+        <button id="el-choice-1" class="el-choice-btn"></button>
+        <button id="el-choice-2" class="el-choice-btn"></button>
+        <button id="el-choice-3" class="el-choice-btn"></button>
+      </div>
+
+      <button class="el-back-btn" onclick="backToLesson()">Back to Lesson</button>
+    </div>
+
+    <!-- SPARKLES -->
+    <div id="el-sparkles" class="el-sparkles"></div>
+
+    <!-- COMPLETION OVERLAY -->
+    <div id="el-grad-overlay" class="el-grad-overlay" style="display:none;">
+      <div class="el-grad-box">
+        <h2>🎉 Electives Complete! 🎉</h2>
+        <p>You finished all elective subjects.</p>
+        <button class="el-grad-btn" onclick="goHome()">Return Home</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="electives.js"></script>
+</body>
+</html>
