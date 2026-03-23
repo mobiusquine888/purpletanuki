@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Life Skills — Purple Tanuki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../theme/tanuki-theme.css">
+  <link rel="stylesheet" href="lifeskills.css">
+</head>
+
+<body>
+  <div class="ls-root">
+
+    <!-- HEADER -->
+    <header class="ls-header">
+      <button class="ls-home-btn" onclick="goHome()">Home</button>
+      <h1 class="ls-title">Life Skills</h1>
+    </header>
+
+    <!-- GLOBAL PROGRESS -->
+    <div class="ls-progress-bar">
+      <div id="ls-progress-fill" class="ls-progress-fill"></div>
+    </div>
+    <div id="ls-progress-text" class="ls-progress-text">0%</div>
+
+    <!-- SUBJECT BUTTONS -->
+    <div class="ls-subjects">
+
+      <button class="ls-subject-btn" data-subject="money" onclick="selectSubject('money')">
+        Money & Everyday Math
+        <div id="money-status" class="ls-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="ls-subject-btn" data-subject="adulting" onclick="selectSubject('adulting')">
+        Adulting Basics
+        <div id="adulting-status" class="ls-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="ls-subject-btn" data-subject="household" onclick="selectSubject('household')">
+        Household & Personal Care
+        <div id="household-status" class="ls-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="ls-subject-btn" data-subject="safety" onclick="selectSubject('safety')">
+        Safety & Street Smarts
+        <div id="safety-status" class="ls-status-text">0 / 3 lessons</div>
+      </button>
+
+      <button class="ls-subject-btn" data-subject="future" onclick="selectSubject('future')">
+        Future Skills & Growth
+        <div id="future-status" class="ls-status-text">0 / 3 lessons</div>
+      </button>
+
+    </div>
+
+    <!-- LESSON CARD -->
+    <div id="ls-lesson-card" class="ls-card" style="display:none;">
+      <div class="ls-card-header">
+        <div id="ls-lesson-subject-label" class="ls-card-subject"></div>
+        <div id="ls-lesson-title" class="ls-card-title"></div>
+      </div>
+
+      <div id="ls-lesson-body" class="ls-card-body"></div>
+
+      <button id="ls-start-quiz-btn" class="ls-start-btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- QUIZ CARD -->
+    <div id="ls-quiz-card" class="ls-card" style="display:none;">
+      <div class="ls-card-header">
+        <div id="ls-quiz-subject-label" class="ls-card-subject"></div>
+        <div id="ls-quiz-title" class="ls-card-title"></div>
+        <div id="ls-quiz-lesson-label" class="ls-card-lesson"></div>
+        <div id="ls-quiz-q-progress" class="ls-card-progress"></div>
+      </div>
+
+      <div id="ls-quiz-prompt" class="ls-card-body"></div>
+
+      <div class="ls-choices">
+        <button id="ls-choice-1" class="ls-choice-btn"></button>
+        <button id="ls-choice-2" class="ls-choice-btn"></button>
+        <button id="ls-choice-3" class="ls-choice-btn"></button>
+      </div>
+
+      <button class="ls-back-btn" onclick="backToLesson()">Back to Lesson</button>
+    </div>
+
+    <!-- SPARKLES -->
+    <div id="ls-sparkles" class="ls-sparkles"></div>
+
+    <!-- COMPLETION OVERLAY -->
+    <div id="ls-grad-overlay" class="ls-grad-overlay" style="display:none;">
+      <div class="ls-grad-box">
+        <h2>🎉 Life Skills Complete! 🎉</h2>
+        <p>You finished all Life Skills subjects.</p>
+        <button class="ls-grad-btn" onclick="goHome()">Return Home</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="lifeskills.js"></script>
+</body>
+</html>
