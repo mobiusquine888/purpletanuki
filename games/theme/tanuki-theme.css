@@ -39,3 +39,22 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+
+/* ============================================================
+   GLOBAL BANNER / HEADER FIXES
+   These two rules prevent the banner from blocking touches
+   and cropping the top of every page.
+   ============================================================ */
+
+/* 1. Make the banner non-interactive so it stops blocking taps */
+.global-banner,
+.header-banner,
+.tanuki-header {
+  pointer-events: none;
+}
+
+/* 2. Ensure content can scroll under it without being cropped */
+body {
+  padding-top: 80px; /* adjust to match your banner height */
+}
+
