@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PurpleTanuki Arcade</title>
   <link rel="stylesheet" href="arcade.css" />
+  <link rel="stylesheet" href="/games/theme/tanuki-theme.css" />
 </head>
 
 <body>
@@ -28,7 +29,7 @@
       <h1 class="arc-title">PurpleTanuki Arcade</h1>
     </div>
 
-    <!-- ⭐ REFORGED REWARD URL BAR (MATCHES TOP BAR EXACTLY) -->
+    <!-- ⭐ REFORGED REWARD URL BAR -->
     <div class="arc-browser-bar arc-reward-bar">
       <div class="arc-browser-controls">
         <span class="arc-dot red"></span>
@@ -130,8 +131,20 @@
   <!-- ⭐ Parent Controls Button -->
   <a href="/parent/index.html" class="parent-btn">Parent Controls</a>
 
+  <!-- ⭐ GLOBAL HOME BUTTON INJECTOR -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const home = document.createElement("a");
+      home.href = "/games/arcade/index.html";
+      home.className = "home-btn";
+      home.textContent = "Home";
+      document.body.appendChild(home);
+    });
+  </script>
+
 </body>
 </html>
+
 
 
 
