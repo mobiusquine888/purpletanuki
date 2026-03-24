@@ -18,13 +18,12 @@ html, body {
 
 .arc-root {
   padding: 20px;
-  padding-top: 100px; /* space for browser bar */
   max-width: 900px;
   margin: 0 auto;
 }
 
 /* ============================
-   BROWSER-STYLE TOP BAR
+   BROWSER-STYLE URL BAR (NOW INLINE)
    ============================ */
 
 .arc-browser-bar {
@@ -35,10 +34,8 @@ html, body {
   align-items: center;
   gap: 16px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 50;
+  margin-bottom: 20px; /* spacing under title */
+  position: relative; /* no longer fixed */
 }
 
 .arc-browser-controls {
@@ -73,61 +70,12 @@ html, body {
 }
 
 /* ============================
-   ⭐ REFORGED REWARD URL BAR
-   (MATCHES TOP BAR EXACTLY)
-   ============================ */
-
-.arc-reward-bar {
-  width: 100%;
-  margin-top: 10px;
-  padding: 8px 14px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.arc-reward-url {
-  flex: 1;
-  background: #2a1f45; /* same purple pill as top bar */
-  padding: 6px 12px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-}
-
-.arc-reward-input {
-  width: 100%;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: #e8ddff;
-  font-size: 0.9rem;
-  font-family: Nunito, sans-serif;
-}
-
-.arc-reward-go {
-  margin-top: 8px;
-  padding: 10px 18px;
-  background: #6a4fbf;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.arc-reward-go:hover {
-  background: #8b6df5;
-}
-
-/* ============================
    HEADER
    ============================ */
 
 .arc-header-clean {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .arc-title {
@@ -151,13 +99,33 @@ html, body {
 }
 
 /* ============================
-   CARD GRID
+   CARD GRID — REFORGED
    ============================ */
 
 .arc-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   gap: 14px;
+}
+
+/* Pixel 8 (mobile) — 2 columns */
+@media (max-width: 480px) {
+  .arc-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 900px) {
+  .arc-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Laptops / Desktop */
+@media (min-width: 901px) {
+  .arc-card-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 /* ============================
@@ -212,24 +180,5 @@ html, body {
 .parent-btn:hover {
   opacity: 1;
   background: #f3eaff;
-}
-
-/* ============================
-   MOBILE OPTIMIZATION
-   ============================ */
-
-@media (max-width: 600px) {
-  .arc-card-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .arc-card {
-    font-size: 1rem;
-    padding: 14px;
-  }
-
-  .arc-title {
-    font-size: 1.5rem;
-  }
 }
 
