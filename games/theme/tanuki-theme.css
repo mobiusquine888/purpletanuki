@@ -45,7 +45,7 @@ body {
   text-rendering: optimizeLegibility;
 
   /* FIX: Ensure all pages start below the global banner */
-  padding-top: 80px; /* adjust if banner height changes */
+  padding-top: 80px;
 }
 
 /* ============================================================
@@ -53,37 +53,25 @@ body {
    Prevents the banner from blocking touches or cropping pages
    ============================================================ */
 
-/* FIX: Make the banner non-interactive so it stops blocking taps */
 .global-banner,
 .header-banner,
 .tanuki-header {
   pointer-events: none;
-}
-
-/* FIX: Ensure banners never visually crush content */
-.global-banner,
-.header-banner,
-.tanuki-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999; /* visible but non-blocking */
-}
-
-/* Optional: If your banner has a background, keep it subtle */
-.global-banner,
-.header-banner,
-.tanuki-header {
+  z-index: 999;
   background: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(6px);
 }
 
 /* ============================================================
    GLOBAL FLOATING HOME BUTTON (Purple Pill)
+   (RENAMED TO PREVENT COLLISION WITH .home-btn)
    ============================================================ */
 
-.home-btn {
+.global-home-btn {
   position: fixed;
   bottom: 20px;
   left: 20px;
@@ -99,10 +87,7 @@ body {
   z-index: 9999;
 }
 
-.home-btn:hover {
+.global-home-btn:hover {
   opacity: 1;
   background: var(--tanuki-purple);
 }
-
-
-
