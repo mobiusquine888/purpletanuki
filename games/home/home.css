@@ -45,8 +45,8 @@
 }
 
 .home-stuffy-circle {
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   background: linear-gradient(145deg, #6a4fbf, #9b6df5);
   display: flex;
