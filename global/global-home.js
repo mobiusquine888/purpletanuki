@@ -11,7 +11,7 @@
   btn.id = "global-home-btn";
   btn.className = "global-home-btn";
   btn.textContent = "Home";
-  btn.href = "/index.html";
+  btn.href = "/home/home.html";
 
   // Inject into DOM
   document.body.appendChild(btn);
