@@ -25,7 +25,9 @@ function startRitual() {
   buttonEl.disabled = true;
 
   // Tanuki breathing animation (gentle scale pulse)
+setTimeout(() => {
   tanukiImg.style.animation = "tanuki-breathe 4s ease-in-out infinite";
+}, 1500); // wait for fade-in to finish
 
   // After ritual duration → unlock gate
   setTimeout(() => {
