@@ -1,5 +1,5 @@
 /* ============================
-   UNIVERSAL HOME BUTTON — JS
+   UNIVERSAL HOME BUTTON — JS (REFORGED)
    ============================ */
 
 (function () {
@@ -11,7 +11,7 @@
   btn.id = "global-home-btn";
   btn.className = "global-home-btn";
   btn.textContent = "Home";
-  btn.href = "/home/home.html";
+  btn.href = "/games/home/home.html";  // <-- Correct path
 
   // Inject into DOM
   document.body.appendChild(btn);
