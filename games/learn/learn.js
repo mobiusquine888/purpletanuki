@@ -98,17 +98,45 @@ document.addEventListener("DOMContentLoaded", async () => {
     const selected = document.querySelector("input[name='answer']:checked");
     if (!selected) return alert("Choose an answer first!");
 
-    if (selected.value === lesson.answer) {
-      // Correct → unlock portal
-      localStorage.setItem("pt_portal_unlocked", "true");
+if (selected.value === lesson.answer) {
 
-      // Advance progress
-      localStorage.setItem(progressKey, progress + 1);
+  // -----------------------------
+  // LESSONS REQUIRED LOGIC
+  // -----------------------------
+  const required = Number(localStorage.getItem("pt_lessons_required")) || 1;
+  const countKey = `pt_lesson_count_${grade}_${subject}`;
+  let count = Number(localStorage.getItem(countKey)) || 0;
 
-      window.location.href = "/games/ritual/index.html";
-    } else {
-      alert("Try again!");
-    }
+  count++;
+  localStorage.setItem(countKey, count);
+
+  // If enough lessons completed → unlock portal
+  if (count >= required) {
+    localStorage.setItem("pt_portal_unlocked", "true");
+
+    // Reset counter for next cycle
+    localStorage.setItem(countKey, 0);
+
+    // Advance progress
+    localStorage.setItem(progressKey, progress + 1);
+
+    // Go to Ritual Gate
+    window.location.href = "/games/ritual/index.html";
+    return;
+  }
+
+  // -----------------------------
+  // NOT ENOUGH LESSONS YET → LOAD NEXT LESSON
+  // -----------------------------
+  localStorage.setItem(progressKey, progress + 1);
+
+  // Reload Learn page to show next question
+  window.location.reload();
+
+} else {
+  alert("Try again!");
+}
+    
   };
 
 });
