@@ -1,0 +1,44 @@
+.learn-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  color: white;
+}
+
+.learn-header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.learn-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+}
+
+.learn-question {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.learn-options .answer-option {
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.learn-submit {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: var(--tanuki-purple-light);
+  border: 2px solid var(--tanuki-purple);
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.learn-submit:hover {
+  background: var(--tanuki-purple);
+}
