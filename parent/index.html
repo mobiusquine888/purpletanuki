@@ -23,10 +23,98 @@
     <!-- HEADER -->
     <header class="pp-header">
       <h1>Parent & Teacher Controls</h1>
-      <p class="pp-subtitle">Manage unlock time, allowed sites, and learning settings.</p>
+      <p class="pp-subtitle">Manage grade level, subjects, curriculum, unlock time, and learning settings.</p>
     </header>
 
-    <!-- UNLOCK DURATION -->
+    <!-- ============================
+         GRADE LEVEL SELECTION
+         ============================ -->
+    <section class="pp-card">
+      <h2>Learner Grade Level</h2>
+      <p>Select the primary grade level for this learner.</p>
+
+      <select id="gradeLevel" class="pp-select">
+        <option value="preschool">Preschool</option>
+        <option value="kindergarten">Kindergarten</option>
+        <option value="grade1">Grade 1</option>
+        <option value="grade2">Grade 2</option>
+        <option value="grade3">Grade 3</option>
+        <option value="grade4">Grade 4</option>
+        <option value="grade5">Grade 5</option>
+        <option value="grade6">Grade 6</option>
+        <option value="grade7">Grade 7</option>
+        <option value="grade8">Grade 8</option>
+        <option value="grade9">Grade 9</option>
+        <option value="grade10">Grade 10</option>
+        <option value="grade11">Grade 11</option>
+        <option value="grade12">Grade 12</option>
+      </select>
+    </section>
+
+    <!-- ============================
+         SUBJECT TOGGLES
+         ============================ -->
+    <section class="pp-card">
+      <h2>Enabled Subjects</h2>
+      <p>Choose which subjects this learner can access on the Learn page.</p>
+
+      <div class="pp-checkbox">
+        <input type="checkbox" id="subjectMath" data-subject="math" />
+        <label for="subjectMath">Math (arithmetic, algebra, geometry)</label>
+      </div>
+
+      <div class="pp-checkbox">
+        <input type="checkbox" id="subjectReading" data-subject="reading" />
+        <label for="subjectReading">Reading & Comprehension</label>
+      </div>
+
+      <div class="pp-checkbox">
+        <input type="checkbox" id="subjectScience" data-subject="science" />
+        <label for="subjectScience">Science</label>
+      </div>
+
+      <div class="pp-checkbox">
+        <input type="checkbox" id="subjectSocial" data-subject="social" />
+        <label for="subjectSocial">Social Studies / History</label>
+      </div>
+
+      <div class="pp-checkbox">
+        <input type="checkbox" id="subjectVocabulary" data-subject="vocabulary" />
+        <label for="subjectVocabulary">Vocabulary & Language</label>
+      </div>
+
+      <div class="pp-checkbox">
+        <input type="checkbox" id="subjectLogic" data-subject="logic" />
+        <label for="subjectLogic">Logic & Puzzles</label>
+      </div>
+    </section>
+
+    <!-- ============================
+         CURRICULUM MODE
+         ============================ -->
+    <section class="pp-card">
+      <h2>Curriculum Track</h2>
+      <p>Choose whether to use the built‑in Tanuki curriculum or a custom one.</p>
+
+      <div class="pp-checkbox">
+        <input type="radio" name="curriculumMode" id="curriculumDefault" value="default" />
+        <label for="curriculumDefault">Use built‑in PurpleTanuki curriculum (recommended)</label>
+      </div>
+
+      <div class="pp-checkbox">
+        <input type="radio" name="curriculumMode" id="curriculumCustom" value="custom" />
+        <label for="curriculumCustom">Use custom curriculum source</label>
+      </div>
+
+      <div class="pp-custom-curriculum">
+        <label for="curriculumUrl">Custom curriculum URL (JSON or JS config)</label>
+        <input type="text" id="curriculumUrl" class="pp-input" placeholder="https://example.com/my-curriculum.json" />
+      </div>
+    </section>
+
+    <!-- ============================
+         UNLOCK DURATION
+         ============================ -->
     <section class="pp-card">
       <h2>Portal Unlock Duration</h2>
       <p>Choose how long the portal stays open after each completed lesson.</p>
@@ -40,7 +128,9 @@
       </select>
     </section>
 
-    <!-- ALLOWED SITES -->
+    <!-- ============================
+         ALLOWED SITES
+         ============================ -->
     <section class="pp-card">
       <h2>Allowed Sites</h2>
       <p>Choose which websites your learner can access through the portal.</p>
@@ -66,7 +156,9 @@
       </div>
     </section>
 
-    <!-- DIFFICULTY -->
+    <!-- ============================
+         RITUAL DIFFICULTY
+         ============================ -->
     <section class="pp-card">
       <h2>Ritual Difficulty</h2>
       <p>Adjust how challenging the Gate Ritual is.</p>
@@ -86,6 +178,7 @@
   <script src="parent.js"></script>
 </body>
 </html>
+
 
 
 
