@@ -46,7 +46,7 @@ tanukiImg.src = "/games/ritual/images/tanuki_ready.png?v=1";
     subtextEl.textContent = "Return to the Arcade to use the portal.";
     buttonEl.textContent = "Return to Arcade";
     buttonEl.disabled = false;
-
+    buttonEl.style.display = "block";   // ⭐ FIX — make the button appear
   }, RITUAL_DURATION);
 }
 
