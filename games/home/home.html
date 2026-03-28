@@ -1,20 +1,56 @@
-/* ============================
-   UNIVERSAL HOME BUTTON — JS
-   ============================ */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PurpleTanuki — Home</title>
 
-(function () {
-  // Prevent duplicate injection
-  if (document.getElementById("global-home-btn")) return;
+  <!-- Page Styles -->
+  <link rel="stylesheet" href="home.css" />
 
-  // Create the button
-  const btn = document.createElement("a");
-  btn.id = "global-home-btn";
-  btn.className = "global-home-btn";
-  btn.textContent = "Home";
-  btn.href = "/games/home/home.html";  // <-- FULL CORRECT PATH
+  <!-- UNIVERSAL HOME BUTTON -->
+  <link rel="stylesheet" href="/global/global-home.css">
+  <script src="/global/global-home.js" defer></script>
+</head>
 
-  // Inject into DOM
-  document.body.appendChild(btn);
-})();
+<body>
+
+  <div class="home-container">
+
+    <!-- HEADER -->
+    <header class="home-header">
+      <h1>Welcome to PurpleTanuki</h1>
+      <p class="home-subtitle">Choose your next adventure.</p>
+    </header>
+
+    <!-- MAIN NAVIGATION -->
+    <section class="home-grid">
+
+      <a class="home-card" href="/games/arcade/arcade.html">
+        <h2>Arcade</h2>
+        <p>Play learning games and level up.</p>
+      </a>
+
+      <a class="home-card" href="/games/ritual/ritual.html">
+        <h2>Gate Ritual</h2>
+        <p>Complete your challenge to unlock browsing.</p>
+      </a>
+
+      <a class="home-card" href="/games/browser/browser.html">
+        <h2>Browser</h2>
+        <p>Visit allowed sites through the safe portal.</p>
+      </a>
+
+      <a class="home-card" href="/parent/index.html">
+        <h2>Parent Mode</h2>
+        <p>Manage settings, difficulty, and allowed sites.</p>
+      </a>
+
+    </section>
+
+  </div>
+
+</body>
+</html>
 
 
