@@ -37,9 +37,19 @@ setTimeout(() => {
     localStorage.setItem("pt_portal_unlocked", "true");
 
     // Ready pose
-    tanukiImg.src = "/games/ritual/images/tanuki_ready.png?v=2";
-    tanukiImg.style.opacity = "1";
-    tanukiImg.style.animation = "tanuki-ready-pop 0.6s ease forwards";
+// Fade out neutral image
+tanukiImg.style.transition = "opacity 0.6s ease";
+tanukiImg.style.opacity = "0";
+
+setTimeout(() => {
+  // Switch to ready pose
+  tanukiImg.src = "/games/ritual/images/tanuki_ready.png?v=1";
+
+  // Fade in ready image
+  tanukiImg.style.opacity = "1";
+  tanukiImg.style.animation = "tanuki-ready-pop 0.6s ease forwards";
+}, 600);
+
 
     // Update text
     phaseEl.textContent = "The gate is ready.";
