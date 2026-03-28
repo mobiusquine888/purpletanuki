@@ -36,6 +36,7 @@ function startRitual() {
 
     // Ready pose
     tanukiImg.src = "/games/ritual/images/tanuki_ready.png?v=2";
+    tanukiImg.style.opacity = "1";
     tanukiImg.style.animation = "tanuki-ready-pop 0.6s ease forwards";
 
     // Update text
