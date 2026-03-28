@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       // Advance progress
       localStorage.setItem(progressKey, progress + 1);
 
-      window.location.href = "/games/ritual/ritual.html";
+      window.location.href = "/games/ritual/index.html";
     } else {
       alert("Try again!");
     }
