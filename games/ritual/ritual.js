@@ -3,7 +3,7 @@
 // ============================================================
 
 // How long the breathing ritual lasts before the gate can open (ms)
-const RITUAL_DURATION = 4000; // 1 cycle; bump to 8000 for 2 cycles
+const RITUAL_DURATION = 6000; // 1 cycle; bump to 8000 for 2 cycles
 
 const phaseEl = document.getElementById("ritual-phase");
 const subtextEl = document.getElementById("ritual-subtext");
@@ -37,19 +37,17 @@ setTimeout(() => {
     localStorage.setItem("pt_portal_unlocked", "true");
 
     // Ready pose
-// Fade out neutral image
-tanukiImg.style.transition = "opacity 0.6s ease";
-tanukiImg.style.opacity = "0";
+// Smooth crossfade: neutral → ready
+tanukiImg.style.transition = "opacity 0.8s ease";
+tanukiImg.style.opacity = "0"; // fade out neutral
 
 setTimeout(() => {
-  // Switch to ready pose
   tanukiImg.src = "/games/ritual/images/tanuki_ready.png?v=1";
 
-  // Fade in ready image
+  // Fade in ready image immediately (no gap)
   tanukiImg.style.opacity = "1";
   tanukiImg.style.animation = "tanuki-ready-pop 0.6s ease forwards";
-}, 600);
-
+}, 400); // switch halfway through fade-out for seamless crossfade
 
     // Update text
     phaseEl.textContent = "The gate is ready.";
