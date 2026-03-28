@@ -1,70 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PurpleTanuki Home</title>
+/* ============================
+   UNIVERSAL HOME BUTTON — JS
+   ============================ */
 
-  <!-- Global theme -->
-  <link rel="stylesheet" href="/games/theme/tanuki-theme.css" />
+(function () {
+  // Prevent duplicate injection
+  if (document.getElementById("global-home-btn")) return;
 
-  <!-- Home-specific styles -->
-  <link rel="stylesheet" href="home.css" />
-</head>
+  // Create the button
+  const btn = document.createElement("a");
+  btn.id = "global-home-btn";
+  btn.className = "global-home-btn";
+  btn.textContent = "Home";
+  btn.href = "/games/home/home.html";  // <-- FULL CORRECT PATH
 
-<body>
+  // Inject into DOM
+  document.body.appendChild(btn);
+})();
 
-  <!-- FLOATING HOME BUTTON (GLOBAL) -->
-  <a class="global-home-btn" href="/games/home/home.html">Home</a>
-
-  <div class="home-root">
-
-    <!-- TOP TITLE / LOGO AREA -->
-    <header class="home-header">
-      <h1 class="home-title">PurpleTanuki</h1>
-      <p class="home-subtitle">Learn • Grow • Explore</p>
-    </header>
-
-    <!-- CENTER STUFFY AREA -->
-    <section class="home-stuffy-section">
-      <div class="home-stuffy-circle">
-        <img src="/games/Purple_Stuffy.png" class="home-stuffy-img">
-      </div>
-      <p class="home-stuffy-caption">
-        Today’s guide is here to learn with you.
-      </p>
-    </section>
-
-    <!-- MAIN ACTION BUTTONS -->
-    <section class="home-main-actions">
-      <a class="home-btn home-btn-primary" href="/games/arcade/arcade.html">
-        Learn
-      </a>
-      <a class="home-btn home-btn-secondary" href="/games/rituals/index.html">
-        Rituals
-      </a>
-      <a class="home-btn home-btn-secondary" href="/games/arcade/arcade.html">
-        Explore
-      </a>
-    </section>
-
-    <!-- PROGRESS AREA -->
-    <section class="home-progress">
-      <div class="home-progress-bar">
-        <div class="home-progress-fill" style="width: 40%;"></div>
-      </div>
-      <p class="home-progress-text">XP: 40 / 100 • Streak: 3 days</p>
-    </section>
-
-    <!-- PARENT MODE BUTTON -->
-    <footer class="home-footer">
-      <a class="home-parent-btn" href="/parent/index.html">
-        Parent Mode
-      </a>
-    </footer>
-
-  </div>
-
-</body>
-</html>
 
