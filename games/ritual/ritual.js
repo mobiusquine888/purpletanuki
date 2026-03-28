@@ -35,7 +35,7 @@ function startRitual() {
     localStorage.setItem("pt_portal_unlocked", "true");
 
     // Ready pose
-    tanukiImg.src = "/games/ritual/images/tanuki_ready.png?v=1";
+    tanukiImg.src = "/games/ritual/images/tanuki_ready.png?v=2";
     tanukiImg.style.animation = "tanuki-ready-pop 0.6s ease forwards";
 
     // Update text
