@@ -3,9 +3,6 @@
    ============================ */
 
 (function () {
-  // Do not show on Parent Mode
-  if (window.location.pathname.includes("/parent/")) return;
-
   // Prevent duplicate injection
   if (document.getElementById("global-home-btn")) return;
 
