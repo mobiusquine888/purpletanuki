@@ -37,17 +37,9 @@ setTimeout(() => {
     localStorage.setItem("pt_portal_unlocked", "true");
 
     // Ready pose
-// Smooth crossfade: neutral → ready
-tanukiImg.style.transition = "opacity 0.8s ease";
-tanukiImg.style.opacity = "0"; // fade out neutral
-
-setTimeout(() => {
-  tanukiImg.src = "/games/ritual/images/tanuki_ready.png?v=1";
-
-  // Fade in ready image immediately (no gap)
-  tanukiImg.style.opacity = "1";
-  tanukiImg.style.animation = "tanuki-ready-pop 0.6s ease forwards";
-}, 400); // switch halfway through fade-out for seamless crossfade
+// Hard cut: instantly switch to ready pose
+tanukiImg.style.animation = "none"; // stop breathing
+tanukiImg.src = "/games/ritual/images/tanuki_ready.png?v=1";
 
     // Update text
     phaseEl.textContent = "The gate is ready.";
