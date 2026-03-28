@@ -1,0 +1,162 @@
+{
+  "units": [
+    {
+      "id": "unit1",
+      "title": "Ratios & Proportional Reasoning",
+      "lessons": [
+        {
+          "id": "u1_l1",
+          "title": "What Is a Ratio?",
+          "type": "lesson",
+          "text": "A ratio compares two quantities. It tells how much of one thing there is compared to another.",
+          "example": "There are 3 cats and 2 dogs. The ratio of cats to dogs is 3 to 2.",
+          "practice_question": "Write the ratio of 4 apples to 1 banana.",
+          "answer": "4:1"
+        },
+        {
+          "id": "u1_l2",
+          "title": "Writing Ratios in Different Forms",
+          "type": "lesson",
+          "text": "A ratio can be written with 'to', with a colon, or as a fraction.",
+          "example": "3 to 2, 3:2, 3/2",
+          "practice_question": "Write the ratio of 5 red marbles to 3 blue marbles in all three forms.",
+          "answer": "5 to 3, 5:3, 5/3"
+        },
+        {
+          "id": "u1_l3",
+          "title": "Equivalent Ratios",
+          "type": "lesson",
+          "text": "Equivalent ratios describe the same relationship. Multiply or divide both parts to create one.",
+          "example": "2:3 → multiply both by 2 → 4:6",
+          "practice_question": "Create an equivalent ratio to 3:5 by multiplying both numbers by 3.",
+          "answer": "9:15"
+        },
+        {
+          "id": "u1_l4",
+          "title": "Ratio Tables",
+          "type": "lesson",
+          "text": "A ratio table organizes equivalent ratios.",
+          "example": "If 2 sandwiches cost $6, then 4 cost $12 and 6 cost $18.",
+          "practice_question": "If 3 notebooks cost $9, how much do 6 notebooks cost?",
+          "answer": "$18"
+        },
+        {
+          "id": "u1_l5",
+          "title": "Unit Rates",
+          "type": "lesson",
+          "text": "A unit rate tells how much happens per 1 unit.",
+          "example": "10 miles in 2 hours → 5 miles per hour.",
+          "practice_question": "Find the unit rate: 12 apples cost $6.",
+          "answer": "$0.50 per apple"
+        },
+        {
+          "id": "u1_l6",
+          "title": "What Is a Proportion?",
+          "type": "lesson",
+          "text": "A proportion is when two ratios are equal.",
+          "example": "2:3 = 4:6",
+          "practice_question": "Is 3:4 equal to 6:8?",
+          "answer": "Yes"
+        },
+        {
+          "id": "u1_l7",
+          "title": "Solving Proportions (Cross-Multiplying)",
+          "type": "lesson",
+          "text": "Cross-multiplying helps find a missing value in a proportion.",
+          "example": "3/4 = x/8 → x = 6",
+          "practice_question": "Solve: 2/5 = x/15",
+          "answer": "6"
+        },
+        {
+          "id": "u1_l8",
+          "title": "Scaling Up and Down",
+          "type": "lesson",
+          "text": "Scaling up multiplies both parts. Scaling down divides both parts.",
+          "example": "Scale down 12:8 by 4 → 3:2",
+          "practice_question": "Scale down 18:12 by 6.",
+          "answer": "3:2"
+        },
+        {
+          "id": "u1_l9",
+          "title": "Percent as a Ratio",
+          "type": "lesson",
+          "text": "A percent is a ratio out of 100.",
+          "example": "45% = 45:100",
+          "practice_question": "Write 72% as a ratio.",
+          "answer": "72:100"
+        },
+        {
+          "id": "u1_l10",
+          "title": "Converting Percent to Decimal",
+          "type": "lesson",
+          "text": "Divide by 100 to convert a percent to a decimal.",
+          "example": "25% → 0.25",
+          "practice_question": "Convert 8% to a decimal.",
+          "answer": "0.08"
+        },
+        {
+          "id": "u1_l11",
+          "title": "Converting Decimal to Percent",
+          "type": "lesson",
+          "text": "Multiply by 100 to convert a decimal to a percent.",
+          "example": "0.6 → 60%",
+          "practice_question": "Convert 0.03 to a percent.",
+          "answer": "3%"
+        },
+        {
+          "id": "u1_l12",
+          "title": "Percent of a Number (Part 1)",
+          "type": "lesson",
+          "text": "Convert the percent to a decimal and multiply.",
+          "example": "20% of 50 = 10",
+          "practice_question": "Find 10% of 80.",
+          "answer": "8"
+        },
+        {
+          "id": "u1_l13",
+          "title": "Percent of a Number (Part 2)",
+          "type": "lesson",
+          "text": "Use friendly mental math: 10%, 5%, 1%.",
+          "example": "15% of 40 = 6",
+          "practice_question": "Find 25% of 60.",
+          "answer": "15"
+        },
+        {
+          "id": "u1_l14",
+          "title": "Percent Problems (Part 3)",
+          "type": "lesson",
+          "text": "Percent increase or decrease: find the percent amount, then add or subtract.",
+          "example": "$50 shirt, 20% off → $40",
+          "practice_question": "A $40 game increases by 10%. What is the new price?",
+          "answer": "$44"
+        }
+      ],
+      "masteryCheck": [
+        {
+          "question": "Write the ratio of 8 pencils to 2 erasers.",
+          "answer": "8:2"
+        },
+        {
+          "question": "Create an equivalent ratio to 4:7 by doubling.",
+          "answer": "8:14"
+        },
+        {
+          "question": "Find the unit rate: 15 miles in 3 hours.",
+          "answer": "5 miles per hour"
+        }
+      ],
+      "unitTest": [
+        { "question": "Write the ratio of 9 oranges to 3 lemons.", "answer": "9:3" },
+        { "question": "Equivalent ratio to 5:8 by ×4.", "answer": "20:32" },
+        { "question": "Unit rate: 18 miles in 3 hours.", "answer": "6 miles per hour" },
+        { "question": "Is 4:6 equal to 6:9?", "answer": "Yes" },
+        { "question": "Solve: 3/5 = x/25", "answer": "15" },
+        { "question": "Scale down 24:16 by 8.", "answer": "3:2" },
+        { "question": "Convert 0.45 to percent.", "answer": "45%" },
+        { "question": "Convert 12% to decimal.", "answer": "0.12" },
+        { "question": "Find 30% of 90.", "answer": "27" },
+        { "question": "$60 jacket, 15% off.", "answer": "$51" }
+      ]
+    }
+  ]
+}
