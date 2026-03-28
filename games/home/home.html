@@ -3,54 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PurpleTanuki — Home</title>
+  <title>PurpleTanuki Home</title>
 
-  <!-- Page Styles -->
+  <!-- Global theme -->
+  <link rel="stylesheet" href="/games/theme/tanuki-theme.css" />
+
+  <!-- Home-specific styles -->
   <link rel="stylesheet" href="home.css" />
-
-  <!-- UNIVERSAL HOME BUTTON -->
-  <link rel="stylesheet" href="/global/global-home.css">
-  <script src="/global/global-home.js" defer></script>
 </head>
 
 <body>
 
-  <div class="home-container">
+  <!-- FLOATING HOME BUTTON (GLOBAL) -->
+  <a class="global-home-btn" href="/games/home/home.html">Home</a>
 
-    <!-- HEADER -->
+  <div class="home-root">
+
+    <!-- TOP TITLE / LOGO AREA -->
     <header class="home-header">
-      <h1>Welcome to PurpleTanuki</h1>
-      <p class="home-subtitle">Choose your next adventure.</p>
+      <h1 class="home-title">PurpleTanuki</h1>
+      <p class="home-subtitle">Learn • Grow • Explore</p>
     </header>
 
-    <!-- MAIN NAVIGATION -->
-    <section class="home-grid">
-
-      <a class="home-card" href="/games/arcade/arcade.html">
-        <h2>Arcade</h2>
-        <p>Play learning games and level up.</p>
-      </a>
-
-      <a class="home-card" href="/games/ritual/ritual.html">
-        <h2>Gate Ritual</h2>
-        <p>Complete your challenge to unlock browsing.</p>
-      </a>
-
-      <a class="home-card" href="/games/browser/browser.html">
-        <h2>Browser</h2>
-        <p>Visit allowed sites through the safe portal.</p>
-      </a>
-
-      <a class="home-card" href="/parent/index.html">
-        <h2>Parent Mode</h2>
-        <p>Manage settings, difficulty, and allowed sites.</p>
-      </a>
-
+    <!-- CENTER STUFFY AREA -->
+    <section class="home-stuffy-section">
+      <div class="home-stuffy-circle">
+        <img src="/games/Purple_Stuffy.png" class="home-stuffy-img">
+      </div>
+      <p class="home-stuffy-caption">
+        Today’s guide is here to learn with you.
+      </p>
     </section>
+
+    <!-- MAIN ACTION BUTTONS -->
+    <section class="home-main-actions">
+      <a class="home-btn home-btn-primary" href="/games/arcade/arcade.html">
+        Learn
+      </a>
+      <a class="home-btn home-btn-secondary" href="/games/rituals/index.html">
+        Rituals
+      </a>
+      <a class="home-btn home-btn-secondary" href="/games/arcade/arcade.html">
+        Explore
+      </a>
+    </section>
+
+    <!-- PROGRESS AREA -->
+    <section class="home-progress">
+      <div class="home-progress-bar">
+        <div class="home-progress-fill" style="width: 40%;"></div>
+      </div>
+      <p class="home-progress-text">XP: 40 / 100 • Streak: 3 days</p>
+    </section>
+
+    <!-- PARENT MODE BUTTON -->
+    <footer class="home-footer">
+      <a class="home-parent-btn" href="/parent/index.html">
+        Parent Mode
+      </a>
+    </footer>
 
   </div>
 
 </body>
 </html>
+
 
 
