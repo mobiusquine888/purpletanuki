@@ -55,3 +55,17 @@ window.addEventListener("load", () => {
     data = resetDailyIfNeeded(data);
     updateXPUI(data);
 });
+// ===============================
+// XP INCREMENT FUNCTION
+// ===============================
+
+function addXP(amount) {
+    let data = loadXPData();
+
+    data.totalXP += amount;
+    data.todayXP += amount;
+
+    saveXPData(data);
+    updateXPUI(data);
+}
+
