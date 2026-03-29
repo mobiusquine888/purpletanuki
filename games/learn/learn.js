@@ -12,6 +12,137 @@ function getGradeData() {
   return null;
 }
 
+// ---------- PARENT MODE + PROGRESS ----------
+
+function getLessonsRequired() {
+  try {
+    const raw = localStorage.getItem("pt_lessons_required");
+    const n = parseInt(raw, 10);
+    if (Number.isNaN(n) || n <= 0) return 1;
+    return n;
+  } catch {
+    return 1;
+  }
+}
+
+function loadCompletedLessons() {
+  try {
+    const raw = localStorage.getItem("pt_g5_lessons_completed");
+    const n = parseInt(raw, 10);
+    if (Number.isNaN(n) || n < 0) return 0;
+    return n;
+  } catch {
+    return 0;
+  }
+}
+
+function saveCompletedLessons(count) {
+  try {
+    localStorage.setItem("pt_g5_lessons_completed", String(count));
+  } catch {}
+}
+
+function setExploreUnlocked() {
+  try {
+    localStorage.setItem("pt_explore_unlocked", "true");
+  } catch {}
+}
+
+function isExploreUnlocked() {
+  try {
+    return localStorage.getItem("pt_explore_unlocked") === "true";
+  } catch {
+    return false;
+  }
+}
+
+// ---------- XP + STREAK ----------
+
+function todayKey() {
+  const d = new Date();
+  return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+}
+
+function loadXP() {
+  try {
+    const raw = localStorage.getItem("pt_xp_total");
+    const n = parseInt(raw, 10);
+    if (Number.isNaN(n) || n < 0) return 0;
+    return n;
+  } catch {
+    return 0;
+  }
+}
+
+function saveXP(xp) {
+  try {
+    localStorage.setItem("pt_xp_total", String(xp));
+  } catch {}
+}
+
+function addXP(amount) {
+  const current = loadXP();
+  const next = current + amount;
+  saveXP(next);
+}
+
+function loadStreak() {
+  try {
+    const raw = localStorage.getItem("pt_daily_streak");
+    const n = parseInt(raw, 10);
+    if (Number.isNaN(n) || n < 0) return 0;
+    return n;
+  } catch {
+    return 0;
+  }
+}
+
+function saveStreak(streak) {
+  try {
+    localStorage.setItem("pt_daily_streak", String(streak));
+  } catch {}
+}
+
+function loadLastActive() {
+  try {
+    return localStorage.getItem("pt_last_active_date") || "";
+  } catch {
+    return "";
+  }
+}
+
+function saveLastActive(dateKey) {
+  try {
+    localStorage.setItem("pt_last_active_date", dateKey);
+  } catch {}
+}
+
+function updateStreakOnActivity() {
+  const today = todayKey();
+  const last = loadLastActive();
+  let streak = loadStreak();
+
+  if (!last) {
+    streak = 1;
+  } else if (last === today) {
+    // same day, no change
+  } else {
+    const lastDate = new Date(last);
+    const t = new Date(today);
+    const diff = (t - lastDate) / (1000 * 60 * 60 * 24);
+    if (diff === 1) {
+      streak += 1;
+    } else {
+      streak = 1;
+    }
+  }
+
+  saveStreak(streak);
+  saveLastActive(today);
+}
+
+// ---------- LESSON LIST + PATH ----------
+
 function buildLessonList() {
   const gradeData = getGradeData();
   if (!gradeData) return;
@@ -37,29 +168,10 @@ function buildLessonList() {
   learnState.lessons = lessons;
 }
 
-function loadProgress() {
-  try {
-    const raw = localStorage.getItem("g5LearnPathProgress");
-    if (!raw) return 0;
-    const n = parseInt(raw, 10);
-    if (Number.isNaN(n)) return 0;
-    return Math.max(0, Math.min(n, learnState.lessons.length));
-  } catch {
-    return 0;
-  }
-}
-
-function saveProgress(count) {
-  try {
-    localStorage.setItem("g5LearnPathProgress", String(count));
-  } catch {
-  }
-}
-
 function updateProgressRing() {
   const percentEl = document.getElementById("learnProgressPercent");
   if (!percentEl || learnState.lessons.length === 0) return;
-  const completed = loadProgress();
+  const completed = loadCompletedLessons();
   const percent = Math.round((completed / learnState.lessons.length) * 100);
   percentEl.textContent = `${percent}%`;
 }
@@ -69,7 +181,7 @@ function renderPath() {
   if (!container) return;
   container.innerHTML = "";
 
-  const completedCount = loadProgress();
+  const completedCount = loadCompletedLessons();
   const total = learnState.lessons.length;
 
   learnState.lessons.forEach((lesson, index) => {
@@ -106,7 +218,7 @@ function renderPath() {
     node.dataset.index = String(index);
 
     node.addEventListener("click", () => {
-      const currentCompleted = loadProgress();
+      const currentCompleted = loadCompletedLessons();
       if (index > currentCompleted) return;
       openLesson(index);
     });
@@ -117,6 +229,8 @@ function renderPath() {
 
   updateProgressRing();
 }
+
+// ---------- LESSON + QUIZ FLOW ----------
 
 function openLesson(index) {
   learnState.currentIndex = index;
@@ -266,17 +380,35 @@ function submitAnswer(choice) {
   }
 }
 
+// ---------- LESSON COMPLETE + GATING ----------
+
 function finishLessonStep() {
+  // XP + streak for finishing a lesson
+  addXP(10);
+  updateStreakOnActivity();
+
   const total = learnState.lessons.length;
-  let completed = loadProgress();
+  let completed = loadCompletedLessons();
+
   if (learnState.currentIndex >= completed) {
     completed = learnState.currentIndex + 1;
     if (completed > total) completed = total;
-    saveProgress(completed);
+    saveCompletedLessons(completed);
   }
+
   renderPath();
   closeQuiz();
   showCelebrate();
+
+  const required = getLessonsRequired();
+
+  // If we've met or exceeded Parent Mode requirement, go to Ritual
+  if (completed >= required && !isExploreUnlocked()) {
+    setExploreUnlocked(); // mark unlocked so Explore can open
+    setTimeout(() => {
+      window.location.href = "/games/ritual/index.html";
+    }, 600);
+  }
 }
 
 function attachHandlers() {
@@ -293,7 +425,7 @@ function attachHandlers() {
   if (nextStepBtn) {
     nextStepBtn.addEventListener("click", () => {
       hideCelebrate();
-      const completed = loadProgress();
+      const completed = loadCompletedLessons();
       if (completed < learnState.lessons.length) {
         openLesson(completed);
       }
@@ -310,7 +442,11 @@ function attachHandlers() {
   const navExplore = document.getElementById("navExplore");
   if (navExplore) {
     navExplore.addEventListener("click", () => {
-      window.location.href = "/explore/index.html";
+      if (isExploreUnlocked()) {
+        window.location.href = "/explore/index.html";
+      } else {
+        alert("Keep learning to unlock Explore!");
+      }
     });
   }
 
@@ -327,7 +463,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPath();
   attachHandlers();
 
-  const completed = loadProgress();
+  const completed = loadCompletedLessons();
   if (completed < learnState.lessons.length) {
     openLesson(completed);
   }
