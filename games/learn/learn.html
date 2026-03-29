@@ -5,33 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Learn | PurpleTanuki</title>
 
-  <!-- GLOBAL THEME -->
   <link rel="stylesheet" href="/games/theme/tanuki-theme.css" />
-
-  <!-- PAGE-SPECIFIC STYLES -->
   <link rel="stylesheet" href="learn.css" />
 
-  <!-- UNIVERSAL HOME BUTTON -->
   <link rel="stylesheet" href="/global/global-home.css">
   <script src="/global/global-home.js" defer></script>
 </head>
 
 <body>
-
-  <div class="learn-container">
-
+  <div class="learn-shell">
     <header class="learn-header">
-      <h1 id="lessonTitle">Loading lesson...</h1>
+      <div class="learn-header-text">
+        <h1>5th Grade Path</h1>
+        <p class="learn-subtitle">Tap a step to learn, then quiz with Stuffy.</p>
+      </div>
+      <div class="learn-progress-ring">
+        <div class="learn-progress-inner">
+          <span id="learnProgressPercent">0%</span>
+        </div>
+      </div>
     </header>
 
-    <section class="learn-card">
-      <p id="lessonQuestion" class="learn-question">Please wait...</p>
+    <main class="learn-main">
+      <section class="learn-path-wrapper">
+        <div id="learnPath" class="learn-path-column"></div>
+      </section>
 
-      <div id="answerOptions" class="learn-options"></div>
+      <section id="lessonPanel" class="learn-panel lesson-panel hidden">
+        <div class="panel-header">
+          <span id="lessonSubject" class="panel-subject"></span>
+          <button id="closeLesson" class="panel-close" type="button">×</button>
+        </div>
+        <h2 id="lessonTitle" class="panel-title"></h2>
+        <div id="lessonBody" class="panel-body"></div>
+        <button id="startQuiz" class="primary-pill" type="button">Start Quiz</button>
+      </section>
 
-      <button id="submitAnswer" class="learn-submit">Submit Answer</button>
-    </section>
+      <section id="quizPanel" class="learn-panel quiz-panel hidden">
+        <div class="panel-header">
+          <span id="quizSubject" class="panel-subject"></span>
+          <button id="closeQuiz" class="panel-close" type="button">×</button>
+        </div>
+        <div class="quiz-meta">
+          <span id="quizLessonLabel" class="quiz-lesson-label"></span>
+          <span id="quizProgressLabel" class="quiz-progress-label"></span>
+        </div>
+        <h2 id="quizPrompt" class="quiz-prompt"></h2>
+        <div class="quiz-choices">
+          <button id="quizChoice1" class="quiz-choice" type="button"></button>
+          <button id="quizChoice2" class="quiz-choice" type="button"></button>
+          <button id="quizChoice3" class="quiz-choice" type="button"></button>
+        </div>
+      </section>
 
+      <div id="learnSparkles" class="learn-sparkles"></div>
+      <div id="learnCelebrate" class="learn-celebrate hidden">
+        <div class="celebrate-card">
+          <h2>Nice work!</h2>
+          <p>You finished this step on your path.</p>
+          <button id="nextStep" class="primary-pill" type="button">Next Step</button>
+        </div>
+      </div>
+    </main>
+
+    <nav class="learn-bottom-nav">
+      <button type="button" class="nav-btn" id="navHome">Home</button>
+      <button type="button" class="nav-btn nav-btn-active">Learn</button>
+      <button type="button" class="nav-btn" id="navExplore">Explore</button>
+      <button type="button" class="nav-btn" id="navProfile">Profile</button>
+    </nav>
   </div>
 
   <script src="learn.js"></script>
