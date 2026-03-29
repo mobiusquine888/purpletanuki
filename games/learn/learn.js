@@ -1,375 +1,334 @@
-// ============================================================
-// LEARN PAGE ENGINE — WITH BUILT-IN FALLBACK
-// Respects grade, subjects, curriculum mode, and progress
-// Never shows "no lessons available" if fallback works
-// ============================================================
+const learnState = {
+  lessons: [],
+  currentIndex: 0,
+  currentQuestionIndex: 0,
+  inQuiz: false
+};
 
-document.addEventListener("DOMContentLoaded", async () => {
+function getGradeData() {
+  if (window.grade5Data) return window.grade5Data;
+  if (window.gradeData) return window.gradeData;
+  if (window.currentGradeData) return window.currentGradeData;
+  return null;
+}
 
-  // -----------------------------
-  // 1. READ SETTINGS FROM PARENT PORTAL
-  // -----------------------------
-  const grade = localStorage.getItem("pt_grade");
-  if (!grade) return showError("No grade selected. Please ask an adult to set it in Parent Mode.");
+function buildLessonList() {
+  const gradeData = getGradeData();
+  if (!gradeData) return;
 
-  const allowedSubjectsRaw = localStorage.getItem(`pt_allowed_subjects_${grade}`);
-  const allowedSubjects = allowedSubjectsRaw ? JSON.parse(allowedSubjectsRaw) : [];
+  const subjects = Object.keys(gradeData);
+  const lessons = [];
 
-  if (allowedSubjects.length === 0) {
-    return showError("No subjects enabled. Please ask an adult to enable subjects in Parent Mode.");
-  }
+  subjects.forEach(subjectKey => {
+    const subject = gradeData[subjectKey];
+    subject.lessons.forEach((lesson, idx) => {
+      lessons.push({
+        subjectKey,
+        subjectName: subject.displayName || subjectKey,
+        lessonIndex: idx,
+        lessonId: lesson.id,
+        title: lesson.title,
+        html: lesson.lessonHtml,
+        questions: lesson.questions
+      });
+    });
+  });
 
-  const curriculumMode = localStorage.getItem("pt_curriculum_mode") || "default";
-  const customCurriculumUrl = localStorage.getItem("pt_curriculum_url") || null;
+  learnState.lessons = lessons;
+}
 
-
-  // -----------------------------
-  // 2. CHOOSE SUBJECT (child-facing)
-  // -----------------------------
-  const subject = chooseSubject(allowedSubjects);
-  if (!subject) return showError("No subject selected.");
-
-  localStorage.setItem("pt_category", subject);
-
-
-  // -----------------------------
-  // 3. LOAD CURRICULUM FILE (IF AVAILABLE)
-  // -----------------------------
-  let curriculumData = null;
-
+function loadProgress() {
   try {
-    if (curriculumMode === "default") {
-      // Load built-in grade file, e.g. /games/grade2/grade2.js → window.grade2Data
-      await loadScript(`/games/${grade}/${grade}.js`);
-      curriculumData = window[`${grade}Data`] || null;
-    } else if (customCurriculumUrl) {
-      curriculumData = await fetch(customCurriculumUrl).then(r => r.json());
-    }
-  } catch (err) {
-    // Ignore errors here; fallback will handle missing curriculum
-    curriculumData = null;
+    const raw = localStorage.getItem("g5LearnPathProgress");
+    if (!raw) return 0;
+    const n = parseInt(raw, 10);
+    if (Number.isNaN(n)) return 0;
+    return Math.max(0, Math.min(n, learnState.lessons.length));
+  } catch {
+    return 0;
   }
+}
 
+function saveProgress(count) {
+  try {
+    localStorage.setItem("g5LearnPathProgress", String(count));
+  } catch {
+  }
+}
 
-  // -----------------------------
-  // 4. DETERMINE LESSON PROGRESS
-  // -----------------------------
-  const progressKey = `pt_progress_${grade}_${subject}`;
-  let progress = Number(localStorage.getItem(progressKey)) || 0;
+function updateProgressRing() {
+  const percentEl = document.getElementById("learnProgressPercent");
+  if (!percentEl || learnState.lessons.length === 0) return;
+  const completed = loadProgress();
+  const percent = Math.round((completed / learnState.lessons.length) * 100);
+  percentEl.textContent = `${percent}%`;
+}
 
+function renderPath() {
+  const container = document.getElementById("learnPath");
+  if (!container) return;
+  container.innerHTML = "";
 
-  // -----------------------------
-  // 5. PICK LESSON: CURRICULUM → FALLBACK
-  // -----------------------------
-  let lesson = null;
+  const completedCount = loadProgress();
+  const total = learnState.lessons.length;
 
-  if (curriculumData && curriculumData[subject] && Array.isArray(curriculumData[subject].lessons)) {
-    const lessons = curriculumData[subject].lessons;
+  learnState.lessons.forEach((lesson, index) => {
+    const row = document.createElement("div");
+    row.className = "learn-node-row";
 
-    if (lessons.length > 0) {
-      if (progress >= lessons.length) {
-        progress = 0;
+    const node = document.createElement("button");
+    node.type = "button";
+    node.className = "learn-node";
+
+    const label = document.createElement("div");
+    label.className = "learn-node-label";
+    label.textContent = lesson.subjectName;
+
+    const idx = document.createElement("div");
+    idx.className = "learn-node-index";
+    idx.textContent = lesson.lessonId || index + 1;
+
+    const dot = document.createElement("div");
+    dot.className = "learn-node-subject-dot";
+
+    node.appendChild(label);
+    node.appendChild(idx);
+    node.appendChild(dot);
+
+    if (index < completedCount) {
+      node.classList.add("complete");
+    } else if (index === completedCount) {
+      node.classList.add("current");
+    } else {
+      node.classList.add("locked");
+    }
+
+    node.dataset.index = String(index);
+
+    node.addEventListener("click", () => {
+      const currentCompleted = loadProgress();
+      if (index > currentCompleted) return;
+      openLesson(index);
+    });
+
+    row.appendChild(node);
+    container.appendChild(row);
+  });
+
+  updateProgressRing();
+}
+
+function openLesson(index) {
+  learnState.currentIndex = index;
+  learnState.inQuiz = false;
+
+  const lesson = learnState.lessons[index];
+  if (!lesson) return;
+
+  const lessonPanel = document.getElementById("lessonPanel");
+  const quizPanel = document.getElementById("quizPanel");
+
+  if (quizPanel) quizPanel.classList.add("hidden");
+  if (lessonPanel) {
+    document.getElementById("lessonSubject").textContent = lesson.subjectName;
+    document.getElementById("lessonTitle").textContent = `Lesson ${lesson.lessonId}: ${lesson.title}`;
+    document.getElementById("lessonBody").innerHTML = lesson.html;
+    lessonPanel.classList.remove("hidden");
+  }
+}
+
+function closeLesson() {
+  const lessonPanel = document.getElementById("lessonPanel");
+  if (lessonPanel) lessonPanel.classList.add("hidden");
+}
+
+function closeQuiz() {
+  const quizPanel = document.getElementById("quizPanel");
+  if (quizPanel) quizPanel.classList.add("hidden");
+  learnState.inQuiz = false;
+}
+
+function startQuiz() {
+  const lesson = learnState.lessons[learnState.currentIndex];
+  if (!lesson) return;
+  learnState.inQuiz = true;
+  learnState.currentQuestionIndex = 0;
+  showQuestion();
+}
+
+function showQuestion() {
+  const lesson = learnState.lessons[learnState.currentIndex];
+  if (!lesson) return;
+
+  const qIndex = learnState.currentQuestionIndex;
+  const q = lesson.questions[qIndex];
+  if (!q) return;
+
+  const lessonPanel = document.getElementById("lessonPanel");
+  const quizPanel = document.getElementById("quizPanel");
+
+  if (lessonPanel) lessonPanel.classList.add("hidden");
+  if (quizPanel) quizPanel.classList.remove("hidden");
+
+  document.getElementById("quizSubject").textContent = lesson.subjectName;
+  document.getElementById("quizLessonLabel").textContent = `Lesson ${lesson.lessonId}`;
+  document.getElementById("quizProgressLabel").textContent =
+    `Question ${qIndex + 1} of ${lesson.questions.length}`;
+  document.getElementById("quizPrompt").textContent = q.prompt;
+
+  const choices = [q.choices[0], q.choices[1], q.choices[2]];
+
+  const c1 = document.getElementById("quizChoice1");
+  const c2 = document.getElementById("quizChoice2");
+  const c3 = document.getElementById("quizChoice3");
+
+  [c1, c2, c3].forEach(btn => {
+    if (!btn) return;
+    btn.classList.remove("correct", "wrong");
+    btn.disabled = false;
+  });
+
+  if (c1) {
+    c1.textContent = choices[0];
+    c1.onclick = () => submitAnswer(choices[0]);
+  }
+  if (c2) {
+    c2.textContent = choices[1];
+    c2.onclick = () => submitAnswer(choices[1]);
+  }
+  if (c3) {
+    c3.textContent = choices[2];
+    c3.onclick = () => submitAnswer(choices[2]);
+  }
+}
+
+function triggerSparkles() {
+  const spark = document.getElementById("learnSparkles");
+  if (!spark) return;
+  spark.classList.add("active");
+  setTimeout(() => spark.classList.remove("active"), 500);
+}
+
+function showCelebrate() {
+  const overlay = document.getElementById("learnCelebrate");
+  if (!overlay) return;
+  overlay.classList.remove("hidden");
+}
+
+function hideCelebrate() {
+  const overlay = document.getElementById("learnCelebrate");
+  if (!overlay) return;
+  overlay.classList.add("hidden");
+}
+
+function submitAnswer(choice) {
+  const lesson = learnState.lessons[learnState.currentIndex];
+  if (!lesson) return;
+
+  const qIndex = learnState.currentQuestionIndex;
+  const q = lesson.questions[qIndex];
+  if (!q) return;
+
+  const buttons = [
+    document.getElementById("quizChoice1"),
+    document.getElementById("quizChoice2"),
+    document.getElementById("quizChoice3")
+  ];
+
+  buttons.forEach(btn => {
+    if (!btn) return;
+    btn.disabled = true;
+    if (btn.textContent === q.correct) {
+      btn.classList.add("correct");
+    } else if (btn.textContent === choice && choice !== q.correct) {
+      btn.classList.add("wrong");
+    }
+  });
+
+  if (choice === q.correct) {
+    triggerSparkles();
+    setTimeout(() => {
+      learnState.currentQuestionIndex++;
+      if (learnState.currentQuestionIndex >= lesson.questions.length) {
+        finishLessonStep();
+      } else {
+        showQuestion();
       }
-      lesson = lessons[progress];
-    }
+    }, 450);
+  } else {
+    setTimeout(() => {
+      buttons.forEach(btn => {
+        if (!btn) return;
+        btn.disabled = false;
+        btn.classList.remove("wrong");
+      });
+    }, 450);
   }
-
-  // If no valid lesson from curriculum, use fallback
-  if (!lesson) {
-    lesson = fallbackGenerate(grade, subject, progress);
-  }
-
-  // If fallback somehow fails, show error
-  if (!lesson) {
-    return showError("No lesson could be generated. Please try again later.");
-  }
-
-
-  // -----------------------------
-  // 6. RENDER LESSON
-  // -----------------------------
-  renderLesson(lesson);
-
-
-  // -----------------------------
-  // 7. HANDLE ANSWER SUBMISSION
-  // -----------------------------
-  document.getElementById("submitAnswer").onclick = () => {
-    const selected = document.querySelector("input[name='answer']:checked");
-    if (!selected) return alert("Choose an answer first!");
-
-if (selected.value === lesson.answer) {
-
-  // -----------------------------
-  // LESSONS REQUIRED LOGIC
-  // -----------------------------
-  const required = Number(localStorage.getItem("pt_lessons_required")) || 1;
-  const countKey = `pt_lesson_count_${grade}_${subject}`;
-  let count = Number(localStorage.getItem(countKey)) || 0;
-
-  count++;
-  localStorage.setItem(countKey, count);
-
-  // If enough lessons completed → unlock portal
-  if (count >= required) {
-    localStorage.setItem("pt_portal_unlocked", "true");
-
-    // Reset counter for next cycle
-    localStorage.setItem(countKey, 0);
-
-    // Advance progress
-    localStorage.setItem(progressKey, progress + 1);
-
-    // Go to Ritual Gate
-    window.location.href = "/games/ritual/index.html";
-    return;
-  }
-
-  // -----------------------------
-  // NOT ENOUGH LESSONS YET → LOAD NEXT LESSON
-  // -----------------------------
-  localStorage.setItem(progressKey, progress + 1);
-
-  // Reload Learn page to show next question
-  window.location.reload();
-
-} else {
-  alert("Try again!");
 }
-    
-  };
 
+function finishLessonStep() {
+  const total = learnState.lessons.length;
+  let completed = loadProgress();
+  if (learnState.currentIndex >= completed) {
+    completed = learnState.currentIndex + 1;
+    if (completed > total) completed = total;
+    saveProgress(completed);
+  }
+  renderPath();
+  closeQuiz();
+  showCelebrate();
+}
+
+function attachHandlers() {
+  const closeLessonBtn = document.getElementById("closeLesson");
+  if (closeLessonBtn) closeLessonBtn.addEventListener("click", closeLesson);
+
+  const closeQuizBtn = document.getElementById("closeQuiz");
+  if (closeQuizBtn) closeQuizBtn.addEventListener("click", closeQuiz);
+
+  const startQuizBtn = document.getElementById("startQuiz");
+  if (startQuizBtn) startQuizBtn.addEventListener("click", startQuiz);
+
+  const nextStepBtn = document.getElementById("nextStep");
+  if (nextStepBtn) {
+    nextStepBtn.addEventListener("click", () => {
+      hideCelebrate();
+      const completed = loadProgress();
+      if (completed < learnState.lessons.length) {
+        openLesson(completed);
+      }
+    });
+  }
+
+  const navHome = document.getElementById("navHome");
+  if (navHome) {
+    navHome.addEventListener("click", () => {
+      window.location.href = "/arcade/index.html";
+    });
+  }
+
+  const navExplore = document.getElementById("navExplore");
+  if (navExplore) {
+    navExplore.addEventListener("click", () => {
+      window.location.href = "/explore/index.html";
+    });
+  }
+
+  const navProfile = document.getElementById("navProfile");
+  if (navProfile) {
+    navProfile.addEventListener("click", () => {
+      window.location.href = "/profile/index.html";
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  buildLessonList();
+  renderPath();
+  attachHandlers();
+
+  const completed = loadProgress();
+  if (completed < learnState.lessons.length) {
+    openLesson(completed);
+  }
 });
-
-
-// ============================================================
-// FALLBACK ENGINE — ALWAYS RETURNS A VALID LESSON
-// ============================================================
-
-function fallbackGenerate(grade, subject, progress) {
-  // Normalize subject to a small set of known types
-  const s = subject.toLowerCase();
-
-  if (s === "math") {
-    return fallbackMath(grade, progress);
-  }
-  if (s === "reading") {
-    return fallbackReading(grade, progress);
-  }
-  if (s === "science") {
-    return fallbackScience(grade, progress);
-  }
-  if (s === "social") {
-    return fallbackSocial(grade, progress);
-  }
-  if (s === "vocabulary") {
-    return fallbackVocabulary(grade, progress);
-  }
-  if (s === "logic") {
-    return fallbackLogic(grade, progress);
-  }
-
-  // Generic catch-all
-  return {
-    title: "Quick Thinking",
-    question: "Which of these is the best answer?",
-    options: ["A", "B", "C"],
-    answer: "A"
-  };
-}
-
-
-// -----------------------------
-// Fallback templates per subject
-// -----------------------------
-
-function fallbackMath(grade, progress) {
-  // Simple progression: start with single-digit, then two-digit, etc.
-  const n1 = (progress % 9) + 1;
-  const n2 = ((progress * 2) % 9) + 1;
-  const correct = n1 + n2;
-
-  const options = shuffleOptions([
-    correct,
-    correct + 1,
-    correct - 1
-  ].map(String));
-
-  return {
-    title: "Quick Addition",
-    question: `What is ${n1} + ${n2}?`,
-    options,
-    answer: String(correct)
-  };
-}
-
-function fallbackReading(grade, progress) {
-  const sentences = [
-    "The cat sat on the mat.",
-    "The dog ran across the yard.",
-    "The bird flew over the tree.",
-    "The child read a book."
-  ];
-  const idx = progress % sentences.length;
-  const sentence = sentences[idx];
-
-  return {
-    title: "Reading Comprehension",
-    question: `In the sentence: "${sentence}" — what animal is mentioned?`,
-    options: ["Cat", "Dog", "Bird", "Child"],
-    answer: sentence.includes("cat") ? "Cat"
-          : sentence.includes("dog") ? "Dog"
-          : sentence.includes("bird") ? "Bird"
-          : "Child"
-  };
-}
-
-function fallbackScience(grade, progress) {
-  const questions = [
-    {
-      q: "Which of these is a planet in our solar system?",
-      options: ["Mars", "Spoon", "Tree"],
-      answer: "Mars"
-    },
-    {
-      q: "What do plants need to grow?",
-      options: ["Sunlight and water", "Plastic and metal", "Sand and glass"],
-      answer: "Sunlight and water"
-    }
-  ];
-  const item = questions[progress % questions.length];
-
-  return {
-    title: "Science Basics",
-    question: item.q,
-    options: item.options,
-    answer: item.answer
-  };
-}
-
-function fallbackSocial(grade, progress) {
-  const questions = [
-    {
-      q: "Which of these is a community helper?",
-      options: ["Firefighter", "Dragon", "Robot"],
-      answer: "Firefighter"
-    },
-    {
-      q: "Which is a symbol of the United States?",
-      options: ["Bald eagle", "Penguin", "Kangaroo"],
-      answer: "Bald eagle"
-    }
-  ];
-  const item = questions[progress % questions.length];
-
-  return {
-    title: "Social Studies",
-    question: item.q,
-    options: item.options,
-    answer: item.answer
-  };
-}
-
-function fallbackVocabulary(grade, progress) {
-  const words = [
-    { word: "happy", synonym: "joyful", distractors: ["angry", "tired"] },
-    { word: "big", synonym: "large", distractors: ["tiny", "thin"] },
-    { word: "fast", synonym: "quick", distractors: ["slow", "late"] }
-  ];
-  const item = words[progress % words.length];
-
-  const options = shuffleOptions([
-    item.synonym,
-    ...item.distractors
-  ]);
-
-  return {
-    title: "Vocabulary Builder",
-    question: `Which word means the same as "${item.word}"?`,
-    options,
-    answer: item.synonym
-  };
-}
-
-function fallbackLogic(grade, progress) {
-  const questions = [
-    {
-      q: "Which number comes next: 2, 4, 6, __?",
-      options: ["7", "8", "9"],
-      answer: "8"
-    },
-    {
-      q: "Which shape has 3 sides?",
-      options: ["Triangle", "Square", "Circle"],
-      answer: "Triangle"
-    }
-  ];
-  const item = questions[progress % questions.length];
-
-  return {
-    title: "Logic & Patterns",
-    question: item.q,
-    options: item.options,
-    answer: item.answer
-  };
-}
-
-
-// ============================================================
-// HELPERS
-// ============================================================
-
-function loadScript(src) {
-  return new Promise((resolve, reject) => {
-    const s = document.createElement("script");
-    s.src = src;
-    s.onload = resolve;
-    s.onerror = reject;
-    document.body.appendChild(s);
-  });
-}
-
-function chooseSubject(subjects) {
-  if (subjects.length === 1) return subjects[0];
-
-  const choice = prompt(`Choose a subject: ${subjects.join(", ")}`);
-  if (!choice || !subjects.includes(choice)) return null;
-
-  return choice;
-}
-
-function renderLesson(lesson) {
-  document.getElementById("lessonTitle").textContent = lesson.title || "Lesson";
-  document.getElementById("lessonQuestion").textContent = lesson.question || "Answer the question.";
-
-  const answersDiv = document.getElementById("answerOptions");
-  answersDiv.innerHTML = "";
-
-  (lesson.options || []).forEach(opt => {
-    const safeId = `opt_${String(opt).replace(/\W+/g, "")}`;
-
-    answersDiv.innerHTML += `
-      <div class="answer-option">
-        <input type="radio" name="answer" id="${safeId}" value="${opt}">
-        <label for="${safeId}">${opt}</label>
-      </div>
-    `;
-  });
-}
-
-function showError(msg) {
-  document.body.innerHTML = `
-    <div style="padding: 40px; font-size: 1.2rem; color: white;">
-      ${msg}
-    </div>
-  `;
-}
-
-function shuffleOptions(arr) {
-  const copy = [...arr];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
