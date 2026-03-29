@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore | PurpleTanuki</title>
+
+  <link rel="stylesheet" href="/games/theme/tanuki-theme.css" />
+  <link rel="stylesheet" href="explore.css" />
+
+  <link rel="stylesheet" href="/global/global-home.css" />
+  <script src="/global/global-home.js" defer></script>
+</head>
+
+<body>
+
+  <header class="explore-header">
+    <h1>Explore</h1>
+    <span id="exploreTimer">15:00</span>
+  </header>
+
+  <section class="explore-sites">
+    <button class="explore-btn" data-site="https://kids.nationalgeographic.com">NatGeo Kids</button>
+    <button class="explore-btn" data-site="https://www.ducksters.com">Ducksters</button>
+    <button class="explore-btn" data-site="https://www.coolmathgames.com">CoolMath</button>
+    <button class="explore-btn" data-site="https://pbskids.org">PBS Kids</button>
+    <button class="explore-btn" data-site="https://www.kiddle.co">Kiddle</button>
+  </section>
+
+  <section class="explore-custom">
+    <input id="exploreCustomInput" type="text" placeholder="Enter a site…" />
+    <button id="exploreCustomGo">Go</button>
+  </section>
+
+  <section class="explore-frame-wrapper">
+    <iframe id="exploreFrame" src=""></iframe>
+  </section>
+
+  <script src="explore.js"></script>
+</body>
+</html>
