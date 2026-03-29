@@ -1,10 +1,9 @@
 // ===============================
-// GRADE 5 — CURRICULUM DATA
+// GRADE 5 — CURRICULUM DATA (Learn Engine Format)
 // ===============================
 
-const g5Subjects = {
+window.grade5Data = {
 
-  // READING & WRITING
   reading: {
     displayName: "Reading & Writing",
     lessons: [
@@ -117,8 +116,6 @@ const g5Subjects = {
       }
     ]
   },
-
-  // MATH
   math: {
     displayName: "Math",
     lessons: [
@@ -208,7 +205,6 @@ const g5Subjects = {
     ]
   },
 
-  // SCIENCE
   science: {
     displayName: "Science",
     lessons: [
@@ -292,8 +288,6 @@ const g5Subjects = {
       }
     ]
   },
-
-  // SOCIAL STUDIES
   social: {
     displayName: "Social Studies",
     lessons: [
@@ -377,7 +371,6 @@ const g5Subjects = {
     ]
   },
 
-  // LOGIC & PATTERNS
   logic: {
     displayName: "Logic & Patterns",
     lessons: [
@@ -454,15 +447,14 @@ const g5Subjects = {
         ]
       }
     ]
-  }
+  },
 
 };
-
 // ===============================
 // GRADE 5 — PROGRESS STATE
 // ===============================
 
-const g5Progress = {
+window.g5Progress = {
   reading: 0,
   math: 0,
   science: 0,
@@ -498,7 +490,7 @@ function goHome() {
 
 function selectSubject(key) {
   currentSubjectKey = key;
-  currentLessonIndex = Math.min(g5Progress[key], g5Subjects[key].lessons.length - 1);
+  currentLessonIndex = Math.min(window.g5Progress[key], window.grade5Data[key].lessons.length - 1);
   quizActive = false;
 
   document.querySelectorAll(".g5-subject-btn").forEach(btn => {
@@ -513,7 +505,7 @@ function selectSubject(key) {
 // ===============================
 
 function showLesson() {
-  const subject = g5Subjects[currentSubjectKey];
+  const subject = window.grade5Data[currentSubjectKey];
   const lesson = subject.lessons[currentLessonIndex];
 
   document.getElementById("g5-lesson-subject-label").textContent = subject.displayName;
@@ -543,7 +535,7 @@ function backToLesson() {
 }
 
 function loadQuestion() {
-  const subject = g5Subjects[currentSubjectKey];
+  const subject = window.grade5Data[currentSubjectKey];
   const lesson = subject.lessons[currentLessonIndex];
   const q = lesson.questions[currentQuestionIndex];
 
@@ -569,7 +561,7 @@ function loadQuestion() {
 }
 
 function submitAnswer(choice) {
-  const subject = g5Subjects[currentSubjectKey];
+  const subject = window.grade5Data[currentSubjectKey];
   const lesson = subject.lessons[currentLessonIndex];
   const q = lesson.questions[currentQuestionIndex];
 
@@ -586,19 +578,19 @@ function submitAnswer(choice) {
     // gentle: no punishment on wrong answers
   }
 }
-
 // ===============================
 // LESSON COMPLETION
 // ===============================
 
 function finishLesson() {
-  g5Progress[currentSubjectKey]++;
+  window.g5Progress[currentSubjectKey]++;
 
   updateAllSubjectStatus();
   updateGlobalProgress();
 
-  const subject = g5Subjects[currentSubjectKey];
-  if (g5Progress[currentSubjectKey] >= subject.lessons.length) {
+  const subject = window.grade5Data[currentSubjectKey];
+
+  if (window.g5Progress[currentSubjectKey] >= subject.lessons.length) {
     checkForGraduation();
   }
 
@@ -611,20 +603,20 @@ function finishLesson() {
 // ===============================
 
 function updateAllSubjectStatus() {
-  Object.keys(g5Progress).forEach(key => {
+  Object.keys(window.g5Progress).forEach(key => {
     const statusEl = document.getElementById(`${key}-status`);
-    const total = g5Subjects[key].lessons.length;
-    const done = g5Progress[key];
+    const total = window.grade5Data[key].lessons.length;
+    const done = window.g5Progress[key];
     statusEl.textContent = `${done} / ${total} lessons`;
   });
 }
 
 function updateGlobalProgress() {
-  const totalLessons = Object.values(g5Subjects)
+  const totalLessons = Object.values(window.grade5Data)
     .map(sub => sub.lessons.length)
     .reduce((a, b) => a + b, 0);
 
-  const completed = Object.values(g5Progress)
+  const completed = Object.values(window.g5Progress)
     .reduce((a, b) => a + b, 0);
 
   const percent = Math.round((completed / totalLessons) * 100);
@@ -638,8 +630,8 @@ function updateGlobalProgress() {
 // ===============================
 
 function checkForGraduation() {
-  const allDone = Object.keys(g5Progress).every(
-    key => g5Progress[key] >= g5Subjects[key].lessons.length
+  const allDone = Object.keys(window.g5Progress).every(
+    key => window.g5Progress[key] >= window.grade5Data[key].lessons.length
   );
 
   if (allDone) {
@@ -660,3 +652,4 @@ function triggerSparkles() {
   spark.classList.add("active");
   setTimeout(() => spark.classList.remove("active"), 600);
 }
+
