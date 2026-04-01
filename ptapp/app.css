@@ -1,0 +1,12 @@
+/* PTapp Root Reset (REFORGED) */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #ffffff;
+}
+
+iframe {
+    display: block;
+}
