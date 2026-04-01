@@ -1,0 +1,51 @@
+/* PTapp Splash Screen (REFORGED) */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+#splash-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1.2s ease-out forwards;
+}
+
+#splash-orb {
+    width: 140px;
+    height: 140px;
+    opacity: 0;
+    animation: orbGlow 1.8s ease-out forwards;
+}
+
+#splash-title {
+    margin-top: 20px;
+    font-size: 1.8rem;
+    color: white;
+    opacity: 0;
+    animation: titleFade 1.4s ease-out 0.6s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes orbGlow {
+    0% { opacity: 0; transform: scale(0.8); filter: blur(6px); }
+    100% { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+@keyframes titleFade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
