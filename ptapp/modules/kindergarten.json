@@ -1,0 +1,22 @@
+{
+  "title": "Kindergarten Core",
+  "questions": [
+    {
+      "id": "k_01",
+      "type": "choice",
+      "prompt": "Which number is larger?",
+      "options": ["3", "7"]
+    },
+    {
+      "id": "k_02",
+      "type": "yesno",
+      "prompt": "Does a cat have four legs?"
+    },
+    {
+      "id": "k_03",
+      "type": "choice",
+      "prompt": "Which shape has three sides?",
+      "options": ["Triangle", "Square"]
+    }
+  ]
+}
