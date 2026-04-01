@@ -33,9 +33,14 @@ window.onload = function () {
             navigate(data.target);
         }
 
-        // Home requests engine start
+        // Home requests engine start (old protocol)
         if (data.action === "engine-start") {
             startEngineFlow(data);
+        }
+
+        // Flow requests engine start (new protocol)
+        if (data.action === "engine-start-request") {
+            PT_Engine.start(data.mode, data.module || null);
         }
 
         // Flow sends an answer to the engine
