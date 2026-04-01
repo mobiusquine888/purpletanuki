@@ -1,0 +1,45 @@
+{
+  "grade": "Life Skills",
+  "units": [
+    {
+      "id": "unit1",
+      "title": "Being a Kind and Capable Human",
+      "lessons": [
+        {
+          "id": "u1_l1",
+          "title": "What Is Kindness?",
+          "text": "Kindness means caring about others and helping them feel good.",
+          "example": "Holding the door, sharing, saying thank you.",
+          "practice_question": "Name one way you can show kindness today.",
+          "answer": "Any kind action"
+        },
+        {
+          "id": "u1_l2",
+          "title": "Taking Responsibility",
+          "text": "Responsibility means doing what you should do, even when it's hard.",
+          "example": "Cleaning up, finishing homework, telling the truth.",
+          "practice_question": "What is one thing you are responsible for?",
+          "answer": "Any responsibility"
+        }
+      ],
+      "masteryCheck": [
+        { "question": "What is kindness?", "answer": "Helping others / caring" },
+        { "question": "Name a responsibility you have.", "answer": "Any responsibility" }
+      ],
+      "unitTest": [
+        { "question": "Give an example of kindness.", "answer": "Any kind action" },
+        { "question": "Why is responsibility important?", "answer": "It helps you grow / trust" }
+      ]
+    },
+
+    { "id": "unit2", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit3", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit4", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit5", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit6", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit7", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit8", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit9", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit10", "title": "Coming Soon", "lessons": [] }
+  ]
+}
