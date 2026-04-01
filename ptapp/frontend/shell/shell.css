@@ -1,0 +1,106 @@
+/* PTapp Akinator Shell (REFORGED) */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--pt-white);
+    font-family: var(--pt-font);
+}
+
+#pt-shell {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Top chrome bar */
+#pt-shell-chrome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--pt-purple);
+    color: var(--pt-white);
+    padding: 8px 12px;
+}
+
+/* macOS dots */
+#pt-shell-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-red {
+    background: #ff5f57;
+}
+
+.dot-yellow {
+    background: #febc2e;
+}
+
+.dot-green {
+    background: #28c840;
+}
+
+/* Title */
+#pt-shell-title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Actions (settings + profile) */
+#pt-shell-actions {
+    display: flex;
+    gap: 10px;
+}
+
+#pt-shell-settings,
+#pt-shell-profile {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--pt-white);
+    border: none;
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 0.9rem;
+}
+
+/* Tanuki bar */
+#pt-shell-tanuki-bar {
+    background: var(--pt-purple-light);
+    padding: 8px 12px;
+    display: flex;
+    justify-content: center;
+}
+
+#pt-shell-tanuki-bubble {
+    background: var(--pt-white);
+    border-radius: 999px;
+    padding: 6px 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+#pt-tanuki-frame {
+    border: none;
+    width: 64px;
+    height: 64px;
+}
+
+/* Main content */
+#pt-shell-main {
+    flex: 1;
+    background: var(--pt-white);
+    overflow: hidden;
+}
+
+#pt-main-frame {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
