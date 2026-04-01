@@ -1,17 +1,19 @@
-// PTapp Hybrid Question Engine (REFORGED)
+// PTapp Hybrid Question Engine (REFORGED for Step 20)
 
 const PT_Engine = {
     mode: null,          // "akinator" or "curriculum"
-    moduleData: null,    // loaded JSON module
+    modulePath: null,    // path to JSON module (for curriculum)
+    moduleData: null,    // loaded JSON
     currentIndex: 0,     // question pointer
     state: {},           // answers, traits, scoring, etc.
 
     async start(mode, modulePath = null) {
         this.mode = mode;
+        this.modulePath = modulePath;
         this.currentIndex = 0;
         this.state = {};
 
-        if (mode === "curriculum") {
+        if (mode === "curriculum" && modulePath) {
             this.moduleData = await this.loadModule(modulePath);
         }
 
@@ -20,6 +22,10 @@ const PT_Engine = {
 
     async loadModule(path) {
         const response = await fetch(path);
+        if (!response.ok) {
+            console.error("Failed to load module:", path);
+            return { title: "Empty Module", questions: [] };
+        }
         return await response.json();
     },
 
@@ -32,14 +38,23 @@ const PT_Engine = {
     },
 
     sendAkinatorQuestion() {
-        // Placeholder — will fill in during Chunk 3
+        // TEMP placeholder
         window.parent.postMessage(
-            { action: "flow-question", prompt: "Is your character real?" },
+            {
+                action: "flow-question",
+                prompt: "Is your character real?",
+                type: "yesno"
+            },
             "*"
         );
     },
 
     sendCurriculumQuestion() {
+        if (!this.moduleData || !this.moduleData.questions || this.moduleData.questions.length === 0) {
+            this.finish("You completed the module!");
+            return;
+        }
+
         const q = this.moduleData.questions[this.currentIndex];
 
         window.parent.postMessage(
@@ -47,7 +62,8 @@ const PT_Engine = {
                 action: "flow-question",
                 prompt: q.prompt,
                 type: q.type,
-                options: q.options || null
+                options: q.options || null,
+                id: q.id
             },
             "*"
         );
@@ -62,11 +78,13 @@ const PT_Engine = {
     },
 
     handleAkinatorAnswer(answer) {
-        // Placeholder — will fill in during Chunk 3
+        // TEMP placeholder
         this.finish("A mysterious character");
     },
 
     handleCurriculumAnswer(answer) {
+        this.state[this.currentIndex] = answer;
+
         this.currentIndex++;
 
         if (this.currentIndex >= this.moduleData.questions.length) {
@@ -77,14 +95,17 @@ const PT_Engine = {
     },
 
     finish(resultText) {
-        window.parent.postMessage(
-            { action: "navigate", target: "/ptapp/frontend/reveal/reveal.html" },
-            "*"
-        );
-
+        // Tell Reveal what to show
         window.parent.postMessage(
             { action: "engine-result", result: resultText },
             "*"
         );
+
+        // Navigate to Reveal
+        window.parent.postMessage(
+            { action: "navigate", target: "/ptapp/frontend/reveal/reveal.html" },
+            "*"
+        );
     }
 };
+
