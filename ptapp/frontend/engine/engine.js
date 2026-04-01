@@ -37,11 +37,13 @@ const PT_Engine = {
         }
     },
 
+    // -------------------------------
+    // AKINATOR MODE (placeholder)
+    // -------------------------------
     sendAkinatorQuestion() {
-        // TEMP placeholder
         window.parent.postMessage(
             {
-                action: "flow-question",
+                action: "engine-question",
                 prompt: "Is your character real?",
                 type: "yesno"
             },
@@ -49,6 +51,9 @@ const PT_Engine = {
         );
     },
 
+    // -------------------------------
+    // CURRICULUM MODE
+    // -------------------------------
     sendCurriculumQuestion() {
         if (!this.moduleData || !this.moduleData.questions || this.moduleData.questions.length === 0) {
             this.finish("You completed the module!");
@@ -59,7 +64,7 @@ const PT_Engine = {
 
         window.parent.postMessage(
             {
-                action: "flow-question",
+                action: "engine-question",
                 prompt: q.prompt,
                 type: q.type,
                 options: q.options || null,
@@ -69,6 +74,9 @@ const PT_Engine = {
         );
     },
 
+    // -------------------------------
+    // ANSWER HANDLING
+    // -------------------------------
     receiveAnswer(answer) {
         if (this.mode === "akinator") {
             this.handleAkinatorAnswer(answer);
@@ -78,7 +86,6 @@ const PT_Engine = {
     },
 
     handleAkinatorAnswer(answer) {
-        // TEMP placeholder
         this.finish("A mysterious character");
     },
 
@@ -94,6 +101,9 @@ const PT_Engine = {
         }
     },
 
+    // -------------------------------
+    // FINISH → SEND RESULT + NAVIGATE
+    // -------------------------------
     finish(resultText) {
         // Tell Reveal what to show
         window.parent.postMessage(
@@ -101,11 +111,12 @@ const PT_Engine = {
             "*"
         );
 
-        // Navigate to Reveal
+        // Navigate to Reveal (Netlify-safe)
         window.parent.postMessage(
-            { action: "navigate", target: "/ptapp/frontend/reveal/reveal.html" },
+            { action: "navigate", target: "../reveal/reveal.html" },
             "*"
         );
     }
 };
+
 
