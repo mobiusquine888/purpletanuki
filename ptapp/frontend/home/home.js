@@ -1,4 +1,4 @@
-// PTapp Home Logic (REFORGED for Step 20)
+// PTapp Home Logic (REFORGED for Step 20 + New Curriculum Architecture)
 
 window.onload = function () {
 
@@ -13,7 +13,7 @@ window.onload = function () {
         };
     }
 
-    // Pre-K → Curriculum module
+    // Pre-K → Full Curriculum (Unit 1 ready, Units 2–10 scaffolded)
     const prekBtn = document.getElementById("btn-prek");
     if (prekBtn) {
         prekBtn.onclick = () => {
@@ -21,14 +21,14 @@ window.onload = function () {
                 {
                     action: "engine-start",
                     mode: "curriculum",
-                    module: "/ptapp/modules/preschool.json"
+                    module: "/ptapp/modules/preschool_curriculum.json"
                 },
                 "*"
             );
         };
     }
 
-    // Kindergarten → Curriculum module
+    // Kindergarten → Full Curriculum
     const kinderBtn = document.getElementById("btn-kindergarten");
     if (kinderBtn) {
         kinderBtn.onclick = () => {
@@ -36,14 +36,14 @@ window.onload = function () {
                 {
                     action: "engine-start",
                     mode: "curriculum",
-                    module: "/ptapp/modules/kindergarten.json"
+                    module: "/ptapp/modules/kindergarten_curriculum.json"
                 },
                 "*"
             );
         };
     }
 
-    // Grade 7 Math → Curriculum module
+    // Grade 7 Math → Full Curriculum
     const grade7Btn = document.getElementById("btn-grade7");
     if (grade7Btn) {
         grade7Btn.onclick = () => {
@@ -51,14 +51,14 @@ window.onload = function () {
                 {
                     action: "engine-start",
                     mode: "curriculum",
-                    module: "/ptapp/modules/grade7_math.json"
+                    module: "/ptapp/modules/grade7_curriculum.json"
                 },
                 "*"
             );
         };
     }
 
-    // Life Lessons → Curriculum module
+    // Life Lessons → Full Curriculum
     const lifeBtn = document.getElementById("btn-lifelessons");
     if (lifeBtn) {
         lifeBtn.onclick = () => {
@@ -66,7 +66,7 @@ window.onload = function () {
                 {
                     action: "engine-start",
                     mode: "curriculum",
-                    module: "/ptapp/modules/lifelessons.json"
+                    module: "/ptapp/modules/lifeskills_curriculum.json"
                 },
                 "*"
             );
