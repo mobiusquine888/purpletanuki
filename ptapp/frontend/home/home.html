@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PTapp Home</title>
+    <title>PurpleTanuki Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="home.css">
@@ -10,14 +10,26 @@
 </head>
 
 <body>
-    <div id="home-container">
+    <div id="pt-home">
 
-        <img id="home-tanuki" src="/ptapp/assets/tanuki/idle.png" alt="Tanuki">
+        <!-- Tanuki center stage -->
+        <img id="pt-home-tanuki" src="/ptapp/assets/tanuki/idle.png" alt="Tanuki">
 
-        <h1 id="home-title">PurpleTanuki</h1>
+        <!-- Tagline -->
+        <h1 id="pt-home-title">I can guess what you're thinking…</h1>
 
-        <button id="start-btn">Start</button>
+        <!-- Challenge button -->
+        <button id="pt-home-challenge-btn">Challenge Me</button>
+
+        <!-- Freemium entry points -->
+        <div id="pt-home-entries">
+            <button class="pt-entry-btn" data-target="/curriculum/prek/prek.html">Pre‑K</button>
+            <button class="pt-entry-btn" data-target="/curriculum/k/k.html">Kindergarten</button>
+            <button class="pt-entry-btn" data-target="/curriculum/grade7/math/grade7_math.html">Grade 7 Math</button>
+            <button class="pt-entry-btn" data-target="/lifelessons/menu.html">Life Lessons</button>
+        </div>
 
     </div>
 </body>
 </html>
+
