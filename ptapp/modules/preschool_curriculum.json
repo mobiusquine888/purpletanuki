@@ -1,0 +1,45 @@
+{
+  "grade": "Pre-School",
+  "units": [
+    {
+      "id": "unit1",
+      "title": "Early Learning Foundations",
+      "lessons": [
+        {
+          "id": "u1_l1",
+          "title": "Colors Around Us",
+          "text": "We see colors everywhere. Colors help us describe the world.",
+          "example": "The apple is red. The sky is blue.",
+          "practice_question": "Point to something that is yellow.",
+          "answer": "Yellow object"
+        },
+        {
+          "id": "u1_l2",
+          "title": "Shapes Everywhere",
+          "text": "Shapes help us understand objects. Circles, squares, and triangles are common shapes.",
+          "example": "A ball is a circle. A window is a square.",
+          "practice_question": "Which shape has 3 sides?",
+          "answer": "Triangle"
+        }
+      ],
+      "masteryCheck": [
+        { "question": "Name a color you see.", "answer": "Any color" },
+        { "question": "Point to a circle.", "answer": "Circle object" }
+      ],
+      "unitTest": [
+        { "question": "What color is the sky?", "answer": "Blue" },
+        { "question": "Which shape rolls?", "answer": "Circle" }
+      ]
+    },
+
+    { "id": "unit2", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit3", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit4", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit5", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit6", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit7", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit8", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit9", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit10", "title": "Coming Soon", "lessons": [] }
+  ]
+}
