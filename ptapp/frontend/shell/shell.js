@@ -1,4 +1,4 @@
-// PTapp App Shell (REFORGED for Step 20)
+// PTapp App Shell (REFORGED for Netlify + Step 20)
 
 window.onload = function () {
     const mainFrame = document.getElementById("pt-main-frame");
@@ -11,14 +11,14 @@ window.onload = function () {
     const settingsBtn = document.getElementById("pt-shell-settings");
     if (settingsBtn) {
         settingsBtn.onclick = () => {
-            navigate("/ptapp/frontend/settings/settings.html");
+            navigate("../settings/settings.html");
         };
     }
 
     const profileBtn = document.getElementById("pt-shell-profile");
     if (profileBtn) {
         profileBtn.onclick = () => {
-            navigate("/ptapp/frontend/profiles/select.html");
+            navigate("../profiles/select.html");
         };
     }
 
@@ -58,7 +58,7 @@ window.onload = function () {
     // ENGINE START → LOAD FLOW
     // -------------------------------
     function startEngineFlow(data) {
-        navigate("/ptapp/frontend/flow/flow.html");
+        navigate("../flow/flow.html");
 
         setTimeout(() => {
             if (mainFrame && mainFrame.contentWindow) {
@@ -91,12 +91,12 @@ window.onload = function () {
     // -------------------------------
     function navigate(target) {
         const blocked = [
-            "/ptapp/frontend/parent/dashboard.html",
-            "/ptapp/frontend/settings/locked.html"
+            "../parent/dashboard.html",
+            "../settings/locked.html"
         ];
 
         if (blocked.includes(target)) {
-            mainFrame.src = "/ptapp/frontend/intercept/intercept.html";
+            mainFrame.src = "../intercept/intercept.html";
             return;
         }
 
@@ -118,7 +118,6 @@ window.onload = function () {
     // -------------------------------
     // INITIAL LOAD
     // -------------------------------
-    navigate("/ptapp/frontend/home/home.html");
+    navigate("../home/home.html");
 };
-
 
