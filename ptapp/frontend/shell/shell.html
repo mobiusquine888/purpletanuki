@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PTapp Shell</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Global UI theme -->
+    <link rel="stylesheet" href="/ptapp/frontend/ui/theme.css">
+    <link rel="stylesheet" href="/ptapp/frontend/ui/layout.css">
+
+    <!-- Shell chrome -->
+    <link rel="stylesheet" href="shell.css">
+    <script defer src="shell.js"></script>
+</head>
+
+<body>
+    <div id="pt-shell">
+
+        <!-- Top chrome bar with macOS dots -->
+        <div id="pt-shell-chrome">
+            <div id="pt-shell-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+            </div>
+
+            <div id="pt-shell-title">PurpleTanuki</div>
+
+            <div id="pt-shell-actions">
+                <button id="pt-shell-settings" aria-label="Settings">⚙️</button>
+                <button id="pt-shell-profile" aria-label="Profile">👤</button>
+            </div>
+        </div>
+
+        <!-- Tanuki strip -->
+        <div id="pt-shell-tanuki-bar">
+            <div id="pt-shell-tanuki-bubble">
+                <iframe
+                    id="pt-tanuki-frame"
+                    src="/ptapp/frontend/tanuki/tanuki.html"
+                    title="Tanuki"
+                    frameborder="0">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Main content area -->
+        <div id="pt-shell-main">
+            <iframe
+                id="pt-main-frame"
+                src="/ptapp/frontend/home/home.html"
+                title="PTapp"
+                frameborder="0">
+            </iframe>
+        </div>
+
+    </div>
+</body>
+</html>
