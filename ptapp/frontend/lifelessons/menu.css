@@ -1,0 +1,34 @@
+/* PTapp Life Lessons Menu (REFORGED) */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+#ll-menu-container {
+    padding: 20px;
+    text-align: center;
+}
+
+#ll-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#ll-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.ll-btn {
+    background: #6a2ff9;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+}
