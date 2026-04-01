@@ -1,11 +1,21 @@
-// PTapp Flow Logic (REFORGED for Step 20)
+// PTapp Flow Logic (REFORGED for Step 20 + Netlify-safe)
 
+// Listen for messages from the Shell/Engine
 window.addEventListener("message", (event) => {
     const data = event.data || {};
 
-    // Engine tells Flow to start
+    // Shell tells Flow to begin
     if (data.action === "flow-engine-start") {
-        PT_Engine.start(data.mode, data.module);
+        // Instead of calling PT_Engine directly (which doesn't exist here),
+        // ask the Shell to start the engine.
+        window.parent.postMessage(
+            {
+                action: "engine-start-request",
+                mode: data.mode,
+                module: data.module || null
+            },
+            "*"
+        );
     }
 
     // Engine sends a question to render
@@ -66,11 +76,12 @@ function renderChoices(container, options) {
     });
 }
 
-// Send answer back to engine
+// Send answer back to Shell → Engine
 function sendAnswer(answer) {
     window.parent.postMessage(
         { action: "flow-answer", answer: answer },
         "*"
     );
 }
+
 
