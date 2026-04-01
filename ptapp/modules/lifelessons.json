@@ -1,0 +1,22 @@
+{
+  "title": "Life Lessons",
+  "questions": [
+    {
+      "id": "life_01",
+      "type": "choice",
+      "prompt": "If you feel overwhelmed, what is a healthy first step?",
+      "options": ["Take a deep breath", "Ignore it"]
+    },
+    {
+      "id": "life_02",
+      "type": "yesno",
+      "prompt": "Is it okay to ask for help when you need it?"
+    },
+    {
+      "id": "life_03",
+      "type": "choice",
+      "prompt": "Which is a kind action?",
+      "options": ["Helping someone", "Laughing at someone"]
+    }
+  ]
+}
