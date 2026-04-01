@@ -1,0 +1,24 @@
+/* PTapp Theme (REFORGED) */
+
+/* Brand Colors */
+:root {
+    --pt-purple: #6a2ff9;
+    --pt-purple-light: #f3ecff;
+    --pt-black: #000000;
+    --pt-white: #ffffff;
+    --pt-gray: #333333;
+    --pt-gray-light: #f7f5ff;
+
+    --pt-radius: 12px;
+    --pt-padding: 14px;
+    --pt-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Global Reset */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--pt-font);
+    background: var(--pt-white);
+    color: var(--pt-gray);
+}
