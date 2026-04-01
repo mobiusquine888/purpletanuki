@@ -1,0 +1,39 @@
+/* PTapp Intercept Screen (REFORGED) */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+#intercept-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+#intercept-tanuki {
+    width: 160px;
+    height: 160px;
+}
+
+#intercept-message {
+    margin-top: 20px;
+    font-size: 1.4rem;
+    color: #333;
+}
+
+#intercept-ok-btn {
+    margin-top: 30px;
+    background: #6a2ff9;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+}
