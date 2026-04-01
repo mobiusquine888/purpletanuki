@@ -1,0 +1,36 @@
+/* PTapp Components (REFORGED) */
+
+/* Buttons */
+.pt-btn {
+    background: var(--pt-purple);
+    color: var(--pt-white);
+    border: none;
+    padding: var(--pt-padding);
+    border-radius: var(--pt-radius);
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.pt-btn-secondary {
+    background: var(--pt-gray);
+    color: var(--pt-white);
+}
+
+/* Cards */
+.pt-card {
+    background: var(--pt-purple-light);
+    padding: var(--pt-padding);
+    border-radius: var(--pt-radius);
+    margin-bottom: 20px;
+}
+
+/* Headings */
+.pt-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.pt-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
