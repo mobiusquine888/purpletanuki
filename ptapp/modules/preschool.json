@@ -1,0 +1,21 @@
+{
+  "title": "Pre-K Core",
+  "questions": [
+    {
+      "id": "pk_01",
+      "type": "yesno",
+      "prompt": "Is this a circle?"
+    },
+    {
+      "id": "pk_02",
+      "type": "yesno",
+      "prompt": "Is the color red?"
+    },
+    {
+      "id": "pk_03",
+      "type": "choice",
+      "prompt": "Which one is bigger?",
+      "options": ["Left", "Right"]
+    }
+  ]
+}
