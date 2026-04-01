@@ -1,45 +1,127 @@
-// PTapp Hybrid Question Engine (REFORGED for Step 20)
+// PTapp Hybrid Question Engine (REFORGED for Step 20 + Curriculum Mode)
 
 const PT_Engine = {
-    mode: null,          // "akinator" or "curriculum"
-    modulePath: null,    // path to JSON module (for curriculum)
-    moduleData: null,    // loaded JSON
-    currentIndex: 0,     // question pointer
-    state: {},           // answers, traits, scoring, etc.
+    mode: null,
+    modulePath: null,
+    curriculum: null,
+    currentUnit: null,
+    currentLessonIndex: 0,
 
+    // ---------------------------------------------
+    // ENGINE START
+    // ---------------------------------------------
     async start(mode, modulePath = null) {
         this.mode = mode;
-        this.modulePath = modulePath;
-        this.currentIndex = 0;
-        this.state = {};
 
-        if (mode === "curriculum" && modulePath) {
-            this.moduleData = await this.loadModule(modulePath);
+        if (mode === "curriculum") {
+            await this.loadCurriculum(modulePath);
+            return;
         }
 
-        this.sendNextQuestion();
+        // Akinator fallback
+        this.sendAkinatorQuestion();
     },
 
-    async loadModule(path) {
-        const response = await fetch(path);
-        if (!response.ok) {
-            console.error("Failed to load module:", path);
-            return { title: "Empty Module", questions: [] };
+    // ---------------------------------------------
+    // LOAD CURRICULUM JSON
+    // ---------------------------------------------
+    async loadCurriculum(path) {
+        try {
+            const response = await fetch(path);
+            this.curriculum = await response.json();
+
+            // Send curriculum to Shell → Units page
+            window.parent.postMessage(
+                {
+                    action: "engine-curriculum",
+                    data: this.curriculum
+                },
+                "*"
+            );
+
+        } catch (err) {
+            console.error("Failed to load curriculum:", err);
         }
-        return await response.json();
     },
 
-    sendNextQuestion() {
-        if (this.mode === "akinator") {
-            this.sendAkinatorQuestion();
+    // ---------------------------------------------
+    // UNIT SELECTION
+    // ---------------------------------------------
+    loadUnit(unitId) {
+        this.currentUnit = this.curriculum.units.find(u => u.id === unitId);
+        this.currentLessonIndex = 0;
+        this.sendLesson();
+    },
+
+    // ---------------------------------------------
+    // LESSON HANDLING
+    // ---------------------------------------------
+    sendLesson() {
+        window.parent.postMessage(
+            {
+                action: "lesson-load",
+                data: this.curriculum,
+                unitId: this.currentUnit.id,
+                lessonIndex: this.currentLessonIndex
+            },
+            "*"
+        );
+    },
+
+    nextLesson() {
+        this.currentLessonIndex++;
+
+        if (this.currentLessonIndex < this.currentUnit.lessons.length) {
+            this.sendLesson();
         } else {
-            this.sendCurriculumQuestion();
+            this.sendMastery();
         }
     },
 
-    // -------------------------------
-    // AKINATOR MODE (placeholder)
-    // -------------------------------
+    // ---------------------------------------------
+    // MASTERY CHECK
+    // ---------------------------------------------
+    sendMastery() {
+        window.parent.postMessage(
+            {
+                action: "mastery-load",
+                data: this.curriculum,
+                unitId: this.currentUnit.id
+            },
+            "*"
+        );
+    },
+
+    // ---------------------------------------------
+    // UNIT TEST
+    // ---------------------------------------------
+    sendTest() {
+        window.parent.postMessage(
+            {
+                action: "test-load",
+                data: this.curriculum,
+                unitId: this.currentUnit.id
+            },
+            "*"
+        );
+    },
+
+    // ---------------------------------------------
+    // CURRICULUM REVEAL
+    // ---------------------------------------------
+    sendCurriculumReveal(results) {
+        window.parent.postMessage(
+            {
+                action: "reveal-load",
+                testResults: results
+            },
+            "*"
+        );
+    },
+
+    // ---------------------------------------------
+    // AKINATOR MODE (unchanged placeholder)
+    // ---------------------------------------------
     sendAkinatorQuestion() {
         window.parent.postMessage(
             {
@@ -47,73 +129,6 @@ const PT_Engine = {
                 prompt: "Is your character real?",
                 type: "yesno"
             },
-            "*"
-        );
-    },
-
-    // -------------------------------
-    // CURRICULUM MODE
-    // -------------------------------
-    sendCurriculumQuestion() {
-        if (!this.moduleData || !this.moduleData.questions || this.moduleData.questions.length === 0) {
-            this.finish("You completed the module!");
-            return;
-        }
-
-        const q = this.moduleData.questions[this.currentIndex];
-
-        window.parent.postMessage(
-            {
-                action: "engine-question",
-                prompt: q.prompt,
-                type: q.type,
-                options: q.options || null,
-                id: q.id
-            },
-            "*"
-        );
-    },
-
-    // -------------------------------
-    // ANSWER HANDLING
-    // -------------------------------
-    receiveAnswer(answer) {
-        if (this.mode === "akinator") {
-            this.handleAkinatorAnswer(answer);
-        } else {
-            this.handleCurriculumAnswer(answer);
-        }
-    },
-
-    handleAkinatorAnswer(answer) {
-        this.finish("A mysterious character");
-    },
-
-    handleCurriculumAnswer(answer) {
-        this.state[this.currentIndex] = answer;
-
-        this.currentIndex++;
-
-        if (this.currentIndex >= this.moduleData.questions.length) {
-            this.finish("You completed the module!");
-        } else {
-            this.sendNextQuestion();
-        }
-    },
-
-    // -------------------------------
-    // FINISH → SEND RESULT + NAVIGATE
-    // -------------------------------
-    finish(resultText) {
-        // Tell Reveal what to show
-        window.parent.postMessage(
-            { action: "engine-result", result: resultText },
-            "*"
-        );
-
-        // Navigate to Reveal (Netlify-safe)
-        window.parent.postMessage(
-            { action: "navigate", target: "../reveal/reveal.html" },
             "*"
         );
     }
