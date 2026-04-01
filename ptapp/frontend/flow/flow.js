@@ -1,58 +1,76 @@
-// PTapp Akinator Flow Engine (REFORGED)
+// PTapp Flow Logic (REFORGED for Step 20)
 
-window.onload = function () {
-    const questionText = document.getElementById("flow-question-text");
-    const buttons = document.querySelectorAll(".flow-btn");
+window.addEventListener("message", (event) => {
+    const data = event.data || {};
 
-    // Example question list (replace with real engine later)
-    const questions = [
-        "Is your character a girl?",
-        "Is your character real?",
-        "Is your character from a video game?",
-        "Is your character older than 20?"
-    ];
-
-    let index = 0;
-
-    loadQuestion();
-
-    function loadQuestion() {
-        questionText.textContent = questions[index];
-
-        // Tell Tanuki to think
-        window.parent.postMessage(
-            { action: "tanuki-mood", mood: "think" },
-            "*"
-        );
+    // Engine tells Flow to start
+    if (data.action === "flow-engine-start") {
+        PT_Engine.start(data.mode, data.module);
     }
 
-    buttons.forEach(btn => {
-        btn.onclick = () => {
-            const answer = btn.dataset.answer;
+    // Engine sends a question to render
+    if (data.action === "flow-question") {
+        renderQuestion(data);
+    }
+});
 
-            // Tell shell to navigate or continue
-            nextQuestion(answer);
-        };
+// Render a question from the engine
+function renderQuestion(q) {
+    const container = document.getElementById("flow-question-container");
+    container.innerHTML = "";
+
+    // Prompt
+    const promptEl = document.createElement("div");
+    promptEl.className = "flow-prompt";
+    promptEl.textContent = q.prompt;
+    container.appendChild(promptEl);
+
+    // Tanuki thinks
+    window.parent.postMessage(
+        { action: "tanuki-mood", mood: "thinking" },
+        "*"
+    );
+
+    // Render based on type
+    if (q.type === "yesno") {
+        renderYesNo(container);
+    } else if (q.type === "choice") {
+        renderChoices(container, q.options);
+    }
+}
+
+// Yes/No buttons
+function renderYesNo(container) {
+    const yesBtn = document.createElement("button");
+    yesBtn.textContent = "Yes";
+    yesBtn.className = "flow-btn";
+    yesBtn.onclick = () => sendAnswer("yes");
+
+    const noBtn = document.createElement("button");
+    noBtn.textContent = "No";
+    noBtn.className = "flow-btn";
+    noBtn.onclick = () => sendAnswer("no");
+
+    container.appendChild(yesBtn);
+    container.appendChild(noBtn);
+}
+
+// Multiple choice buttons
+function renderChoices(container, options) {
+    options.forEach((opt) => {
+        const btn = document.createElement("button");
+        btn.textContent = opt;
+        btn.className = "flow-btn";
+        btn.onclick = () => sendAnswer(opt);
+        container.appendChild(btn);
     });
+}
 
-    function nextQuestion(answer) {
-        // Tanuki reacts to answer
-        window.parent.postMessage(
-            { action: "tanuki-mood", mood: "soft" },
-            "*"
-        );
+// Send answer back to engine
+function sendAnswer(answer) {
+    window.parent.postMessage(
+        { action: "flow-answer", answer: answer },
+        "*"
+    );
+}
 
-        index++;
-
-        if (index >= questions.length) {
-            // End of flow → go to reveal
-            window.parent.postMessage(
-                { action: "navigate", target: "/ptapp/frontend/reveal/reveal.html" },
-                "*"
-            );
-            return;
-        }
-
-        loadQuestion();
-    }
-};
