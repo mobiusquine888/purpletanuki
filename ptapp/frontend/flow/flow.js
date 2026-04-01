@@ -6,8 +6,6 @@ window.addEventListener("message", (event) => {
 
     // Shell tells Flow to begin
     if (data.action === "flow-engine-start") {
-        // Instead of calling PT_Engine directly (which doesn't exist here),
-        // ask the Shell to start the engine.
         window.parent.postMessage(
             {
                 action: "engine-start-request",
@@ -18,8 +16,13 @@ window.addEventListener("message", (event) => {
         );
     }
 
-    // Engine sends a question to render
+    // Engine → Shell → Flow (primary protocol)
     if (data.action === "flow-question") {
+        renderQuestion(data);
+    }
+
+    // Engine → Shell → Flow (fallback protocol)
+    if (data.action === "engine-question") {
         renderQuestion(data);
     }
 });
@@ -83,5 +86,4 @@ function sendAnswer(answer) {
         "*"
     );
 }
-
 
