@@ -1,0 +1,22 @@
+{
+  "grade": "Grade 7 Math",
+  "units": [
+    {
+      "id": "unit1",
+      "title": "Ratios & Proportional Reasoning",
+      "lessons": [ ... YOUR FULL UNIT 1 CONTENT ... ],
+      "masteryCheck": [ ... ],
+      "unitTest": [ ... ]
+    },
+
+    { "id": "unit2", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit3", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit4", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit5", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit6", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit7", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit8", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit9", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit10", "title": "Coming Soon", "lessons": [] }
+  ]
+}
