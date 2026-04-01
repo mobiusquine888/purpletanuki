@@ -7,7 +7,6 @@ window.onload = function () {
     // -------------------------------
     // HEADER BUTTONS
     // -------------------------------
-
     const settingsBtn = document.getElementById("pt-shell-settings");
     if (settingsBtn) {
         settingsBtn.onclick = () => {
@@ -46,6 +45,21 @@ window.onload = function () {
         // Flow sends an answer to the engine
         if (data.action === "flow-answer") {
             PT_Engine.receiveAnswer(data.answer);
+        }
+
+        // Engine sends a question to Flow (MISSING LINK — NOW FIXED)
+        if (data.action === "engine-question") {
+            if (mainFrame && mainFrame.contentWindow) {
+                mainFrame.contentWindow.postMessage(
+                    {
+                        action: "flow-question",
+                        prompt: data.prompt,
+                        type: data.type,
+                        options: data.options
+                    },
+                    "*"
+                );
+            }
         }
 
         // Engine sends result to Reveal
@@ -125,4 +139,5 @@ window.onload = function () {
     // -------------------------------
     navigate("../home/home.html");
 };
+
 
