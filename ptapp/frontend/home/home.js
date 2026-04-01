@@ -13,15 +13,14 @@ window.onload = function () {
         };
     }
 
-    // Pre-K → Full Curriculum (Unit 1 ready, Units 2–10 scaffolded)
+    // Pre-K → Full Curriculum
     const prekBtn = document.getElementById("btn-prek");
     if (prekBtn) {
         prekBtn.onclick = () => {
             window.parent.postMessage(
                 {
-                    action: "engine-start",
-                    mode: "curriculum",
-                    module: "/ptapp/modules/preschool_curriculum.json"
+                    action: "home-select",
+                    level: "prek"
                 },
                 "*"
             );
@@ -34,9 +33,8 @@ window.onload = function () {
         kinderBtn.onclick = () => {
             window.parent.postMessage(
                 {
-                    action: "engine-start",
-                    mode: "curriculum",
-                    module: "/ptapp/modules/kindergarten_curriculum.json"
+                    action: "home-select",
+                    level: "k"
                 },
                 "*"
             );
@@ -49,9 +47,8 @@ window.onload = function () {
         grade7Btn.onclick = () => {
             window.parent.postMessage(
                 {
-                    action: "engine-start",
-                    mode: "curriculum",
-                    module: "/ptapp/modules/grade7_curriculum.json"
+                    action: "home-select",
+                    level: "grade7"
                 },
                 "*"
             );
@@ -64,9 +61,8 @@ window.onload = function () {
         lifeBtn.onclick = () => {
             window.parent.postMessage(
                 {
-                    action: "engine-start",
-                    mode: "curriculum",
-                    module: "/ptapp/modules/lifeskills_curriculum.json"
+                    action: "home-select",
+                    level: "lifelessons"
                 },
                 "*"
             );
