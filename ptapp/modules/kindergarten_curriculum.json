@@ -1,0 +1,45 @@
+{
+  "grade": "Kindergarten",
+  "units": [
+    {
+      "id": "unit1",
+      "title": "Kindergarten Essentials",
+      "lessons": [
+        {
+          "id": "u1_l1",
+          "title": "Letters and Sounds",
+          "text": "Letters make sounds. Sounds make words.",
+          "example": "A says 'ah'. B says 'buh'.",
+          "practice_question": "What sound does the letter M make?",
+          "answer": "mmm"
+        },
+        {
+          "id": "u1_l2",
+          "title": "Counting to 10",
+          "text": "Counting helps us know how many things there are.",
+          "example": "1, 2, 3, 4, 5...",
+          "practice_question": "Count 5 objects near you.",
+          "answer": "5"
+        }
+      ],
+      "masteryCheck": [
+        { "question": "What sound does S make?", "answer": "sss" },
+        { "question": "Count to 10.", "answer": "1–10" }
+      ],
+      "unitTest": [
+        { "question": "Which letter is a vowel?", "answer": "A" },
+        { "question": "How many fingers do you have?", "answer": "10" }
+      ]
+    },
+
+    { "id": "unit2", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit3", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit4", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit5", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit6", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit7", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit8", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit9", "title": "Coming Soon", "lessons": [] },
+    { "id": "unit10", "title": "Coming Soon", "lessons": [] }
+  ]
+}
