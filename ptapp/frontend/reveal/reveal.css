@@ -1,4 +1,4 @@
-/* PTapp Reveal Screen (REFORGED) */
+/* PTapp Reveal Screen (REFORGED for Step 20) */
 
 html, body {
     margin: 0;
@@ -41,4 +41,9 @@ html, body {
     background: var(--pt-theme-accent, #7a3db8);
     color: #ffffff;
     cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#reveal-again:hover {
+    background: #9b5fe0;
 }
