@@ -13,23 +13,51 @@
     <div id="pt-home">
 
         <!-- Tanuki center stage -->
-        <img id="pt-home-tanuki" src="/ptapp/assets/tanuki/idle.png" alt="Tanuki">
+        <img id="pt-home-tanuki" src="img/idle.png" alt="Tanuki">
 
         <!-- Tagline -->
         <h1 id="pt-home-title">I can guess what you're thinking…</h1>
 
         <!-- Challenge button -->
-        <button id="pt-home-challenge-btn">Challenge Me</button>
+        <button id="pt-home-challenge-btn"
+                data-target="../flow/flow.html">
+            Challenge Me
+        </button>
 
         <!-- Freemium entry points -->
         <div id="pt-home-entries">
-            <button class="pt-entry-btn" data-target="/curriculum/prek/prek.html">Pre‑K</button>
-            <button class="pt-entry-btn" data-target="/curriculum/k/k.html">Kindergarten</button>
-            <button class="pt-entry-btn" data-target="/curriculum/grade7/math/grade7_math.html">Grade 7 Math</button>
-            <button class="pt-entry-btn" data-target="/lifelessons/menu.html">Life Lessons</button>
+            <button class="pt-entry-btn" data-target="../curriculum/prek/prek.html">Pre‑K</button>
+            <button class="pt-entry-btn" data-target="../curriculum/k/k.html">Kindergarten</button>
+            <button class="pt-entry-btn" data-target="../curriculum/grade7/math/grade7_math.html">Grade 7 Math</button>
+            <button class="pt-entry-btn" data-target="../lifelessons/menu.html">Life Lessons</button>
         </div>
 
     </div>
+
+    <script>
+        // Send navigation requests to the Shell
+        function sendNav(target) {
+            window.parent.postMessage(
+                { action: "navigate", target: target },
+                "*"
+            );
+        }
+
+        // Challenge Me button
+        document.getElementById("pt-home-challenge-btn")
+            .addEventListener("click", (e) => {
+                sendNav(e.target.dataset.target);
+            });
+
+        // Entry buttons
+        document.querySelectorAll(".pt-entry-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                sendNav(btn.dataset.target);
+            });
+        });
+    </script>
+
 </body>
 </html>
+
 
