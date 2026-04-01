@@ -26,10 +26,10 @@
 
         <!-- Freemium entry points -->
         <div id="pt-home-entries">
-            <button class="pt-entry-btn" data-target="../curriculum/prek/prek.html">Pre‑K</button>
-            <button class="pt-entry-btn" data-target="../curriculum/k/k.html">Kindergarten</button>
-            <button class="pt-entry-btn" data-target="../curriculum/grade7/math/grade7_math.html">Grade 7 Math</button>
-            <button class="pt-entry-btn" data-target="../lifelessons/menu.html">Life Lessons</button>
+            <button class="pt-entry-btn" data-level="prek">Pre‑K</button>
+            <button class="pt-entry-btn" data-level="k">Kindergarten</button>
+            <button class="pt-entry-btn" data-level="grade7">Grade 7 Math</button>
+            <button class="pt-entry-btn" data-level="lifelessons">Life Lessons</button>
         </div>
 
     </div>
@@ -49,15 +49,22 @@
                 sendNav(e.target.dataset.target);
             });
 
-        // Entry buttons
+        // Entry buttons (send level to Shell/Engine)
         document.querySelectorAll(".pt-entry-btn").forEach(btn => {
             btn.addEventListener("click", () => {
-                sendNav(btn.dataset.target);
+                window.parent.postMessage(
+                    {
+                        action: "home-select",
+                        level: btn.dataset.level
+                    },
+                    "*"
+                );
             });
         });
     </script>
 
 </body>
 </html>
+
 
 
