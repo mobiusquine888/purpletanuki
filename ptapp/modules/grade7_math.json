@@ -1,0 +1,22 @@
+{
+  "title": "Grade 7 Math — Unit 1",
+  "questions": [
+    {
+      "id": "g7_01",
+      "type": "choice",
+      "prompt": "Which is the coefficient in 5x + 3?",
+      "options": ["5", "x", "3"]
+    },
+    {
+      "id": "g7_02",
+      "type": "choice",
+      "prompt": "Solve: 2(x + 3) = 14",
+      "options": ["x = 4", "x = 2", "x = 8"]
+    },
+    {
+      "id": "g7_03",
+      "type": "yesno",
+      "prompt": "Is -3 a rational number?"
+    }
+  ]
+}
