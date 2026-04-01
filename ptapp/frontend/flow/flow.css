@@ -1,0 +1,49 @@
+/* PTapp Akinator Flow Screen (REFORGED) */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--pt-theme-bg, #f5f0ff);
+    font-family: "Inter", sans-serif;
+}
+
+#flow-container {
+    padding: 24px;
+    text-align: center;
+}
+
+#flow-question-box {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    margin-bottom: 24px;
+}
+
+#flow-question-text {
+    font-size: 22px;
+    font-weight: 600;
+    color: #3b1450;
+}
+
+#flow-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.flow-btn {
+    padding: 14px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    background: #7a3db8;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.flow-btn:hover {
+    background: #9b5fe0;
+}
