@@ -1,4 +1,4 @@
-// PTapp App Shell (REFORGED for Netlify + Step 20)
+// PTapp App Shell (REFORGED for Netlify + Step 20 + Curriculum Routing)
 
 window.onload = function () {
     const mainFrame = document.getElementById("pt-main-frame");
@@ -27,10 +27,29 @@ window.onload = function () {
     window.addEventListener("message", (event) => {
         const data = event.data || {};
 
-        // Child page requests navigation
-        if (data.action === "navigate" && data.target) {
-            navigate(data.target);
+        // -------------------------------
+        // CURRICULUM ROUTING (NEW)
+        // -------------------------------
+
+        // Engine sends curriculum data → load Units page
+        if (data.action === "engine-curriculum") {
+            navigateWithMessage(
+                "../curriculum/curriculum.html",
+                {
+                    action: "curriculum-load",
+                    data: data.data
+                }
+            );
         }
+
+        // Navigate to curriculum pages (lesson, mastery, test, reveal)
+        if (data.action === "navigate" && data.target) {
+            navigateWithMessage(data.target, data);
+        }
+
+        // -------------------------------
+        // OLD + FLOW PROTOCOLS
+        // -------------------------------
 
         // Home requests engine start (old protocol)
         if (data.action === "engine-start") {
@@ -47,7 +66,7 @@ window.onload = function () {
             PT_Engine.receiveAnswer(data.answer);
         }
 
-        // Engine sends a question to Flow (MISSING LINK — NOW FIXED)
+        // Engine sends a question to Flow
         if (data.action === "engine-question") {
             if (mainFrame && mainFrame.contentWindow) {
                 mainFrame.contentWindow.postMessage(
@@ -62,7 +81,7 @@ window.onload = function () {
             }
         }
 
-        // Engine sends result to Reveal
+        // Engine sends result to Reveal (Akinator)
         if (data.action === "engine-result") {
             sendToReveal(data.result);
         }
@@ -94,7 +113,7 @@ window.onload = function () {
     }
 
     // -------------------------------
-    // SEND RESULT TO REVEAL
+    // SEND RESULT TO REVEAL (Akinator)
     // -------------------------------
     function sendToReveal(resultText) {
         if (mainFrame && mainFrame.contentWindow) {
@@ -106,7 +125,7 @@ window.onload = function () {
     }
 
     // -------------------------------
-    // NAVIGATION + INTERCEPT
+    // NAVIGATION HELPERS
     // -------------------------------
     function navigate(target) {
         const blocked = [
@@ -120,6 +139,16 @@ window.onload = function () {
         }
 
         mainFrame.src = target;
+    }
+
+    function navigateWithMessage(target, message) {
+        navigate(target);
+
+        setTimeout(() => {
+            if (mainFrame && mainFrame.contentWindow) {
+                mainFrame.contentWindow.postMessage(message, "*");
+            }
+        }, 50);
     }
 
     // -------------------------------
@@ -139,5 +168,4 @@ window.onload = function () {
     // -------------------------------
     navigate("../home/home.html");
 };
-
 
