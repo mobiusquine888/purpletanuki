@@ -1,4 +1,4 @@
-// PTapp Akinator App Shell (REFORGED)
+// PTapp App Shell (REFORGED for Step 20)
 
 window.onload = function () {
     const mainFrame = document.getElementById("pt-main-frame");
@@ -8,7 +8,6 @@ window.onload = function () {
     // HEADER BUTTONS
     // -------------------------------
 
-    // Settings (upper left)
     const settingsBtn = document.getElementById("pt-shell-settings");
     if (settingsBtn) {
         settingsBtn.onclick = () => {
@@ -16,7 +15,6 @@ window.onload = function () {
         };
     }
 
-    // Profile (upper right)
     const profileBtn = document.getElementById("pt-shell-profile");
     if (profileBtn) {
         profileBtn.onclick = () => {
@@ -35,11 +33,58 @@ window.onload = function () {
             navigate(data.target);
         }
 
-        // Child page requests Tanuki mood change
+        // Home requests engine start
+        if (data.action === "engine-start") {
+            startEngineFlow(data);
+        }
+
+        // Flow sends an answer to the engine
+        if (data.action === "flow-answer") {
+            PT_Engine.receiveAnswer(data.answer);
+        }
+
+        // Engine sends result to Reveal
+        if (data.action === "engine-result") {
+            sendToReveal(data.result);
+        }
+
+        // Tanuki mood change
         if (data.action === "tanuki-mood" && data.mood) {
             sendTanukiMood(data.mood);
         }
     });
+
+    // -------------------------------
+    // ENGINE START → LOAD FLOW
+    // -------------------------------
+    function startEngineFlow(data) {
+        navigate("/ptapp/frontend/flow/flow.html");
+
+        setTimeout(() => {
+            if (mainFrame && mainFrame.contentWindow) {
+                mainFrame.contentWindow.postMessage(
+                    {
+                        action: "flow-engine-start",
+                        mode: data.mode,
+                        module: data.module || null
+                    },
+                    "*"
+                );
+            }
+        }, 50);
+    }
+
+    // -------------------------------
+    // SEND RESULT TO REVEAL
+    // -------------------------------
+    function sendToReveal(resultText) {
+        if (mainFrame && mainFrame.contentWindow) {
+            mainFrame.contentWindow.postMessage(
+                { action: "reveal-result", result: resultText },
+                "*"
+            );
+        }
+    }
 
     // -------------------------------
     // NAVIGATION + INTERCEPT
@@ -75,4 +120,5 @@ window.onload = function () {
     // -------------------------------
     navigate("/ptapp/frontend/home/home.html");
 };
+
 
