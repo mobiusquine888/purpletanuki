@@ -1,0 +1,40 @@
+/* PTapp Parent Dashboard (REFORGED) */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+#parent-container {
+    padding: 20px;
+}
+
+#parent-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.parent-card {
+    background: #f3ecff;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.parent-card h2 {
+    margin-top: 0;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+#switch-profile-btn {
+    background: #6a2ff9;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+}
