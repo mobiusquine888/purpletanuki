@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PTapp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="shell.css">
+    <script defer src="shell.js"></script>
+</head>
+
+<body>
+    <div id="app-shell">
+
+        <!-- Header -->
+        <header id="pt-header">
+            <div id="header-left">
+                <button id="back-btn">←</button>
+            </div>
+
+            <div id="header-center">
+                <img id="header-tanuki" src="/ptapp/assets/tanuki/idle.png" alt="Tanuki">
+            </div>
+
+            <div id="header-right">
+                <button id="profile-btn">👤</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main id="pt-content"></main>
+
+        <!-- Footer -->
+        <footer id="pt-footer">
+            <button data-target="/ptapp/frontend/explore/explore.html">Explore</button>
+            <button data-target="/ptapp/frontend/parent/dashboard.html">Parent</button>
+            <button data-target="/ptapp/frontend/settings/settings.html">Settings</button>
+        </footer>
+
+    </div>
+</body>
+</html>
