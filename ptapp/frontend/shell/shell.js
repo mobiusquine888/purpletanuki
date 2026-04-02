@@ -1,7 +1,7 @@
 // PTapp App Shell (REFORGED for Netlify + Audio + Curriculum Routing)
 
 // -----------------------------------------
-// GLOBAL AUDIO TAP-TO-START (runs instantly)
+// GLOBAL AUDIO TAP-TO-START + FADE-IN
 // -----------------------------------------
 (function () {
     const audio = document.getElementById("pt-theme-audio");
@@ -48,6 +48,31 @@
 })();
 
 // -----------------------------------------
+// MUTE BUTTON LOGIC (Step 3)
+// -----------------------------------------
+window.addEventListener("DOMContentLoaded", () => {
+    const audio = document.getElementById("pt-theme-audio");
+    const btn = document.getElementById("pt-mute-btn");
+    const icon = document.getElementById("pt-mute-icon");
+
+    if (!audio || !btn || !icon) return;
+
+    let muted = false;
+
+    btn.onclick = () => {
+        muted = !muted;
+
+        if (muted) {
+            audio.muted = true;
+            icon.src = "/shell/icons/volume-off.png";
+        } else {
+            audio.muted = false;
+            icon.src = "/shell/icons/volume-on.png";
+        }
+    };
+});
+
+// -----------------------------------------
 // MAIN SHELL BOOTSTRAP
 // -----------------------------------------
 window.onload = function () {
@@ -77,9 +102,7 @@ window.onload = function () {
     window.addEventListener("message", (event) => {
         const data = event.data || {};
 
-        // -----------------------------------------
-        // USER GESTURE FORWARDED FROM IFRAME (NEW)
-        // -----------------------------------------
+        // USER GESTURE FORWARDED FROM IFRAME
         if (data.action === "user-gesture") {
             const audio = document.getElementById("pt-theme-audio");
             if (audio && audio.paused) {
@@ -87,11 +110,7 @@ window.onload = function () {
             }
         }
 
-        // -------------------------------
-        // CURRICULUM ROUTING (NEW)
-        // -------------------------------
-
-        // Engine sends curriculum data → load Units page
+        // CURRICULUM ROUTING
         if (data.action === "engine-curriculum") {
             navigateWithMessage(
                 "../curriculum/curriculum.html",
@@ -102,31 +121,23 @@ window.onload = function () {
             );
         }
 
-        // Navigate to curriculum pages (lesson, mastery, test, reveal)
         if (data.action === "navigate" && data.target) {
             navigateWithMessage(data.target, data);
         }
 
-        // -------------------------------
         // OLD + FLOW PROTOCOLS
-        // -------------------------------
-
-        // Home requests engine start (old protocol)
         if (data.action === "engine-start") {
             startEngineFlow(data);
         }
 
-        // Flow requests engine start (new protocol)
         if (data.action === "engine-start-request") {
             PT_Engine.start(data.mode, data.module || null);
         }
 
-        // Flow sends an answer to the engine
         if (data.action === "flow-answer") {
             PT_Engine.receiveAnswer(data.answer);
         }
 
-        // Engine sends a question to Flow
         if (data.action === "engine-question") {
             if (mainFrame && mainFrame.contentWindow) {
                 mainFrame.contentWindow.postMessage(
@@ -141,12 +152,10 @@ window.onload = function () {
             }
         }
 
-        // Engine sends result to Reveal (Akinator)
         if (data.action === "engine-result") {
             sendToReveal(data.result);
         }
 
-        // Tanuki mood change
         if (data.action === "tanuki-mood" && data.mood) {
             sendTanukiMood(data.mood);
         }
@@ -232,5 +241,6 @@ window.onload = function () {
     // -------------------------------
     navigate("../home/home.html");
 };
+
 
 
