@@ -5,6 +5,23 @@ window.onload = function () {
     const tanukiFrame = document.getElementById("pt-tanuki-frame");
 
     // -------------------------------
+    // AUDIO AUTOPLAY (NEW)
+    // -------------------------------
+    const audio = document.getElementById("pt-theme-audio");
+    if (audio) {
+        audio.volume = 0.6;
+        audio.play().catch(() => {
+            const resumeMusic = () => {
+                audio.play().catch(() => {});
+                window.removeEventListener("click", resumeMusic);
+                window.removeEventListener("touchstart", resumeMusic);
+            };
+            window.addEventListener("click", resumeMusic);
+            window.addEventListener("touchstart", resumeMusic);
+        });
+    }
+
+    // -------------------------------
     // HEADER BUTTONS
     // -------------------------------
     const settingsBtn = document.getElementById("pt-shell-settings");
