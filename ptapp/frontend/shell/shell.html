@@ -5,6 +5,9 @@
     <title>PTapp Shell</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- FIX: Prevent Android from drawing purple system bar -->
+    <meta name="theme-color" content="#000000">
+
     <!-- RELATIVE paths (Netlify-safe) -->
     <link rel="stylesheet" href="shell.css">
     <script defer src="shell.js"></script>
@@ -27,7 +30,7 @@
         /* Mute Button */
         #pt-mute-btn {
             position: fixed;
-            top: 14px;
+            top: calc(env(safe-area-inset-top) + 14px); /* FIX: push below safe area */
             right: 14px;
             width: 42px;
             height: 42px;
@@ -48,6 +51,16 @@
             width: 22px;
             height: 22px;
             pointer-events: none;
+        }
+
+        /* FIX: Safe-area padding so Android stops drawing purple bar */
+        body {
+            padding-top: env(safe-area-inset-top);
+        }
+
+        /* FIX: Adjust iframe height to avoid overlap */
+        #pt-main-frame {
+            height: calc(100vh - env(safe-area-inset-top));
         }
     </style>
 
@@ -83,7 +96,6 @@
 
 </body>
 </html>
-
 
 
 
