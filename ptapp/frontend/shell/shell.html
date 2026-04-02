@@ -23,6 +23,32 @@
             opacity: 0;
             pointer-events: none;
         }
+
+        /* Mute Button */
+        #pt-mute-btn {
+            position: fixed;
+            top: 14px;
+            right: 14px;
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9998;
+            cursor: pointer;
+            backdrop-filter: blur(6px);
+            transition: background 0.2s ease;
+        }
+        #pt-mute-btn:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+        #pt-mute-btn img {
+            width: 22px;
+            height: 22px;
+            pointer-events: none;
+        }
     </style>
 
     <script>
@@ -40,6 +66,11 @@
     <!-- Splash Fade-In -->
     <div id="pt-splash"></div>
 
+    <!-- Mute Button -->
+    <div id="pt-mute-btn">
+        <img id="pt-mute-icon" src="/shell/icons/volume-on.png" alt="mute">
+    </div>
+
     <!-- HIDDEN AUDIO PLAYER -->
     <audio id="pt-theme-audio" src="/shell/home-intro_PurpleTanuki.MP3" loop></audio>
 
@@ -52,6 +83,7 @@
 
 </body>
 </html>
+
 
 
 
