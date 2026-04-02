@@ -36,7 +36,7 @@ html, body {
 /* Mute Button (Step 3) */
 #pt-mute-btn {
     position: fixed;
-    top: calc(env(safe-area-inset-top) + 14px); /* FIX: push below safe area */
+    top: calc(env(safe-area-inset-top) + 60px); /* FIX: push below safe area */
     right: 14px;
     width: 42px;
     height: 42px;
