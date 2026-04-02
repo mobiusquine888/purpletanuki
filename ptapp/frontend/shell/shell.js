@@ -1,25 +1,34 @@
-// PTapp App Shell (REFORGED for Netlify + Step 20 + Curriculum Routing)
+// PTapp App Shell (REFORGED for Netlify + Audio + Curriculum Routing)
 
+// -----------------------------------------
+// GLOBAL AUDIO TAP-TO-START (runs instantly)
+// -----------------------------------------
+(function () {
+    const audio = document.getElementById("pt-theme-audio");
+    if (!audio) return;
+
+    audio.volume = 0.6;
+
+    // Try autoplay immediately (desktop-friendly)
+    audio.play().catch(() => {
+        // If blocked (mobile/WebView), wait for first user gesture
+        const resume = () => {
+            audio.play().catch(() => {});
+            window.removeEventListener("click", resume);
+            window.removeEventListener("touchstart", resume);
+        };
+
+        window.addEventListener("click", resume, { once: true });
+        window.addEventListener("touchstart", resume, { once: true });
+    });
+})();
+
+// -----------------------------------------
+// MAIN SHELL BOOTSTRAP
+// -----------------------------------------
 window.onload = function () {
     const mainFrame = document.getElementById("pt-main-frame");
     const tanukiFrame = document.getElementById("pt-tanuki-frame");
-
-    // -------------------------------
-    // AUDIO AUTOPLAY (NEW)
-    // -------------------------------
-    const audio = document.getElementById("pt-theme-audio");
-    if (audio) {
-        audio.volume = 0.6;
-        audio.play().catch(() => {
-            const resumeMusic = () => {
-                audio.play().catch(() => {});
-                window.removeEventListener("click", resumeMusic);
-                window.removeEventListener("touchstart", resumeMusic);
-            };
-            window.addEventListener("click", resumeMusic);
-            window.addEventListener("touchstart", resumeMusic);
-        });
-    }
 
     // -------------------------------
     // HEADER BUTTONS
@@ -151,11 +160,15 @@ window.onload = function () {
         ];
 
         if (blocked.includes(target)) {
-            mainFrame.src = "../intercept/intercept.html";
+            if (mainFrame) {
+                mainFrame.src = "../intercept/intercept.html";
+            }
             return;
         }
 
-        mainFrame.src = target;
+        if (mainFrame) {
+            mainFrame.src = target;
+        }
     }
 
     function navigateWithMessage(target, message) {
@@ -172,7 +185,7 @@ window.onload = function () {
     // TANUKI MOOD MESSAGING
     // -------------------------------
     function sendTanukiMood(mood) {
-        if (!tanukiFrame) return;
+        if (!tanukiFrame || !tanukiFrame.contentWindow) return;
 
         tanukiFrame.contentWindow.postMessage(
             { action: "set-mood", mood: mood },
