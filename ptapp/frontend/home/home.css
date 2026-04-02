@@ -15,10 +15,12 @@ html, body {
     text-align: center;
 }
 
-/* Tanuki */
-#pt-home-tanuki {
-    width: 180px;
-    height: 180px;
+/* PurpleTanuki Akinator Splash */
+#pt-home-splash {
+    width: 80vw;
+    max-width: 360px;
+    height: auto;
+    margin-top: 10px;
     animation: fadeIn 1s ease-out forwards;
 }
 
