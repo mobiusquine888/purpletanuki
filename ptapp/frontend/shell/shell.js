@@ -53,6 +53,16 @@ window.onload = function () {
     window.addEventListener("message", (event) => {
         const data = event.data || {};
 
+        // -----------------------------------------
+        // USER GESTURE FORWARDED FROM IFRAME (NEW)
+        // -----------------------------------------
+        if (data.action === "user-gesture") {
+            const audio = document.getElementById("pt-theme-audio");
+            if (audio && audio.paused) {
+                audio.play().catch(() => {});
+            }
+        }
+
         // -------------------------------
         // CURRICULUM ROUTING (NEW)
         // -------------------------------
@@ -198,4 +208,5 @@ window.onload = function () {
     // -------------------------------
     navigate("../home/home.html");
 };
+
 
