@@ -10,62 +10,6 @@
 </head>
 
 <body>
-    <div id="pt-home">
-
-        <!-- PurpleTanuki Akinator Splash -->
-        <img id="pt-home-splash" src="img/tanuki_splash.png" alt="PurpleTanuki">
-
-        <!-- Tagline -->
-        <h1 id="pt-home-title">I can guess what you're thinking…</h1>
-
-        <!-- Challenge button -->
-        <button id="pt-home-challenge-btn"
-                data-target="../flow/flow.html">
-            Challenge Me
-        </button>
-
-        <!-- Freemium entry points -->
-        <div id="pt-home-entries">
-            <button class="pt-entry-btn" data-level="prek">Pre‑K</button>
-            <button class="pt-entry-btn" data-level="k">Kindergarten</button>
-            <button class="pt-entry-btn" data-level="grade7">Grade 7 Math</button>
-            <button class="pt-entry-btn" data-level="lifelessons">Life Lessons</button>
-        </div>
-
-    </div>
-
-    <script>
-        // Send navigation requests to the Shell
-        function sendNav(target) {
-            window.parent.postMessage(
-                { action: "navigate", target: target },
-                "*"
-            );
-        }
-
-        // Challenge Me button
-        document.getElementById("pt-home-challenge-btn")
-            .addEventListener("click", (e) => {
-                sendNav(e.target.dataset.target);
-            });
-
-        // Entry buttons (send level to Shell/Engine)
-        document.querySelectorAll(".pt-entry-btn").forEach(btn => {
-            btn.addEventListener("click", () => {
-                window.parent.postMessage(
-                    {
-                        action: "home-select",
-                        level: btn.dataset.level
-                    },
-                    "*"
-                );
-            });
-        });
-    </script>
-
+    <div id="pt-home"></div>
 </body>
 </html>
-
-
-
-
