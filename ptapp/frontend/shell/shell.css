@@ -2,7 +2,7 @@
 
 html, body {
     margin: 0;
-    padding: 0;
+    padding: env(safe-area-inset-top) 0 0 0; /* FIX: prevent purple banner */
     height: 100%;
     background: #2a0f3a;
     font-family: "Inter", sans-serif;
@@ -12,7 +12,7 @@ html, body {
 /* MAIN APP AREA — now full screen */
 #pt-main-frame {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - env(safe-area-inset-top)); /* FIX: adjust for safe area */
     border: none;
     background: #ffffff;
     display: block;
@@ -36,7 +36,7 @@ html, body {
 /* Mute Button (Step 3) */
 #pt-mute-btn {
     position: fixed;
-    top: 14px;
+    top: calc(env(safe-area-inset-top) + 14px); /* FIX: push below safe area */
     right: 14px;
     width: 42px;
     height: 42px;
