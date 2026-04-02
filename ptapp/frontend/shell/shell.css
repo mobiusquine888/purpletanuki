@@ -4,7 +4,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background: #2a0f3a; /* PurpleTanuki deep purple */
+    background: #2a0f3a;
     font-family: "Inter", sans-serif;
     overflow: hidden;
 }
@@ -23,15 +23,10 @@ html, body {
     box-shadow: 0 2px 6px rgba(0,0,0,0.25);
 }
 
-.pt-shell-icon {
-    font-size: 22px;
-    cursor: pointer;
-    user-select: none;
-    transition: opacity 0.2s ease;
-}
-
-.pt-shell-icon:hover {
-    opacity: 0.7;
+/* Hide header ONLY on Home screen */
+#pt-main-frame[src*="home/home.html"] ~ #pt-shell-header,
+#pt-main-frame[src$="home.html"] ~ #pt-shell-header {
+    display: none;
 }
 
 /* TANUKI BAR */
@@ -51,3 +46,10 @@ html, body {
     background: #ffffff;
     display: block;
 }
+
+/* Expand main frame to full height when header is hidden */
+#pt-main-frame[src*="home/home.html"],
+#pt-main-frame[src$="home.html"] {
+    height: 100vh;
+}
+
