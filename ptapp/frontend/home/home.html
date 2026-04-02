@@ -11,5 +11,17 @@
 
 <body>
     <div id="pt-home"></div>
+
+    <!-- Forward first tap/click to Shell so audio can start -->
+    <script>
+        const forwardGesture = () => {
+            parent.postMessage({ action: "user-gesture" }, "*");
+            window.removeEventListener("click", forwardGesture);
+            window.removeEventListener("touchstart", forwardGesture);
+        };
+
+        window.addEventListener("click", forwardGesture, { once: true });
+        window.addEventListener("touchstart", forwardGesture, { once: true });
+    </script>
 </body>
 </html>
