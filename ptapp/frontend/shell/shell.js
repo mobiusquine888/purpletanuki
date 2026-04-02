@@ -7,13 +7,37 @@
     const audio = document.getElementById("pt-theme-audio");
     if (!audio) return;
 
-    audio.volume = 0.6;
+    // Start silent for fade‑in
+    audio.volume = 0;
+
+    function fadeInAudio() {
+        let v = 0;
+        const target = 0.6;
+        const step = 0.02;
+
+        const fade = setInterval(() => {
+            v += step;
+            if (v >= target) {
+                v = target;
+                clearInterval(fade);
+            }
+            audio.volume = v;
+        }, 50);
+    }
+
+    function startAudio() {
+        audio.play().then(() => {
+            fadeInAudio();
+        }).catch(() => {});
+    }
 
     // Try autoplay immediately (desktop-friendly)
-    audio.play().catch(() => {
+    audio.play().then(() => {
+        fadeInAudio();
+    }).catch(() => {
         // If blocked (mobile/WebView), wait for first user gesture
         const resume = () => {
-            audio.play().catch(() => {});
+            startAudio();
             window.removeEventListener("click", resume);
             window.removeEventListener("touchstart", resume);
         };
