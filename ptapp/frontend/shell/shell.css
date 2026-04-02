@@ -18,4 +18,19 @@ html, body {
     display: block;
 }
 
+/* Splash Fade-In Overlay (Step 2) */
+#pt-splash {
+    position: fixed;
+    inset: 0;
+    background: white;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.6s ease-out;
+}
+
+#pt-splash.pt-hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
 
