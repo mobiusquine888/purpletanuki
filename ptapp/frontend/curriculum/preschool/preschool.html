@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Preschool Tutor — PurpleTanuki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Universal Theme -->
+  <link rel="stylesheet" href="../engine/universal.css">
+
+  <!-- Preschool Theme -->
+  <link rel="stylesheet" href="preschool.css">
+</head>
+
+<body>
+  <div class="preschool-root">
+
+    <!-- HEADER -->
+    <header class="preschool-header">
+      <h1 class="title">Preschool Tutor</h1>
+      <p class="preschool-line">Tap to learn and fill the bar.</p>
+    </header>
+
+    <!-- HOME BUTTON -->
+    <button class="home-btn" onclick="goHome()">Home</button>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-wrapper">
+      <div class="progress-label">
+        Preschool Progress
+        <span id="progress-text">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- CATEGORY LIST -->
+    <div id="subject-status-list" class="category-list">
+
+      <button class="category-item" onclick="selectSubject('letters')">
+        <div class="category-title">Letters</div>
+        <div class="category-subtitle" id="letters-status">0 / 10</div>
+      </button>
+
+      <button class="category-item" onclick="selectSubject('numbers')">
+        <div class="category-title">Numbers</div>
+        <div class="category-subtitle" id="numbers-status">0 / 10</div>
+      </button>
+
+      <button class="category-item" onclick="selectSubject('shapes')">
+        <div class="category-title">Shapes</div>
+        <div class="category-subtitle" id="shapes-status">0 / 8</div>
+      </button>
+
+      <button class="category-item" onclick="selectSubject('colors')">
+        <div class="category-title">Colors</div>
+        <div class="category-subtitle" id="colors-status">0 / 8</div>
+      </button>
+
+      <button class="category-item" onclick="selectSubject('patterns')">
+        <div class="category-title">Patterns</div>
+        <div class="category-subtitle" id="patterns-status">0 / 6</div>
+      </button>
+
+      <button class="category-item" onclick="selectSubject('memory')">
+        <div class="category-title">Memory</div>
+        <div class="category-subtitle" id="memory-status">0 / 6</div>
+      </button>
+
+    </div>
+
+    <!-- LESSON CARD -->
+    <div id="lesson-card" class="lesson-card" style="display:none;">
+      <h2 id="lesson-subject-label" class="subject-label"></h2>
+      <h3 id="lesson-title" class="lesson-title"></h3>
+      <div id="lesson-body" class="lesson-body"></div>
+
+      <button class="btn start-quiz-btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- QUIZ CARD -->
+    <div id="quiz-card" class="quiz-card" style="display:none;">
+      <h2 id="quiz-subject-label" class="subject-label"></h2>
+      <h3 id="quiz-title" class="lesson-title"></h3>
+      <p id="quiz-lesson-label" class="lesson-label"></p>
+
+      <p id="quiz-prompt" class="quiz-prompt"></p>
+
+      <div class="lesson-choices">
+        <button id="choice-1" class="choice-btn"></button>
+        <button id="choice-2" class="choice-btn"></button>
+        <button id="choice-3" class="choice-btn"></button>
+      </div>
+
+      <p id="quiz-q-progress" class="quiz-progress"></p>
+
+      <button class="btn back-btn" onclick="backToLesson()">Back</button>
+    </div>
+
+    <!-- SPARKLES -->
+    <div id="sparkles" class="sparkles"></div>
+
+    <!-- GRADUATION OVERLAY -->
+    <div id="grad-overlay" class="grad-overlay" style="display:none;">
+      <div class="grad-modal">
+        <div class="grad-title">You finished Preschool!</div>
+        <div class="grad-text">
+          You filled the bar and completed all activities.
+        </div>
+        <button class="grad-btn" onclick="unlockReward()">Unlock Reward</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ENGINE + SUBJECT DATA -->
+  <script src="../engine/subject-engine.js"></script>
+  <script src="preschool.js"></script>
+
+  <script>
+    loadSubjects(PRESCHOOL_DATA, "Preschool");
+  </script>
+
+</body>
+</html>
