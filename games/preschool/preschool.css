@@ -1,3 +1,4 @@
+/* ROOT + GLOBAL */
 body {
   margin: 0;
   padding: 0;
@@ -15,12 +16,13 @@ body {
   text-align: center;
 }
 
+/* HEADER */
 .preschool-header {
   margin-top: 40px;
   margin-bottom: 16px;
 }
 
-.preschool-title {
+.title {
   font-size: 2rem;
   font-weight: 800;
 }
@@ -68,12 +70,16 @@ body {
   overflow: hidden;
 }
 
-.progress-fill {
+#progress-fill {
   height: 100%;
   width: 0%;
   border-radius: 999px;
   background: linear-gradient(90deg, #ffb6ff, #b794ff, #7dd3fc);
   transition: width 0.3s ease;
+}
+
+#progress-text {
+  color: white;
 }
 
 /* CATEGORY LIST */
@@ -98,31 +104,54 @@ body {
   background: rgba(255, 255, 255, 0.14);
 }
 
-/* CATEGORY TITLES — NOW WHITE */
 .category-title {
   font-size: 1.1rem;
   font-weight: 700;
-  color: white; /* ← REFORGED */
+  color: white;
 }
 
-/* WHITE PROGRESS TEXT */
 .category-subtitle {
   font-size: 0.85rem;
   opacity: 0.9;
   color: white;
 }
 
-/* LESSON CARD */
-.lesson-card {
+/* LESSON CARD (universal engine) */
+#lesson-card {
   margin-top: 24px;
   padding: 18px 16px;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.08);
 }
 
-.lesson-prompt {
-  font-size: 1.8rem;
+#lesson-subject-label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+#lesson-title {
+  font-size: 1.6rem;
   font-weight: 800;
+  margin-bottom: 12px;
+}
+
+#lesson-body {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* QUIZ CARD (universal engine) */
+#quiz-card {
+  margin-top: 24px;
+  padding: 18px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+#quiz-prompt {
+  font-size: 1.4rem;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
@@ -133,39 +162,37 @@ body {
   margin-bottom: 20px;
 }
 
-.choice {
+.choice-btn {
   width: 90px;
   height: 90px;
   background: rgba(255, 255, 255, 0.15);
   border-radius: 12px;
-  font-size: 2.4rem;
+  font-size: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border: none;
   transition: 0.15s ease;
 }
 
-.choice.correct {
-  background: rgba(0, 255, 0, 0.25);
+.choice-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
 }
 
-.choice.wrong {
-  background: rgba(255, 0, 0, 0.25);
-}
-
+/* BACK BUTTON */
 .back-btn {
   padding: 10px 16px;
   border-radius: 12px;
   border: none;
   background: rgba(255, 255, 255, 0.16);
-  color: var(--tanuki-white);
+  color: white;
   font-size: 0.95rem;
   cursor: pointer;
 }
 
-/* GRADUATION MODAL */
-.grad-overlay {
+/* GRADUATION OVERLAY */
+#grad-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
@@ -206,31 +233,11 @@ body {
   cursor: pointer;
 }
 
-/* SPARKLES */
-.sparkles-container {
+/* SPARKLES (universal engine) */
+#sparkles {
   pointer-events: none;
   position: fixed;
   inset: 0;
   overflow: hidden;
   z-index: 10;
 }
-
-.sparkle {
-  position: absolute;
-  font-size: 1.4rem;
-  animation: sparkle-fall 700ms ease-out forwards;
-}
-
-@keyframes sparkle-fall {
-  0% {
-    transform: translateY(0) scale(0.7);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-40px) scale(1.2);
-    opacity: 0;
-  }
-}
-
-
-
