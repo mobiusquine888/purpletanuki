@@ -1,5 +1,5 @@
 // subject-engine.js
-// Shared engine for PurpleTanuki grade tutors (modular, future‑proof)
+// Shared universal engine for PurpleTanuki tutors (preschool, kindergarten, grade 7 math, life skills)
 
 (function () {
   // ---------- GLOBAL STATE ----------
@@ -109,8 +109,8 @@
 
   // ---------- GLOBAL PROGRESS ----------
   function updateGlobalProgressUI() {
-    const fill = $("g6-progress-fill");
-    const text = $("g6-progress-text");
+    const fill = $("progress-fill");
+    const text = $("progress-text");
 
     if (!engineState.totalLessons || engineState.totalLessons <= 0) {
       if (fill) fill.style.width = "0%";
@@ -132,22 +132,22 @@
 
   function checkGraduation(completedTotal) {
     if (completedTotal < engineState.totalLessons) return;
-    const overlay = $("g6-grad-overlay");
+    const overlay = $("grad-overlay");
     if (overlay) show(overlay);
   }
 
   // ---------- SPARKLES ----------
   function sparkleBurst() {
-    const sparkles = $("g6-sparkles");
+    const sparkles = $("sparkles");
     if (!sparkles) return;
 
-    sparkles.classList.remove("g6-sparkles-active");
+    sparkles.classList.remove("sparkles-active");
     // force reflow
     void sparkles.offsetWidth;
-    sparkles.classList.add("g6-sparkles-active");
+    sparkles.classList.add("sparkles-active");
 
     setTimeout(() => {
-      sparkles.classList.remove("g6-sparkles-active");
+      sparkles.classList.remove("sparkles-active");
     }, 800);
   }
 
@@ -163,9 +163,9 @@
     const subj = engineState.subjects[engineState.currentSubjectKey];
     if (!lesson || !subj) return;
 
-    const subjectLabel = $("g6-lesson-subject-label");
-    const titleEl = $("g6-lesson-title");
-    const bodyEl = $("g6-lesson-body");
+    const subjectLabel = $("lesson-subject-label");
+    const titleEl = $("lesson-title");
+    const bodyEl = $("lesson-body");
 
     const displayName = subj.displayName || subj.name || engineState.currentSubjectKey;
 
@@ -175,8 +175,8 @@
       bodyEl.innerHTML = lesson.body || "";
     }
 
-    const lessonCard = $("g6-lesson-card");
-    const quizCard = $("g6-quiz-card");
+    const lessonCard = $("lesson-card");
+    const quizCard = $("quiz-card");
     show(lessonCard);
     hide(quizCard);
   }
@@ -198,15 +198,15 @@
     const subj = engineState.subjects[engineState.currentSubjectKey];
     const displayName = subj.displayName || subj.name || engineState.currentSubjectKey;
 
-    setText($("g6-quiz-subject-label"), displayName);
-    setText($("g6-quiz-title"), getCurrentLesson().title || "");
-    setText($("g6-quiz-lesson-label"), "Lesson " + (engineState.currentLessonIndex + 1));
+    setText($("quiz-subject-label"), displayName);
+    setText($("quiz-title"), getCurrentLesson().title || "");
+    setText($("quiz-lesson-label"), "Lesson " + (engineState.currentLessonIndex + 1));
 
-    setText($("g6-quiz-prompt"), q.question || "");
+    setText($("quiz-prompt"), q.question || "");
 
-    const c1 = $("g6-choice-1");
-    const c2 = $("g6-choice-2");
-    const c3 = $("g6-choice-3");
+    const c1 = $("choice-1");
+    const c2 = $("choice-2");
+    const c3 = $("choice-3");
 
     const choices = q.choices || [];
     if (c1) {
@@ -222,14 +222,14 @@
       c3.onclick = () => handleChoice(2);
     }
 
-    const progressEl = $("g6-quiz-q-progress");
+    const progressEl = $("quiz-q-progress");
     if (progressEl) {
       progressEl.textContent =
         "Question " + (engineState.currentQuestionIndex + 1) + " of " + quiz.length;
     }
 
-    const lessonCard = $("g6-lesson-card");
-    const quizCard = $("g6-quiz-card");
+    const lessonCard = $("lesson-card");
+    const quizCard = $("quiz-card");
     hide(lessonCard);
     show(quizCard);
   }
@@ -241,7 +241,6 @@
     const q = quiz[engineState.currentQuestionIndex];
     const correctIndex = typeof q.correctIndex === "number" ? q.correctIndex : 0;
 
-    // You can expand this later with feedback, animations, etc.
     const isCorrect = choiceIndex === correctIndex;
     if (isCorrect) {
       sparkleBurst();
@@ -268,8 +267,8 @@
     updateSubjectStatusUI();
     updateGlobalProgressUI();
 
-    const quizCard = $("g6-quiz-card");
-    const lessonCard = $("g6-lesson-card");
+    const quizCard = $("quiz-card");
+    const lessonCard = $("lesson-card");
     hide(quizCard);
     show(lessonCard);
   }
@@ -290,7 +289,7 @@
     // Optional: set page title and header text
     if (document && title) {
       document.title = title + " — Purple Tanuki";
-      const headerTitle = document.querySelector(".g6-title");
+      const headerTitle = document.querySelector(".title");
       if (headerTitle) headerTitle.textContent = title;
     }
   }
@@ -311,19 +310,17 @@
   }
 
   function backToLesson() {
-    const lessonCard = $("g6-lesson-card");
-    const quizCard = $("g6-quiz-card");
+    const lessonCard = $("lesson-card");
+    const quizCard = $("quiz-card");
     show(lessonCard);
     hide(quizCard);
   }
 
   function goHome() {
-    // If a global home handler exists (e.g., Arcade Hub), use it
     if (typeof window.goToArcade === "function") {
       window.goToArcade();
       return;
     }
-    // Fallback: go back to Arcade folder
     try {
       window.location.href = "../arcade/index.html";
     } catch (e) {
@@ -331,9 +328,8 @@
     }
   }
 
-  // Graduation button handler (called from HTML)
-  function unlockGrade6Reward() {
-    const overlay = $("g6-grad-overlay");
+  function unlockReward() {
+    const overlay = $("grad-overlay");
     if (overlay) hide(overlay);
     // Hook for future: unlock badge, redirect, etc.
   }
@@ -344,6 +340,6 @@
   window.startQuiz = startQuiz;
   window.backToLesson = backToLesson;
   window.goHome = goHome;
-  window.unlockGrade6Reward = window.unlockGrade6Reward || unlockGrade6Reward;
+  window.unlockReward = window.unlockReward || unlockReward;
 })();
 
