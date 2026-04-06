@@ -8,11 +8,22 @@ body {
   justify-content: center;
 }
 
+/* UNIVERSAL CONTAINER — 16×9 DESKTOP, 9×16 MOBILE */
 .preschool-root {
   width: 100%;
-  max-width: 500px;
-  padding: 20px;
+  max-width: 1280px;
+  aspect-ratio: 16 / 9;
+  padding: 32px;
+  box-sizing: border-box;
   text-align: center;
+}
+
+@media (max-width: 600px) {
+  .preschool-root {
+    max-width: 100%;
+    aspect-ratio: auto;
+    padding: 20px 16px;
+  }
 }
 
 .preschool-header {
@@ -239,3 +250,4 @@ body {
   overflow: hidden;
   z-index: 10;
 }
+
