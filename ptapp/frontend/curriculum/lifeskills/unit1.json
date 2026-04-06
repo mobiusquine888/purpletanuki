@@ -18,11 +18,6 @@
       "body": "Feelings help you understand what you need. They are messages, not problems.",
       "image": null
     },
-
-    /* -------------------------
-       EXAMPLES (one per slide)
-       ------------------------- */
-
     {
       "id": "ls_u1_s3",
       "type": "example",
@@ -47,11 +42,6 @@
       "body": "You feel angry when something feels unfair or unsafe.",
       "image": "/img/lifeskills/angry.png"
     },
-
-    /* -------------------------
-       QUESTIONS (one per slide)
-       ------------------------- */
-
     {
       "id": "ls_u1_s6",
       "type": "question",
@@ -97,22 +87,12 @@
         "incorrect": "Almost. Try the one with the furrowed eyebrows."
       }
     },
-
-    /* -------------------------
-       GENTLE FEEDBACK
-       ------------------------- */
-
     {
       "id": "ls_u1_s9",
       "type": "feedback",
       "mode": "gentle",
       "message": "You’re learning how to notice feelings. That’s a real-life superpower."
     },
-
-    /* -------------------------
-       MASTERY / CELEBRATION
-       ------------------------- */
-
     {
       "id": "ls_u1_s10",
       "type": "mastery",
@@ -124,3 +104,4 @@
     }
   ]
 }
+
