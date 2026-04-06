@@ -1,7 +1,18 @@
 /* ============================================================
-   UNIVERSAL THEME — PurpleTanuki
-   Shared across Preschool, Kindergarten, Grade 7, Life Skills
+   UNIVERSAL THEME — PurpleTanuki (Reforged)
+   Adds Tanuki variables for compatibility with preschool.css
    ============================================================ */
+
+/* THEME VARIABLES -------------------------------------------- */
+:root {
+  --tanuki-bg: #1a0f2e;
+  --tanuki-white: #ffffff;
+  --tanuki-accent: #b794ff;
+  --tanuki-card: rgba(255, 255, 255, 0.08);
+  --tanuki-card-hover: rgba(255, 255, 255, 0.14);
+  --tanuki-progress-bg: rgba(255, 255, 255, 0.12);
+  --tanuki-progress-fill: linear-gradient(90deg, #ffb6ff, #b794ff, #7dd3fc);
+}
 
 /* RESET + BASE ------------------------------------------------ */
 * {
