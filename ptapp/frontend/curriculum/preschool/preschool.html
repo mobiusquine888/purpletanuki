@@ -118,10 +118,14 @@
   <script src="/frontend/curriculum/engine/subject-engine.js"></script>
   <script src="/frontend/curriculum/preschool/preschool.js"></script>
 
+  <!-- DOM-READY INITIALIZATION -->
   <script>
-    loadSubjects(PRESCHOOL_DATA, "Preschool");
+    document.addEventListener("DOMContentLoaded", () => {
+      loadSubjects(PRESCHOOL_DATA, "Preschool");
+    });
   </script>
 
 </body>
 </html>
+
 
