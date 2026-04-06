@@ -2,7 +2,7 @@ let lessons = [];
 let currentIndex = 0;
 
 async function loadLessons() {
-  const res = await fetch("grade7_math.json");
+  const res = await fetch("/curriculum/grade7/math/grade7_math.json");
   const data = await res.json();
   lessons = data.lessons;
   renderCategories();
@@ -87,7 +87,8 @@ function showGraduation() {
 }
 
 function goHome() {
-  window.location.href = "/frontend/home.html";
+  window.location.href = "/home.html";
 }
 
 loadLessons();
+
