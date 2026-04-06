@@ -11,6 +11,34 @@
 
 <body>
 
+  <!-- 🔥 The Slide Engine Shell (required for rendering) -->
+  <div class="pt-shell">
+    <header class="pt-header">
+      <button class="pt-home-btn" onclick="goHome()">← Home</button>
+
+      <div class="pt-title-wrap">
+        <h1 id="unit-title" class="pt-title">Loading…</h1>
+        <p id="unit-subtitle" class="pt-subtitle"></p>
+      </div>
+
+      <div class="pt-progress">
+        <div class="pt-progress-label">
+          <span>Progress</span>
+          <span id="progress-text">0%</span>
+        </div>
+        <div class="pt-progress-bar">
+          <div id="progress-fill"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-main">
+      <div id="slide-container" class="pt-slide"></div>
+    </main>
+
+    <div id="sparkles"></div>
+  </div>
+
   <!-- Tell the Slide Engine which JSON to load -->
   <script>
     window.PTAPP_UNIT_JSON = "/curriculum/lifeskills/unit1.json";
