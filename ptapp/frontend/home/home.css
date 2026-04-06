@@ -12,7 +12,7 @@ html, body {
 #pt-home {
     width: 100vw;
     height: 100vh;
-    background-image: url("img/tanuki_splash.png");
+    background-image: url("img/tanuki_home_mobile.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
