@@ -2,14 +2,24 @@ let lessons = [];
 let currentIndex = 0;
 
 async function loadLessons() {
-  const res = await fetch("/curriculum/grade7/math/grade7_math.json");
-  const data = await res.json();
-  lessons = data.lessons;
-  renderCategories();
+  try {
+    const res = await fetch("/curriculum/grade7/math/grade7_math.json");
+    const data = await res.json();
+    lessons = data.lessons || [];
+    renderCategories();
+  } catch (e) {
+    console.error("Failed to load lessons", e);
+  }
 }
 
 function renderCategories() {
-  document.getElementById("category-list").innerHTML = lessons
+  const list = document.getElementById("category-list");
+  if (!lessons.length) {
+    list.innerHTML = "<p>No lessons available.</p>";
+    return;
+  }
+
+  list.innerHTML = lessons
     .map(
       (l, i) => `
       <button class="category-item" onclick="openLesson(${i})">
@@ -19,6 +29,10 @@ function renderCategories() {
     `
     )
     .join("");
+
+  document.getElementById("category-list").style.display = "flex";
+  document.getElementById("lesson-card").style.display = "none";
+  document.getElementById("quiz-card").style.display = "none";
 
   updateProgress();
 }
@@ -50,7 +64,7 @@ function startQuiz() {
   document.getElementById("quiz-choices").innerHTML = q.choices
     .map(
       (c) => `
-      <button class="choice-btn" onclick="checkAnswer('${c}')">${c}</button>
+      <button class="choice-btn" onclick="checkAnswer('${c.replace(/'/g, "\\'")}')">${c}</button>
     `
     )
     .join("");
@@ -77,7 +91,9 @@ function checkAnswer(choice) {
 }
 
 function updateProgress() {
-  const pct = Math.floor((currentIndex / lessons.length) * 100);
+  const pct = lessons.length
+    ? Math.floor((currentIndex / lessons.length) * 100)
+    : 0;
   document.getElementById("progress-fill").style.width = pct + "%";
   document.getElementById("progress-text").innerText = pct + "%";
 }
@@ -91,5 +107,6 @@ function goHome() {
 }
 
 loadLessons();
+
 
 
