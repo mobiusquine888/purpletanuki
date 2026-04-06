@@ -1,0 +1,126 @@
+{
+  "unitTitle": "Unit 1: Understanding Feelings",
+  "unitId": "ls_u1",
+  "slides": [
+    {
+      "id": "ls_u1_s1",
+      "type": "teach",
+      "mode": "text",
+      "title": "What Is a Feeling?",
+      "body": "A feeling is your mind and body reacting to what is happening around you.",
+      "image": null
+    },
+    {
+      "id": "ls_u1_s2",
+      "type": "teach",
+      "mode": "text",
+      "title": "Feelings Are Signals",
+      "body": "Feelings help you understand what you need. They are messages, not problems.",
+      "image": null
+    },
+
+    /* -------------------------
+       EXAMPLES (one per slide)
+       ------------------------- */
+
+    {
+      "id": "ls_u1_s3",
+      "type": "example",
+      "mode": "picture",
+      "title": "Example: Happy",
+      "body": "You feel happy when something good happens.",
+      "image": "/img/lifeskills/happy.png"
+    },
+    {
+      "id": "ls_u1_s4",
+      "type": "example",
+      "mode": "picture",
+      "title": "Example: Sad",
+      "body": "You feel sad when something important to you changes or is lost.",
+      "image": "/img/lifeskills/sad.png"
+    },
+    {
+      "id": "ls_u1_s5",
+      "type": "example",
+      "mode": "picture",
+      "title": "Example: Angry",
+      "body": "You feel angry when something feels unfair or unsafe.",
+      "image": "/img/lifeskills/angry.png"
+    },
+
+    /* -------------------------
+       QUESTIONS (one per slide)
+       ------------------------- */
+
+    {
+      "id": "ls_u1_s6",
+      "type": "question",
+      "mode": "choices",
+      "prompt": "Which face looks happy?",
+      "choices": [
+        { "label": "🙂", "value": "happy" },
+        { "label": "😢", "value": "sad" }
+      ],
+      "answer": "happy",
+      "feedback": {
+        "correct": "Yes! That’s the happy face.",
+        "incorrect": "Almost. Try the one that looks cheerful."
+      }
+    },
+    {
+      "id": "ls_u1_s7",
+      "type": "question",
+      "mode": "choices",
+      "prompt": "Which face looks sad?",
+      "choices": [
+        { "label": "🙂", "value": "happy" },
+        { "label": "😢", "value": "sad" }
+      ],
+      "answer": "sad",
+      "feedback": {
+        "correct": "Right. That’s the sad face.",
+        "incorrect": "Good try. Look for the one with tears."
+      }
+    },
+    {
+      "id": "ls_u1_s8",
+      "type": "question",
+      "mode": "choices",
+      "prompt": "Which face looks angry?",
+      "choices": [
+        { "label": "😡", "value": "angry" },
+        { "label": "🙂", "value": "happy" }
+      ],
+      "answer": "angry",
+      "feedback": {
+        "correct": "Yes! That’s the angry face.",
+        "incorrect": "Almost. Try the one with the furrowed eyebrows."
+      }
+    },
+
+    /* -------------------------
+       GENTLE FEEDBACK
+       ------------------------- */
+
+    {
+      "id": "ls_u1_s9",
+      "type": "feedback",
+      "mode": "gentle",
+      "message": "You’re learning how to notice feelings. That’s a real-life superpower."
+    },
+
+    /* -------------------------
+       MASTERY / CELEBRATION
+       ------------------------- */
+
+    {
+      "id": "ls_u1_s10",
+      "type": "mastery",
+      "mode": "celebrate",
+      "title": "You Learned About Feelings!",
+      "message": "Great job noticing happy, sad, and angry. You’re becoming more aware of your emotions.",
+      "nextLabel": "Next Adventure →",
+      "nextTarget": "/modules/life_skills_unit2.html"
+    }
+  ]
+}
