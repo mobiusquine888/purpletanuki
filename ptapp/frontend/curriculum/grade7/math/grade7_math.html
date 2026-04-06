@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade 7 Math</title>
+  <link rel="stylesheet" href="grade7_math.css">
+</head>
+<body>
+  <div class="grade7-root">
+    <div class="grade7-header">
+      <button class="home-btn" onclick="goHome()">← Home</button>
+      <h1 class="title">Grade 7 Math</h1>
+      <p class="grade7-line">Unit 1: Rational Numbers & Operations</p>
+    </div>
+
+    <div class="progress-wrapper">
+      <div class="progress-label">
+        <span>Progress</span>
+        <span id="progress-text">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progress-fill"></div>
+      </div>
+    </div>
+
+    <div id="category-list" class="category-list"></div>
+
+    <div id="lesson-card" style="display:none;">
+      <div id="lesson-subject-label"></div>
+      <div id="lesson-title"></div>
+      <div id="lesson-body"></div>
+      <button class="back-btn" onclick="returnToCategories()">Back</button>
+    </div>
+
+    <div id="quiz-card" style="display:none;">
+      <div id="quiz-prompt"></div>
+      <div class="lesson-choices" id="quiz-choices"></div>
+      <button class="back-btn" onclick="returnToCategories()">Back</button>
+    </div>
+
+    <div id="grad-overlay" style="display:none;">
+      <div class="grad-modal">
+        <div class="grad-title">Unit Complete!</div>
+        <div class="grad-text">You mastered Unit 1: Rational Numbers & Operations!</div>
+        <button class="grad-btn" onclick="returnToCategories()">Continue</button>
+      </div>
+    </div>
+
+    <div id="sparkles"></div>
+  </div>
+
+  <script src="grade7_math.js" defer></script>
+</body>
+</html>
