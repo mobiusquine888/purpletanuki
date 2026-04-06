@@ -1,0 +1,212 @@
+{
+  "unitTitle": "Unit 1: Rational Numbers & Operations",
+  "unitId": "g7m_u1",
+  "lessons": [
+    {
+      "id": "g7m_u1_l1",
+      "subject": "Rational Numbers",
+      "title": "What Are Rational Numbers?",
+      "body": "A rational number is any number that can be written as a fraction a/b where a and b are integers and b ≠ 0. This includes integers, fractions, terminating decimals, and repeating decimals.",
+      "quiz": {
+        "prompt": "Which of these is a rational number?",
+        "choices": ["√2", "0.75", "π"],
+        "answer": "0.75"
+      }
+    },
+    {
+      "id": "g7m_u1_l2",
+      "subject": "Rational Numbers",
+      "title": "Terminating & Repeating Decimals",
+      "body": "A decimal is rational if it ends (terminates) or repeats forever. For example, 0.5 and 0.333… are both rational.",
+      "quiz": {
+        "prompt": "Which decimal is repeating?",
+        "choices": ["0.25", "0.121212…", "0.4"],
+        "answer": "0.121212…"
+      }
+    },
+    {
+      "id": "g7m_u1_l3",
+      "subject": "Rational Numbers",
+      "title": "Converting Fractions to Decimals",
+      "body": "To convert a fraction to a decimal, divide the numerator by the denominator. Example: 3/4 = 0.75.",
+      "quiz": {
+        "prompt": "What is 1/8 as a decimal?",
+        "choices": ["0.125", "0.2", "0.8"],
+        "answer": "0.125"
+      }
+    },
+    {
+      "id": "g7m_u1_l4",
+      "subject": "Rational Numbers",
+      "title": "Converting Decimals to Fractions",
+      "body": "Write the decimal over a power of 10 and simplify. Example: 0.6 = 6/10 = 3/5.",
+      "quiz": {
+        "prompt": "0.75 as a fraction is:",
+        "choices": ["3/4", "1/2", "2/3"],
+        "answer": "3/4"
+      }
+    },
+    {
+      "id": "g7m_u1_l5",
+      "subject": "Integers",
+      "title": "Adding Integers",
+      "body": "Same signs: add and keep the sign. Different signs: subtract and keep the sign of the larger absolute value.",
+      "quiz": {
+        "prompt": "What is -5 + 8?",
+        "choices": ["-13", "3", "-3"],
+        "answer": "3"
+      }
+    },
+    {
+      "id": "g7m_u1_l6",
+      "subject": "Integers",
+      "title": "Subtracting Integers",
+      "body": "Subtracting a number is the same as adding its opposite. Example: 7 - (-2) = 7 + 2 = 9.",
+      "quiz": {
+        "prompt": "What is -4 - (-6)?",
+        "choices": ["-10", "2", "10"],
+        "answer": "2"
+      }
+    },
+    {
+      "id": "g7m_u1_l7",
+      "subject": "Integers",
+      "title": "Multiplying Integers",
+      "body": "Same signs → positive. Different signs → negative. Example: (-3)(4) = -12.",
+      "quiz": {
+        "prompt": "What is (-7)(-2)?",
+        "choices": ["-14", "14", "9"],
+        "answer": "14"
+      }
+    },
+    {
+      "id": "g7m_u1_l8",
+      "subject": "Integers",
+      "title": "Dividing Integers",
+      "body": "Same signs → positive. Different signs → negative. Example: 12 ÷ (-3) = -4.",
+      "quiz": {
+        "prompt": "What is 20 ÷ (-5)?",
+        "choices": ["-4", "4", "5"],
+        "answer": "-4"
+      }
+    },
+    {
+      "id": "g7m_u1_l9",
+      "subject": "Rational Operations",
+      "title": "Adding Fractions",
+      "body": "To add fractions, use a common denominator. Example: 1/4 + 1/6 = 5/12.",
+      "quiz": {
+        "prompt": "What is 1/3 + 1/6?",
+        "choices": ["1/2", "2/9", "1/9"],
+        "answer": "1/2"
+      }
+    },
+    {
+      "id": "g7m_u1_l10",
+      "subject": "Rational Operations",
+      "title": "Subtracting Fractions",
+      "body": "Use a common denominator and subtract numerators. Example: 5/8 - 1/4 = 3/8.",
+      "quiz": {
+        "prompt": "What is 3/4 - 1/8?",
+        "choices": ["5/8", "1/2", "3/8"],
+        "answer": "5/8"
+      }
+    },
+    {
+      "id": "g7m_u1_l11",
+      "subject": "Rational Operations",
+      "title": "Multiplying Fractions",
+      "body": "Multiply numerators and denominators. Example: (2/3)(3/5) = 2/5.",
+      "quiz": {
+        "prompt": "What is (1/2)(3/4)?",
+        "choices": ["3/8", "1/6", "5/8"],
+        "answer": "3/8"
+      }
+    },
+    {
+      "id": "g7m_u1_l12",
+      "subject": "Rational Operations",
+      "title": "Dividing Fractions",
+      "body": "Multiply by the reciprocal. Example: (3/4) ÷ (2/3) = (3/4)(3/2) = 9/8.",
+      "quiz": {
+        "prompt": "What is (2/5) ÷ (1/10)?",
+        "choices": ["4", "1/4", "2"],
+        "answer": "4"
+      }
+    },
+    {
+      "id": "g7m_u1_l13",
+      "subject": "Absolute Value",
+      "title": "Understanding Absolute Value",
+      "body": "Absolute value is the distance from zero. It is always non‑negative. Example: |-7| = 7.",
+      "quiz": {
+        "prompt": "What is |-12|?",
+        "choices": ["-12", "12", "0"],
+        "answer": "12"
+      }
+    },
+    {
+      "id": "g7m_u1_l14",
+      "subject": "Absolute Value",
+      "title": "Absolute Value in Context",
+      "body": "Absolute value is used to measure distance, temperature change, and elevation differences.",
+      "quiz": {
+        "prompt": "A submarine is 300 ft below sea level. What is its distance from sea level?",
+        "choices": ["-300 ft", "300 ft", "150 ft"],
+        "answer": "300 ft"
+      }
+    }
+  ],
+  "masteryCheck": {
+    "id": "g7m_u1_mastery",
+    "title": "Mastery Check: Rational Numbers",
+    "questions": [
+      {
+        "prompt": "Which number is rational?",
+        "choices": ["√5", "0.2", "π"],
+        "answer": "0.2"
+      },
+      {
+        "prompt": "What is -9 + 4?",
+        "choices": ["-13", "-5", "5"],
+        "answer": "-5"
+      },
+      {
+        "prompt": "What is 3/8 + 1/8?",
+        "choices": ["4/8", "3/16", "1/4"],
+        "answer": "4/8"
+      }
+    ]
+  },
+  "unitTest": {
+    "id": "g7m_u1_test",
+    "title": "Unit 1 Test: Rational Numbers & Operations",
+    "questions": [
+      {
+        "prompt": "Which decimal is rational?",
+        "choices": ["0.1010010001...", "0.75", "√3"],
+        "answer": "0.75"
+      },
+      {
+        "prompt": "What is -6 - 9?",
+        "choices": ["-15", "3", "15"],
+        "answer": "-15"
+      },
+      {
+        "prompt": "What is (5/6)(3/5)?",
+        "choices": ["1/2", "3/6", "3/5"],
+        "answer": "1/2"
+      },
+      {
+        "prompt": "What is |-9|?",
+        "choices": ["-9", "9", "0"],
+        "answer": "9"
+      },
+      {
+        "prompt": "What is 7/8 ÷ 1/4?",
+        "choices": ["7/2", "7/32", "2/7"],
+        "answer": "7/2"
+      }
+    ]
+  }
+}
