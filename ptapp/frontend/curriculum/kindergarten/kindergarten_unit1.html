@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kindergarten — Unit 1</title>
+
+  <!-- Universal Slide Engine Styles -->
+  <link rel="stylesheet" href="/curriculum/engine/slide_engine.css" />
+</head>
+
+<body>
+
+  <!-- 🔥 The Slide Engine Shell -->
+  <div class="pt-shell">
+    <header class="pt-header">
+      <button class="pt-home-btn" onclick="goHome()">← Home</button>
+
+      <div class="pt-title-wrap">
+        <h1 id="unit-title" class="pt-title">Loading…</h1>
+        <p id="unit-subtitle" class="pt-subtitle"></p>
+      </div>
+
+      <div class="pt-progress">
+        <div class="pt-progress-label">
+          <span>Progress</span>
+          <span id="progress-text">0%</span>
+        </div>
+        <div class="pt-progress-bar">
+          <div id="progress-fill"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-main">
+      <div id="slide-container" class="pt-slide"></div>
+    </main>
+
+    <div id="sparkles"></div>
+  </div>
+
+  <!-- Tell the Slide Engine which JSON to load -->
+  <script>
+    window.PTAPP_UNIT_JSON = "/curriculum/kindergarten/unit1.json";
+  </script>
+
+  <!-- Universal Slide Engine Logic -->
+  <script src="/curriculum/engine/slide_engine.js" defer></script>
+
+</body>
+</html>
