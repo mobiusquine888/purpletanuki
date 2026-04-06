@@ -26,17 +26,20 @@
 
     <div id="category-list" class="category-list"></div>
 
-    <div id="lesson-card" style="display:none;">
-      <div id="lesson-subject-label"></div>
-      <div id="lesson-title"></div>
-      <div id="lesson-body"></div>
-      <button class="back-btn" onclick="returnToCategories()">Back</button>
+    <div id="lesson-card" class="lesson-card" style="display:none;">
+      <div id="lesson-subject-label" class="lesson-subject-label"></div>
+      <div id="lesson-title" class="lesson-title"></div>
+      <div id="lesson-body" class="lesson-body"></div>
+      <div class="lesson-actions">
+        <button class="quiz-btn" onclick="startQuiz()">Start Quiz</button>
+        <button class="back-btn" onclick="returnToCategories()">Back to Lessons</button>
+      </div>
     </div>
 
-    <div id="quiz-card" style="display:none;">
-      <div id="quiz-prompt"></div>
+    <div id="quiz-card" class="quiz-card" style="display:none;">
+      <div id="quiz-prompt" class="quiz-prompt"></div>
       <div class="lesson-choices" id="quiz-choices"></div>
-      <button class="back-btn" onclick="returnToCategories()">Back</button>
+      <button class="back-btn" onclick="returnToCategories()">Back to Lessons</button>
     </div>
 
     <div id="grad-overlay" style="display:none;">
@@ -50,7 +53,7 @@
     <div id="sparkles"></div>
   </div>
 
-  <script src="grade7_math.js" defer></script>
+  <script src="grade7_math.js?v=1" defer></script>
 </body>
 </html>
 
