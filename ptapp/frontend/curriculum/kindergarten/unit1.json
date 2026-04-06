@@ -1,0 +1,110 @@
+{
+  "unitTitle": "Unit 1: Classroom Routines",
+  "unitId": "kg_u1",
+  "slides": [
+    {
+      "id": "kg_u1_s1",
+      "type": "teach",
+      "mode": "text",
+      "title": "Welcome to Kindergarten!",
+      "body": "Kindergarten is a place to learn, play, and grow. Routines help you know what to do each day.",
+      "image": null
+    },
+    {
+      "id": "kg_u1_s2",
+      "type": "teach",
+      "mode": "text",
+      "title": "Morning Routine",
+      "body": "In the morning, you hang up your backpack, say hello, and get ready to learn.",
+      "image": null
+    },
+
+    {
+      "id": "kg_u1_s3",
+      "type": "example",
+      "mode": "picture",
+      "title": "Example: Lining Up",
+      "body": "When it’s time to go somewhere, you line up behind your classmates.",
+      "image": "/img/kindergarten/lineup.png"
+    },
+    {
+      "id": "kg_u1_s4",
+      "type": "example",
+      "mode": "picture",
+      "title": "Example: Asking for Help",
+      "body": "If you need help, you raise your hand and wait for your teacher.",
+      "image": "/img/kindergarten/handraise.png"
+    },
+    {
+      "id": "kg_u1_s5",
+      "type": "example",
+      "mode": "picture",
+      "title": "Example: Centers",
+      "body": "Centers are places where you practice reading, math, art, and more.",
+      "image": "/img/kindergarten/centers.png"
+    },
+
+    {
+      "id": "kg_u1_s6",
+      "type": "question",
+      "mode": "choices",
+      "prompt": "What do you do when you need help?",
+      "choices": [
+        { "label": "🙋‍♂️ Raise your hand", "value": "hand" },
+        { "label": "🏃 Run around", "value": "run" }
+      ],
+      "answer": "hand",
+      "feedback": {
+        "correct": "Yes! Raising your hand is the right way to ask for help.",
+        "incorrect": "Try again. Think about what you do in class."
+      }
+    },
+    {
+      "id": "kg_u1_s7",
+      "type": "question",
+      "mode": "choices",
+      "prompt": "Where do you put your backpack in the morning?",
+      "choices": [
+        { "label": "🎒 On the hook", "value": "hook" },
+        { "label": "🪑 On the floor", "value": "floor" }
+      ],
+      "answer": "hook",
+      "feedback": {
+        "correct": "Great job! Backpacks go on the hook.",
+        "incorrect": "Not quite. Backpacks don’t go on the floor."
+      }
+    },
+    {
+      "id": "kg_u1_s8",
+      "type": "question",
+      "mode": "choices",
+      "prompt": "What do you do when it’s time to go somewhere?",
+      "choices": [
+        { "label": "🚶 Line up", "value": "line" },
+        { "label": "🪑 Sit down", "value": "sit" }
+      ],
+      "answer": "line",
+      "feedback": {
+        "correct": "Yes! You line up with your class.",
+        "incorrect": "Try again. Think about moving together as a group."
+      }
+    },
+
+    {
+      "id": "kg_u1_s9",
+      "type": "feedback",
+      "mode": "gentle",
+      "message": "You’re learning how to follow routines. That helps everyone feel safe and ready to learn."
+    },
+
+    {
+      "id": "kg_u1_s10",
+      "type": "mastery",
+      "mode": "celebrate",
+      "title": "You Know the Routines!",
+      "message": "Great job learning how to line up, ask for help, and start your day.",
+      "nextLabel": "Next Adventure →",
+      "nextTarget": "/curriculum/kindergarten/kindergarten_unit2.html"
+    }
+  ]
+}
