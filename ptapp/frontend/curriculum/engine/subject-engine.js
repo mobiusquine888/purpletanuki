@@ -35,6 +35,13 @@ function selectSubject(key) {
   loadLesson();
 }
 
+// Show lesson card helper (missing before)
+function showLessonCard() {
+  hideAll();
+  const card = document.getElementById("lesson-card");
+  if (card) card.style.display = "block";
+}
+
 // ------------------------------------------------------------
 // LESSON FLOW
 // ------------------------------------------------------------
@@ -231,3 +238,4 @@ function shuffle(arr) {
     .sort((a, b) => a.sort - b.sort)
     .map(({ v }) => v);
 }
+
