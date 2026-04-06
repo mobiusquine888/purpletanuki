@@ -1,11 +1,26 @@
+// -------------------------------
+//   GRADE 7 MATH ENGINE (FIXED)
+//   Mastery-based progression
+//   Progress never decreases
+// -------------------------------
+
 let lessons = [];
-let currentIndex = 0;
+let currentLesson = 0;          // Which lesson is open
+let completedLessons = 0;       // How many lessons have been mastered
 
 async function loadLessons() {
   try {
     const res = await fetch("/curriculum/grade7/math/grade7_math.json");
     const data = await res.json();
     lessons = data.lessons || [];
+
+    // Load saved progress if available
+    const saved = localStorage.getItem("g7_progress");
+    if (saved) {
+      completedLessons = parseInt(saved, 10);
+      currentLesson = completedLessons; // Continue where user left off
+    }
+
     renderCategories();
   } catch (e) {
     console.error("Failed to load lessons", e);
@@ -14,15 +29,12 @@ async function loadLessons() {
 
 function renderCategories() {
   const list = document.getElementById("category-list");
-  if (!lessons.length) {
-    list.innerHTML = "<p>No lessons available.</p>";
-    return;
-  }
 
   list.innerHTML = lessons
     .map(
       (l, i) => `
-      <button class="category-item" onclick="openLesson(${i})">
+      <button class="category-item" onclick="openLesson(${i})" 
+        ${i > completedLessons ? "disabled" : ""}>
         <div class="category-title">${l.title}</div>
         <div class="category-subtitle">${l.subject}</div>
       </button>
@@ -38,7 +50,7 @@ function renderCategories() {
 }
 
 function openLesson(i) {
-  currentIndex = i;
+  currentLesson = i;
   const l = lessons[i];
 
   document.getElementById("lesson-subject-label").innerText = l.subject;
@@ -51,13 +63,11 @@ function openLesson(i) {
 }
 
 function returnToCategories() {
-  document.getElementById("category-list").style.display = "flex";
-  document.getElementById("lesson-card").style.display = "none";
-  document.getElementById("quiz-card").style.display = "none";
+  renderCategories();
 }
 
 function startQuiz() {
-  const q = lessons[currentIndex].quiz;
+  const q = lessons[currentLesson].quiz;
 
   document.getElementById("quiz-prompt").innerText = q.prompt;
 
@@ -74,13 +84,18 @@ function startQuiz() {
 }
 
 function checkAnswer(choice) {
-  const correct = lessons[currentIndex].quiz.answer;
+  const correct = lessons[currentLesson].quiz.answer;
 
   if (choice === correct) {
-    currentIndex++;
+    // Only increase completed lessons if this lesson wasn't already completed
+    if (currentLesson === completedLessons) {
+      completedLessons++;
+      localStorage.setItem("g7_progress", completedLessons);
+    }
+
     updateProgress();
 
-    if (currentIndex >= lessons.length) {
+    if (completedLessons >= lessons.length) {
       showGraduation();
     } else {
       returnToCategories();
@@ -92,8 +107,9 @@ function checkAnswer(choice) {
 
 function updateProgress() {
   const pct = lessons.length
-    ? Math.floor((currentIndex / lessons.length) * 100)
+    ? Math.floor((completedLessons / lessons.length) * 100)
     : 0;
+
   document.getElementById("progress-fill").style.width = pct + "%";
   document.getElementById("progress-text").innerText = pct + "%";
 }
@@ -107,6 +123,5 @@ function goHome() {
 }
 
 loadLessons();
-
 
 
