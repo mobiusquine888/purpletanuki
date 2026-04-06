@@ -1,0 +1,110 @@
+{
+  "unitTitle": "Unit 1: Colors",
+  "unitId": "ps_u1",
+  "slides": [
+    {
+      "id": "ps_u1_s1",
+      "type": "teach",
+      "mode": "text",
+      "title": "What Are Colors?",
+      "body": "Colors are the way our eyes see light. They help us notice and understand the world.",
+      "image": null
+    },
+    {
+      "id": "ps_u1_s2",
+      "type": "teach",
+      "mode": "text",
+      "title": "Colors Are Everywhere",
+      "body": "You see colors on toys, clothes, food, and nature. Colors help us describe things.",
+      "image": null
+    },
+
+    {
+      "id": "ps_u1_s3",
+      "type": "example",
+      "mode": "picture",
+      "title": "Red",
+      "body": "Red is bright and strong. Apples and stop signs are red.",
+      "image": "/img/preschool/red.png"
+    },
+    {
+      "id": "ps_u1_s4",
+      "type": "example",
+      "mode": "picture",
+      "title": "Blue",
+      "body": "Blue is calm and cool. The sky and oceans are blue.",
+      "image": "/img/preschool/blue.png"
+    },
+    {
+      "id": "ps_u1_s5",
+      "type": "example",
+      "mode": "picture",
+      "title": "Yellow",
+      "body": "Yellow is bright and happy. The sun and bananas are yellow.",
+      "image": "/img/preschool/yellow.png"
+    },
+
+    {
+      "id": "ps_u1_s6",
+      "type": "question",
+      "mode": "choices",
+      "prompt": "Which one is red?",
+      "choices": [
+        { "label": "🔴", "value": "red" },
+        { "label": "🔵", "value": "blue" }
+      ],
+      "answer": "red",
+      "feedback": {
+        "correct": "Yes! That’s the red circle.",
+        "incorrect": "Try again. Look for the bright red one."
+      }
+    },
+    {
+      "id": "ps_u1_s7",
+      "type": "question",
+      "mode": "choices",
+      "prompt": "Which one is blue?",
+      "choices": [
+        { "label": "🟡", "value": "yellow" },
+        { "label": "🔵", "value": "blue" }
+      ],
+      "answer": "blue",
+      "feedback": {
+        "correct": "Great job! That’s blue.",
+        "incorrect": "Look for the cool, calm blue circle."
+      }
+    },
+    {
+      "id": "ps_u1_s8",
+      "type": "question",
+      "mode": "choices",
+      "prompt": "Which one is yellow?",
+      "choices": [
+        { "label": "🟡", "value": "yellow" },
+        { "label": "🔴", "value": "red" }
+      ],
+      "answer": "yellow",
+      "feedback": {
+        "correct": "Yes! That’s the yellow circle.",
+        "incorrect": "Try again. Yellow is bright like the sun."
+      }
+    },
+
+    {
+      "id": "ps_u1_s9",
+      "type": "feedback",
+      "mode": "gentle",
+      "message": "You’re learning your colors. That’s a wonderful start!"
+    },
+
+    {
+      "id": "ps_u1_s10",
+      "type": "mastery",
+      "mode": "celebrate",
+      "title": "You Learned Colors!",
+      "message": "You know red, blue, and yellow. Great job noticing colors in the world!",
+      "nextLabel": "Next Adventure →",
+      "nextTarget": "/curriculum/preschool/preschool_unit2.html"
+    }
+  ]
+}
