@@ -1,0 +1,125 @@
+{
+  "unitTitle": "Unit 1: Expressions & Order of Operations",
+  "unitId": "g7_u1",
+  "slides": [
+    {
+      "id": "g7_u1_s1",
+      "type": "teach",
+      "mode": "text",
+      "title": "What Is an Expression?",
+      "body": "A math expression is a combination of numbers, variables, and operations. It does not have an equals sign.",
+      "image": null
+    },
+    {
+      "id": "g7_u1_s2",
+      "type": "teach",
+      "mode": "text",
+      "title": "Examples of Expressions",
+      "body": "Examples include: 3x + 2, 5(4 − 1), and 12 ÷ 3 + 7.",
+      "image": null
+    },
+
+    {
+      "id": "g7_u1_s3",
+      "type": "example",
+      "mode": "text",
+      "title": "Example: Simplifying",
+      "body": "Simplify 5(2 + 3). First add inside parentheses: 2 + 3 = 5. Then multiply: 5 × 5 = 25.",
+      "image": null
+    },
+    {
+      "id": "g7_u1_s4",
+      "type": "example",
+      "mode": "text",
+      "title": "Example: Variables",
+      "body": "If x = 4, then 3x + 1 becomes 3(4) + 1 = 12 + 1 = 13.",
+      "image": null
+    },
+    {
+      "id": "g7_u1_s5",
+      "type": "example",
+      "mode": "text",
+      "title": "Example: Order of Operations",
+      "body": "Use PEMDAS: Parentheses, Exponents, Multiply/Divide, Add/Subtract. Example: 8 + 2 × 5 = 8 + 10 = 18.",
+      "image": null
+    },
+
+    {
+      "id": "g7_u1_s6",
+      "type": "question",
+      "mode": "choices",
+      "prompt": "Which of these is an expression?",
+      "choices": [
+        { "label": "3x + 7", "value": "expr" },
+        { "label": "3x + 7 = 10", "value": "equation" }
+      ],
+      "answer": "expr",
+      "feedback": {
+        "correct": "Correct! Expressions do not have an equals sign.",
+        "incorrect": "Not quite. Equations have equals signs; expressions do not."
+      }
+    },
+    {
+      "id": "g7_u1_s7",
+      "type": "question",
+      "mode": "choices",
+      "prompt": "Simplify: 4(3 + 2)",
+      "choices": [
+        { "label": "20", "value": "20" },
+        { "label": "14", "value": "14" }
+      ],
+      "answer": "20",
+      "feedback": {
+        "correct": "Nice! First add inside parentheses, then multiply.",
+        "incorrect": "Try again. Start with the parentheses."
+      }
+    },
+    {
+      "id": "g7_u1_s8",
+      "type": "question",
+      "mode": "choices",
+      "prompt": "Evaluate 2x + 5 when x = 3.",
+      "choices": [
+        { "label": "11", "value": "11" },
+        { "label": "16", "value": "16" }
+      ],
+      "answer": "11",
+      "feedback": {
+        "correct": "Great work! 2(3) + 5 = 6 + 5 = 11.",
+        "incorrect": "Check your multiplication first, then add."
+      }
+    },
+    {
+      "id": "g7_u1_s9",
+      "type": "question",
+      "mode": "choices",
+      "prompt": "Solve: 10 − 2 × 3",
+      "choices": [
+        { "label": "4", "value": "4" },
+        { "label": "24", "value": "24" }
+      ],
+      "answer": "4",
+      "feedback": {
+        "correct": "Exactly! Multiply first: 2 × 3 = 6, then 10 − 6 = 4.",
+        "incorrect": "Remember PEMDAS: multiply before subtracting."
+      }
+    },
+
+    {
+      "id": "g7_u1_s10",
+      "type": "feedback",
+      "mode": "gentle",
+      "message": "You’re building strong algebra skills. Keep going — this foundation will help with equations and inequalities."
+    },
+
+    {
+      "id": "g7_u1_s11",
+      "type": "mastery",
+      "mode": "celebrate",
+      "title": "Great Job!",
+      "message": "You mastered expressions and order of operations. You're ready for the next challenge.",
+      "nextLabel": "Next Adventure →",
+      "nextTarget": "/curriculum/grade7/grade7_unit2.html"
+    }
+  ]
+}
