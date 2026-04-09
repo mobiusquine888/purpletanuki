@@ -1,13 +1,7 @@
 window.onload = () => {
-  const gateImg = document.getElementById('gate-img');
   const gateBtn = document.getElementById('gate-btn');
 
-  // Fade in the gate image
-  setTimeout(() => {
-    gateImg.style.opacity = "1";
-  }, 200);
-
-  // After 3 seconds, enable the button
+  // Enable the button after 3 seconds
   setTimeout(() => {
     gateBtn.classList.add('ready');
     gateBtn.textContent = "ENTER THE GATE";
@@ -18,3 +12,4 @@ window.onload = () => {
     window.location.href = "calm.html?state=ready";
   });
 };
+
