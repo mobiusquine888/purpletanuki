@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: Nunito, sans-serif;
+  background: radial-gradient(circle at top, #4a2a8a, #12071f);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.gate-shell {
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  text-align: center;
+}
+
+#gate-img {
+  width: 100%;
+  height: 260px; /* reserves space so layout never jumps */
+  object-fit: contain;
+  margin-bottom: 16px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  filter: drop-shadow(0 0 20px rgba(255,255,255,0.25));
+}
+
+.gate-text p {
+  margin: 4px 0;
+  opacity: 0.85;
+}
+
+#gate-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  border: none;
+  background: linear-gradient(135deg, #b38cff, #f5d06f);
+  color: #1b0b33;
+  font-size: 1.1rem;
+  font-weight: 700;
+  opacity: 0.6;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+#gate-btn.ready {
+  opacity: 1;
+  pointer-events: auto;
+}
