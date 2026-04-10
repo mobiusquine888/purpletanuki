@@ -1,0 +1,68 @@
+{
+  "breathing": [
+    {
+      "id": "rainbow",
+      "title": "Rainbow Breath",
+      "file": "rituals/breathing/rainbow.json"
+    },
+    {
+      "id": "balloon",
+      "title": "Balloon Belly",
+      "file": "rituals/breathing/balloon.json"
+    },
+    {
+      "id": "candle",
+      "title": "Candle Flame",
+      "file": "rituals/breathing/candle.json"
+    }
+  ],
+
+  "emotions": [
+    {
+      "id": "sad",
+      "title": "When I Feel Sad",
+      "file": "rituals/emotions/sad.json"
+    },
+    {
+      "id": "mad",
+      "title": "When I Feel Mad",
+      "file": "rituals/emotions/mad.json"
+    },
+    {
+      "id": "excited",
+      "title": "When I Feel Excited",
+      "file": "rituals/emotions/excited.json"
+    }
+  ],
+
+  "mindfulness": [
+    {
+      "id": "sparkles",
+      "title": "Follow the Sparkles",
+      "file": "rituals/mindfulness/sparkles.json"
+    },
+    {
+      "id": "slowhands",
+      "title": "Slow Motion Hands",
+      "file": "rituals/mindfulness/slowhands.json"
+    },
+    {
+      "id": "quietsound",
+      "title": "Find the Quiet Sound",
+      "file": "rituals/mindfulness/quietsound.json"
+    }
+  ],
+
+  "stories": [
+    {
+      "id": "bedtime1",
+      "title": "Tanuki’s Sleepy Forest",
+      "file": "rituals/stories/bedtime1.json"
+    },
+    {
+      "id": "calm1",
+      "title": "Tanuki and the Gentle River",
+      "file": "rituals/stories/calm1.json"
+    }
+  ]
+}
