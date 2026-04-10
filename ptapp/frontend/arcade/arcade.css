@@ -1,0 +1,95 @@
+/* ROOT */
+.arc-root {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+}
+
+/* HEADER */
+.arc-header {
+  margin-bottom: 30px;
+}
+
+.arc-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #6a2dd8;
+  margin-bottom: 5px;
+}
+
+.arc-subtitle {
+  font-size: 20px;
+  color: #444;
+}
+
+/* PYRAMID LAYOUT */
+.arc-pyramid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* BLOCKS */
+.arc-block {
+  display: block;
+  padding: 28px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.arc-block:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+}
+
+/* TITLES */
+.arc-block-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #6a2dd8;
+}
+
+.arc-block-desc {
+  font-size: 16px;
+  opacity: 0.75;
+}
+
+/* MIDDLE ROW */
+.arc-middle-row {
+  display: flex;
+  gap: 20px;
+}
+
+.arc-middle {
+  flex: 1;
+}
+
+/* TOP + BOTTOM */
+.arc-top {
+  background: linear-gradient(135deg, #d9c7ff, #f4ecff);
+}
+
+.arc-bottom {
+  background: linear-gradient(135deg, #ffe8c7, #fff4e6);
+}
+
+/* PARENT BUTTON */
+.parent-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #6a2dd8;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
