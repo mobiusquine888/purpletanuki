@@ -1,0 +1,53 @@
+{
+  "reading": [
+    {
+      "id": "sightwords-1",
+      "title": "Sight Words Set 1",
+      "file": "lessons/reading/sightwords-1.json"
+    },
+    {
+      "id": "passage-1",
+      "title": "Short Passage 1",
+      "file": "lessons/reading/passage-1.json"
+    }
+  ],
+
+  "math": [
+    {
+      "id": "addition-1",
+      "title": "Addition to 10",
+      "file": "lessons/math/addition-1.json"
+    },
+    {
+      "id": "placevalue-1",
+      "title": "Place Value Basics",
+      "file": "lessons/math/placevalue-1.json"
+    }
+  ],
+
+  "logic": [
+    {
+      "id": "patterns-1",
+      "title": "Patterns Level 1",
+      "file": "lessons/logic/patterns-1.json"
+    },
+    {
+      "id": "deduction-1",
+      "title": "Deduction Puzzle",
+      "file": "lessons/logic/deduction-1.json"
+    }
+  ],
+
+  "challenges": [
+    {
+      "id": "quest-forest",
+      "title": "Forest Quest",
+      "file": "lessons/challenges/quest-forest.json"
+    },
+    {
+      "id": "timed-1",
+      "title": "Timed Challenge",
+      "file": "lessons/challenges/timed-1.json"
+    }
+  ]
+}
