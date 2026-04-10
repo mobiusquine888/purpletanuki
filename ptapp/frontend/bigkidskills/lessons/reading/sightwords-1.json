@@ -1,0 +1,10 @@
+{
+  "id": "sightwords-1",
+  "title": "Sight Words Set 1",
+  "subtitle": "Read these common words quickly.",
+  "steps": [
+    { "text": "Word 1: the", "hint": "Say it out loud." },
+    { "text": "Word 2: and", "hint": "Try to read it fast." },
+    { "text": "Word 3: you", "hint": "Great job!" }
+  ]
+}
