@@ -68,5 +68,20 @@ window.onload = function () {
             );
         };
     }
+
+    // ⭐ Calm & Focus → Gate Ritual (THIS is the missing piece)
+    const calmBtn = document.getElementById("btn-calm");
+    if (calmBtn) {
+        calmBtn.onclick = () => {
+            window.parent.postMessage(
+                {
+                    action: "navigate",
+                    target: "../lifelessons/opening-gate.html"
+                },
+                "*"
+            );
+        };
+    }
 };
+
 
