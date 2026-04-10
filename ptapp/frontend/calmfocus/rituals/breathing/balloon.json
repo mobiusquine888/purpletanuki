@@ -1,0 +1,24 @@
+{
+  "id": "balloon",
+  "title": "Balloon Belly",
+  "subtitle": "Fill your belly like a big soft balloon.",
+  "type": "breathing",
+  "steps": [
+    {
+      "text": "Put both hands on your belly.",
+      "hint": "Feel your hands move when you breathe in."
+    },
+    {
+      "text": "Breathe in slowly and make your belly grow like a balloon.",
+      "hint": "Try to make it big and round."
+    },
+    {
+      "text": "Now breathe out gently and let the balloon get small again.",
+      "hint": "Nice and slow, like letting air out quietly."
+    },
+    {
+      "text": "Make your balloon big… and small… three more times.",
+      "hint": "Slow breaths help your body feel safe."
+    }
+  ]
+}
