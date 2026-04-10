@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parent Dashboard</title>
+
+  <link rel="stylesheet" href="dashboard.css" />
+  <script defer src="dashboard.js"></script>
+</head>
+
+<body class="pd-body">
+  <div class="pd-shell">
+
+    <header class="pd-header">
+      <h1 class="pd-title">Parent Dashboard</h1>
+      <p class="pd-subtitle">See your child's progress and settings.</p>
+    </header>
+
+    <main class="pd-main">
+
+      <!-- WORLD PROGRESS -->
+      <section class="pd-section">
+        <h2>World Progress</h2>
+        <div class="pd-world" id="pd-calmfocus">Calm & Focus: <span class="pd-value">0%</span></div>
+        <div class="pd-world" id="pd-earlylearning">Early Learning: <span class="pd-value">0%</span></div>
+        <div class="pd-world" id="pd-bigkidskills">Big Kid Skills: <span class="pd-value">0%</span></div>
+        <div class="pd-world" id="pd-lifeskills">Life Skills: <span class="pd-value">0%</span></div>
+      </section>
+
+      <!-- TIME USAGE -->
+      <section class="pd-section">
+        <h2>Time Usage</h2>
+        <p>Daily Used: <span id="pd-daily-used">0</span> minutes</p>
+        <p>Daily Limit: <span id="pd-daily-limit">0</span> minutes</p>
+        <p>Session Limit: <span id="pd-session-limit">0</span> minutes</p>
+      </section>
+
+      <!-- GATE STATUS -->
+      <section class="pd-section">
+        <h2>Gate Settings</h2>
+        <p>Gate Enabled: <span id="pd-gate-enabled">?</span></p>
+        <p>Strictness: <span id="pd-gate-strictness">?</span></p>
+        <p>Cooldown: <span id="pd-gate-cooldown">?</span> minutes</p>
+      </section>
+
+      <!-- BLOCKED APPS -->
+      <section class="pd-section">
+        <h2>Blocked Apps</h2>
+        <p id="pd-blocked-apps">Loading...</p>
+      </section>
+
+      <!-- LINK TO PARENT CONTROLS -->
+      <section class="pd-section">
+        <a href="/frontend/controls/index.html" class="pd-button">Open Parent Controls</a>
+      </section>
+
+    </main>
+
+  </div>
+</body>
+</html>
