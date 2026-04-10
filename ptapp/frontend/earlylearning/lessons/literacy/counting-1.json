@@ -1,0 +1,10 @@
+{
+  "id": "counting-1",
+  "title": "Counting to 5",
+  "subtitle": "Let’s count together!",
+  "steps": [
+    { "text": "Count with me: 1… 2… 3… 4… 5!", "hint": "Nice and slow." },
+    { "text": "Show 5 fingers.", "hint": "Spread them wide!" },
+    { "text": "Find 5 things around you.", "hint": "Toys, blocks, anything!" }
+  ]
+}
