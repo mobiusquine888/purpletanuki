@@ -1,0 +1,24 @@
+{
+  "id": "rainbow",
+  "title": "Rainbow Breath",
+  "subtitle": "Breathe in colors with Tanuki.",
+  "type": "breathing",
+  "steps": [
+    {
+      "text": "Sit comfortably. Put one hand on your belly.",
+      "hint": "Feel your belly move when you breathe."
+    },
+    {
+      "text": "Breathe in slowly and imagine the color RED filling your body.",
+      "hint": "Breathe out gently like a soft wind."
+    },
+    {
+      "text": "Now breathe in ORANGE, then YELLOW, then GREEN.",
+      "hint": "Each breath is a new color."
+    },
+    {
+      "text": "Breathe in BLUE and PURPLE. Let your whole body feel like a rainbow.",
+      "hint": "Notice how calm your body feels now."
+    }
+  ]
+}
