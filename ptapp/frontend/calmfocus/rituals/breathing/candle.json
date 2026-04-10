@@ -1,0 +1,24 @@
+{
+  "id": "candle",
+  "title": "Candle Flame",
+  "subtitle": "Blow the candle without blowing it out.",
+  "type": "breathing",
+  "steps": [
+    {
+      "text": "Imagine a tiny candle in front of you.",
+      "hint": "The flame is soft and warm."
+    },
+    {
+      "text": "Breathe in slowly through your nose.",
+      "hint": "Fill your chest with calm air."
+    },
+    {
+      "text": "Now breathe out gently like you're trying to move the flame… but not blow it out.",
+      "hint": "Soft, slow breath."
+    },
+    {
+      "text": "Try it again: gentle breath in… gentle breath out.",
+      "hint": "Keep the flame dancing, not gone."
+    }
+  ]
+}
