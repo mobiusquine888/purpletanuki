@@ -46,8 +46,8 @@
 
       </div>
 
-      <!-- BOTTOM: LIFE LESSONS -->
-      <a class="arc-block arc-bottom" id="world-lifelessons" href="/lifeskills/index.html">
+      <!-- BOTTOM: LIFE SKILLS -->
+      <a class="arc-block arc-bottom" id="world-lifeskills" href="/lifeskills/index.html">
         <div class="arc-block-title">Life Skills</div>
         <div class="arc-block-desc">Wisdom • Habits • Growing Up</div>
       </a>
@@ -59,8 +59,33 @@
   <!-- Minimal Arcade Logic -->
   <script src="arcade.js"></script>
 
-  <!-- Parent Controls -->
-  <a href="/parent/index.html" class="parent-btn">Parent Controls</a>
+  <!-- NEW: Parent Dashboard Link -->
+  <a href="/frontend/parent-dashboard/index.html" class="parent-btn">Parent Dashboard</a>
+
+  <!-- NEW: Parent Controls Link -->
+  <a href="/frontend/controls/index.html" class="parent-btn secondary">Parent Controls</a>
+
+  <!-- NEW: World Access Enforcement -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const local = localStorage.getItem("pt_parent_settings");
+      if (!local) return;
+
+      const settings = JSON.parse(local);
+
+      if (!settings.worldAccess.calmfocus)
+        document.getElementById("world-calmfocus").style.display = "none";
+
+      if (!settings.worldAccess.earlylearning)
+        document.getElementById("world-earlylearning").style.display = "none";
+
+      if (!settings.worldAccess.bigkidskills)
+        document.getElementById("world-bigkidskills").style.display = "none";
+
+      if (!settings.worldAccess.lifeskills)
+        document.getElementById("world-lifeskills").style.display = "none";
+    });
+  </script>
 
 </body>
 </html>
