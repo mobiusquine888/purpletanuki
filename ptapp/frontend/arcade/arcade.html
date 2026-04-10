@@ -59,13 +59,10 @@
   <!-- Minimal Arcade Logic -->
   <script src="arcade.js"></script>
 
-  <!-- NEW: Parent Dashboard Link -->
-  <a href="/frontend/parent-dashboard/index.html" class="parent-btn">Parent Dashboard</a>
+  <!-- SINGLE Parent Button (correct) -->
+  <a href="/frontend/parent-dashboard/index.html" class="parent-btn">Parent</a>
 
-  <!-- NEW: Parent Controls Link -->
-  <a href="/frontend/controls/index.html" class="parent-btn secondary">Parent Controls</a>
-
-  <!-- NEW: World Access Enforcement -->
+  <!-- World Access Enforcement -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const local = localStorage.getItem("pt_parent_settings");
@@ -89,5 +86,3 @@
 
 </body>
 </html>
-
-
