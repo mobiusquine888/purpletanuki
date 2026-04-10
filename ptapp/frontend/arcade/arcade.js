@@ -6,27 +6,25 @@ window.addEventListener("load", () => {
   document.body.style.opacity = "1";
 });
 
-// Apply progression state to each world block
-function applyWorld(id, key) {
-  const el = document.getElementById(id);
-  if (!el) return;
+// World Access Enforcement (Parent Controls)
+document.addEventListener("DOMContentLoaded", () => {
+  const local = localStorage.getItem("pt_parent_settings");
+  if (!local) return;
 
-  const state = PT_Progression.getWorldState(key);
+  const settings = JSON.parse(local);
 
-  if (state === "locked") {
-    el.classList.add("locked");
+  const worlds = [
+    { id: "world-calmfocus", key: "calmfocus" },
+    { id: "world-earlylearning", key: "earlylearning" },
+    { id: "world-bigkidskills", key: "bigkidskills" },
+    { id: "world-lifeskills", key: "lifeskills" }
+  ];
 
-    // Intercept click
-    el.addEventListener("click", (e) => {
-      e.preventDefault();
-      PT_Paywall.open();
-    });
-  }
-}
-
-// Apply progression to all worlds
-applyWorld("world-calmfocus", "calmfocus");
-applyWorld("world-earlylearning", "earlylearning");
-applyWorld("world-bigkidskills", "bigkidskills");
-applyWorld("world-lifelessons", "lifelessons");
+  worlds.forEach(world => {
+    if (!settings.worldAccess[world.key]) {
+      const el = document.getElementById(world.id);
+      if (el) el.style.display = "none";
+    }
+  });
+});
 
