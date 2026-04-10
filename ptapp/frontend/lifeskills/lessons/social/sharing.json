@@ -1,0 +1,10 @@
+{
+  "id": "sharing",
+  "title": "Sharing",
+  "subtitle": "Sharing helps everyone feel included.",
+  "steps": [
+    { "text": "Look at what you have. Can someone else use it too?", "hint": "Sharing is caring." },
+    { "text": "Offer it kindly: “Do you want to try?”", "hint": "Use a friendly voice." },
+    { "text": "Take turns and enjoy together.", "hint": "It feels good to share." }
+  ]
+}
