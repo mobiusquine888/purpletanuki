@@ -59,5 +59,19 @@
         window.addEventListener("click", forwardGesture, { once: true });
         window.addEventListener("touchstart", forwardGesture, { once: true });
     </script>
+
+    <!-- Progression Engine -->
+    <script src="/progression/progression.js"></script>
+    <script src="/progression/paywall.js"></script>
+
+    <script>
+        PT_Progression.applyWorldState("btn-calm", "calmfocus");
+        PT_Progression.applyWorldState("btn-prek", "prek");
+        PT_Progression.applyWorldState("btn-kindergarten", "kindergarten");
+        PT_Progression.applyWorldState("btn-grade7", "grade7");
+        PT_Progression.applyWorldState("btn-lifelessons", "lifelessons");
+    </script>
+
 </body>
 </html>
+
