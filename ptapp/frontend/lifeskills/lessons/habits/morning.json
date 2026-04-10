@@ -1,0 +1,10 @@
+{
+  "id": "morning",
+  "title": "Morning Routine",
+  "subtitle": "Start your day with calm and confidence.",
+  "steps": [
+    { "text": "Wake up and stretch your body.", "hint": "Big arms, big breath." },
+    { "text": "Brush your teeth and wash your face.", "hint": "Fresh and ready." },
+    { "text": "Get dressed for the day.", "hint": "You’re doing great." }
+  ]
+}
