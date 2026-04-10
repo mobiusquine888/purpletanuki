@@ -1,0 +1,53 @@
+{
+  "habits": [
+    {
+      "id": "morning",
+      "title": "Morning Routine",
+      "file": "lessons/habits/morning.json"
+    },
+    {
+      "id": "bedtime",
+      "title": "Bedtime Routine",
+      "file": "lessons/habits/bedtime.json"
+    }
+  ],
+
+  "social": [
+    {
+      "id": "sharing",
+      "title": "Sharing",
+      "file": "lessons/social/sharing.json"
+    },
+    {
+      "id": "apologizing",
+      "title": "How to Apologize",
+      "file": "lessons/social/apologizing.json"
+    }
+  ],
+
+  "safety": [
+    {
+      "id": "crossing",
+      "title": "Crossing the Street",
+      "file": "lessons/safety/crossing.json"
+    },
+    {
+      "id": "asking-help",
+      "title": "Asking for Help",
+      "file": "lessons/safety/asking-help.json"
+    }
+  ],
+
+  "wisdom": [
+    {
+      "id": "honesty",
+      "title": "Being Honest",
+      "file": "lessons/wisdom/honesty.json"
+    },
+    {
+      "id": "mistakes",
+      "title": "Handling Mistakes",
+      "file": "lessons/wisdom/mistakes.json"
+    }
+  ]
+}
