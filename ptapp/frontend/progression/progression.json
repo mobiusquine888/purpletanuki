@@ -1,0 +1,21 @@
+{
+  "preschool": {
+    "math": {
+      "displayName": "Preschool Math",
+      "lessons": 10,
+      "freeLessons": 1
+    },
+    "reading": {
+      "displayName": "Preschool Reading",
+      "lessons": 10,
+      "freeLessons": 1
+    }
+  },
+  "grade1": {
+    "math": {
+      "displayName": "Grade 1 Math",
+      "lessons": 15,
+      "freeLessons": 1
+    }
+  }
+}
