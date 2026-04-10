@@ -4,15 +4,17 @@
   <meta charset="UTF-8">
   <title>Opening Gate – PurpleTanuki</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="opening-gate.css">
+
+  <!-- ABSOLUTE URL so WebView loads the CSS -->
+  <link rel="stylesheet" href="https://purpletanuki.netlify.app/lifelessons/opening-gate.css">
 </head>
 
 <body>
 
 <div class="gate-shell">
 
-  <!-- Correct path: gate.png is in the SAME folder as this HTML -->
-<img id="gate-img" src="https://purpletanuki.netlify.app/lifelessons/gate.png" alt="Gate" />
+  <!-- ABSOLUTE URL so WebView loads the image -->
+  <img id="gate-img" src="https://purpletanuki.netlify.app/lifelessons/gate.png" alt="Gate" />
 
   <div class="gate-text">
     <p class="line1">Breathe with me…</p>
@@ -24,7 +26,9 @@
 
 </div>
 
-<script src="opening-gate.js"></script>
+<!-- ABSOLUTE URL so WebView loads the JS -->
+<script src="https://purpletanuki.netlify.app/lifelessons/opening-gate.js"></script>
+
 </body>
 </html>
 
