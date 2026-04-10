@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PurpleTanuki Arcade</title>
 
+  <!-- Reforged Arcade Styles -->
   <link rel="stylesheet" href="arcade.css" />
   <link rel="stylesheet" href="/games/theme/tanuki-theme.css" />
 </head>
@@ -26,6 +27,7 @@
       <a class="arc-block arc-top" id="world-calmfocus" href="/calmfocus/index.html">
         <div class="arc-block-title">Calm & Focus</div>
         <div class="arc-block-desc">Breathing • Emotions • Mindfulness</div>
+        <div class="arc-lock-overlay"></div>
       </a>
 
       <!-- MIDDLE ROW -->
@@ -35,12 +37,14 @@
         <a class="arc-block arc-middle" id="world-earlylearning" href="/earlylearning/index.html">
           <div class="arc-block-title">Early Learning</div>
           <div class="arc-block-desc">Preschool • Kindergarten • Foundations</div>
+          <div class="arc-lock-overlay"></div>
         </a>
 
         <!-- BIG KID SKILLS -->
         <a class="arc-block arc-middle" id="world-bigkidskills" href="/bigkidskills/index.html">
           <div class="arc-block-title">Big Kid Skills</div>
           <div class="arc-block-desc">Math • Reading • Challenges</div>
+          <div class="arc-lock-overlay"></div>
         </a>
 
       </div>
@@ -49,17 +53,20 @@
       <a class="arc-block arc-bottom" id="world-lifelessons" href="/lifelessons/index.html">
         <div class="arc-block-title">Life Lessons</div>
         <div class="arc-block-desc">Wisdom • Habits • Growing Up</div>
+        <div class="arc-lock-overlay"></div>
       </a>
 
     </div>
 
   </div>
 
+  <!-- PROGRESSION ENGINE -->
   <script src="/progression/progression.js"></script>
   <script src="/progression/paywall.js"></script>
   <script src="arcade.js"></script>
 
   <script>
+    // Apply progression state to each world
     PT_Progression.applyWorldState("world-calmfocus", "calmfocus");
     PT_Progression.applyWorldState("world-earlylearning", "earlylearning");
     PT_Progression.applyWorldState("world-bigkidskills", "bigkidskills");
@@ -71,4 +78,5 @@
 
 </body>
 </html>
+
 
