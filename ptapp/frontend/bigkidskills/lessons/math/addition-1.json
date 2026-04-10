@@ -1,0 +1,10 @@
+{
+  "id": "addition-1",
+  "title": "Addition to 10",
+  "subtitle": "Warm‑up math practice.",
+  "steps": [
+    { "text": "3 + 2 = ?", "hint": "Count on your fingers." },
+    { "text": "4 + 1 = ?", "hint": "You got this." },
+    { "text": "5 + 3 = ?", "hint": "Try it in your head." }
+  ]
+}
