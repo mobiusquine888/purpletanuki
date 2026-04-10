@@ -1,0 +1,53 @@
+{
+  "literacy": [
+    {
+      "id": "letters-a",
+      "title": "Letter A",
+      "file": "lessons/literacy/letters-a.json"
+    },
+    {
+      "id": "rhyming-1",
+      "title": "Rhyming Words",
+      "file": "lessons/literacy/rhyming-1.json"
+    }
+  ],
+
+  "math": [
+    {
+      "id": "counting-1",
+      "title": "Counting to 5",
+      "file": "lessons/math/counting-1.json"
+    },
+    {
+      "id": "shapes-basic",
+      "title": "Basic Shapes",
+      "file": "lessons/math/shapes-basic.json"
+    }
+  ],
+
+  "science": [
+    {
+      "id": "animals-1",
+      "title": "Forest Animals",
+      "file": "lessons/science/animals-1.json"
+    },
+    {
+      "id": "weather-1",
+      "title": "Weather Basics",
+      "file": "lessons/science/weather-1.json"
+    }
+  ],
+
+  "lifeskills": [
+    {
+      "id": "sharing",
+      "title": "Sharing",
+      "file": "lessons/lifeskills/sharing.json"
+    },
+    {
+      "id": "taking-turns",
+      "title": "Taking Turns",
+      "file": "lessons/lifeskills/taking-turns.json"
+    }
+  ]
+}
