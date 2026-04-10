@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parent Controls</title>
+
+  <link rel="stylesheet" href="controls.css" />
+  <script defer src="controls.js"></script>
+</head>
+
+<body class="pc-body">
+  <div class="pc-shell">
+
+    <header class="pc-header">
+      <h1 class="pc-title">Parent Controls</h1>
+      <p class="pc-subtitle">Set rules for apps, time, and world access.</p>
+    </header>
+
+    <main class="pc-main">
+
+      <section class="pc-section">
+        <h2>World Access</h2>
+        <label><input type="checkbox" id="world-calmfocus" /> Calm & Focus</label><br />
+        <label><input type="checkbox" id="world-earlylearning" /> Early Learning</label><br />
+        <label><input type="checkbox" id="world-bigkidskills" /> Big Kid Skills</label><br />
+        <label><input type="checkbox" id="world-lifeskills" /> Life Skills</label>
+      </section>
+
+      <section class="pc-section">
+        <h2>Gate Settings</h2>
+        <label>
+          <input type="checkbox" id="gate-enabled" />
+          Enable Tanuki Gate before YouTube/TikTok
+        </label>
+        <br />
+        <label>Strictness:
+          <select id="gate-strictness">
+            <option value="light">Light</option>
+            <option value="medium">Medium</option>
+            <option value="strict">Strict</option>
+          </select>
+        </label>
+        <br />
+        <label>Cooldown (minutes):
+          <input type="number" id="gate-cooldown" min="0" />
+        </label>
+      </section>
+
+      <section class="pc-section">
+        <h2>Time Limits</h2>
+        <label>Daily minutes:
+          <input type="number" id="time-daily" min="0" />
+        </label>
+        <br />
+        <label>Session minutes:
+          <input type="number" id="time-session" min="0" />
+        </label>
+      </section>
+
+      <section class="pc-section">
+        <h2>Blocked Apps</h2>
+        <p class="pc-hint">Comma‑separated domains (e.g. youtube.com, tiktok.com)</p>
+        <textarea id="apps-blocked" rows="3"></textarea>
+      </section>
+
+      <section class="pc-section">
+        <h2>Parent PIN</h2>
+        <label>
+          <input type="checkbox" id="pin-enabled" />
+          Require PIN to open Parent Controls
+        </label>
+        <br />
+        <label>PIN code:
+          <input type="password" id="pin-code" maxlength="8" />
+        </label>
+      </section>
+
+      <button id="pc-save" class="pc-primary">Save Settings</button>
+      <p id="pc-status" class="pc-status"></p>
+
+    </main>
+  </div>
+</body>
+</html>
