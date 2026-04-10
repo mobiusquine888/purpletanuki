@@ -23,7 +23,7 @@
     <div class="arc-pyramid">
 
       <!-- TOP: CALM & FOCUS -->
-      <a class="arc-block arc-top" href="/calmfocus/index.html">
+      <a class="arc-block arc-top" id="world-calmfocus" href="/calmfocus/index.html">
         <div class="arc-block-title">Calm & Focus</div>
         <div class="arc-block-desc">Breathing • Emotions • Mindfulness</div>
       </a>
@@ -32,13 +32,13 @@
       <div class="arc-middle-row">
 
         <!-- EARLY LEARNING -->
-        <a class="arc-block arc-middle" href="/earlylearning/index.html">
+        <a class="arc-block arc-middle" id="world-earlylearning" href="/earlylearning/index.html">
           <div class="arc-block-title">Early Learning</div>
           <div class="arc-block-desc">Preschool • Kindergarten • Foundations</div>
         </a>
 
         <!-- BIG KID SKILLS -->
-        <a class="arc-block arc-middle" href="/bigkidskills/index.html">
+        <a class="arc-block arc-middle" id="world-bigkidskills" href="/bigkidskills/index.html">
           <div class="arc-block-title">Big Kid Skills</div>
           <div class="arc-block-desc">Math • Reading • Challenges</div>
         </a>
@@ -46,7 +46,7 @@
       </div>
 
       <!-- BOTTOM: LIFE LESSONS -->
-      <a class="arc-block arc-bottom" href="/lifelessons/index.html">
+      <a class="arc-block arc-bottom" id="world-lifelessons" href="/lifelessons/index.html">
         <div class="arc-block-title">Life Lessons</div>
         <div class="arc-block-desc">Wisdom • Habits • Growing Up</div>
       </a>
@@ -55,10 +55,20 @@
 
   </div>
 
+  <script src="/progression/progression.js"></script>
+  <script src="/progression/paywall.js"></script>
   <script src="arcade.js"></script>
+
+  <script>
+    PT_Progression.applyWorldState("world-calmfocus", "calmfocus");
+    PT_Progression.applyWorldState("world-earlylearning", "earlylearning");
+    PT_Progression.applyWorldState("world-bigkidskills", "bigkidskills");
+    PT_Progression.applyWorldState("world-lifelessons", "lifelessons");
+  </script>
 
   <!-- Parent Controls -->
   <a href="/parent/index.html" class="parent-btn">Parent Controls</a>
 
 </body>
 </html>
+
