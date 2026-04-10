@@ -69,19 +69,18 @@ window.onload = function () {
         };
     }
 
-    // ⭐ Calm & Focus → Gate Ritual (THIS is the missing piece)
+    // ⭐ Calm & Focus → Gate Ritual (CACHE-BUSTED)
     const calmBtn = document.getElementById("btn-calm");
     if (calmBtn) {
         calmBtn.onclick = () => {
             window.parent.postMessage(
                 {
                     action: "navigate",
-                    target: "../lifelessons/opening-gate.html"
+                    target: "../lifelessons/opening-gate.html?v=2"
                 },
                 "*"
             );
         };
     }
 };
-
 
