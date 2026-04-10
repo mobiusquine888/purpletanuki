@@ -1,0 +1,10 @@
+{
+  "id": "letters-a",
+  "title": "Letter A",
+  "subtitle": "Learn the sound and shape of A.",
+  "steps": [
+    { "text": "This is the letter A.", "hint": "It looks like a pointy mountain." },
+    { "text": "A makes the sound 'aaa'.", "hint": "Like in apple." },
+    { "text": "Trace the letter A in the air.", "hint": "Use your finger!" }
+  ]
+}
