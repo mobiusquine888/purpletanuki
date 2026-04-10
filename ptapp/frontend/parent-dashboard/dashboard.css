@@ -1,0 +1,57 @@
+.pd-body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #f5f7fb;
+}
+
+.pd-shell {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.pd-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.pd-title {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.pd-subtitle {
+  margin: 4px 0 0;
+  color: #667;
+}
+
+.pd-section {
+  background: #ffffff;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.pd-section h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.pd-world {
+  margin: 6px 0;
+}
+
+.pd-value {
+  font-weight: bold;
+}
+
+.pd-button {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #3a7bff;
+  color: #fff;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+}
