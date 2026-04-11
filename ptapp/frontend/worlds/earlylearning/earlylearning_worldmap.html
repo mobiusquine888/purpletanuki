@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <link rel="stylesheet" href="earlylearning_worldmap.css" />
+  <link rel="stylesheet" href="/games/theme/tanuki-theme.css" />
+  <link rel="stylesheet" href="/global/arcade-button.css" />
+  <script src="/global/arcade-button.js"></script>
   <script defer src="earlylearning_worldmap.js"></script>
 </head>
 
@@ -13,7 +16,6 @@
 
   <div class="el-shell">
 
-    <!-- Hero / Onboarding -->
     <header class="el-header">
       <img
         src="https://purpletanuki.netlify.app/images/tanuki_calm.png"
@@ -25,7 +27,6 @@
       <p class="el-subsubtitle">Choose your learning path.</p>
     </header>
 
-    <!-- Free Worlds -->
     <section class="el-section">
       <h2 class="el-section-title">Free Learning Worlds</h2>
 
@@ -56,14 +57,12 @@
       </div>
     </section>
 
-    <!-- Divider -->
     <div class="el-divider">
       <span class="el-divider-line"></span>
       <span class="el-divider-label">More Learning Worlds</span>
       <span class="el-divider-line"></span>
     </div>
 
-    <!-- Premium Worlds -->
     <section class="el-section">
       <div class="el-worlds el-worlds-premium">
 
@@ -142,7 +141,6 @@
       </div>
     </section>
 
-    <!-- Parent Layer -->
     <footer class="el-footer">
       <button class="el-parent-link" id="el-parent-link">
         For Grown‑Ups: How Early Learning Works
@@ -151,41 +149,28 @@
 
   </div>
 
-  <!-- Parent Modal -->
   <div class="el-modal-backdrop" id="el-parent-modal">
     <div class="el-modal">
       <h2 class="el-modal-title">Early Learning with Tanuki</h2>
       <p class="el-modal-text">
         Preschool and Kindergarten paths are fully included for free.
-        They build early confidence in colors, shapes, letters, sounds,
-        numbers, and tiny problem‑solving moments.
       </p>
       <p class="el-modal-text">
         Premium worlds add more depth: phonics, numbers mastery, early
-        reading, storybooks, logic puzzles, and science & nature. These
-        are optional expansions for families who want more.
+        reading, storybooks, logic puzzles, and science & nature.
       </p>
       <p class="el-modal-text">
-        You can start with the free paths and see how your child responds.
-        There is no timer, no streak pressure, and no noisy ads — just
-        soft, magical learning with Tanuki.
+        No timers, no streak pressure — just soft, magical learning.
       </p>
       <button class="el-modal-close" id="el-parent-close">Got it</button>
     </div>
   </div>
 
-  <!-- Premium Modal -->
   <div class="el-modal-backdrop" id="el-premium-modal">
     <div class="el-modal">
       <h2 class="el-modal-title">More Learning Worlds</h2>
       <p class="el-modal-text">
-        This is a bonus learning world. Preschool and Kindergarten paths
-        are fully included for free and are the best place to start.
-      </p>
-      <p class="el-modal-text">
-        When you’re ready, you can unlock extra worlds like Phonics,
-        Numbers, Reading Readiness, Storybooks, Logic & Puzzles, and
-        Science & Nature.
+        This is a bonus learning world. Start with the free paths first.
       </p>
       <div class="el-modal-actions">
         <button class="el-modal-secondary" id="el-premium-see-free">
@@ -200,3 +185,4 @@
 
 </body>
 </html>
+
