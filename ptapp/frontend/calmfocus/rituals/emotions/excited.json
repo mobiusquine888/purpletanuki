@@ -1,0 +1,24 @@
+{
+  "id": "excited",
+  "title": "When I Feel Excited",
+  "subtitle": "Tanuki helps you slow down happy energy.",
+  "type": "emotions",
+  "steps": [
+    {
+      "text": "Stand or sit tall and wiggle your fingers fast.",
+      "hint": "Feel all that excited energy in your hands."
+    },
+    {
+      "text": "Say quietly: “I feel excited right now.”",
+      "hint": "Happy energy is real energy."
+    },
+    {
+      "text": "Imagine Tanuki holding a big soft bubble in front of you.",
+      "hint": "Your job is to breathe slowly so the bubble doesn’t pop."
+    },
+    {
+      "text": "Take three slow breaths with Tanuki, keeping the bubble floating.",
+      "hint": "In… and out… slowing your body just a little."
+    }
+  ]
+}
