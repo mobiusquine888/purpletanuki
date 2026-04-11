@@ -1,0 +1,24 @@
+{
+  "id": "slowhands",
+  "title": "Slow Motion Hands",
+  "subtitle": "Move your hands like they’re floating in water.",
+  "type": "mindfulness",
+  "steps": [
+    {
+      "text": "Hold your hands in front of you and look at them closely.",
+      "hint": "Pretend time is moving extra slow."
+    },
+    {
+      "text": "Lift one hand up very slowly, like it’s moving through thick water.",
+      "hint": "Go slower than you think you need to."
+    },
+    {
+      "text": "Now switch hands. Move the other one just as slowly.",
+      "hint": "Notice every tiny movement."
+    },
+    {
+      "text": "Move both hands together in slow motion for one deep breath.",
+      "hint": "Your whole body can slow down with your hands."
+    }
+  ]
+}
