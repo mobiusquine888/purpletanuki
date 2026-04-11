@@ -7,6 +7,36 @@
 
   <link rel="stylesheet" href="progression.css" />
   <script defer src="progression.js"></script>
+
+  <style>
+    /* Optional: lock icon overlay */
+    .lock-icon {
+      width: 20px;
+      height: 20px;
+      background: url('/images/lock.png') center/contain no-repeat;
+      opacity: 0.9;
+      margin-left: 8px;
+    }
+
+    .world-card.locked {
+      opacity: 0.35;
+      filter: grayscale(0.7);
+      pointer-events: none;
+      position: relative;
+    }
+
+    .world-card.locked::after {
+      content: "";
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 22px;
+      height: 22px;
+      background: url('/images/lock.png') center/contain no-repeat;
+      opacity: 0.9;
+    }
+  </style>
 </head>
 
 <body>
@@ -58,4 +88,5 @@
   </div>
 </body>
 </html>
+
 
