@@ -62,6 +62,21 @@ body.cf-body {
   margin-top: 16px;
 }
 
+/* Calm Tanuki art */
+
+.cf-tanuki-art {
+  width: 180px;
+  max-width: 60%;
+  display: block;
+  margin: 0 auto 12px auto;
+  animation: cf-fade-in 0.6s ease-out;
+}
+
+@keyframes cf-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Hero card on index.html */
 
 .cf-hero-card {
@@ -98,6 +113,7 @@ body.cf-body {
   cursor: pointer;
   text-decoration: none;
   box-shadow: 0 8px 18px rgba(80, 60, 160, 0.35);
+  transition: transform 0.1s ease-out;
 }
 
 .cf-primary-button:hover {
@@ -189,3 +205,4 @@ body.cf-body {
   font-size: 0.8rem;
   color: var(--cf-text-soft);
 }
+
