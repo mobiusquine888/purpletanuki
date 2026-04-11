@@ -11,6 +11,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ================================
@@ -22,6 +23,7 @@ body {
   background: url('/images/tanuki.png') center/contain no-repeat;
   margin-top: 20px;
   animation: float 3s ease-in-out infinite;
+  pointer-events: none;
 }
 
 @keyframes float {
@@ -35,6 +37,7 @@ body {
   background: url('/images/sparkles.png') center/contain no-repeat;
   margin-top: -10px;
   opacity: 0.8;
+  pointer-events: none;
 }
 
 /* ================================
@@ -48,6 +51,7 @@ body {
   border-radius: 20px;
   margin-top: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
 }
 
 .progress-section h2 {
@@ -68,6 +72,15 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* World gating states */
+.world-card.locked {
+  opacity: 0.35;
+  transform: scale(0.97);
+  filter: grayscale(0.7);
+  pointer-events: none;
 }
 
 .world-name {
@@ -89,6 +102,13 @@ body {
   font-size: 14px;
   font-weight: 700;
   color: #ffd86b;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Completed world */
+.ring.complete {
+  border-color: #6bff9e;
+  color: #6bff9e;
 }
 
 /* ================================
@@ -115,6 +135,13 @@ body {
   width: 50px;
   height: 50px;
   background: url('/images/badge-placeholder.png') center/contain no-repeat;
+  opacity: 0.9;
+  transition: transform 0.3s ease;
+}
+
+.badge.unlocked {
+  transform: scale(1.1);
+  opacity: 1;
 }
 
 /* ================================
@@ -136,6 +163,11 @@ body {
   cursor: pointer;
   text-align: center;
   text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:active {
+  transform: scale(0.96);
 }
 
 /* Continue Learning */
@@ -156,3 +188,4 @@ body {
   background: rgba(255,255,255,0.1);
   color: #fff;
 }
+
