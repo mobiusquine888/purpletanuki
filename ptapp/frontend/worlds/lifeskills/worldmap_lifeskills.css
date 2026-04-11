@@ -1,4 +1,5 @@
-body.ls-body {
+/* ===== BASE ===== */
+.ls-body {
   background: #ffffff;
   font-family: "Nunito", sans-serif;
   margin: 0;
@@ -12,8 +13,14 @@ body.ls-body {
   text-align: center;
 }
 
+/* ===== HEADER ===== */
 .ls-header {
   margin-bottom: 30px;
+}
+
+.ls-hero-image {
+  width: 160px;
+  margin-bottom: 20px;
 }
 
 .ls-title {
@@ -28,38 +35,176 @@ body.ls-body {
   color: #666;
 }
 
-.ls-main {
-  display: flex;
-  justify-content: center;
-}
-
-.ls-hero-card {
-  background: linear-gradient(135deg, #fff4e6, #ffe8c7);
-  padding: 32px;
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-  max-width: 420px;
-}
-
-.ls-hero-image {
-  width: 180px;
-  margin-bottom: 20px;
-}
-
-.ls-hero-text {
+.ls-subsubtitle {
   font-size: 18px;
-  opacity: 0.8;
-  margin-bottom: 20px;
+  color: #888;
+  margin-top: 4px;
 }
 
-.ls-primary-button {
-  display: inline-block;
+/* ===== SECTIONS ===== */
+.ls-section-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.ls-worlds {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+
+/* ===== WORLD CARDS ===== */
+.ls-world-card {
+  width: 260px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.ls-world-tag {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.ls-world-tag-free {
+  color: #2fa84f;
+}
+
+.ls-world-tag-premium {
+  color: #d87a2f;
+}
+
+.ls-lock-icon {
+  margin-right: 4px;
+}
+
+.ls-world-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.ls-world-text {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 14px;
+}
+
+.ls-world-cta {
+  font-size: 16px;
+  font-weight: 700;
+  color: #e88a2f;
+}
+
+/* ===== DIVIDER ===== */
+.ls-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.ls-divider-line {
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+}
+
+.ls-divider-label {
+  padding: 0 12px;
+  font-size: 16px;
+  color: #666;
+}
+
+/* ===== FOOTER ===== */
+.ls-footer {
+  margin-top: 40px;
+}
+
+.ls-parent-link {
   background: #e88a2f;
   color: white;
   padding: 12px 20px;
   border-radius: 14px;
-  text-decoration: none;
-  font-weight: 700;
+  border: none;
   font-size: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  font-weight: 700;
+  cursor: pointer;
 }
+
+/* ===== MODALS ===== */
+.ls-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.ls-modal {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 420px;
+  text-align: center;
+}
+
+.ls-modal-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.ls-modal-text {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 14px;
+}
+
+.ls-modal-close {
+  background: #e88a2f;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ls-modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.ls-modal-secondary,
+.ls-modal-primary {
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ls-modal-secondary {
+  background: #ddd;
+  color: #333;
+}
+
+.ls-modal-primary {
+  background: #e88a2f;
+  color: white;
+}
+
