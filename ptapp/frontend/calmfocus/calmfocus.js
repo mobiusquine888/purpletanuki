@@ -14,16 +14,15 @@ function pickRandom(array) {
   return array[index];
 }
 
-// When we are on subjects.html, wire up the category buttons
+// When we are on subjects.html, wire up the category cards
 function setupSubjectsPage() {
   const cards = document.querySelectorAll(".cf-card");
-  if (!cards || cards.length === 0) return; // Not on subjects page
+  if (!cards || cards.length === 0) return;
 
   cards.forEach((card) => {
     card.addEventListener("click", () => {
       const category = card.getAttribute("data-category");
       if (!category) return;
-      // Go to lesson.html with the chosen category
       window.location.href = `lesson.html?category=${encodeURIComponent(category)}`;
     });
   });
@@ -36,12 +35,11 @@ async function setupLessonPage() {
   const subtitleEl = document.getElementById("cf-lesson-subtitle");
   const nextButton = document.getElementById("cf-next-step");
 
-  if (!contentEl || !nextButton) return; // Not on lesson page
+  if (!contentEl || !nextButton) return;
 
   const category = getQueryParam("category") || "breathing";
 
   try {
-    // 1. Load curriculum.json
     const curriculumRes = await fetch("curriculum.json");
     const curriculum = await curriculumRes.json();
 
@@ -51,21 +49,17 @@ async function setupLessonPage() {
       return;
     }
 
-    // 2. Pick a random ritual from that category
     const ritualMeta = pickRandom(ritualsForCategory);
 
-    // 3. Load the ritual JSON file
     const ritualRes = await fetch(ritualMeta.file);
     const ritual = await ritualRes.json();
 
-    // 4. Set title and subtitle
     titleEl.textContent = ritual.title || ritualMeta.title || "Calm Ritual";
     if (subtitleEl) {
       subtitleEl.textContent =
         ritual.subtitle || "Take a tiny calm moment with Tanuki.";
     }
 
-    // 5. Show steps one by one
     let currentStepIndex = 0;
 
     function renderStep() {
@@ -76,7 +70,6 @@ async function setupLessonPage() {
         `;
         nextButton.textContent = "Do another ritual";
         nextButton.onclick = () => {
-          // Go back to subjects to pick something new
           window.location.href = "subjects.html";
         };
         return;
@@ -84,18 +77,12 @@ async function setupLessonPage() {
 
       contentEl.innerHTML = `
         <p class="cf-step-text">${step.text}</p>
-        ${
-          step.hint
-            ? `<p class="cf-step-hint">${step.hint}</p>`
-            : ""
-        }
+        ${step.hint ? `<p class="cf-step-hint">${step.hint}</p>` : ""}
       `;
     }
 
-    // Initial render
     renderStep();
 
-    // Next button behavior
     nextButton.addEventListener("click", () => {
       currentStepIndex += 1;
       renderStep();
@@ -106,7 +93,6 @@ async function setupLessonPage() {
   }
 }
 
-// Run setup functions depending on which page we’re on
 document.addEventListener("DOMContentLoaded", () => {
   setupSubjectsPage();
   setupLessonPage();
