@@ -1,0 +1,24 @@
+{
+  "id": "sad",
+  "title": "When I Feel Sad",
+  "subtitle": "Tanuki sits with you when you feel blue.",
+  "type": "emotions",
+  "steps": [
+    {
+      "text": "Put your hand on your heart. Notice how it feels.",
+      "hint": "It’s okay to feel sad."
+    },
+    {
+      "text": "Say quietly: “I feel sad right now.”",
+      "hint": "Naming feelings can help them feel smaller."
+    },
+    {
+      "text": "Imagine Tanuki sitting next to you, holding your hand.",
+      "hint": "You are not alone."
+    },
+    {
+      "text": "Take three slow breaths together with Tanuki.",
+      "hint": "In… and out… nice and slow."
+    }
+  ]
+}
