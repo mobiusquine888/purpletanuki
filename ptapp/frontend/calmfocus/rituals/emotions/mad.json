@@ -1,0 +1,24 @@
+{
+  "id": "mad",
+  "title": "When I Feel Mad",
+  "subtitle": "Tanuki helps you cool the fire inside.",
+  "type": "emotions",
+  "steps": [
+    {
+      "text": "Make your hands into gentle fists and squeeze for a moment.",
+      "hint": "Feel the tightness… then let go."
+    },
+    {
+      "text": "Say quietly: “I feel mad right now.”",
+      "hint": "Naming the feeling helps your brain calm down."
+    },
+    {
+      "text": "Imagine Tanuki standing beside you, taking a big slow breath.",
+      "hint": "You can breathe with Tanuki too."
+    },
+    {
+      "text": "Take three slow breaths together. Let the fire shrink a little each time.",
+      "hint": "In… and out… you’re doing great."
+    }
+  ]
+}
