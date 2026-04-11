@@ -2,9 +2,9 @@
 // Clean, predictable, middle‑school friendly logic.
 // No fancy patterns. No async traps. No layout collisions.
 
-// -----------------------------
+// ----------------------------------------------------
 // Helpers
-// -----------------------------
+// ----------------------------------------------------
 
 function getQueryParam(name) {
   const params = new URLSearchParams(window.location.search);
@@ -16,9 +16,9 @@ function pickRandom(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-// -----------------------------
-// Subjects Page
-// -----------------------------
+// ----------------------------------------------------
+// Subjects Page (subjects.html)
+// ----------------------------------------------------
 
 function setupSubjectsPage() {
   const cards = document.querySelectorAll(".cf-card");
@@ -28,14 +28,16 @@ function setupSubjectsPage() {
     card.addEventListener("click", () => {
       const category = card.getAttribute("data-category");
       if (!category) return;
+
+      // Navigate to lesson page with category
       window.location.href = `lesson.html?category=${encodeURIComponent(category)}`;
     });
   });
 }
 
-// -----------------------------
-// Lesson Page
-// -----------------------------
+// ----------------------------------------------------
+// Lesson Page (lesson.html)
+// ----------------------------------------------------
 
 async function setupLessonPage() {
   const contentEl = document.getElementById("cf-lesson-content");
@@ -55,7 +57,9 @@ async function setupLessonPage() {
 
     const ritualsForCategory = curriculum[category];
     if (!ritualsForCategory || ritualsForCategory.length === 0) {
-      contentEl.innerHTML = `<p class="cf-step-text">No rituals found for this category yet.</p>`;
+      contentEl.innerHTML = `
+        <p class="cf-step-text">No rituals found for this category yet.</p>
+      `;
       return;
     }
 
@@ -76,6 +80,7 @@ async function setupLessonPage() {
       const step = ritual.steps[currentStepIndex];
 
       if (!step) {
+        // Ritual complete
         contentEl.innerHTML = `
           <p class="cf-step-text">You finished this ritual. Nice work.</p>
         `;
@@ -86,30 +91,37 @@ async function setupLessonPage() {
         return;
       }
 
+      // Render step
       contentEl.innerHTML = `
         <p class="cf-step-text">${step.text}</p>
         ${step.hint ? `<p class="cf-step-hint">${step.hint}</p>` : ""}
       `;
     }
 
+    // First step
     renderStep();
 
+    // Next button
     nextButton.addEventListener("click", () => {
       currentStepIndex += 1;
       renderStep();
     });
+
   } catch (err) {
     console.error("Error loading ritual:", err);
-    contentEl.innerHTML = `<p class="cf-step-text">Oops. Something went wrong loading this ritual.</p>`;
+    contentEl.innerHTML = `
+      <p class="cf-step-text">Oops. Something went wrong loading this ritual.</p>
+    `;
   }
 }
 
-// -----------------------------
+// ----------------------------------------------------
 // Init
-// -----------------------------
+// ----------------------------------------------------
 
 document.addEventListener("DOMContentLoaded", () => {
   setupSubjectsPage();
   setupLessonPage();
 });
+
 
