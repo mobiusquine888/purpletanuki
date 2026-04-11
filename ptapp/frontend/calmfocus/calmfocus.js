@@ -1,20 +1,25 @@
 // calmfocus.js
-// Middle-school friendly: small, clear functions, no fancy stuff.
+// Clean, predictable, middle‑school friendly logic.
+// No fancy patterns. No async traps. No layout collisions.
 
-// Helper: get query parameter from URL (e.g., ?category=breathing)
+// -----------------------------
+// Helpers
+// -----------------------------
+
 function getQueryParam(name) {
   const params = new URLSearchParams(window.location.search);
   return params.get(name);
 }
 
-// Helper: pick a random item from an array
 function pickRandom(array) {
   if (!array || array.length === 0) return null;
-  const index = Math.floor(Math.random() * array.length);
-  return array[index];
+  return array[Math.floor(Math.random() * array.length)];
 }
 
-// When we are on subjects.html, wire up the category cards
+// -----------------------------
+// Subjects Page
+// -----------------------------
+
 function setupSubjectsPage() {
   const cards = document.querySelectorAll(".cf-card");
   if (!cards || cards.length === 0) return;
@@ -28,42 +33,48 @@ function setupSubjectsPage() {
   });
 }
 
-// When we are on lesson.html, load a ritual and show its steps
+// -----------------------------
+// Lesson Page
+// -----------------------------
+
 async function setupLessonPage() {
   const contentEl = document.getElementById("cf-lesson-content");
   const titleEl = document.getElementById("cf-lesson-title");
   const subtitleEl = document.getElementById("cf-lesson-subtitle");
   const nextButton = document.getElementById("cf-next-step");
 
+  // If these don't exist, we are not on lesson.html
   if (!contentEl || !nextButton) return;
 
   const category = getQueryParam("category") || "breathing";
 
   try {
+    // Load curriculum
     const curriculumRes = await fetch("curriculum.json");
     const curriculum = await curriculumRes.json();
 
     const ritualsForCategory = curriculum[category];
     if (!ritualsForCategory || ritualsForCategory.length === 0) {
-      contentEl.textContent = "No rituals found for this category yet.";
+      contentEl.innerHTML = `<p class="cf-step-text">No rituals found for this category yet.</p>`;
       return;
     }
 
+    // Pick a ritual
     const ritualMeta = pickRandom(ritualsForCategory);
-
     const ritualRes = await fetch(ritualMeta.file);
     const ritual = await ritualRes.json();
 
+    // Title + subtitle
     titleEl.textContent = ritual.title || ritualMeta.title || "Calm Ritual";
-    if (subtitleEl) {
-      subtitleEl.textContent =
-        ritual.subtitle || "Take a tiny calm moment with Tanuki.";
-    }
+    subtitleEl.textContent =
+      ritual.subtitle || "Take a tiny calm moment with Tanuki.";
 
+    // Step progression
     let currentStepIndex = 0;
 
     function renderStep() {
       const step = ritual.steps[currentStepIndex];
+
       if (!step) {
         contentEl.innerHTML = `
           <p class="cf-step-text">You finished this ritual. Nice work.</p>
@@ -89,11 +100,16 @@ async function setupLessonPage() {
     });
   } catch (err) {
     console.error("Error loading ritual:", err);
-    contentEl.textContent = "Oops. Something went wrong loading this ritual.";
+    contentEl.innerHTML = `<p class="cf-step-text">Oops. Something went wrong loading this ritual.</p>`;
   }
 }
+
+// -----------------------------
+// Init
+// -----------------------------
 
 document.addEventListener("DOMContentLoaded", () => {
   setupSubjectsPage();
   setupLessonPage();
 });
+
