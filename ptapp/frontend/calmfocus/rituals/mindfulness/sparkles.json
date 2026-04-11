@@ -1,0 +1,24 @@
+{
+  "id": "sparkles",
+  "title": "Follow the Sparkles",
+  "subtitle": "Notice tiny sparkles of calm around you.",
+  "type": "mindfulness",
+  "steps": [
+    {
+      "text": "Look around the room slowly, like you're searching for sparkles.",
+      "hint": "Move your eyes, not your whole head."
+    },
+    {
+      "text": "Pick one tiny thing to focus on — a color, a shape, or a shadow.",
+      "hint": "Hold your attention there for one slow breath."
+    },
+    {
+      "text": "Now choose a new sparkle — something small you didn’t notice before.",
+      "hint": "Let your breath stay soft and gentle."
+    },
+    {
+      "text": "Find one last sparkle and take a deep breath in… and out.",
+      "hint": "You just practiced mindful noticing."
+    }
+  ]
+}
