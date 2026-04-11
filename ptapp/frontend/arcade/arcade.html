@@ -5,42 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PurpleTanuki Arcade</title>
 
-  <!-- Reforged Arcade Styles -->
   <link rel="stylesheet" href="arcade.css" />
   <link rel="stylesheet" href="/games/theme/tanuki-theme.css" />
+  <link rel="stylesheet" href="/global/arcade-button.css" />
+  <script src="/global/arcade-button.js"></script>
 </head>
 
 <body>
 
   <div class="arc-root">
 
-    <!-- HEADER -->
     <div class="arc-header">
       <h1 class="arc-title">PurpleTanuki Arcade</h1>
       <p class="arc-subtitle">Choose your world</p>
     </div>
 
-    <!-- PYRAMID LAYOUT -->
     <div class="arc-pyramid">
 
-      <!-- TOP: CALM & FOCUS -->
       <a class="arc-block arc-top" id="world-calmfocus"
          href="/calmfocus/index.html">
         <div class="arc-block-title">Calm & Focus</div>
         <div class="arc-block-desc">Breathing • Emotions • Mindfulness</div>
       </a>
 
-      <!-- MIDDLE ROW -->
       <div class="arc-middle-row">
 
-        <!-- EARLY LEARNING -->
         <a class="arc-block arc-middle" id="world-earlylearning"
            href="/worlds/earlylearning/earlylearning_worldmap.html">
           <div class="arc-block-title">Early Learning</div>
           <div class="arc-block-desc">Preschool • Kindergarten • Foundations</div>
         </a>
 
-        <!-- BIG KID SKILLS -->
         <a class="arc-block arc-middle" id="world-bigkidskills"
            href="/worlds/bigkidskills/worldmap_bigkids.html">
           <div class="arc-block-title">Big Kid Skills</div>
@@ -49,7 +44,6 @@
 
       </div>
 
-      <!-- BOTTOM: LIFE SKILLS -->
       <a class="arc-block arc-bottom" id="world-lifeskills"
          href="/worlds/lifeskills/worldmap_lifeskills.html">
         <div class="arc-block-title">Life Skills</div>
@@ -60,13 +54,10 @@
 
   </div>
 
-  <!-- Minimal Arcade Logic -->
   <script src="arcade.js"></script>
 
-  <!-- SINGLE Parent Button -->
   <a href="/parent-dashboard/index.html" class="parent-btn">Parent</a>
 
-  <!-- World Access Enforcement -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const local = localStorage.getItem("pt_parent_settings");
