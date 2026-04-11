@@ -5,43 +5,149 @@
   <title>Big Kid Skills</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="worldmap_bigkids.css" />
+  <link rel="stylesheet" href="bigkidskills_worldmap.css" />
   <link rel="stylesheet" href="/games/theme/tanuki-theme.css" />
   <link rel="stylesheet" href="/global/arcade-button.css" />
   <script src="/global/arcade-button.js"></script>
-  <script defer src="worldmap_bigkids.js"></script>
+  <script defer src="bigkidskills_worldmap.js"></script>
 </head>
 
-<body class="bks-body">
+<body class="bk-body">
 
-  <div class="bks-shell">
+  <div class="bk-shell">
 
-    <header class="bks-header">
+    <header class="bk-header">
       <img
-        src="https://purpletanuki.netlify.app/images/tanuki_bigkid.png"
+        src="https://purpletanuki.netlify.app/images/tanuki_bigkids.png"
         alt="Tanuki"
-        class="bks-hero-image"
+        class="bk-hero-tanuki"
       />
-      <h1 class="bks-title">Big Kid Skills</h1>
-      <p class="bks-subtitle">Reading • Math • Logic • Challenges</p>
+      <h1 class="bk-title">Big Kid Skills</h1>
+      <p class="bk-subtitle">Confidence • Thinking • Growing Up</p>
+      <p class="bk-subsubtitle">Choose your skill world.</p>
     </header>
 
-    <main class="bks-main">
+    <!-- Free Worlds -->
+    <section class="bk-section">
+      <h2 class="bk-section-title">Free Skill Worlds</h2>
 
-      <div class="bks-hero-card">
-        <p class="bks-hero-text">
-          Level up your skills with fun challenges and quests.
-        </p>
+      <div class="bk-worlds bk-worlds-free">
 
-        <a href="#" class="bks-primary-button">
-          Coming Soon
-        </a>
+        <button class="bk-world-card bk-world-free" data-world="logic">
+          <div class="bk-world-tag bk-world-tag-free">Free</div>
+          <div class="bk-world-icon bk-world-icon-logic"></div>
+          <h3 class="bk-world-title">Logic & Puzzles</h3>
+          <p class="bk-world-text">
+            Patterns, matching, early problem‑solving.
+          </p>
+          <span class="bk-world-cta">Start Logic</span>
+        </button>
+
+        <button class="bk-world-card bk-world-free" data-world="reading">
+          <div class="bk-world-tag bk-world-tag-free">Free</div>
+          <div class="bk-world-icon bk-world-icon-reading"></div>
+          <h3 class="bk-world-title">Reading Boosters</h3>
+          <p class="bk-world-text">
+            Vocabulary, comprehension, story skills.
+          </p>
+          <span class="bk-world-cta">Start Reading</span>
+        </button>
+
       </div>
+    </section>
 
-    </main>
+    <!-- Divider -->
+    <div class="bk-divider">
+      <span class="bk-divider-line"></span>
+      <span class="bk-divider-label">More Skill Worlds</span>
+      <span class="bk-divider-line"></span>
+    </div>
 
+    <!-- Premium Worlds -->
+    <section class="bk-section">
+      <div class="bk-worlds bk-worlds-premium">
+
+        <button class="bk-world-card bk-world-premium" data-world="math">
+          <div class="bk-world-tag bk-world-tag-premium">
+            <span class="bk-lock-icon">🔒</span> Premium
+          </div>
+          <div class="bk-world-icon bk-world-icon-math"></div>
+          <h3 class="bk-world-title">Math Challenges</h3>
+          <p class="bk-world-text">
+            Number sense, puzzles, tiny math games.
+          </p>
+        </button>
+
+        <button class="bk-world-card bk-world-premium" data-world="focus">
+          <div class="bk-world-tag bk-world-tag-premium">
+            <span class="bk-lock-icon">🔒</span> Premium
+          </div>
+          <div class="bk-world-icon bk-world-icon-focus"></div>
+          <h3 class="bk-world-title">Focus Builders</h3>
+          <p class="bk-world-text">
+            Attention games and quiet concentration.
+          </p>
+        </button>
+
+        <button class="bk-world-card bk-world-premium" data-world="lifeskills">
+          <div class="bk-world-tag bk-world-tag-premium">
+            <span class="bk-lock-icon">🔒</span> Premium
+          </div>
+          <div class="bk-world-icon bk-world-icon-lifeskills"></div>
+          <h3 class="bk-world-title">Growing Up Skills</h3>
+          <p class="bk-world-text">
+            Habits, routines, confidence boosters.
+          </p>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- Parent Layer -->
+    <footer class="bk-footer">
+      <button class="bk-parent-link" id="bk-parent-link">
+        For Grown‑Ups: How Big Kid Skills Works
+      </button>
+    </footer>
+
+  </div>
+
+  <!-- Parent Modal -->
+  <div class="bk-modal-backdrop" id="bk-parent-modal">
+    <div class="bk-modal">
+      <h2 class="bk-modal-title">Big Kid Skills with Tanuki</h2>
+      <p class="bk-modal-text">
+        Logic and Reading Boosters are fully included for free.
+      </p>
+      <p class="bk-modal-text">
+        Premium worlds add math challenges, focus builders, and growing‑up skills.
+      </p>
+      <p class="bk-modal-text">
+        No pressure — just confidence and curiosity.
+      </p>
+      <button class="bk-modal-close" id="bk-parent-close">Got it</button>
+    </div>
+  </div>
+
+  <!-- Premium Modal -->
+  <div class="bk-modal-backdrop" id="bk-premium-modal">
+    <div class="bk-modal">
+      <h2 class="bk-modal-title">More Skill Worlds</h2>
+      <p class="bk-modal-text">
+        These are bonus skill worlds. Start with the free ones first.
+      </p>
+      <div class="bk-modal-actions">
+        <button class="bk-modal-secondary" id="bk-premium-see-free">
+          See Free Worlds
+        </button>
+        <button class="bk-modal-primary" id="bk-premium-learn-more">
+          Learn About Premium
+        </button>
+      </div>
+    </div>
   </div>
 
 </body>
 </html>
+
 
