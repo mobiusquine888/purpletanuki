@@ -1,0 +1,65 @@
+body.bks-body {
+  background: #ffffff;
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.bks-shell {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.bks-header {
+  margin-bottom: 30px;
+}
+
+.bks-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #6a2dd8;
+  margin-bottom: 5px;
+}
+
+.bks-subtitle {
+  font-size: 20px;
+  color: #666;
+}
+
+.bks-main {
+  display: flex;
+  justify-content: center;
+}
+
+.bks-hero-card {
+  background: linear-gradient(135deg, #ffffff, #f7f2ff);
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  max-width: 420px;
+}
+
+.bks-hero-image {
+  width: 180px;
+  margin-bottom: 20px;
+}
+
+.bks-hero-text {
+  font-size: 18px;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.bks-primary-button {
+  display: inline-block;
+  background: #6a2dd8;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
