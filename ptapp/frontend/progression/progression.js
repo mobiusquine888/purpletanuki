@@ -8,6 +8,8 @@ const SUBSCRIPTION_KEY = "pt_subscription_v1";
 const STREAK_KEY = "pt_streak_v1";
 const LAST_PLAY_KEY = "pt_last_play_v1";
 
+const PARENT_SETTINGS_KEY = "pt_parent_settings"; // localStorage rulebook
+
 // Load config (inline or via fetch)
 async function loadProgressionConfig() {
   if (PROGRESSION_CONFIG) return PROGRESSION_CONFIG;
@@ -132,9 +134,8 @@ function updateProgressRings() {
     const el = document.getElementById(`ring-${world}`);
     if (!el) return;
 
-    // Map world keys to your config keys
     const map = {
-      calmfocus: "preschool",       // adjust if needed
+      calmfocus: "preschool",
       earlylearning: "preschool",
       bigkidskills: "grade1",
       lifeskills: "grade1"
@@ -143,7 +144,38 @@ function updateProgressRings() {
     const configKey = map[world];
     const pct = computeWorldCompletion(configKey);
     el.textContent = pct + "%";
+
+    if (pct >= 100) {
+      el.classList.add("complete");
+    }
   });
+}
+
+// ======================================================
+//  WORLD GATING (NEW)
+// ======================================================
+
+function loadParentSettings() {
+  const raw = localStorage.getItem(PARENT_SETTINGS_KEY);
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+function applyWorldGating() {
+  const settings = loadParentSettings();
+  if (!settings) return; // no gating applied
+
+  // If you later add worldAccess back to Parent Controls, wire it here.
+  // For now, worlds are always visible unless you choose to gate them.
+
+  // Example gating logic (disabled by default):
+  // if (!settings.worldAccess?.calmfocus) {
+  //   document.getElementById("world-calmfocus-card")?.classList.add("locked");
+  // }
 }
 
 // ======================================================
@@ -177,7 +209,6 @@ function updateStreak() {
 // ======================================================
 
 function continueLearning() {
-  // Choose a default world + subject
   const grade = "preschool";
   const subject = "math";
 
@@ -199,5 +230,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   await loadProgressionConfig();
   updateProgressRings();
   updateStreak();
+  applyWorldGating();
 });
 
