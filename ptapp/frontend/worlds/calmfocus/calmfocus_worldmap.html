@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calm & Focus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="calmfocus.css" />
+  <link rel="stylesheet" href="/games/theme/tanuki-theme.css" />
+  <link rel="stylesheet" href="/global/arcade-button.css" />
+  <script src="/global/arcade-button.js"></script>
+  <script defer src="calmfocus.js"></script>
+</head>
+
+<body class="cf-body">
+
+  <div class="cf-shell">
+
+    <header class="cf-header">
+      <img
+        src="https://purpletanuki.netlify.app/images/tanuki_calm.png"
+        alt="Tanuki"
+        class="cf-hero-tanuki"
+      />
+      <h1 class="cf-title">Calm & Focus</h1>
+      <p class="cf-subtitle">Soft rituals for emotions, breathing, and mindfulness.</p>
+      <p class="cf-subsubtitle">Choose your ritual path.</p>
+    </header>
+
+    <!-- Free Rituals -->
+    <section class="cf-section">
+      <h2 class="cf-section-title">Free Rituals</h2>
+
+      <div class="cf-worlds cf-worlds-free">
+
+        <button class="cf-world-card cf-world-free" data-world="breathing">
+          <div class="cf-world-tag cf-world-tag-free">Free</div>
+          <div class="cf-world-icon cf-world-icon-breathing"></div>
+          <h3 class="cf-world-title">Breathing Rituals</h3>
+          <p class="cf-world-text">
+            Slow breaths, calming shapes, gentle animations.
+          </p>
+          <span class="cf-world-cta">Start Breathing</span>
+        </button>
+
+        <button class="cf-world-card cf-world-free" data-world="emotions">
+          <div class="cf-world-tag cf-world-tag-free">Free</div>
+          <div class="cf-world-icon cf-world-icon-emotions"></div>
+          <h3 class="cf-world-title">Emotions Check‑In</h3>
+          <p class="cf-world-text">
+            Tiny grounding moments for big feelings.
+          </p>
+          <span class="cf-world-cta">Start Check‑In</span>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="cf-divider">
+      <span class="cf-divider-line"></span>
+      <span class="cf-divider-label">More Ritual Worlds</span>
+      <span class="cf-divider-line"></span>
+    </div>
+
+    <!-- Premium Rituals -->
+    <section class="cf-section">
+      <div class="cf-worlds cf-worlds-premium">
+
+        <button class="cf-world-card cf-world-premium" data-world="sleep">
+          <div class="cf-world-tag cf-world-tag-premium">
+            <span class="cf-lock-icon">🔒</span> Premium
+          </div>
+          <div class="cf-world-icon cf-world-icon-sleep"></div>
+          <h3 class="cf-world-title">Sleep Rituals</h3>
+          <p class="cf-world-text">
+            Soft stories, slow breathing, bedtime calm.
+          </p>
+        </button>
+
+        <button class="cf-world-card cf-world-premium" data-world="focus">
+          <div class="cf-world-tag cf-world-tag-premium">
+            <span class="cf-lock-icon">🔒</span> Premium
+          </div>
+          <div class="cf-world-icon cf-world-icon-focus"></div>
+          <h3 class="cf-world-title">Focus Boosters</h3>
+          <p class="cf-world-text">
+            Tiny concentration games and quiet moments.
+          </p>
+        </button>
+
+        <button class="cf-world-card cf-world-premium" data-world="gratitude">
+          <div class="cf-world-tag cf-world-tag-premium">
+            <span class="cf-lock-icon">🔒</span> Premium
+          </div>
+          <div class="cf-world-icon cf-world-icon-gratitude"></div>
+          <h3 class="cf-world-title">Gratitude Rituals</h3>
+          <p class="cf-world-text">
+            Gentle prompts for kindness and reflection.
+          </p>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- Parent Layer -->
+    <footer class="cf-footer">
+      <button class="cf-parent-link" id="cf-parent-link">
+        For Grown‑Ups: How Calm & Focus Works
+      </button>
+    </footer>
+
+  </div>
+
+  <!-- Parent Modal -->
+  <div class="cf-modal-backdrop" id="cf-parent-modal">
+    <div class="cf-modal">
+      <h2 class="cf-modal-title">Calm & Focus with Tanuki</h2>
+      <p class="cf-modal-text">
+        Breathing and emotions check‑ins are fully included for free.
+      </p>
+      <p class="cf-modal-text">
+        Premium rituals add sleep stories, focus boosters, and gratitude moments.
+      </p>
+      <p class="cf-modal-text">
+        No timers, no pressure — just soft, magical calm.
+      </p>
+      <button class="cf-modal-close" id="cf-parent-close">Got it</button>
+    </div>
+  </div>
+
+  <!-- Premium Modal -->
+  <div class="cf-modal-backdrop" id="cf-premium-modal">
+    <div class="cf-modal">
+      <h2 class="cf-modal-title">More Ritual Worlds</h2>
+      <p class="cf-modal-text">
+        These are bonus ritual worlds. Start with the free rituals first.
+      </p>
+      <div class="cf-modal-actions">
+        <button class="cf-modal-secondary" id="cf-premium-see-free">
+          See Free Rituals
+        </button>
+        <button class="cf-modal-primary" id="cf-premium-learn-more">
+          Learn About Premium
+        </button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
