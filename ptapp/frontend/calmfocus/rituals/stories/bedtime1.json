@@ -1,0 +1,24 @@
+{
+  "id": "bedtime1",
+  "title": "Tanuki’s Sleepy Forest",
+  "subtitle": "A quiet story to help your body slow down.",
+  "type": "stories",
+  "steps": [
+    {
+      "text": "Imagine Tanuki walking through a soft, sleepy forest.",
+      "hint": "The trees glow gently like night-lights."
+    },
+    {
+      "text": "Tanuki finds a cozy spot under a big mossy tree.",
+      "hint": "The ground feels warm and safe."
+    },
+    {
+      "text": "A tiny breeze moves through the leaves, making a soft shhh sound.",
+      "hint": "Take a slow breath in… and out… with the breeze."
+    },
+    {
+      "text": "Tanuki curls up and closes their eyes, feeling calm and peaceful.",
+      "hint": "Let your body feel calm too."
+    }
+  ]
+}
