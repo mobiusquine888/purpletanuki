@@ -1,0 +1,10 @@
+{
+  "gateEnabled": true,
+  "strictness": "medium",
+  "cooldownMinutes": 5,
+  "dailyMinutes": 60,
+  "sessionMinutes": 20,
+  "blockedApps": ["youtube.com", "tiktok.com"],
+  "allowedApps": [],
+  "pin": null
+}
