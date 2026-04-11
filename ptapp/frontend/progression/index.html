@@ -36,7 +36,40 @@
       background: url('/images/lock.png') center/contain no-repeat;
       opacity: 0.9;
     }
+
+    /* Make world cards tappable */
+    .world-card {
+      cursor: pointer;
+    }
   </style>
+
+  <script>
+    // WORLD → SUBJECT ROUTING
+    function openWorld(worldKey) {
+      const subscribed = localStorage.getItem("pt_subscription_v1") === "true";
+
+      // Map world → grade
+      const map = {
+        calmfocus: "preschool",
+        earlylearning: "preschool",
+        bigkidskills: "grade1",
+        lifeskills: "grade1"
+      };
+
+      const grade = map[worldKey];
+
+      // Premium worlds require subscription
+      const isPremiumWorld = grade === "grade1";
+
+      if (!subscribed && isPremiumWorld) {
+        window.location.href = "/progression/paywall.html?redirect=/progression/index.html";
+        return;
+      }
+
+      // Route to world subject selection (or directly to lessons)
+      window.location.href = `/subjects.html?grade=${grade}`;
+    }
+  </script>
 </head>
 
 <body>
@@ -48,23 +81,23 @@
   <div class="progress-section">
     <h2>Your Journey</h2>
 
-    <!-- WORLD CARDS (IDs must match progression.js) -->
-    <div class="world-card" id="world-calmfocus-card">
+    <!-- WORLD CARDS -->
+    <div class="world-card" id="world-calmfocus-card" onclick="openWorld('calmfocus')">
       <div class="world-name">Calm & Focus</div>
       <div class="ring" id="ring-calmfocus">0%</div>
     </div>
 
-    <div class="world-card" id="world-earlylearning-card">
+    <div class="world-card" id="world-earlylearning-card" onclick="openWorld('earlylearning')">
       <div class="world-name">Early Learning</div>
       <div class="ring" id="ring-earlylearning">0%</div>
     </div>
 
-    <div class="world-card" id="world-bigkidskills-card">
+    <div class="world-card" id="world-bigkidskills-card" onclick="openWorld('bigkidskills')">
       <div class="world-name">Big Kid Skills</div>
       <div class="ring" id="ring-bigkidskills">0%</div>
     </div>
 
-    <div class="world-card" id="world-lifeskills-card">
+    <div class="world-card" id="world-lifeskills-card" onclick="openWorld('lifeskills')">
       <div class="world-name">Life Skills</div>
       <div class="ring" id="ring-lifeskills">0%</div>
     </div>
