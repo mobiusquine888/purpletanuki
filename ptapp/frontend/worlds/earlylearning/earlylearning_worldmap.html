@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Early Learning Worlds</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="earlylearning_worldmap.css" />
+  <script defer src="earlylearning_worldmap.js"></script>
+</head>
+
+<body class="el-body">
+
+  <div class="el-shell">
+
+    <!-- Hero / Onboarding -->
+    <header class="el-header">
+      <img
+        src="https://purpletanuki.netlify.app/images/tanuki_calm.png"
+        alt="Tanuki"
+        class="el-hero-tanuki"
+      />
+      <h1 class="el-title">Early Learning with Tanuki</h1>
+      <p class="el-subtitle">Let’s learn something magical today.</p>
+      <p class="el-subsubtitle">Choose your learning path.</p>
+    </header>
+
+    <!-- Free Worlds -->
+    <section class="el-section">
+      <h2 class="el-section-title">Free Learning Worlds</h2>
+
+      <div class="el-worlds el-worlds-free">
+
+        <button class="el-world-card el-world-free" data-world="preschool">
+          <div class="el-world-tag el-world-tag-free">Free</div>
+          <div class="el-world-icon el-world-icon-preschool"></div>
+          <h3 class="el-world-title">Preschool Path</h3>
+          <p class="el-world-age">Ages 3–5</p>
+          <p class="el-world-text">
+            Colors, shapes, counting, early puzzles.
+          </p>
+          <span class="el-world-cta">Start Preschool Path</span>
+        </button>
+
+        <button class="el-world-card el-world-free" data-world="kindergarten">
+          <div class="el-world-tag el-world-tag-free">Free</div>
+          <div class="el-world-icon el-world-icon-kindergarten"></div>
+          <h3 class="el-world-title">Kindergarten Path</h3>
+          <p class="el-world-age">Ages 5–7</p>
+          <p class="el-world-text">
+            Letters, phonics, early reading, early math.
+          </p>
+          <span class="el-world-cta">Start Kindergarten Path</span>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="el-divider">
+      <span class="el-divider-line"></span>
+      <span class="el-divider-label">More Learning Worlds</span>
+      <span class="el-divider-line"></span>
+    </div>
+
+    <!-- Premium Worlds -->
+    <section class="el-section">
+      <div class="el-worlds el-worlds-premium">
+
+        <button class="el-world-card el-world-premium" data-world="phonics">
+          <div class="el-world-tag el-world-tag-premium">
+            <span class="el-lock-icon">🔒</span> Premium
+          </div>
+          <div class="el-world-icon el-world-icon-phonics"></div>
+          <h3 class="el-world-title">Phonics World</h3>
+          <p class="el-world-age">Ages 4–7</p>
+          <p class="el-world-text">
+            Sounds, blends, and early word building.
+          </p>
+        </button>
+
+        <button class="el-world-card el-world-premium" data-world="numbers">
+          <div class="el-world-tag el-world-tag-premium">
+            <span class="el-lock-icon">🔒</span> Premium
+          </div>
+          <div class="el-world-icon el-world-icon-numbers"></div>
+          <h3 class="el-world-title">Numbers World</h3>
+          <p class="el-world-age">Ages 4–7</p>
+          <p class="el-world-text">
+            Counting mastery and tiny math games.
+          </p>
+        </button>
+
+        <button class="el-world-card el-world-premium" data-world="reading">
+          <div class="el-world-tag el-world-tag-premium">
+            <span class="el-lock-icon">🔒</span> Premium
+          </div>
+          <div class="el-world-icon el-world-icon-reading"></div>
+          <h3 class="el-world-title">Reading Readiness</h3>
+          <p class="el-world-age">Ages 4–7</p>
+          <p class="el-world-text">
+            Early readers, comprehension, and vocabulary.
+          </p>
+        </button>
+
+        <button class="el-world-card el-world-premium" data-world="storybooks">
+          <div class="el-world-tag el-world-tag-premium">
+            <span class="el-lock-icon">🔒</span> Premium
+          </div>
+          <div class="el-world-icon el-world-icon-storybooks"></div>
+          <h3 class="el-world-title">Tanuki Storybooks</h3>
+          <p class="el-world-age">Ages 3–7</p>
+          <p class="el-world-text">
+            Magical narrated stories for quiet moments.
+          </p>
+        </button>
+
+        <button class="el-world-card el-world-premium" data-world="logic">
+          <div class="el-world-tag el-world-tag-premium">
+            <span class="el-lock-icon">🔒</span> Premium
+          </div>
+          <div class="el-world-icon el-world-icon-logic"></div>
+          <h3 class="el-world-title">Logic & Puzzles</h3>
+          <p class="el-world-age">Ages 4–7</p>
+          <p class="el-world-text">
+            Patterns, matching, and early logic games.
+          </p>
+        </button>
+
+        <button class="el-world-card el-world-premium" data-world="science">
+          <div class="el-world-tag el-world-tag-premium">
+            <span class="el-lock-icon">🔒</span> Premium
+          </div>
+          <div class="el-world-icon el-world-icon-science"></div>
+          <h3 class="el-world-title">Science & Nature</h3>
+          <p class="el-world-age">Ages 4–7</p>
+          <p class="el-world-text">
+            Animals, weather, senses, and tiny experiments.
+          </p>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- Parent Layer -->
+    <footer class="el-footer">
+      <button class="el-parent-link" id="el-parent-link">
+        For Grown‑Ups: How Early Learning Works
+      </button>
+    </footer>
+
+  </div>
+
+  <!-- Parent Modal -->
+  <div class="el-modal-backdrop" id="el-parent-modal">
+    <div class="el-modal">
+      <h2 class="el-modal-title">Early Learning with Tanuki</h2>
+      <p class="el-modal-text">
+        Preschool and Kindergarten paths are fully included for free.
+        They build early confidence in colors, shapes, letters, sounds,
+        numbers, and tiny problem‑solving moments.
+      </p>
+      <p class="el-modal-text">
+        Premium worlds add more depth: phonics, numbers mastery, early
+        reading, storybooks, logic puzzles, and science & nature. These
+        are optional expansions for families who want more.
+      </p>
+      <p class="el-modal-text">
+        You can start with the free paths and see how your child responds.
+        There is no timer, no streak pressure, and no noisy ads — just
+        soft, magical learning with Tanuki.
+      </p>
+      <button class="el-modal-close" id="el-parent-close">Got it</button>
+    </div>
+  </div>
+
+  <!-- Premium Modal -->
+  <div class="el-modal-backdrop" id="el-premium-modal">
+    <div class="el-modal">
+      <h2 class="el-modal-title">More Learning Worlds</h2>
+      <p class="el-modal-text">
+        This is a bonus learning world. Preschool and Kindergarten paths
+        are fully included for free and are the best place to start.
+      </p>
+      <p class="el-modal-text">
+        When you’re ready, you can unlock extra worlds like Phonics,
+        Numbers, Reading Readiness, Storybooks, Logic & Puzzles, and
+        Science & Nature.
+      </p>
+      <div class="el-modal-actions">
+        <button class="el-modal-secondary" id="el-premium-see-free">
+          See Free Worlds
+        </button>
+        <button class="el-modal-primary" id="el-premium-learn-more">
+          Learn About Premium
+        </button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
