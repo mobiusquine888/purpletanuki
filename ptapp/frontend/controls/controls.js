@@ -1,70 +1,75 @@
+// ======================================================
+// LOAD SETTINGS
+// ======================================================
+
 async function loadSettings() {
   try {
+    // 1. Check localStorage first
     const local = localStorage.getItem("pt_parent_settings");
     if (local) {
       applySettingsToUI(JSON.parse(local));
       return;
     }
 
-    const res = await fetch("data/parent-settings.json");
+    // 2. Fallback to parent-settings.json
+    const res = await fetch("parent-settings.json", { cache: "no-store" });
     const settings = await res.json();
     applySettingsToUI(settings);
+
   } catch (e) {
     console.error("Failed to load parent settings", e);
   }
 }
 
+// ======================================================
+// APPLY SETTINGS TO UI
+// ======================================================
+
 function applySettingsToUI(s) {
-  document.getElementById("world-calmfocus").checked = s.worldAccess.calmfocus;
-  document.getElementById("world-earlylearning").checked = s.worldAccess.earlylearning;
-  document.getElementById("world-bigkidskills").checked = s.worldAccess.bigkidskills;
-  document.getElementById("world-lifeskills").checked = s.worldAccess.lifeskills;
+  document.getElementById("gate-enabled").checked = s.gateEnabled;
+  document.getElementById("gate-strictness").value = s.strictness;
+  document.getElementById("gate-cooldown").value = s.cooldownMinutes;
 
-  document.getElementById("gate-enabled").checked = s.gate.enabled;
-  document.getElementById("gate-strictness").value = s.gate.strictness;
-  document.getElementById("gate-cooldown").value = s.gate.cooldownMinutes;
+  document.getElementById("time-daily").value = s.dailyMinutes;
+  document.getElementById("time-session").value = s.sessionMinutes;
 
-  document.getElementById("time-daily").value = s.timeLimits.dailyMinutes;
-  document.getElementById("time-session").value = s.timeLimits.sessionMinutes;
+  document.getElementById("apps-blocked").value = (s.blockedApps || []).join(", ");
 
-  document.getElementById("apps-blocked").value = s.apps.blocked.join(", ");
-
-  document.getElementById("pin-enabled").checked = s.pin.enabled;
-  document.getElementById("pin-code").value = s.pin.code;
+  document.getElementById("pin-enabled").checked = !!s.pin;
+  document.getElementById("pin-code").value = s.pin || "";
 }
+
+// ======================================================
+// COLLECT SETTINGS FROM UI
+// ======================================================
 
 function collectSettingsFromUI() {
+  const pinEnabled = document.getElementById("pin-enabled").checked;
+  const pinCode = document.getElementById("pin-code").value.trim();
+
   return {
-    worldAccess: {
-      calmfocus: document.getElementById("world-calmfocus").checked,
-      earlylearning: document.getElementById("world-earlylearning").checked,
-      bigkidskills: document.getElementById("world-bigkidskills").checked,
-      lifeskills: document.getElementById("world-lifeskills").checked
-    },
-    gate: {
-      enabled: document.getElementById("gate-enabled").checked,
-      strictness: document.getElementById("gate-strictness").value,
-      cooldownMinutes: Number(document.getElementById("gate-cooldown").value) || 0,
-      requireChallengeBeforeDoomscroll: true
-    },
-    timeLimits: {
-      dailyMinutes: Number(document.getElementById("time-daily").value) || 0,
-      sessionMinutes: Number(document.getElementById("time-session").value) || 0
-    },
-    apps: {
-      blocked: document
-        .getElementById("apps-blocked")
-        .value.split(",")
-        .map(x => x.trim())
-        .filter(Boolean),
-      allowed: []
-    },
-    pin: {
-      enabled: document.getElementById("pin-enabled").checked,
-      code: document.getElementById("pin-code").value || ""
-    }
+    gateEnabled: document.getElementById("gate-enabled").checked,
+    strictness: document.getElementById("gate-strictness").value,
+    cooldownMinutes: Number(document.getElementById("gate-cooldown").value) || 0,
+
+    dailyMinutes: Number(document.getElementById("time-daily").value) || 0,
+    sessionMinutes: Number(document.getElementById("time-session").value) || 0,
+
+    blockedApps: document
+      .getElementById("apps-blocked")
+      .value.split(",")
+      .map(x => x.trim())
+      .filter(Boolean),
+
+    allowedApps: [],
+
+    pin: pinEnabled ? pinCode : null
   };
 }
+
+// ======================================================
+// SAVE SETTINGS
+// ======================================================
 
 function saveSettingsLocally(settings) {
   localStorage.setItem("pt_parent_settings", JSON.stringify(settings));
@@ -76,6 +81,10 @@ function showStatus(msg) {
   setTimeout(() => (el.textContent = ""), 2000);
 }
 
+// ======================================================
+// INIT
+// ======================================================
+
 document.addEventListener("DOMContentLoaded", () => {
   loadSettings();
 
@@ -85,3 +94,4 @@ document.addEventListener("DOMContentLoaded", () => {
     showStatus("Settings saved.");
   });
 });
+
