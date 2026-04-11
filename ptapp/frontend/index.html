@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PurpleTanuki Arcade</title>
+
+  <link rel="stylesheet" href="arcade.css" />
+  <link rel="stylesheet" href="/games/theme/tanuki-theme.css" />
+  <link rel="stylesheet" href="/global/arcade-button.css" />
+  <script src="/global/arcade-button.js"></script>
+</head>
+
+<body>
+
+  <div class="arc-root">
+
+    <div class="arc-header">
+      <h1 class="arc-title">PurpleTanuki Arcade</h1>
+      <p class="arc-subtitle">Choose your world</p>
+    </div>
+
+    <div class="arc-pyramid">
+
+      <a class="arc-block arc-top" id="world-calmfocus"
+   href="/worlds/calmfocus/calmfocus_worldmap.html">
+        <div class="arc-block-title">Calm & Focus</div>
+        <div class="arc-block-desc">Breathing • Emotions • Mindfulness</div>
+      </a>
+
+      <div class="arc-middle-row">
+
+        <a class="arc-block arc-middle" id="world-earlylearning"
+           href="/worlds/earlylearning/earlylearning_worldmap.html">
+          <div class="arc-block-title">Early Learning</div>
+          <div class="arc-block-desc">Preschool • Kindergarten • Foundations</div>
+        </a>
+
+        <a class="arc-block arc-middle" id="world-bigkidskills"
+           href="/worlds/bigkidskills/worldmap_bigkids.html">
+          <div class="arc-block-title">Big Kid Skills</div>
+          <div class="arc-block-desc">Math • Reading • Challenges</div>
+        </a>
+
+      </div>
+
+      <a class="arc-block arc-bottom" id="world-lifeskills"
+         href="/worlds/lifeskills/worldmap_lifeskills.html">
+        <div class="arc-block-title">Life Skills</div>
+        <div class="arc-block-desc">Wisdom • Habits • Growing Up</div>
+      </a>
+
+    </div>
+
+  </div>
+
+  <script src="arcade.js"></script>
+
+  <a href="/parent-dashboard/index.html" class="parent-btn">Parent</a>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const local = localStorage.getItem("pt_parent_settings");
+      if (!local) return;
+
+      const settings = JSON.parse(local);
+
+      if (!settings.worldAccess.calmfocus)
+        document.getElementById("world-calmfocus").style.display = "none";
+
+      if (!settings.worldAccess.earlylearning)
+        document.getElementById("world-earlylearning").style.display = "none";
+
+      if (!settings.worldAccess.bigkidskills)
+        document.getElementById("world-bigkidskills").style.display = "none";
+
+      if (!settings.worldAccess.lifeskills)
+        document.getElementById("world-lifeskills").style.display = "none";
+    });
+  </script>
+
+</body>
+</html>
