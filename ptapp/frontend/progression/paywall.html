@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Unlock the Magic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Load paywall logic -->
+  <script defer src="paywall.js"></script>
+
   <style>
     body {
       margin: 0;
@@ -37,6 +42,7 @@
       text-align: left;
       font-size: 14px;
       margin: 16px 0;
+      padding-left: 18px;
     }
     .feature-list li {
       margin-bottom: 6px;
@@ -68,20 +74,19 @@
       text-decoration: underline;
     }
   </style>
-  <script src="progression/paywall.js"></script>
+
   <script>
     function getRedirectTarget() {
       const params = new URLSearchParams(window.location.search);
-      return params.get("redirect") || "arcade.html";
+      return params.get("redirect") || "/progression/index.html";
     }
 
     function handleSubscribe() {
-      unlockPremium();
+      unlockPremium(); // provided by paywall.js
       window.location.href = getRedirectTarget();
     }
 
     function handleRestore() {
-      // For now, just go back if already subscribed
       if (isSubscribed()) {
         window.location.href = getRedirectTarget();
       } else {
@@ -90,18 +95,21 @@
     }
   </script>
 </head>
+
 <body>
   <div class="paywall-card">
     <div class="headline">Unlock All the Magic</div>
     <div class="subhead">
       Access every world, every subject, and every ritual with your PurpleTanuki guide.
     </div>
+
     <ul class="feature-list">
       <li>All subjects and levels unlocked</li>
       <li>Endless Arcade progression</li>
       <li>Daily rewards and streaks</li>
       <li>Parent insights and gentle guidance</li>
     </ul>
+
     <div class="cta">
       <button onclick="handleSubscribe()">Start Full Access</button>
       <div class="secondary" onclick="handleRestore()">Restore purchase</div>
