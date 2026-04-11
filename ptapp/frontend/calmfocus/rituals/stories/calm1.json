@@ -1,0 +1,24 @@
+{
+  "id": "calm1",
+  "title": "Tanuki and the Gentle River",
+  "subtitle": "A quiet river story to help your body slow down.",
+  "type": "stories",
+  "steps": [
+    {
+      "text": "Imagine Tanuki walking along a soft forest path toward a gentle river.",
+      "hint": "The air feels cool and peaceful."
+    },
+    {
+      "text": "Tanuki sits by the water and watches tiny ripples move across the surface.",
+      "hint": "Each ripple is slow and calm."
+    },
+    {
+      "text": "A leaf lands on the river and floats quietly downstream.",
+      "hint": "Take a slow breath in… and out… as you watch it drift."
+    },
+    {
+      "text": "Tanuki closes their eyes and listens to the soft river sounds.",
+      "hint": "Let your body feel as calm as the drifting leaf."
+    }
+  ]
+}
