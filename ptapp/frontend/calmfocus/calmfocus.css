@@ -37,19 +37,36 @@ body.cf-body {
 
 .cf-header {
   text-align: center;
-  padding: 16px 8px 8px;
+  padding: 20px 8px 12px;
 }
 
 .cf-title {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   letter-spacing: 0.03em;
 }
 
 .cf-subtitle {
   margin: 8px 0 0;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--cf-text-soft);
+}
+
+/* Tanuki hero (subjects.html + lesson.html) */
+
+.cf-hero-tanuki,
+.cf-tanuki-art {
+  width: 180px;
+  max-width: 60%;
+  height: auto;
+  display: block;
+  margin: 0 auto 16px auto;
+  animation: cf-fade-in 0.6s ease-out;
+}
+
+@keyframes cf-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Main */
@@ -62,48 +79,81 @@ body.cf-body {
   margin-top: 16px;
 }
 
-/* Calm Tanuki art */
+/* Grid for subjects.html */
 
-.cf-tanuki-art {
-  width: 180px;
-  max-width: 60%;
-  display: block;
-  margin: 0 auto 12px auto;
-  animation: cf-fade-in 0.6s ease-out;
+.cf-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
 }
 
-@keyframes cf-fade-in {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+@media (min-width: 640px) {
+  .cf-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-/* Hero card on index.html */
-
-.cf-hero-card {
+.cf-card {
   background: var(--cf-card-bg);
-  border-radius: 18px;
+  border-radius: 16px;
   padding: 16px;
-  box-shadow: 0 10px 25px rgba(60, 40, 120, 0.12);
-  text-align: center;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(60, 40, 120, 0.12);
+  transition: transform 0.1s ease-out;
 }
 
-.cf-hero-image {
-  width: 140px;
-  height: auto;
-  margin-bottom: 12px;
+.cf-card:hover {
+  transform: translateY(-2px);
 }
 
-.cf-hero-text {
-  margin: 0 0 16px;
-  font-size: 0.95rem;
+.cf-card-title {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+}
+
+.cf-card-text {
+  margin: 0;
+  font-size: 0.92rem;
   color: var(--cf-text-soft);
+}
+
+/* Lesson content */
+
+.cf-lesson-content {
+  background: var(--cf-card-bg);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 8px 18px rgba(60, 40, 120, 0.12);
+  min-height: 120px;
+}
+
+.cf-step-text {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.cf-step-hint {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--cf-text-soft);
+}
+
+/* Lesson controls */
+
+.cf-lesson-controls {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 /* Buttons & links */
 
 .cf-primary-button {
   display: inline-block;
-  padding: 10px 18px;
+  padding: 12px 20px;
   border-radius: 999px;
   border: none;
   background: linear-gradient(135deg, var(--cf-primary), #9f7bff);
@@ -128,75 +178,10 @@ body.cf-body {
   text-decoration: none;
 }
 
-/* Grid for subjects.html */
-
-.cf-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-}
-
-@media (min-width: 640px) {
-  .cf-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.cf-card {
-  background: var(--cf-card-bg);
-  border-radius: 16px;
-  padding: 14px;
-  border: none;
-  text-align: left;
-  cursor: pointer;
-  box-shadow: 0 8px 18px rgba(60, 40, 120, 0.12);
-}
-
-.cf-card-title {
-  margin: 0 0 4px;
-  font-size: 1.1rem;
-}
-
-.cf-card-text {
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--cf-text-soft);
-}
-
-/* Lesson content */
-
-.cf-lesson-content {
-  background: var(--cf-card-bg);
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 8px 18px rgba(60, 40, 120, 0.12);
-  min-height: 120px;
-}
-
-.cf-step-text {
-  margin: 0 0 8px;
-  font-size: 1rem;
-}
-
-.cf-step-hint {
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--cf-text-soft);
-}
-
-/* Lesson controls */
-
-.cf-lesson-controls {
-  margin-top: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 /* Footer */
 
 .cf-footer {
-  margin-top: 16px;
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -205,4 +190,5 @@ body.cf-body {
   font-size: 0.8rem;
   color: var(--cf-text-soft);
 }
+
 
