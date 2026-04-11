@@ -1,0 +1,209 @@
+/* ===== BASE ===== */
+.cf-body {
+  background: #ffffff;
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.cf-shell {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ===== HEADER ===== */
+.cf-header {
+  margin-bottom: 30px;
+}
+
+.cf-hero-tanuki {
+  width: 160px;
+  margin-bottom: 20px;
+}
+
+.cf-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #6a2dd8;
+  margin-bottom: 5px;
+}
+
+.cf-subtitle {
+  font-size: 20px;
+  color: #666;
+}
+
+.cf-subsubtitle {
+  font-size: 18px;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* ===== SECTIONS ===== */
+.cf-section-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.cf-worlds {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+
+/* ===== WORLD CARDS ===== */
+.cf-world-card {
+  width: 260px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.cf-world-tag {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.cf-world-tag-free {
+  color: #2fa84f;
+}
+
+.cf-world-tag-premium {
+  color: #d87a2f;
+}
+
+.cf-lock-icon {
+  margin-right: 4px;
+}
+
+.cf-world-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.cf-world-text {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 14px;
+}
+
+.cf-world-cta {
+  font-size: 16px;
+  font-weight: 700;
+  color: #6a2dd8;
+}
+
+/* ===== DIVIDER ===== */
+.cf-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.cf-divider-line {
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+}
+
+.cf-divider-label {
+  padding: 0 12px;
+  font-size: 16px;
+  color: #666;
+}
+
+/* ===== FOOTER ===== */
+.cf-footer {
+  margin-top: 40px;
+}
+
+.cf-parent-link {
+  background: #6a2dd8;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ===== MODALS ===== */
+.cf-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.cf-modal {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 420px;
+  text-align: center;
+}
+
+.cf-modal-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.cf-modal-text {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 14px;
+}
+
+.cf-modal-close {
+  background: #6a2dd8;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cf-modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.cf-modal-secondary,
+.cf-modal-primary {
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cf-modal-secondary {
+  background: #ddd;
+  color: #333;
+}
+
+.cf-modal-primary {
+  background: #6a2dd8;
+  color: white;
+}
