@@ -1,0 +1,24 @@
+{
+  "id": "quietsound",
+  "title": "Find the Quiet Sound",
+  "subtitle": "Listen closely with Tanuki.",
+  "type": "mindfulness",
+  "steps": [
+    {
+      "text": "Sit still and close your eyes for a moment.",
+      "hint": "Let your ears wake up."
+    },
+    {
+      "text": "Listen for the quietest sound you can hear.",
+      "hint": "It might be a hum, a rustle, or even your own breath."
+    },
+    {
+      "text": "Now listen for a different quiet sound.",
+      "hint": "Let your breath stay soft while you notice it."
+    },
+    {
+      "text": "Take one slow breath in… and out… while listening.",
+      "hint": "You just practiced mindful hearing."
+    }
+  ]
+}
