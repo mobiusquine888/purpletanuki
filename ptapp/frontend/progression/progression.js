@@ -1,5 +1,5 @@
 // ======================================================
-//  PROGRESSION ENGINE (your original logic, preserved)
+//  PROGRESSION ENGINE
 // ======================================================
 
 let PROGRESSION_CONFIG = null;
@@ -130,16 +130,16 @@ function computeWorldCompletion(worldKey) {
 function updateProgressRings() {
   const worlds = ["calmfocus", "earlylearning", "bigkidskills", "lifeskills"];
 
+  const map = {
+    calmfocus: "preschool",
+    earlylearning: "preschool",
+    bigkidskills: "grade1",
+    lifeskills: "grade1"
+  };
+
   worlds.forEach(world => {
     const el = document.getElementById(`ring-${world}`);
     if (!el) return;
-
-    const map = {
-      calmfocus: "preschool",
-      earlylearning: "preschool",
-      bigkidskills: "grade1",
-      lifeskills: "grade1"
-    };
 
     const configKey = map[world];
     const pct = computeWorldCompletion(configKey);
@@ -152,7 +152,7 @@ function updateProgressRings() {
 }
 
 // ======================================================
-//  WORLD GATING (NEW)
+//  WORLD GATING (HOOK ONLY FOR NOW)
 // ======================================================
 
 function loadParentSettings() {
@@ -167,15 +167,42 @@ function loadParentSettings() {
 
 function applyWorldGating() {
   const settings = loadParentSettings();
-  if (!settings) return; // no gating applied
+  if (!settings) return;
 
-  // If you later add worldAccess back to Parent Controls, wire it here.
-  // For now, worlds are always visible unless you choose to gate them.
-
-  // Example gating logic (disabled by default):
+  // Hook for future worldAccess-based gating.
+  // Example (when worldAccess exists):
   // if (!settings.worldAccess?.calmfocus) {
   //   document.getElementById("world-calmfocus-card")?.classList.add("locked");
   // }
+}
+
+// ======================================================
+//  SUBSCRIPTION GATING ON WORLDS (UI LOCKS)
+// ======================================================
+
+function applySubscriptionLocks() {
+  const subscribed = isSubscribed();
+
+  const worldMap = {
+    calmfocus: "preschool",
+    earlylearning: "preschool",
+    bigkidskills: "grade1",
+    lifeskills: "grade1"
+  };
+
+  Object.keys(worldMap).forEach(worldKey => {
+    const card = document.getElementById(`world-${worldKey}-card`);
+    if (!card) return;
+
+    const grade = worldMap[worldKey];
+    const isPremiumWorld = grade === "grade1";
+
+    if (!subscribed && isPremiumWorld) {
+      card.classList.add("locked");
+    } else {
+      card.classList.remove("locked");
+    }
+  });
 }
 
 // ======================================================
@@ -231,5 +258,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   updateProgressRings();
   updateStreak();
   applyWorldGating();
+  applySubscriptionLocks();
 });
 
