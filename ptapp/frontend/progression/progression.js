@@ -1,19 +1,17 @@
-<script>
-// Simple progression engine using localStorage + progression.json
+// ======================================================
+//  PROGRESSION ENGINE (your original logic, preserved)
+// ======================================================
 
 let PROGRESSION_CONFIG = null;
 const PROGRESSION_KEY = "pt_progression_v1";
 const SUBSCRIPTION_KEY = "pt_subscription_v1";
+const STREAK_KEY = "pt_streak_v1";
+const LAST_PLAY_KEY = "pt_last_play_v1";
 
 // Load config (inline or via fetch)
 async function loadProgressionConfig() {
   if (PROGRESSION_CONFIG) return PROGRESSION_CONFIG;
-  // If you serve progression.json statically, you can use fetch:
-  // const res = await fetch("progression/progression.json");
-  // PROGRESSION_CONFIG = await res.json();
-  // return PROGRESSION_CONFIG;
 
-  // For now, embed a minimal copy (keeps it simple while you wire things up)
   PROGRESSION_CONFIG = {
     preschool: {
       math: { displayName: "Preschool Math", lessons: 10, freeLessons: 1 },
@@ -23,6 +21,7 @@ async function loadProgressionConfig() {
       math: { displayName: "Grade 1 Math", lessons: 15, freeLessons: 1 }
     }
   };
+
   return PROGRESSION_CONFIG;
 }
 
@@ -44,9 +43,7 @@ function getSubjectProgress(grade, subject) {
   const state = loadProgressState();
   if (!state[grade]) state[grade] = {};
   if (!state[grade][subject]) {
-    state[grade][subject] = {
-      completedLessons: 0
-    };
+    state[grade][subject] = { completedLessons: 0 };
     saveProgressState(state);
   }
   return state[grade][subject];
@@ -72,43 +69,135 @@ function isSubscribed() {
   return raw === "true";
 }
 
-// Tile states: "locked", "preview", "unlocked", "completed"
 function getTileState(grade, subject) {
   const config = PROGRESSION_CONFIG[grade][subject];
   const progress = getSubjectProgress(grade, subject);
   const completed = progress.completedLessons || 0;
 
-  // If no subscription and no lessons completed yet:
   if (!isSubscribed()) {
-    if (completed === 0) {
-      // First lesson is free preview
-      return "preview";
-    } else if (completed >= 1 && completed < config.lessons) {
-      // Completed preview, rest are locked
-      return "locked";
-    }
+    if (completed === 0) return "preview";
+    if (completed >= 1 && completed < config.lessons) return "locked";
   }
 
-  // If subscribed or all free content done:
   if (completed === 0) return "unlocked";
   if (completed >= config.lessons) return "completed";
   return "unlocked";
 }
 
-// For lesson navigation
 function getNextLessonIndex(grade, subject) {
   const config = PROGRESSION_CONFIG[grade][subject];
   const progress = getSubjectProgress(grade, subject);
   const completed = progress.completedLessons || 0;
 
-  // If not subscribed and completed >= freeLessons, block
   if (!isSubscribed() && completed >= config.freeLessons) {
-    return null; // signal paywall
+    return null; // paywall
   }
 
   if (completed >= config.lessons) {
-    return config.lessons - 1; // last lesson
+    return config.lessons - 1;
   }
-  return completed; // next lesson index
+  return completed;
 }
-</script>
+
+// ======================================================
+//  OPTION C ADDITIONS — UI + STREAK + WORLD AGGREGATION
+// ======================================================
+
+// Compute world-level completion %
+function computeWorldCompletion(worldKey) {
+  const state = loadProgressState();
+  const world = PROGRESSION_CONFIG[worldKey];
+  if (!world) return 0;
+
+  let totalLessons = 0;
+  let completedLessons = 0;
+
+  for (const subject in world) {
+    const cfg = world[subject];
+    totalLessons += cfg.lessons;
+
+    const prog = state[worldKey]?.[subject]?.completedLessons || 0;
+    completedLessons += Math.min(prog, cfg.lessons);
+  }
+
+  if (totalLessons === 0) return 0;
+  return Math.round((completedLessons / totalLessons) * 100);
+}
+
+// Update progress rings in the UI
+function updateProgressRings() {
+  const worlds = ["calmfocus", "earlylearning", "bigkidskills", "lifeskills"];
+
+  worlds.forEach(world => {
+    const el = document.getElementById(`ring-${world}`);
+    if (!el) return;
+
+    // Map world keys to your config keys
+    const map = {
+      calmfocus: "preschool",       // adjust if needed
+      earlylearning: "preschool",
+      bigkidskills: "grade1",
+      lifeskills: "grade1"
+    };
+
+    const configKey = map[world];
+    const pct = computeWorldCompletion(configKey);
+    el.textContent = pct + "%";
+  });
+}
+
+// ======================================================
+//  STREAK SYSTEM
+// ======================================================
+
+function updateStreak() {
+  const today = new Date().toDateString();
+  const last = localStorage.getItem(LAST_PLAY_KEY);
+  let streak = parseInt(localStorage.getItem(STREAK_KEY) || "0");
+
+  if (!last) {
+    streak = 1;
+  } else {
+    const lastDate = new Date(last);
+    const diff = (new Date(today) - lastDate) / (1000 * 60 * 60 * 24);
+
+    if (diff === 1) streak += 1;
+    else if (diff > 1) streak = 1;
+  }
+
+  localStorage.setItem(STREAK_KEY, streak);
+  localStorage.setItem(LAST_PLAY_KEY, today);
+
+  const el = document.getElementById("streak-count");
+  if (el) el.textContent = streak;
+}
+
+// ======================================================
+//  CONTINUE LEARNING
+// ======================================================
+
+function continueLearning() {
+  // Choose a default world + subject
+  const grade = "preschool";
+  const subject = "math";
+
+  const next = getNextLessonIndex(grade, subject);
+
+  if (next === null) {
+    window.location.href = "/progression/paywall.html?redirect=/progression/index.html";
+    return;
+  }
+
+  window.location.href = `/lesson.html?grade=${grade}&subject=${subject}&lesson=${next}`;
+}
+
+// ======================================================
+//  INIT
+// ======================================================
+
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadProgressionConfig();
+  updateProgressRings();
+  updateStreak();
+});
+
