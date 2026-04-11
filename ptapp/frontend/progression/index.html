@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Progression</title>
+
+  <link rel="stylesheet" href="progression.css" />
+  <script defer src="progression.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #7b4bff, #2b1040);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .tanuki {
+      width: 140px;
+      height: 140px;
+      background: url('/images/tanuki.png') center/contain no-repeat;
+      margin-top: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .sparkles {
+      width: 100%;
+      height: 40px;
+      background: url('/images/sparkles.png') center/contain no-repeat;
+      margin-top: -10px;
+      opacity: 0.8;
+    }
+
+    .progress-section {
+      width: 100%;
+      max-width: 420px;
+      background: rgba(15, 5, 30, 0.85);
+      padding: 20px;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .world-card {
+      background: rgba(255,255,255,0.08);
+      padding: 14px;
+      border-radius: 16px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .world-name {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .ring {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 4px solid #ffd86b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .streak {
+      margin-top: 16px;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .badges {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .badge {
+      width: 50px;
+      height: 50px;
+      background: url('/images/badge-placeholder.png') center/contain no-repeat;
+    }
+
+    .buttons {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .continue-btn {
+      background: linear-gradient(135deg, #ffd86b, #ffb347);
+      color: #2b1040;
+    }
+
+    .parent-btn {
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+    }
+
+    .arcade-btn {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tanuki"></div>
+  <div class="sparkles"></div>
+
+  <div class="progress-section">
+    <h2>Your Journey</h2>
+
+    <div class="world-card">
+      <div class="world-name">Calm & Focus</div>
+      <div class="ring" id="ring-calmfocus">0%</div>
+    </div>
+
+    <div class="world-card">
+      <div class="world-name">Early Learning</div>
+      <div class="ring" id="ring-earlylearning">0%</div>
+    </div>
+
+    <div class="world-card">
+      <div class="world-name">Big Kid Skills</div>
+      <div class="ring" id="ring-bigkidskills">0%</div>
+    </div>
+
+    <div class="world-card">
+      <div class="world-name">Life Skills</div>
+      <div class="ring" id="ring-lifeskills">0%</div>
+    </div>
+
+    <div class="streak">🔥 Streak: <span id="streak-count">0</span> days</div>
+
+    <div class="badges">
+      <div class="badge"></div>
+      <div class="badge"></div>
+      <div class="badge"></div>
+    </div>
+
+    <div class="buttons">
+      <button class="btn continue-btn" onclick="continueLearning()">Continue Learning</button>
+      <a href="/controls/index.html" class="btn parent-btn">Open Parent Controls</a>
+      <a href="/arcade/index.html" class="btn arcade-btn">Return to Arcade</a>
+    </div>
+  </div>
+</body>
+</html>
