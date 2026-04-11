@@ -1,0 +1,78 @@
+<!-- ptapp/frontend/gate/ritual_ready.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ready Screen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #7b4bff, #2b1040);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .headline {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .subhead {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-bottom: 24px;
+    }
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 320px;
+    }
+    button {
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.5);
+    }
+    .learn {
+      background: linear-gradient(135deg, #ffd86b, #ffb347);
+      color: #2b1040;
+    }
+    .arcade {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="headline">You’re All Set</div>
+  <div class="subhead">
+    Your gate is happy.  
+    You can jump into learning or visit the Arcade.
+  </div>
+  <div class="buttons">
+    <button class="learn" onclick="goLearn()">Go to Learning</button>
+    <button class="arcade" onclick="goArcade()">Go to Arcade</button>
+  </div>
+
+  <script>
+    function goLearn() {
+      window.location.href = "/progression/index.html";
+    }
+    function goArcade() {
+      window.location.href = "/arcade/index.html";
+    }
+  </script>
+</body>
+</html>
