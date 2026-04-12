@@ -9,6 +9,9 @@ html, body {
 
 #parent-container {
     padding: 20px;
+
+    /* HOME BUTTON SAFE-ZONE (REFORGE MODE) */
+    padding-bottom: 90px; /* ensures global home button never overlaps content */
 }
 
 #parent-title {
@@ -38,3 +41,4 @@ html, body {
     border-radius: 10px;
     font-size: 1.1rem;
 }
+
