@@ -1,5 +1,6 @@
 /* arcade.css */
 
+/* RESET */
 *,
 *::before,
 *::after {
@@ -8,6 +9,7 @@
   padding: 0;
 }
 
+/* ROOT */
 .arc-root {
   min-height: 100vh;
   background: radial-gradient(circle at top, #3A1C7A 0%, #1B0E3A 40%, #0A0414 100%);
@@ -16,19 +18,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 16px 16px 24px;
+  padding: 10px 12px 18px;
+  overflow: hidden; /* prevent scroll */
 }
 
 /* HEADER */
-
 .arc-header {
   text-align: center;
   margin-top: 0;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .arc-title {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   letter-spacing: 0.12em;
   color: #F4D57E;
   text-shadow: 0 0 12px rgba(244, 213, 126, 0.6);
@@ -36,26 +38,27 @@
 
 .arc-subtitle {
   color: #CFC6E8;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   margin-top: 2px;
 }
 
-/* TANUKI HOST */
-
+/* TANUKI HOST — full image, pushed upward */
 .tanuki-host {
-  flex: 2;
+  position: relative;
+  width: 100%;
+  height: 60vh; /* upper ~2/3 of screen */
   display: flex;
   justify-content: center;
-  align-items: center;
-  position: relative;
+  align-items: flex-start;
+  overflow: hidden;
 }
 
+/* Full Tanuki image, shifted upward for Akinator framing */
 .tanuki-img {
-  width: 92%;
-  max-width: 560px;
+  width: 100%;
+  max-width: none;
   height: auto;
-  margin-top: -18px;     /* reduces head gap */
-  margin-bottom: -32px;  /* lets buttons overlap lower body */
+  margin-top: -10vh; /* medium upward shift */
   pointer-events: none;
   animation: tanuki-breathe 4.5s ease-in-out infinite;
 }
@@ -75,30 +78,31 @@
   animation: sparkle-drift 10s linear infinite;
 }
 
-/* BUTTON STACK */
-
+/* BUTTON STACK — medium overlap over bottom third */
 .arc-buttons {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  position: relative;
+  margin-top: -16vh; /* medium overlap */
+  z-index: 10;
   width: 100%;
   max-width: 420px;
-  margin-top: -12px;   /* pulls buttons upward over legs */
-  padding-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 8px;
 }
 
+/* BUTTONS */
 .arc-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px 16px;
+  padding: 9px 12px;
   border-radius: 14px;
   background: linear-gradient(180deg, #0D071A, #1B0E3A);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.45),
-    0 0 12px rgba(244, 213, 126, 0.25);
+    0 4px 10px rgba(0, 0, 0, 0.45),
+    0 0 10px rgba(244, 213, 126, 0.25);
   text-decoration: none;
   color: #F8F5FF;
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
@@ -108,34 +112,33 @@
 .arc-btn:focus-visible {
   transform: scale(1.03);
   box-shadow:
-    0 6px 18px rgba(0, 0, 0, 0.55),
-    0 0 18px rgba(244, 213, 126, 0.45);
+    0 6px 16px rgba(0, 0, 0, 0.55),
+    0 0 16px rgba(244, 213, 126, 0.45);
   border-color: rgba(244, 213, 126, 0.7);
 }
 
 .arc-btn-title {
   font-weight: 700;
   color: #F4D57E;
-  font-size: 1.05rem;
+  font-size: 0.98rem;
 }
 
 .arc-btn-desc {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #CFC6E8;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 /* PARENT BUTTON */
-
 .parent-btn {
   position: fixed;
-  right: 16px;
-  bottom: 18px;
-  padding: 10px 16px;
+  right: 14px;
+  bottom: 14px;
+  padding: 8px 14px;
   border-radius: 999px;
   background: linear-gradient(135deg, #5C3BFF, #C27BFF);
   color: #FFFFFF;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   text-decoration: none;
   box-shadow:
@@ -146,7 +149,6 @@
 }
 
 /* ANIMATIONS */
-
 @keyframes tanuki-breathe {
   0%   { transform: translateY(0) scale(1); }
   50%  { transform: translateY(-4px) scale(1.01); }
@@ -160,18 +162,18 @@
 }
 
 /* RESPONSIVE TWEAKS */
-
 @media (min-width: 768px) {
   .arc-title {
     font-size: 2rem;
   }
 
-  .tanuki-img {
-    max-width: 520px;
+  .tanuki-host {
+    height: 58vh;
   }
 
   .arc-buttons {
     max-width: 460px;
+    margin-top: -15vh;
   }
 }
 
