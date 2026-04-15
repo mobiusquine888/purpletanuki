@@ -1,210 +1,150 @@
-/* ===== BASE ===== */
-.ls-body {
-  background: #ffffff;
-  font-family: "Nunito", sans-serif;
-  margin: 0;
-  padding: 0;
+:root {
+    --life-blue: #ffb36a;
+    --life-blue-light: #ffe0c2;
+    --life-blue-dark: #d27a2a;
+
+    --life-bg: #fff8f0;
+    --life-card-bg: #ffffff;
+    --life-shadow: rgba(255, 150, 50, 0.25);
+
+    --radius: 18px;
+    --transition: 0.25s ease;
 }
 
-.ls-shell {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center;
+.lifeskills-world {
+    background: var(--life-bg);
+    min-height: 100vh;
+    padding: 80px 20px 20px;
+    font-family: "Nunito", sans-serif;
+    color: #333;
 }
 
-/* ===== HEADER ===== */
-.ls-header {
-  margin-bottom: 30px;
+.world-header {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.ls-hero-image {
-  width: 160px;
-  margin-bottom: 20px;
+.world-header h1 {
+    font-size: 2rem;
+    color: var(--life-blue-dark);
+    text-shadow: 0 0 8px var(--life-blue-light);
 }
 
-.ls-title {
-  font-size: 42px;
-  font-weight: 800;
-  color: #e88a2f;
-  margin-bottom: 5px;
+.world-subtitle {
+    font-size: 1rem;
+    color: var(--life-blue-dark);
+    opacity: 0.9;
 }
 
-.ls-subtitle {
-  font-size: 20px;
-  color: #666;
+.lifeskills-worldmap {
+    width: 100%;
+    height: 220px;
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, var(--life-blue-light), var(--life-blue));
+    box-shadow: 0 4px 12px var(--life-shadow);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 25px;
 }
 
-.ls-subsubtitle {
-  font-size: 18px;
-  color: #888;
-  margin-top: 4px;
+@keyframes lifeFloat {
+    0% { transform: translateY(0px); opacity: 0.7; }
+    50% { transform: translateY(-10px); opacity: 1; }
+    100% { transform: translateY(0px); opacity: 0.7; }
 }
 
-/* ===== SECTIONS ===== */
-.ls-section-title {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 16px;
-  color: #333;
+.life-symbol {
+    position: absolute;
+    font-size: 2rem;
+    color: #fff7ef;
+    text-shadow: 0 0 12px #ffe8d2;
+    animation: lifeFloat 4s ease-in-out infinite;
 }
 
-.ls-worlds {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 18px;
+.life-1 { top: 25px; left: 25px; animation-delay: 0s; }
+.life-2 { top: 70px; right: 30px; animation-delay: 0.4s; }
+.life-3 { bottom: 25px; left: 50%; transform: translateX(-50%); animation-delay: 0.8s; }
+
+.lesson-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
 }
 
-/* ===== WORLD CARDS ===== */
-.ls-world-card {
-  width: 260px;
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  text-align: center;
-  border: none;
-  cursor: pointer;
+.lesson-tile {
+    background: var(--life-card-bg);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: 0 4px 10px var(--life-shadow);
+    transition: var(--transition);
+    position: relative;
 }
 
-.ls-world-tag {
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 10px;
+.lesson-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px var(--life-shadow);
 }
 
-.ls-world-tag-free {
-  color: #2fa84f;
+.lesson-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--life-blue-dark);
+    margin-bottom: 6px;
 }
 
-.ls-world-tag-premium {
-  color: #d87a2f;
+.lesson-desc {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 12px;
 }
 
-.ls-lock-icon {
-  margin-right: 4px;
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: white;
 }
 
-.ls-world-title {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 6px;
+.badge-free {
+    background: var(--life-blue);
 }
 
-.ls-world-text {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 14px;
+.badge-premium {
+    background: var(--life-blue-dark);
 }
 
-.ls-world-cta {
-  font-size: 16px;
-  font-weight: 700;
-  color: #e88a2f;
+.lock-icon {
+    font-size: 1.2rem;
+    color: var(--life-blue-dark);
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    opacity: 0.8;
 }
 
-/* ===== DIVIDER ===== */
-.ls-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 40px 0;
+.world-footer {
+    text-align: center;
+    margin-top: 30px;
 }
 
-.ls-divider-line {
-  flex: 1;
-  height: 1px;
-  background: #ddd;
+.home-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--life-blue);
+    color: white;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 4px 10px var(--life-shadow);
+    transition: var(--transition);
 }
 
-.ls-divider-label {
-  padding: 0 12px;
-  font-size: 16px;
-  color: #666;
-}
-
-/* ===== FOOTER ===== */
-.ls-footer {
-  margin-top: 40px;
-}
-
-.ls-parent-link {
-  background: #e88a2f;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 14px;
-  border: none;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-/* ===== MODALS ===== */
-.ls-modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.ls-modal {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  max-width: 420px;
-  text-align: center;
-}
-
-.ls-modal-title {
-  font-size: 26px;
-  font-weight: 800;
-  margin-bottom: 16px;
-}
-
-.ls-modal-text {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 14px;
-}
-
-.ls-modal-close {
-  background: #e88a2f;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 14px;
-  border: none;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.ls-modal-actions {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-}
-
-.ls-modal-secondary,
-.ls-modal-primary {
-  padding: 12px 20px;
-  border-radius: 14px;
-  border: none;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.ls-modal-secondary {
-  background: #ddd;
-  color: #333;
-}
-
-.ls-modal-primary {
-  background: #e88a2f;
-  color: white;
+.home-btn:hover {
+    background: var(--life-blue-dark);
+    transform: translateY(-3px);
 }
 
