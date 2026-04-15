@@ -37,30 +37,31 @@
   z-index: 20;
 }
 
-/* TANUKI HOST — full image, pushed upward */
+/* TANUKI HOST */
 .tanuki-host {
   position: relative;
   width: 100%;
-  height: 76vh; /* upper 2/3 of screen */
+  height: 76vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   overflow: hidden;
 }
 
-/* Full Tanuki image, shifted upward */
+/* Tanuki image */
 .tanuki-img {
   width: 100%;
   height: auto;
   max-width: none;
-  margin-top: -4vh; /* medium upward shift */
+  margin-top: -4vh;
   pointer-events: none;
+  animation: tanuki-breathe 4.5s ease-in-out infinite;
 }
 
 /* BUTTON GRID — Akinator geometry */
 .world-buttons {
   position: relative;
-  margin-top: -8vh; /* medium overlap */
+  margin-top: -8vh;
   width: 100%;
   max-width: 480px;
   z-index: 30;
@@ -69,38 +70,55 @@
   gap: 10px;
 }
 
-/* TOP ROW — 2 buttons, 50% width each */
+/* TOP ROW — 2 cards */
 .row-two {
   display: flex;
   gap: 10px;
 }
 
 .row-two .btn-world {
-  flex: 1; /* 50% width */
+  flex: 1;
 }
 
-/* BOTTOM ROW — 3 buttons, 33.33% width each */
+/* BOTTOM ROW — 3 cards */
 .row-three {
   display: flex;
   gap: 10px;
 }
 
 .row-three .btn-world {
-  flex: 1; /* 33.33% width */
+  flex: 1;
 }
 
-/* BASE BUTTON STYLE */
+/* HYBRID CARD TYPOGRAPHY */
+.card-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #F8F5FF;
+  margin-bottom: 2px;
+  text-align: center;
+}
+
+.card-sub {
+  font-size: 0.70rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  line-height: 1.1;
+}
+
+/* BASE CARD STYLE */
 .btn-world {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 12px 0;
+  gap: 2px;
+  padding: 10px 6px;
+  height: 70px; /* Option B — compact premium */
   border-radius: 12px;
   background: linear-gradient(180deg, #0D071A, #1B0E3A);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #F8F5FF;
-  font-size: 0.95rem;
-  font-weight: 700;
   text-decoration: none;
   box-shadow:
     0 4px 10px rgba(0, 0, 0, 0.45),
@@ -118,9 +136,9 @@
 
 /* HYBRID FEATURED MATH BUTTON */
 .btn-math {
-  border: 2px solid #A06BFF; /* purple border */
+  border: 2px solid #A06BFF;
   box-shadow:
-    0 0 12px rgba(160, 107, 255, 0.7), /* purple glow */
+    0 0 12px rgba(160, 107, 255, 0.7),
     0 4px 10px rgba(0, 0, 0, 0.45);
   background: linear-gradient(180deg, #1B0E3A, #3A1C7A);
 }
@@ -151,10 +169,6 @@
   100% { transform: translateY(0) scale(1); }
 }
 
-.tanuki-img {
-  animation: tanuki-breathe 4.5s ease-in-out infinite;
-}
-
 @keyframes sparkle-drift {
   0%   { transform: translate3d(0, 0, 0); opacity: 0.55; }
   50%  { transform: translate3d(0, -6px, 0); opacity: 0.75; }
@@ -183,10 +197,4 @@
   }
 
   .world-buttons {
-    max-width: 520px;
-    margin-top: -14vh;
-  }
-}
-
-
 
