@@ -114,7 +114,7 @@
   justify-content: center;
   gap: 2px;
   padding: 10px 6px;
-  height: 70px; /* Option B — compact premium */
+  height: 70px; /* compact premium */
   border-radius: 12px;
   background: linear-gradient(180deg, #0D071A, #1B0E3A);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -170,31 +170,4 @@
 }
 
 @keyframes sparkle-drift {
-  0%   { transform: translate3d(0, 0, 0); opacity: 0.55; }
-  50%  { transform: translate3d(0, -6px, 0); opacity: 0.75; }
-  100% { transform: translate3d(0, 0, 0); opacity: 0.55; }
-}
-
-/* Sparkle overlay */
-.tanuki-host::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    radial-gradient(circle at 20% 20%, rgba(244, 213, 126, 0.35) 0, transparent 55%),
-    radial-gradient(circle at 80% 30%, rgba(194, 123, 255, 0.35) 0, transparent 55%),
-    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.18) 0, transparent 60%);
-  mix-blend-mode: screen;
-  opacity: 0.55;
-  animation: sparkle-drift 10s linear infinite;
-}
-
-/* RESPONSIVE TWEAKS */
-@media (min-width: 768px) {
-  .world-header-box {
-    font-size: 1.1rem;
-  }
-
-  .world-buttons {
-
+  0%   { transform: translate3d(0, 0, 0); opacity:
