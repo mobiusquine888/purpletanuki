@@ -1,35 +1,30 @@
-/* ---------------------------------------------------------
-   Purple Tanuki – Math Skills World Theme
-   Magical runes, glowing stones, floating islands
-   All styles scoped to .mathskills-world to avoid conflicts
---------------------------------------------------------- */
-
 :root {
-    --math-purple: #7b4bff;
-    --math-purple-light: #b79aff;
-    --math-purple-dark: #4a2bb3;
+    --math-purple: #b38bff;
+    --math-purple-light: #e6d9ff;
+    --math-purple-dark: #7a4ed8;
 
-    --math-blue: #4bb7ff;
-    --math-blue-light: #a6e1ff;
-
-    --math-bg: #f7f3ff;
+    --math-bg: #faf7ff;
     --math-card-bg: #ffffff;
-    --math-shadow: rgba(123, 75, 255, 0.25);
+    --math-shadow: rgba(150, 100, 255, 0.25);
 
     --radius: 18px;
     --transition: 0.25s ease;
 }
 
-/* WORLD CONTAINER */
 .mathskills-world {
     background: var(--math-bg);
     min-height: 100vh;
-    padding: 40px 20px 20px; /* ensures header is visible under PurpleTanuki bar */
+    padding: 60px 20px 20px;
     font-family: "Nunito", sans-serif;
     color: #333;
 }
 
-/* HEADER */
+.tanuki-img {
+    width: 120px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
 .world-header {
     text-align: center;
     margin-bottom: 20px;
@@ -43,81 +38,16 @@
 
 .world-subtitle {
     font-size: 1rem;
-    color: var(--math-purple);
+    color: var(--math-purple-dark);
     opacity: 0.9;
 }
 
-/* WORLDMAP VISUAL */
-.worldmap {
-    width: 100%;
-    height: 220px;
-    border-radius: var(--radius);
-    background: linear-gradient(180deg, var(--math-purple-light), var(--math-purple));
-    box-shadow: 0 4px 12px var(--math-shadow);
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 25px;
-}
-
-/* Placeholder text */
-.worldmap-placeholder {
-    text-align: center;
-    padding-top: 70px;
-    color: white;
-    font-size: 1.1rem;
-    opacity: 0.9;
-}
-
-/* FLOATING RUNE ANIMATION */
-@keyframes floatRune {
-    0% { transform: translateY(0px); opacity: 0.7; }
-    50% { transform: translateY(-14px); opacity: 1; }
-    100% { transform: translateY(0px); opacity: 0.7; }
-}
-
-/* FLOATING ISLAND ANIMATION */
-@keyframes floatIsland {
-    0% { transform: translateY(0px) scale(1); }
-    50% { transform: translateY(-10px) scale(1.02); }
-    100% { transform: translateY(0px) scale(1); }
-}
-
-/* RUNE ISLAND BASE STYLE */
-.rune-island {
-    position: absolute;
-    width: 90px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.18);
-    border-radius: 20px;
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
-    backdrop-filter: blur(4px);
-    animation: floatIsland 4s ease-in-out infinite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* RUNE SYMBOL ON ISLAND */
-.rune-symbol {
-    font-size: 1.6rem;
-    color: var(--math-blue-light);
-    text-shadow: 0 0 12px var(--math-blue);
-    animation: floatRune 3s ease-in-out infinite;
-}
-
-/* ISLAND POSITIONS */
-.island-1 { top: 20px; left: 20px; animation-delay: 0s; }
-.island-2 { top: 60px; right: 30px; animation-delay: 0.4s; }
-.island-3 { bottom: 20px; left: 50%; transform: translateX(-50%); animation-delay: 0.8s; }
-
-/* LESSON GRID */
 .lesson-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 14px;
 }
 
-/* LESSON TILE */
 .lesson-tile {
     background: var(--math-card-bg);
     border-radius: var(--radius);
@@ -132,7 +62,6 @@
     box-shadow: 0 6px 14px var(--math-shadow);
 }
 
-/* TITLE */
 .lesson-title {
     font-size: 1.1rem;
     font-weight: 700;
@@ -140,14 +69,12 @@
     margin-bottom: 6px;
 }
 
-/* DESCRIPTION */
 .lesson-desc {
     font-size: 0.9rem;
     color: #555;
     margin-bottom: 12px;
 }
 
-/* FREE / PREMIUM BADGES */
 .badge {
     position: absolute;
     top: 10px;
@@ -160,14 +87,13 @@
 }
 
 .badge-free {
-    background: var(--math-blue);
+    background: var(--math-purple);
 }
 
 .badge-premium {
     background: var(--math-purple-dark);
 }
 
-/* LOCK ICON */
 .lock-icon {
     font-size: 1.2rem;
     color: var(--math-purple-dark);
@@ -177,7 +103,6 @@
     opacity: 0.8;
 }
 
-/* FOOTER */
 .world-footer {
     text-align: center;
     margin-top: 30px;
