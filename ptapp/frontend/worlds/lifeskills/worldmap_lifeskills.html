@@ -1,160 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Life Skills</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Life Skills – Purple Tanuki</title>
 
-  <link rel="stylesheet" href="worldmap_lifeskills.css" />
-  <link rel="stylesheet" href="/games/theme/tanuki-theme.css" />
-  <link rel="stylesheet" href="/global/arcade-button.css" />
-  <script src="/global/arcade-button.js"></script>
-
-  <!-- ⭐ HOME BUTTON (to Arcade) ⭐ -->
-  <link rel="stylesheet" href="/global/home-button.css" />
-  <script src="/global/home-button.js"></script>
-  <!-- ⭐ END HOME BUTTON ⭐ -->
-
-  <script defer src="worldmap_lifeskills.js"></script>
+    <link rel="stylesheet" href="lifeskills.css" />
 </head>
 
-<body class="ls-body">
+<body class="lifeskills-world">
 
-  <div class="ls-shell">
-
-    <header class="ls-header">
-      <img
-        src="https://purpletanuki.netlify.app/images/tanuki_lifeskills.png"
-        alt="Tanuki"
-        class="ls-hero-image"
-      />
-      <h1 class="ls-title">Life Skills</h1>
-      <p class="ls-subtitle">Wisdom • Habits • Growing Up</p>
-      <p class="ls-subsubtitle">Choose your life skill world.</p>
+    <header class="world-header">
+        <h1>Life Skills</h1>
+        <p class="world-subtitle">Tiny real‑world skills for confidence, kindness, and independence.</p>
     </header>
 
-    <!-- Free Worlds -->
-    <section class="ls-section">
-      <h2 class="ls-section-title">Free Life Skill Worlds</h2>
-
-      <div class="ls-worlds ls-worlds-free">
-
-        <button class="ls-world-card ls-world-free" data-world="routines">
-          <div class="ls-world-tag ls-world-tag-free">Free</div>
-          <div class="ls-world-icon ls-world-icon-routines"></div>
-          <h3 class="ls-world-title">Daily Routines</h3>
-          <p class="ls-world-text">
-            Morning, bedtime, and everyday independence.
-          </p>
-          <span class="ls-world-cta">Start Routines</span>
-        </button>
-
-        <button class="ls-world-card ls-world-free" data-world="emotions">
-          <div class="ls-world-tag ls-world-tag-free">Free</div>
-          <div class="ls-world-icon ls-world-icon-emotions"></div>
-          <h3 class="ls-world-title">Emotional Skills</h3>
-          <p class="ls-world-text">
-            Feelings, grounding, and tiny confidence boosts.
-          </p>
-          <span class="ls-world-cta">Start Emotions</span>
-        </button>
-
-      </div>
+    <section class="lifeskills-worldmap">
+        <div class="life-symbol life-1">★</div>
+        <div class="life-symbol life-2">❤</div>
+        <div class="life-symbol life-3">✿</div>
     </section>
 
-    <!-- Divider -->
-    <div class="ls-divider">
-      <span class="ls-divider-line"></span>
-      <span class="ls-divider-label">More Life Skill Worlds</span>
-      <span class="ls-divider-line"></span>
-    </div>
+    <section class="lesson-grid" id="lessonGrid"></section>
 
-    <!-- Premium Worlds -->
-    <section class="ls-section">
-      <div class="ls-worlds ls-worlds-premium">
-
-        <button class="ls-world-card ls-world-premium" data-world="independence">
-          <div class="ls-world-tag ls-world-tag-premium">
-            <span class="ls-lock-icon">🔒</span> Premium
-          </div>
-          <div class="ls-world-icon ls-world-icon-independence"></div>
-          <h3 class="ls-world-title">Independence Skills</h3>
-          <p class="ls-world-text">
-            Responsibility, self‑care, and growing‑up habits.
-          </p>
-        </button>
-
-        <button class="ls-world-card ls-world-premium" data-world="social">
-          <div class="ls-world-tag ls-world-tag-premium">
-            <span class="ls-lock-icon">🔒</span> Premium
-          </div>
-          <div class="ls-world-icon ls-world-icon-social"></div>
-          <h3 class="ls-world-title">Social Skills</h3>
-          <p class="ls-world-text">
-            Friendship, kindness, and communication.
-          </p>
-        </button>
-
-        <button class="ls-world-card ls-world-premium" data-world="safety">
-          <div class="ls-world-tag ls-world-tag-premium">
-            <span class="ls-lock-icon">🔒</span> Premium
-          </div>
-          <div class="ls-world-icon ls-world-icon-safety"></div>
-          <h3 class="ls-world-title">Safety Skills</h3>
-          <p class="ls-world-text">
-            Smart choices, awareness, and safe habits.
-          </p>
-        </button>
-
-      </div>
-    </section>
-
-    <!-- Parent Layer -->
-    <footer class="ls-footer">
-      <button class="ls-parent-link" id="ls-parent-link">
-        For Grown‑Ups: How Life Skills Works
-      </button>
+    <footer class="world-footer">
+        <a href="https://www.purpletanuki.com" class="home-btn">🏠 Home</a>
     </footer>
 
-  </div>
-
-  <!-- Parent Modal -->
-  <div class="ls-modal-backdrop" id="ls-parent-modal">
-    <div class="ls-modal">
-      <h2 class="ls-modal-title">Life Skills with Tanuki</h2>
-      <p class="ls-modal-text">
-        Routines and Emotional Skills are fully included for free.
-      </p>
-      <p class="ls-modal-text">
-        Premium worlds add independence, social skills, and safety habits.
-      </p>
-      <p class="ls-modal-text">
-        No pressure — just gentle growing‑up support.
-      </p>
-      <button class="ls-modal-close" id="ls-parent-close">Got it</button>
-    </div>
-  </div>
-
-  <!-- Premium Modal -->
-  <div class="ls-modal-backdrop" id="ls-premium-modal">
-    <div class="ls-modal">
-      <h2 class="ls-modal-title">More Life Skill Worlds</h2>
-      <p class="ls-modal-text">
-        These are bonus life skill worlds. Start with the free ones first.
-      </p>
-      <div class="ls-modal-actions">
-        <button class="ls-modal-secondary" id="ls-premium-see-free">
-          See Free Worlds
-        </button>
-        <button class="ls-modal-primary" id="ls-premium-learn-more">
-          Learn About Premium
-        </button>
-      </div>
-    </div>
-  </div>
-
+    <script src="lifeskills.js"></script>
 </body>
 </html>
+
 
 
 
