@@ -1,43 +1,81 @@
+/* arcade.css */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .arc-root {
   min-height: 100vh;
   background: radial-gradient(circle at top, #3A1C7A 0%, #1B0E3A 40%, #0A0414 100%);
   color: #F8F5FF;
-  font-family: "Nunito", sans-serif;
+  font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 24px 16px;
+  padding: 16px 16px 24px;
 }
+
+/* HEADER */
 
 .arc-header {
   text-align: center;
-  margin-top: 12px;
+  margin-top: 0;
+  margin-bottom: 2px;
 }
 
 .arc-title {
   font-size: 1.8rem;
+  letter-spacing: 0.12em;
   color: #F4D57E;
   text-shadow: 0 0 12px rgba(244, 213, 126, 0.6);
 }
 
 .arc-subtitle {
   color: #CFC6E8;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  margin-top: 2px;
 }
+
+/* TANUKI HOST */
 
 .tanuki-host {
   flex: 2;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .tanuki-img {
-  width: 70%;
-  max-width: 420px;
+  width: 92%;
+  max-width: 560px;
   height: auto;
+  margin-top: -18px;     /* reduces head gap */
+  margin-bottom: -32px;  /* lets buttons overlap lower body */
+  pointer-events: none;
+  animation: tanuki-breathe 4.5s ease-in-out infinite;
 }
+
+/* subtle sparkle layer */
+.tanuki-host::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(244, 213, 126, 0.35) 0, transparent 55%),
+    radial-gradient(circle at 80% 30%, rgba(194, 123, 255, 0.35) 0, transparent 55%),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.18) 0, transparent 60%);
+  mix-blend-mode: screen;
+  opacity: 0.55;
+  animation: sparkle-drift 10s linear infinite;
+}
+
+/* BUTTON STACK */
 
 .arc-buttons {
   flex: 1;
@@ -46,6 +84,8 @@
   gap: 12px;
   width: 100%;
   max-width: 420px;
+  margin-top: -12px;   /* pulls buttons upward over legs */
+  padding-bottom: 24px;
 }
 
 .arc-btn {
@@ -56,17 +96,20 @@
   border-radius: 14px;
   background: linear-gradient(180deg, #0D071A, #1B0E3A);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45),
-              0 0 12px rgba(244, 213, 126, 0.35);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.45),
+    0 0 12px rgba(244, 213, 126, 0.25);
   text-decoration: none;
   color: #F8F5FF;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-.arc-btn:hover {
+.arc-btn:hover,
+.arc-btn:focus-visible {
   transform: scale(1.03);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55),
-              0 0 18px rgba(244, 213, 126, 0.55);
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.55),
+    0 0 18px rgba(244, 213, 126, 0.45);
   border-color: rgba(244, 213, 126, 0.7);
 }
 
@@ -79,7 +122,10 @@
 .arc-btn-desc {
   font-size: 0.85rem;
   color: #CFC6E8;
+  margin-top: 2px;
 }
+
+/* PARENT BUTTON */
 
 .parent-btn {
   position: fixed;
@@ -92,11 +138,43 @@
   font-size: 0.85rem;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5),
-              0 0 10px rgba(194, 123, 255, 0.7);
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.5),
+    0 0 10px rgba(194, 123, 255, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.18);
   z-index: 20;
 }
+
+/* ANIMATIONS */
+
+@keyframes tanuki-breathe {
+  0%   { transform: translateY(0) scale(1); }
+  50%  { transform: translateY(-4px) scale(1.01); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes sparkle-drift {
+  0%   { transform: translate3d(0, 0, 0); opacity: 0.55; }
+  50%  { transform: translate3d(0, -6px, 0); opacity: 0.75; }
+  100% { transform: translate3d(0, 0, 0); opacity: 0.55; }
+}
+
+/* RESPONSIVE TWEAKS */
+
+@media (min-width: 768px) {
+  .arc-title {
+    font-size: 2rem;
+  }
+
+  .tanuki-img {
+    max-width: 520px;
+  }
+
+  .arc-buttons {
+    max-width: 460px;
+  }
+}
+
 
 
 
