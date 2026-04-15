@@ -1,134 +1,36 @@
-:root {
-    --math-purple: #b38bff;
-    --math-purple-light: #e6d9ff;
-    --math-purple-dark: #7a4ed8;
-
-    --math-bg: #faf7ff;
-    --math-card-bg: #ffffff;
-    --math-shadow: rgba(150, 100, 255, 0.25);
-
-    --radius: 18px;
-    --transition: 0.25s ease;
-}
-
-.mathskills-world {
-    background: var(--math-bg);
-    min-height: 100vh;
-    padding: 60px 20px 20px;
-    font-family: "Nunito", sans-serif;
-    color: #333;
-}
-
-.tanuki-img {
-    width: 120px;
-    display: block;
-    margin: 0 auto 10px;
-}
-
-.world-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.world-header h1 {
-    font-size: 2rem;
-    color: var(--math-purple-dark);
-    text-shadow: 0 0 8px var(--math-purple-light);
-}
-
-.world-subtitle {
-    font-size: 1rem;
-    color: var(--math-purple-dark);
-    opacity: 0.9;
-}
-
-/* ⭐ Pyramid layout: 2 → 3 → 3 → 2 */
+/* MOBILE: 1 column */
 .lesson-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 14px;
     max-width: 900px;
     margin: 0 auto;
 }
 
-.lesson-grid > :nth-child(n+3):nth-child(-n+5),
-.lesson-grid > :nth-child(n+6):nth-child(-n+8) {
-    grid-template-columns: repeat(3, 1fr);
-}
+/* LAPTOP/DESKTOP: Pyramid layout 2 → 3 → 3 → 2 */
+@media (min-width: 800px) {
 
-.lesson-tile {
-    background: var(--math-card-bg);
-    border-radius: var(--radius);
-    padding: 16px;
-    box-shadow: 0 4px 10px var(--math-shadow);
-    transition: var(--transition);
-    position: relative;
-}
+    .lesson-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 
-.lesson-tile:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 14px var(--math-shadow);
-}
+    /* Row 1 — items 1 & 2 centered */
+    .lesson-grid > :nth-child(1) {
+        grid-column: 1 / 2;
+    }
+    .lesson-grid > :nth-child(2) {
+        grid-column: 3 / 4;
+    }
 
-.lesson-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--math-purple-dark);
-    margin-bottom: 6px;
-}
+    /* Row 2 — items 3,4,5 fill all 3 columns naturally */
 
-.lesson-desc {
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 12px;
-}
+    /* Row 3 — items 6,7,8 fill all 3 columns naturally */
 
-.badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: white;
-}
-
-.badge-free {
-    background: var(--math-purple);
-}
-
-.badge-premium {
-    background: var(--math-purple-dark);
-}
-
-.lock-icon {
-    font-size: 1.2rem;
-    color: var(--math-purple-dark);
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    opacity: 0.8;
-}
-
-.world-footer {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.home-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background: var(--math-purple);
-    color: white;
-    border-radius: var(--radius);
-    text-decoration: none;
-    font-weight: 700;
-    box-shadow: 0 4px 10px var(--math-shadow);
-    transition: var(--transition);
-}
-
-.home-btn:hover {
-    background: var(--math-purple-dark);
-    transform: translateY(-3px);
+    /* Row 4 — items 9 & 10 centered */
+    .lesson-grid > :nth-child(9) {
+        grid-column: 1 / 2;
+    }
+    .lesson-grid > :nth-child(10) {
+        grid-column: 3 / 4;
+    }
 }
