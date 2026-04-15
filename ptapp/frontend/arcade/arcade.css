@@ -1,137 +1,58 @@
-/* ROOT */
+/* ROOT LAYOUT */
+
 .arc-root {
-  padding: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-  font-family: "Nunito", sans-serif;
+  min-height: 100vh;
+  padding: 24px 16px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: radial-gradient(circle at top, #3A1C7A 0%, #0A0414 55%, #05020A 100%);
+  color: #F8F5FF;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
 }
 
 /* HEADER */
+
 .arc-header {
-  margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 24px;
 }
 
 .arc-title {
-  font-size: 42px;
-  font-weight: 800;
-  color: #6a2dd8;
-  margin-bottom: 5px;
+  font-size: 1.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #F4D57E;
+  text-shadow: 0 0 12px rgba(244, 213, 126, 0.6);
+  margin-bottom: 4px;
 }
 
 .arc-subtitle {
-  font-size: 20px;
-  color: #666;
+  font-size: 1rem;
+  color: #CFC6E8;
 }
 
 /* PYRAMID LAYOUT */
+
 .arc-pyramid {
+  width: 100%;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  padding-bottom: 100px; /* ensures parent button never overlaps */
+  gap: 18px;
 }
 
-/* BLOCKS */
-.arc-block {
-  display: block;
-  padding: 32px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #ffffff, #f7f2ff);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-  text-decoration: none;
-  color: #333;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
+/* ROWS */
 
-.arc-block:hover {
-  transform: scale(1.03);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.22);
-}
-
-/* TITLES */
-.arc-block-title {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 6px;
-  color: #6a2dd8;
-}
-
-.arc-block-desc {
-  font-size: 16px;
-  opacity: 0.75;
-}
-
-/* LOCK OVERLAY */
-.arc-lock-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(2px);
-  border-radius: inherit;
-  display: none;
-}
-
-.arc-block.locked .arc-lock-overlay {
-  display: block;
-}
-
-/* MIDDLE ROW */
-.arc-middle-row {
-  display: flex;
-  gap: 20px;
-}
-
-.arc-middle {
-  flex: 1;
-}
-
-/* TOP + BOTTOM GRADIENTS */
 .arc-top {
-  background: linear-gradient(135deg, #d9c7ff, #f4ecff);
+  display: block;
+  margin: 0 auto;
 }
 
-.arc-bottom {
-  background: linear-gradient(135deg, #ffe8c7, #fff4e6);
-}
-
-/* PARENT BUTTON — REFORGED */
-.parent-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #6a2dd8;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 14px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  z-index: 9999;
-}
-
-/* MOBILE */
-@media (max-width: 600px) {
-  .arc-block {
-    padding: 24px;
-  }
-
-  .arc-block-title {
-    font-size: 24px;
-  }
-
-  .arc-block-desc {
-    font-size: 14px;
-  }
-
-  .parent-btn {
-    bottom: 16px;
-    right: 16px;
-    padding: 10px 16px;
-    font-size: 14px;
-  }
+.arc-middle-row,
+.arc-bottom-row {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
 }
 
