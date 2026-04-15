@@ -24,7 +24,7 @@
 .mathskills-world {
     background: var(--math-bg);
     min-height: 100vh;
-    padding: 80px 20px 20px; /* ensures header is visible under PurpleTanuki bar */
+    padding: 40px 20px 20px; /* ensures header is visible under PurpleTanuki bar */
     font-family: "Nunito", sans-serif;
     color: #333;
 }
