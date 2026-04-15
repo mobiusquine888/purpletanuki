@@ -41,7 +41,7 @@
 .tanuki-host {
   position: relative;
   width: 100%;
-  height: 68vh; /* upper 2/3 of screen */
+  height: 76vh; /* upper 2/3 of screen */
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -60,7 +60,7 @@
 /* BUTTON GRID — Akinator geometry */
 .world-buttons {
   position: relative;
-  margin-top: -12vh; /* medium overlap */
+  margin-top: -8vh; /* medium overlap */
   width: 100%;
   max-width: 480px;
   z-index: 30;
