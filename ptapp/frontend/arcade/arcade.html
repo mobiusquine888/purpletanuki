@@ -1,4 +1,3 @@
-<!-- arcade.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,40 +6,40 @@
   <title>PurpleTanuki Arcade</title>
   <link rel="stylesheet" href="arcade.css" />
 </head>
-<body class="arc-root">
-  <header class="arc-header">
-    <h1 class="arc-title">PURPLETANUKI</h1>
-    <p class="arc-subtitle">Choose your world</p>
-  </header>
 
+<body class="arc-root">
+
+  <!-- HEADER BOX (Akinator-style) -->
+  <div class="world-header-box">
+    Choose Your World
+  </div>
+
+  <!-- TANUKI IMAGE -->
   <section class="tanuki-host">
     <img src="tanuki-host.png" alt="Purple Tanuki Host" class="tanuki-img" />
   </section>
 
-  <section class="arc-buttons">
-    <a href="mathskills/mathskills.html" class="arc-btn">
-      <span class="arc-btn-title">Math Skills</span>
-      <span class="arc-btn-desc">Numbers · Patterns · Algebra</span>
-    </a>
-    <a href="calmfocus/calmfocus.html" class="arc-btn">
-      <span class="arc-btn-title">Calm & Focus</span>
-      <span class="arc-btn-desc">Breathing · Emotions · Mindfulness</span>
-    </a>
-    <a href="lifeskills/lifeskills.html" class="arc-btn">
-      <span class="arc-btn-title">Life Skills</span>
-      <span class="arc-btn-desc">Wisdom · Habits · Growing Up</span>
-    </a>
-    <a href="earlylearning/earlylearning.html" class="arc-btn">
-      <span class="arc-btn-title">Early Learning</span>
-      <span class="arc-btn-desc">Preschool · Kindergarten · Foundations</span>
-    </a>
-    <a href="bigkidskills/bigkidskills.html" class="arc-btn">
-      <span class="arc-btn-title">Big Kid Skills</span>
-      <span class="arc-btn-desc">Math · Reading · Challenges</span>
-    </a>
+  <!-- BUTTON GRID (Akinator geometry) -->
+  <section class="world-buttons">
+
+    <!-- TOP ROW: 2 buttons, 50% width each -->
+    <div class="row-two">
+      <a href="mathskills/mathskills.html" class="btn-world btn-math">Math</a>
+      <a href="calmfocus/calmfocus.html" class="btn-world">Calm</a>
+    </div>
+
+    <!-- BOTTOM ROW: 3 buttons, 33.33% width each -->
+    <div class="row-three">
+      <a href="lifeskills/lifeskills.html" class="btn-world">Life</a>
+      <a href="earlylearning/earlylearning.html" class="btn-world">Early</a>
+      <a href="bigkidskills/bigkidskills.html" class="btn-world">BigKid</a>
+    </div>
+
   </section>
 
+  <!-- PARENT BUTTON -->
   <a href="parent/parent.html" class="parent-btn">Parent</a>
+
 </body>
 </html>
 
