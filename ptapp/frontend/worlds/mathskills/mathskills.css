@@ -42,10 +42,18 @@
     opacity: 0.9;
 }
 
+/* ⭐ Pyramid layout: 2 → 3 → 3 → 2 */
 .lesson-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 14px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.lesson-grid > :nth-child(n+3):nth-child(-n+5),
+.lesson-grid > :nth-child(n+6):nth-child(-n+8) {
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .lesson-tile {
@@ -124,5 +132,3 @@
     background: var(--math-purple-dark);
     transform: translateY(-3px);
 }
-
-
