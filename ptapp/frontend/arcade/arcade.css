@@ -1,127 +1,85 @@
-/* ROOT LAYOUT */
-
 .arc-root {
   min-height: 100vh;
-  padding: 24px 16px 80px;
+  background: radial-gradient(circle at top, #3A1C7A 0%, #1B0E3A 40%, #0A0414 100%);
+  color: #F8F5FF;
+  font-family: "Nunito", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: radial-gradient(circle at top, #3A1C7A 0%, #0A0414 55%, #05020A 100%);
-  color: #F8F5FF;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  justify-content: space-between;
+  padding: 24px 16px;
 }
-
-/* HEADER */
 
 .arc-header {
   text-align: center;
-  margin-bottom: 24px;
+  margin-top: 12px;
 }
 
 .arc-title {
   font-size: 1.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: #F4D57E;
   text-shadow: 0 0 12px rgba(244, 213, 126, 0.6);
-  margin-bottom: 4px;
 }
 
 .arc-subtitle {
-  font-size: 1rem;
   color: #CFC6E8;
+  font-size: 1rem;
 }
 
-/* PYRAMID LAYOUT */
+.tanuki-host {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.arc-pyramid {
+.tanuki-img {
+  width: 70%;
+  max-width: 420px;
+  height: auto;
+}
+
+.arc-buttons {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   width: 100%;
   max-width: 420px;
+}
+
+.arc-btn {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-}
-
-/* ROWS */
-
-.arc-top {
-  display: block;
-  margin: 0 auto;
-}
-
-.arc-middle-row,
-.arc-bottom-row {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-}
-
-/* WORLD CARDS — MAGICAL PORTALS */
-
-.arc-block {
-  position: relative;
-  flex: 1;
-  padding: 16px 14px;
-  border-radius: 18px;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 14px;
   background: linear-gradient(180deg, #0D071A, #1B0E3A);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.45),
-    0 0 12px rgba(244, 213, 126, 0.35);
-  color: #F8F5FF;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45),
+              0 0 12px rgba(244, 213, 126, 0.35);
   text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  color: #F8F5FF;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* Featured top tile slightly larger */
-
-.arc-top {
-  max-width: 320px;
-  padding: 18px 16px;
-}
-
-/* Titles & descriptions */
-
-.arc-block-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #F4D57E;
-  margin-bottom: 4px;
-}
-
-.arc-block-desc {
-  font-size: 0.85rem;
-  color: #CFC6E8;
-}
-
-/* Hover / tap feedback */
-
-.arc-block:hover,
-.arc-block:active {
+.arc-btn:hover {
   transform: scale(1.03);
-  box-shadow:
-    0 6px 18px rgba(0, 0, 0, 0.55),
-    0 0 18px rgba(244, 213, 126, 0.55);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55),
+              0 0 18px rgba(244, 213, 126, 0.55);
   border-color: rgba(244, 213, 126, 0.7);
 }
 
-/* SPACING — ESPECIALLY BOTTOM ROW ON MOBILE */
-
-.arc-bottom-row {
-  margin-bottom: 10px;
+.arc-btn-title {
+  font-weight: 700;
+  color: #F4D57E;
+  font-size: 1.05rem;
 }
 
-/* Extra breathing room for bottom worlds */
-
-#world-earlylearning,
-#world-bigkidskills {
-  margin-bottom: 10px;
+.arc-btn-desc {
+  font-size: 0.85rem;
+  color: #CFC6E8;
 }
-
-/* PARENT BUTTON */
 
 .parent-btn {
   position: fixed;
@@ -134,67 +92,11 @@
   font-size: 0.85rem;
   font-weight: 600;
   text-decoration: none;
-  box-shadow:
-    0 4px 10px rgba(0, 0, 0, 0.5),
-    0 0 10px rgba(194, 123, 255, 0.7);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5),
+              0 0 10px rgba(194, 123, 255, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.18);
   z-index: 20;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.parent-btn:hover,
-.parent-btn:active {
-  transform: translateY(-1px);
-  box-shadow:
-    0 6px 14px rgba(0, 0, 0, 0.6),
-    0 0 14px rgba(194, 123, 255, 0.9);
-}
-
-/* RESPONSIVE — PHONE FIRST */
-
-@media (max-width: 600px) {
-  .arc-root {
-    padding: 20px 14px 90px;
-  }
-
-  .arc-title {
-    font-size: 1.6rem;
-  }
-
-  .arc-pyramid {
-    gap: 16px;
-  }
-
-  .arc-middle-row,
-  .arc-bottom-row {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .arc-block {
-    padding: 16px 14px;
-  }
-
-  /* Extra breathing room at bottom of stack */
-  #world-earlylearning,
-  #world-bigkidskills {
-    margin-bottom: 16px;
-  }
-}
-
-/* SUBTLE MAGIC OVERLAY */
-
-.arc-block::after {
-  content: "";
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(244, 213, 126, 0.7), transparent 60%);
-  opacity: 0.18;
-  pointer-events: none;
-}
 
 
