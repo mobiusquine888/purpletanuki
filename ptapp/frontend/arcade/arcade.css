@@ -56,3 +56,145 @@
   justify-content: center;
 }
 
+/* WORLD CARDS — MAGICAL PORTALS */
+
+.arc-block {
+  position: relative;
+  flex: 1;
+  padding: 16px 14px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #0D071A, #1B0E3A);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.45),
+    0 0 12px rgba(244, 213, 126, 0.35);
+  color: #F8F5FF;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+/* Featured top tile slightly larger */
+
+.arc-top {
+  max-width: 320px;
+  padding: 18px 16px;
+}
+
+/* Titles & descriptions */
+
+.arc-block-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #F4D57E;
+  margin-bottom: 4px;
+}
+
+.arc-block-desc {
+  font-size: 0.85rem;
+  color: #CFC6E8;
+}
+
+/* Hover / tap feedback */
+
+.arc-block:hover,
+.arc-block:active {
+  transform: scale(1.03);
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.55),
+    0 0 18px rgba(244, 213, 126, 0.55);
+  border-color: rgba(244, 213, 126, 0.7);
+}
+
+/* SPACING — ESPECIALLY BOTTOM ROW ON MOBILE */
+
+.arc-bottom-row {
+  margin-bottom: 10px;
+}
+
+/* Extra breathing room for bottom worlds */
+
+#world-earlylearning,
+#world-bigkidskills {
+  margin-bottom: 10px;
+}
+
+/* PARENT BUTTON */
+
+.parent-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 18px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #5C3BFF, #C27BFF);
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.5),
+    0 0 10px rgba(194, 123, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: 20;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.parent-btn:hover,
+.parent-btn:active {
+  transform: translateY(-1px);
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.6),
+    0 0 14px rgba(194, 123, 255, 0.9);
+}
+
+/* RESPONSIVE — PHONE FIRST */
+
+@media (max-width: 600px) {
+  .arc-root {
+    padding: 20px 14px 90px;
+  }
+
+  .arc-title {
+    font-size: 1.6rem;
+  }
+
+  .arc-pyramid {
+    gap: 16px;
+  }
+
+  .arc-middle-row,
+  .arc-bottom-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .arc-block {
+    padding: 16px 14px;
+  }
+
+  /* Extra breathing room at bottom of stack */
+  #world-earlylearning,
+  #world-bigkidskills {
+    margin-bottom: 16px;
+  }
+}
+
+/* SUBTLE MAGIC OVERLAY */
+
+.arc-block::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 213, 126, 0.7), transparent 60%);
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+
