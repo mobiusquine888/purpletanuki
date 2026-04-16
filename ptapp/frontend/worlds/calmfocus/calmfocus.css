@@ -1,169 +1,193 @@
-/* ---------------------------------------------------------
-   Purple Tanuki – Calm & Focus World Theme
-   Soft breathing circles, sparkles, gentle floating symbols
-   All styles scoped to .calmfocus-world to avoid conflicts
---------------------------------------------------------- */
+/* -------------------------------------------------------
+   Calm & Focus — Selector Page
+   Purple Tanuki World Template
+------------------------------------------------------- */
 
 :root {
-    --calm-blue: #6ac7ff;
-    --calm-blue-light: #b0e8ff;
-    --calm-blue-dark: #3a8fcc;
+    --calm-bg: #f4f7ff;
+    --calm-bg-soft: #f8faff;
 
-    --calm-bg: #f2faff;
-    --calm-card-bg: #ffffff;
-    --calm-shadow: rgba(0, 150, 255, 0.25);
+    --calm-blue: #7aa8ff;
+    --calm-blue-dark: #4a6ed1;
+    --calm-blue-light: #d7e4ff;
 
-    --radius: 18px;
-    --transition: 0.25s ease;
+    --calm-glow: #b8ffe7;
+    --calm-glow-strong: #7affd1;
+
+    --text-dark: #233044;
+    --text-soft: #4a5870;
+
+    --tile-radius: 22px;
+    --tile-shadow: 0 4px 10px rgba(74, 110, 209, 0.15);
+    --tile-shadow-hover: 0 6px 16px rgba(74, 110, 209, 0.22);
 }
 
-/* WORLD CONTAINER */
+/* -------------------------------------------------------
+   WORLD BACKGROUND
+------------------------------------------------------- */
+
 .calmfocus-world {
     background: var(--calm-bg);
-    min-height: 100vh;
-    padding: 40px 20px 20px;
+    color: var(--text-dark);
     font-family: "Nunito", sans-serif;
-    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
-/* HEADER */
+/* -------------------------------------------------------
+   HEADER
+------------------------------------------------------- */
+
 .world-header {
     text-align: center;
-    margin-bottom: 20px;
+    padding: 32px 20px 20px;
 }
 
-.world-header h1 {
-    font-size: 2rem;
-    color: var(--calm-blue-dark);
-    text-shadow: 0 0 8px var(--calm-blue-light);
-}
-
-.world-subtitle {
-    font-size: 1rem;
-    color: var(--calm-blue-dark);
-    opacity: 0.9;
-}
-
-/* WORLDMAP VISUAL */
-.calm-worldmap {
-    width: 100%;
-    height: 220px;
-    border-radius: var(--radius);
-    background: linear-gradient(180deg, var(--calm-blue-light), var(--calm-blue));
-    box-shadow: 0 4px 12px var(--calm-shadow);
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 25px;
-}
-
-/* FLOATING ANIMATION */
-@keyframes calmFloat {
-    0% { transform: translateY(0px); opacity: 0.7; }
-    50% { transform: translateY(-10px); opacity: 1; }
-    100% { transform: translateY(0px); opacity: 0.7; }
-}
-
-/* SYMBOL BASE STYLE */
-.calm-symbol {
-    position: absolute;
-    font-size: 2rem;
-    color: #e8faff;
-    text-shadow: 0 0 12px #a8eaff;
-    animation: calmFloat 4s ease-in-out infinite;
-}
-
-/* POSITIONS */
-.calm-1 { top: 25px; left: 25px; animation-delay: 0s; }
-.calm-2 { top: 70px; right: 30px; animation-delay: 0.4s; }
-.calm-3 { bottom: 25px; left: 50%; transform: translateX(-50%); animation-delay: 0.8s; }
-
-/* LESSON GRID */
-.lesson-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-}
-
-/* LESSON TILE */
-.lesson-tile {
-    background: var(--calm-card-bg);
-    border-radius: var(--radius);
-    padding: 16px;
-    box-shadow: 0 4px 10px var(--calm-shadow);
-    transition: var(--transition);
-    position: relative;
-}
-
-.lesson-tile:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 14px var(--calm-shadow);
-}
-
-/* TITLE */
-.lesson-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--calm-blue-dark);
-    margin-bottom: 6px;
-}
-
-/* DESCRIPTION */
-.lesson-desc {
-    font-size: 0.9rem;
-    color: #555;
+.tanuki-img {
+    width: 120px;
+    height: auto;
     margin-bottom: 12px;
 }
 
-/* FREE / PREMIUM BADGES */
+.world-header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    color: var(--calm-blue-dark);
+}
+
+.world-subtitle {
+    margin-top: 6px;
+    font-size: 1.1rem;
+    color: var(--text-soft);
+}
+
+/* -------------------------------------------------------
+   HERO GAME
+------------------------------------------------------- */
+
+.hero-game {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto 0;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.hero-game-frame {
+    width: 100%;
+    height: 260px;
+    border: none;
+    background: #000;
+}
+
+/* -------------------------------------------------------
+   SECTION HEADERS
+------------------------------------------------------- */
+
+.section-header {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--calm-blue-dark);
+    margin: 30px auto 10px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.section-divider {
+    width: 80%;
+    margin: 25px auto;
+    border: none;
+    border-top: 2px solid var(--calm-blue-light);
+}
+
+/* -------------------------------------------------------
+   WORLD SELECTOR GRID
+------------------------------------------------------- */
+
+.world-selector-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.world-tile {
+    background: var(--calm-bg-soft);
+    border-radius: var(--tile-radius);
+    padding: 18px;
+    box-shadow: var(--tile-shadow);
+    border: 2px solid var(--calm-blue-light);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    cursor: pointer;
+}
+
+.world-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--tile-shadow-hover);
+    border-color: var(--calm-blue);
+}
+
+.world-tile h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--calm-blue-dark);
+}
+
+.world-tile p {
+    margin: 6px 0 12px;
+    font-size: 0.95rem;
+    color: var(--text-soft);
+}
+
+/* -------------------------------------------------------
+   BADGES
+------------------------------------------------------- */
+
 .badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    display: inline-block;
     padding: 4px 10px;
     border-radius: 12px;
     font-size: 0.75rem;
     font-weight: 700;
-    color: white;
+    letter-spacing: 0.5px;
 }
 
 .badge-free {
-    background: var(--calm-blue);
+    background: var(--calm-glow);
+    color: #003322;
+    box-shadow: 0 0 8px var(--calm-glow-strong);
 }
 
 .badge-premium {
-    background: var(--calm-blue-dark);
+    background: #ffe0e0;
+    color: #b30000;
 }
 
-/* LOCK ICON */
-.lock-icon {
-    font-size: 1.2rem;
-    color: var(--calm-blue-dark);
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    opacity: 0.8;
-}
+/* -------------------------------------------------------
+   FOOTER
+------------------------------------------------------- */
 
-/* FOOTER */
 .world-footer {
     text-align: center;
-    margin-top: 30px;
+    padding: 30px 0 40px;
 }
 
 .home-btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 18px;
     background: var(--calm-blue);
     color: white;
-    border-radius: var(--radius);
+    border-radius: 18px;
     text-decoration: none;
     font-weight: 700;
-    box-shadow: 0 4px 10px var(--calm-shadow);
-    transition: var(--transition);
+    transition: background 0.15s ease;
 }
 
 .home-btn:hover {
     background: var(--calm-blue-dark);
-    transform: translateY(-3px);
 }
+
 
