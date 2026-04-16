@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Skills – Tanuki’s Daily Rituals</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="lifeskills-root">
+
+  <!-- HEADER / TITLE -->
+  <header class="ls-header">
+    <div class="ls-title">Life Skills</div>
+    <div class="ls-subtitle">Tanuki’s Daily Rituals</div>
+  </header>
+
+  <!-- TANUKI + TREE AREA -->
+  <section class="ls-hero">
+    <div class="ls-tree-container">
+      <div class="ls-tree"></div>
+    </div>
+    <div class="ls-tanuki-container">
+      <img src="assets/tanuki-lifeskills.png"
+           alt="Life Skills Tanuki"
+           class="ls-tanuki-img" />
+    </div>
+  </section>
+
+  <!-- RITUAL CARD AREA -->
+  <main class="ls-main">
+    <div class="ls-card">
+      <div class="ls-card-title" id="ritualTitle">Loading ritual...</div>
+      <div class="ls-card-desc" id="ritualDescription"></div>
+
+      <!-- INTERACTION AREA -->
+      <div class="ls-interaction" id="interactionArea">
+        <!-- game.js injects the mini-interaction here -->
+      </div>
+
+      <!-- ACTION BUTTON -->
+      <button class="ls-action-btn" id="completeRitualBtn">
+        I’m Done
+      </button>
+    </div>
+
+    <!-- TANUKI MESSAGE -->
+    <div class="ls-tanuki-message" id="tanukiMessage">
+      Welcome. Let’s grow your daily magic.
+    </div>
+  </main>
+
+  <!-- SESSION FOOTER -->
+  <footer class="ls-footer">
+    <div class="ls-seeds">
+      Life Seeds: <span id="seedCount">0</span> / <span id="sessionGoal">3</span>
+    </div>
+    <button class="ls-exit-btn" onclick="window.location.href='../../arcade/index.html'">
+      Back to Worlds
+    </button>
+  </footer>
+
+  <script src="game.js"></script>
+</body>
+</html>
