@@ -1,6 +1,6 @@
-// ---------------------------------------------------------
-// Purple Tanuki – Calm & Focus World Logic (10 Rituals)
-// ---------------------------------------------------------
+/* -------------------------------------------------------
+   Purple Tanuki – Calm & Focus World Logic (10 Rituals)
+------------------------------------------------------- */
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Calm & Focus JS loaded.");
@@ -53,6 +53,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         tile.addEventListener("click", () => {
             console.log("Ritual selected:", ritual.id);
+
+            if (!ritual.free) {
+                alert("This is a premium ritual.");
+                return;
+            }
+
+            // ROUTING LOGIC
+            if (ritual.id === "breathing") {
+                window.location.href = "../../games/breathing-crystals/index.html";
+                return;
+            }
+
+            // Placeholder for future rituals
+            alert("This ritual is coming soon!");
         });
 
         lessonGrid.appendChild(tile);
@@ -60,3 +74,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Calm & Focus rituals populated.");
 });
+
