@@ -1,0 +1,169 @@
+/* -------------------------------------------------------
+   Calm & Focus — Lesson Grid
+   Purple Tanuki World Template
+------------------------------------------------------- */
+
+:root {
+    --calm-bg: #f4f7ff;
+    --calm-bg-soft: #f8faff;
+
+    --calm-blue: #7aa8ff;
+    --calm-blue-dark: #4a6ed1;
+    --calm-blue-light: #d7e4ff;
+
+    --calm-glow: #b8ffe7;
+    --calm-glow-strong: #7affd1;
+
+    --text-dark: #233044;
+    --text-soft: #4a5870;
+
+    --tile-radius: 22px;
+    --tile-shadow: 0 4px 10px rgba(74, 110, 209, 0.15);
+    --tile-shadow-hover: 0 6px 16px rgba(74, 110, 209, 0.22);
+}
+
+/* -------------------------------------------------------
+   WORLD BACKGROUND
+------------------------------------------------------- */
+
+.calmfocus-world {
+    background: var(--calm-bg);
+    color: var(--text-dark);
+    font-family: "Nunito", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* -------------------------------------------------------
+   HEADER
+------------------------------------------------------- */
+
+.world-header {
+    text-align: center;
+    padding: 32px 20px 20px;
+}
+
+.tanuki-img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 12px;
+}
+
+.world-header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    color: var(--calm-blue-dark);
+}
+
+.world-subtitle {
+    margin-top: 6px;
+    font-size: 1.1rem;
+    color: var(--text-soft);
+}
+
+/* -------------------------------------------------------
+   LESSON GRID — MOBILE FIRST
+------------------------------------------------------- */
+
+.lesson-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* -------------------------------------------------------
+   LESSON TILE
+------------------------------------------------------- */
+
+.lesson-tile {
+    background: var(--calm-bg-soft);
+    border-radius: var(--tile-radius);
+    padding: 18px 20px;
+    box-shadow: var(--tile-shadow);
+    border: 2px solid var(--calm-blue-light);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.lesson-tile:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--tile-shadow-hover);
+    border-color: var(--calm-blue);
+}
+
+.lesson-tile h3 {
+    margin: 0 0 6px;
+    font-size: 1.2rem;
+    color: var(--calm-blue-dark);
+}
+
+.lesson-tile p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-soft);
+}
+
+/* FREE / PREMIUM badge */
+
+.badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.badge-free {
+    background: var(--calm-glow);
+    color: #003322;
+    box-shadow: 0 0 8px var(--calm-glow-strong);
+}
+
+.badge-premium {
+    background: #ffe0e0;
+    color: #b30000;
+}
+
+/* -------------------------------------------------------
+   DESKTOP PYRAMID LAYOUT
+------------------------------------------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .lesson-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .lesson-grid > :nth-child(1) { grid-column: 1 / 2; }
+    .lesson-grid > :nth-child(2) { grid-column: 3 / 4; }
+
+    .lesson-grid > :nth-child(9) { grid-column: 1 / 2; }
+    .lesson-grid > :nth-child(10) { grid-column: 3 / 4; }
+}
+
+/* -------------------------------------------------------
+   FOOTER
+------------------------------------------------------- */
+
+.world-footer {
+    text-align: center;
+    padding: 30px 0 40px;
+}
+
+.home-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    background: var(--calm-blue);
+    color: white;
+    border-radius: 18px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.15s ease;
+}
+
+.home-btn:hover {
+    background: var(--calm-blue-dark);
+}
