@@ -1,19 +1,19 @@
+// ---------------------------------------------------------
+// Breathing Crystals – Purple Tanuki
+// Clean, fixed, production‑ready version
+// ---------------------------------------------------------
+
 const canvas = document.getElementById("crystalCanvas");
 const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let t = 0;
-let focus = 0;
 
 function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 }
+resize();
 window.addEventListener("resize", resize);
 
-// Breathing cycle parameters
+// Breathing cycle
 const cycle = {
     inhale: 2.5,
     hold: 1.0,
@@ -21,12 +21,16 @@ const cycle = {
     total() { return this.inhale + this.hold + this.exhale; }
 };
 
+let t = 0;
+let focus = 0;
+
 // Sparkles
 const sparkles = [];
 
 function addSparkle(x, y) {
     sparkles.push({
-        x, y,
+        x,
+        y,
         size: Math.random() * 4 + 2,
         alpha: 1,
         dy: -0.5 - Math.random()
@@ -39,12 +43,13 @@ function drawSparkles() {
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
         ctx.fill();
+
         s.y += s.dy;
         s.alpha -= 0.01;
     }
 }
 
-// Main breathing animation
+// Draw breathing crystal
 function drawCrystal() {
     const w = canvas.width;
     const h = canvas.height;
@@ -55,19 +60,15 @@ function drawCrystal() {
     let radius;
 
     if (phase < cycle.inhale) {
-        // inhale
         const p = phase / cycle.inhale;
         radius = 80 + p * 80;
     } else if (phase < cycle.inhale + cycle.hold) {
-        // hold
         radius = 160;
     } else {
-        // exhale
         const p = (phase - cycle.inhale - cycle.hold) / cycle.exhale;
         radius = 160 - p * 80;
     }
 
-    // Glow
     const glow = radius / 160;
 
     ctx.save();
@@ -79,8 +80,8 @@ function drawCrystal() {
     ctx.arc(0, 0, radius + 40, 0, Math.PI * 2);
     ctx.fill();
 
-    // Crystal core
-    ctx.fillStyle = `rgba(255,255,255,${0.8})`;
+    // Core
+    ctx.fillStyle = `rgba(255,255,255,0.85)`;
     ctx.beginPath();
     ctx.arc(0, 0, radius, 0, Math.PI * 2);
     ctx.fill();
@@ -90,530 +91,37 @@ function drawCrystal() {
     return { radius, glow };
 }
 
+// Focus meter
 function updateFocusMeter() {
     const meter = document.getElementById("focusMeter");
     meter.style.setProperty("--focus", focus);
-    meter.querySelector("::after");
-    meter.style.setProperty("--focus", focus);
-    meter.children[0];
-    meter.style.setProperty("--focus", focus);
-    meter.style.setProperty("--focus", focus);
-    meter.style.setProperty("--focus", focus);
-    meter.style.setProperty("--focus", focus);
-    meter.style.setProperty("--focus", focus);
-    meter.style.setProperty("--focus", focus);
-    meter.style.setProperty("--focus", focus);
-    meter.style.setProperty("--focus", focus);
-    meter.style.setProperty("--focus", focus);
-    meter.style.setProperty("--focus", focus);
-    meter.style.setProperty("--focus", focus);
+}
 
-    meter.style.setProperty("--focus", focus);
-    meter.style.setProperty("--focus", focus);
+// Tap detection
+canvas.addEventListener("pointerdown", () => {
+    const cycleTime = cycle.total();
+    const phase = t % cycleTime;
 
-    meter.style.setProperty("--focus", focus);
-    meter.style.setProperty("--focus", focus);
+    // Perfect timing = when crystal is brightest (hold phase)
+    if (phase > cycle.inhale && phase < cycle.inhale + cycle.hold) {
+        focus = Math.min(1, focus + 0.1);
 
-    meter.style.setProperty("--focus", focus);
+        // Add sparkle burst
+        addSparkle(canvas.width / 2, canvas.height / 2);
+    }
+});
 
-    meter.style.setProperty("--focus", focus);
+// Main loop
+function loop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    meter.style.setProperty("--focus", focus);
+    drawCrystal();
+    drawSparkles();
+    updateFocusMeter();
 
-    meter.style.setProperty("--focus", focus);
+    t += 0.016;
+    requestAnimationFrame(loop);
+}
 
-    meter.style.setProperty("--focus", focus);
+loop();
 
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.setProperty("--focus", focus);
-
-    meter.style.set
