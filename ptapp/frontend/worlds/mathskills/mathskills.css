@@ -1,6 +1,6 @@
 /* -------------------------------------------------------
-   Math Skills — Purple Tanuki
-   Glowing Runes × Purple Tanuki Core Palette
+   Math Skills — Selector Page
+   Purple Tanuki World Template
 ------------------------------------------------------- */
 
 :root {
@@ -35,6 +35,26 @@
 }
 
 /* -------------------------------------------------------
+   HERO GAME BLOCK
+------------------------------------------------------- */
+
+.hero-game {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto 0;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.hero-game-frame {
+    width: 100%;
+    height: 260px;
+    border: none;
+    background: #000;
+}
+
+/* -------------------------------------------------------
    HEADER
 ------------------------------------------------------- */
 
@@ -62,84 +82,88 @@
 }
 
 /* -------------------------------------------------------
-   LESSON GRID — MOBILE FIRST
+   SECTION HEADERS
 ------------------------------------------------------- */
 
-.lesson-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
+.section-header {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--math-purple-dark);
+    margin: 30px auto 10px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.section-divider {
+    width: 80%;
+    margin: 25px auto;
+    border: none;
+    border-top: 2px solid var(--math-purple-light);
 }
 
 /* -------------------------------------------------------
-   LESSON TILE
+   WORLD SELECTOR GRID
 ------------------------------------------------------- */
 
-.lesson-tile {
-    background: var(--math-bg-soft);
-    border-radius: var(--tile-radius);
-    padding: 18px 20px;
-    box-shadow: var(--tile-shadow);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    border: 2px solid var(--math-purple-light);
+.world-selector-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.lesson-tile:hover {
-    transform: translateY(-3px);
+.world-tile {
+    background: var(--math-bg-soft);
+    border-radius: var(--tile-radius);
+    padding: 18px;
+    box-shadow: var(--tile-shadow);
+    border: 2px solid var(--math-purple-light);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    cursor: pointer;
+}
+
+.world-tile:hover {
+    transform: translateY(-4px);
     box-shadow: var(--tile-shadow-hover);
     border-color: var(--math-purple);
 }
 
-.lesson-tile h3 {
-    margin: 0 0 6px;
+.world-tile h3 {
+    margin: 0;
     font-size: 1.2rem;
     color: var(--math-purple-dark);
 }
 
-.lesson-tile p {
-    margin: 0;
+.world-tile p {
+    margin: 6px 0 12px;
     font-size: 0.95rem;
     color: var(--text-soft);
 }
 
-/* FREE badge */
+/* -------------------------------------------------------
+   BADGES
+------------------------------------------------------- */
+
 .badge {
     display: inline-block;
-    margin-top: 10px;
     padding: 4px 10px;
-    background: var(--math-glow-mint);
-    color: #003322;
     border-radius: 12px;
     font-size: 0.75rem;
     font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.badge-free {
+    background: var(--math-glow-mint);
+    color: #003322;
     box-shadow: 0 0 8px var(--math-glow-mint-strong);
 }
 
-/* -------------------------------------------------------
-   DESKTOP PYRAMID LAYOUT
-   (Co‑CEO Breakpoint: hover-capable devices only)
-------------------------------------------------------- */
-
-@media (hover: hover) and (pointer: fine) {
-
-    .lesson-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    /* Row 1 — items 1 & 2 centered */
-    .lesson-grid > :nth-child(1) { grid-column: 1 / 2; }
-    .lesson-grid > :nth-child(2) { grid-column: 3 / 4; }
-
-    /* Row 2 — items 3,4,5 fill naturally */
-
-    /* Row 3 — items 6,7,8 fill naturally */
-
-    /* Row 4 — items 9 & 10 centered */
-    .lesson-grid > :nth-child(9) { grid-column: 1 / 2; }
-    .lesson-grid > :nth-child(10) { grid-column: 3 / 4; }
+.badge-premium {
+    background: #ffe0e0;
+    color: #b30000;
 }
 
 /* -------------------------------------------------------
