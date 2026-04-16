@@ -220,3 +220,33 @@
   50%  { transform: translateY(-4px) scale(1.01); }
   100% { transform: translateY(0) scale(1); }
 }
+/* Image-tap console interaction */
+.ls-image-tap-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+}
+
+.ls-image-tap-img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Hotspots over items on the console */
+.ls-hotspot {
+  position: absolute;
+  width: 18%;
+  height: 22%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+}
+
+.ls-hotspot.selected {
+  background: rgba(194, 123, 255, 0.45);
+  border-color: #C27BFF;
+  box-shadow: 0 0 10px rgba(194, 123, 255, 0.7);
+}
