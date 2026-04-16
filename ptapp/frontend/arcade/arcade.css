@@ -37,11 +37,11 @@
   z-index: 20;
 }
 
-/* TANUKI HOST */
+/* TANUKI HOST — occupies upper 2/3 */
 .tanuki-host {
   position: relative;
   width: 100%;
-  height: 76vh;
+  height: 66vh; /* upper 2/3 */
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -52,64 +52,77 @@
   width: 100%;
   height: auto;
   max-width: none;
-  margin-top: -4vh;
+  margin-top: -3vh;
   pointer-events: none;
   animation: tanuki-breathe 4.5s ease-in-out infinite;
 }
 
 /* ---------------------------------------------------------
-   NEW VERTICAL WORLD MENU — PREMIUM IOS STYLE
+   REFORGED COMPACT VERTICAL MENU — LOWER 1/3
 --------------------------------------------------------- */
 
 #worldMenu {
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 20px 0 30px 0;
+  height: 34vh; /* bottom 1/3 */
+  padding: 12px 0 22px 0;
+
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  justify-content: flex-end;
+  gap: 10px;
 
   background: linear-gradient(
     to bottom,
     rgba(0,0,0,0) 0%,
-    rgba(0,0,0,0.25) 30%,
-    rgba(0,0,0,0.45) 100%
+    rgba(0,0,0,0.35) 40%,
+    rgba(0,0,0,0.55) 100%
   );
 }
 
+/* Magical PurpleTanuki buttons */
 .worldTab {
-  width: 90%;
+  width: 88%;
   margin: 0 auto;
-  padding: 18px 20px;
-  background: rgba(255,255,255,0.92);
-  border-radius: 16px;
+  padding: 10px 0;
+
+  text-align: center;
+
+  background: linear-gradient(180deg, #0D071A, #1B0E3A);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+
+  color: #EBD7FF;
+  font-size: 1rem;
+  font-weight: 800;
   text-decoration: none;
-  color: #3a2a7a;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.2;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.45),
+    0 0 10px rgba(194,123,255,0.35);
+
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
+/* Subtitle */
 .worldTab span {
   display: block;
-  font-size: 14px;
-  font-weight: 500;
-  opacity: 0.7;
-  margin-top: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.8;
+  margin-top: 2px;
 }
 
+/* Tap feedback */
 .worldTab:active {
   transform: scale(0.97);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow:
+    0 2px 6px rgba(0,0,0,0.5),
+    0 0 12px rgba(194,123,255,0.55);
 }
 
-/* ---------------------------------------------------------
-   PARENT BUTTON
---------------------------------------------------------- */
-
+/* PARENT BUTTON */
 .parent-btn {
   position: fixed;
   right: 14px;
@@ -128,10 +141,7 @@
   z-index: 50;
 }
 
-/* ---------------------------------------------------------
-   ANIMATIONS
---------------------------------------------------------- */
-
+/* ANIMATIONS */
 @keyframes tanuki-breathe {
   0%   { transform: translateY(0) scale(1); }
   50%  { transform: translateY(-4px) scale(1.01); }
