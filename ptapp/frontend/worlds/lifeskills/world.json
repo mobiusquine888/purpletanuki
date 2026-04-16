@@ -1,0 +1,53 @@
+{
+  "worldId": "lifeskills",
+  "name": "Life Skills",
+  "displayName": "Tanuki’s Daily Rituals",
+  "sessionGoal": 3,
+  "rituals": [
+    {
+      "id": "brush_teeth",
+      "title": "Brush Teeth",
+      "description": "Help Tanuki brush their teeth until the sparkle bar is full.",
+      "type": "slider_fill"
+    },
+    {
+      "id": "pack_backpack",
+      "title": "Pack Backpack",
+      "description": "Choose the items Tanuki needs for the day.",
+      "type": "choice_pills",
+      "options": ["Book", "Toy Sword", "Water Bottle", "Banana"],
+      "correct": ["Book", "Water Bottle"]
+    },
+    {
+      "id": "choose_clothes",
+      "title": "Choose Clothes",
+      "description": "Pick the outfit that matches today’s weather.",
+      "type": "choice_pills",
+      "options": ["Snow Coat", "Rain Jacket", "T‑Shirt"],
+      "correct": ["T‑Shirt"]
+    },
+    {
+      "id": "healthy_snack",
+      "title": "Healthy Snack",
+      "description": "Pick the snack that gives Tanuki steady energy.",
+      "type": "choice_pills",
+      "options": ["Candy", "Chips", "Apple Slices"],
+      "correct": ["Apple Slices"]
+    },
+    {
+      "id": "kindness_moment",
+      "title": "Kindness Moment",
+      "description": "Choose a kind action Tanuki could take today.",
+      "type": "choice_pills",
+      "options": ["Share a toy", "Ignore a friend", "Take all the snacks"],
+      "correct": ["Share a toy"]
+    }
+  ],
+  "affirmations": [
+    "Your habits are growing your magic.",
+    "That was a wise choice.",
+    "You’re becoming more responsible every day.",
+    "Small rituals make big changes.",
+    "You’re taking great care of your future self."
+  ]
+}
