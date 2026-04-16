@@ -5,26 +5,23 @@
   "sessionGoal": 3,
   "rituals": [
     {
+      "id": "pack_backpack",
+      "title": "Pack Backpack",
+      "description": "Choose the items Tanuki needs for the day.",
+      "type": "image_tap",
+      "image": "assets/console-pack.png",
+      "items": [
+        { "name": "Book", "x": 25, "y": 55, "correct": true },
+        { "name": "Toy Sword", "x": 45, "y": 55, "correct": false },
+        { "name": "Water Bottle", "x": 65, "y": 55, "correct": true },
+        { "name": "Banana", "x": 85, "y": 55, "correct": false }
+      ]
+    },
+    {
       "id": "brush_teeth",
       "title": "Brush Teeth",
       "description": "Help Tanuki brush their teeth until the sparkle bar is full.",
       "type": "slider_fill"
-    },
-    {
-      "id": "pack_backpack",
-      "title": "Pack Backpack",
-      "description": "Choose the items Tanuki needs for the day.",
-      "type": "choice_pills",
-      "options": ["Book", "Toy Sword", "Water Bottle", "Banana"],
-      "correct": ["Book", "Water Bottle"]
-    },
-    {
-      "id": "choose_clothes",
-      "title": "Choose Clothes",
-      "description": "Pick the outfit that matches today’s weather.",
-      "type": "choice_pills",
-      "options": ["Snow Coat", "Rain Jacket", "T‑Shirt"],
-      "correct": ["T‑Shirt"]
     },
     {
       "id": "healthy_snack",
@@ -51,3 +48,4 @@
     "You’re taking great care of your future self."
   ]
 }
+
