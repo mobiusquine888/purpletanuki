@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    background: radial-gradient(circle at center, #dcd6ff, #b8b0ff, #8f6bff);
+    overflow: hidden;
+    touch-action: manipulation;
+    font-family: "Nunito", sans-serif;
+}
+
+#crystalCanvas {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+}
+
+#focusMeter {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 14px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#focusMeter::after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: #7affd1;
+    box-shadow: 0 0 12px #7affd1;
+    transition: width 0.3s ease;
+}
