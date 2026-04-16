@@ -10,13 +10,63 @@
 
 <body class="mathskills-world">
 
+    <!-- HERO GAME BLOCK -->
+    <section class="hero-game">
+        <iframe 
+            src="games/adding-fireflies/index.html" 
+            class="hero-game-frame"
+            title="Adding Fireflies Game"
+            loading="lazy">
+        </iframe>
+    </section>
+
     <header class="world-header">
         <img src="../../img/tanuki_math.png" alt="Tanuki" class="tanuki-img" />
         <h1>Math Skills</h1>
         <p class="world-subtitle">Number runes, glowing puzzles, tiny math adventures.</p>
     </header>
 
-    <section class="lesson-grid" id="lessonGrid"></section>
+    <!-- FREE LEARNING WORLDS -->
+    <section class="section-header">Free Learning Worlds</section>
+
+    <section class="world-selector-grid">
+        <article class="world-tile" onclick="goToLessons()">
+            <h3>Meet the Glowing Numbers</h3>
+            <p>Explore magical number runes that float in the air.</p>
+            <span class="badge badge-free">FREE</span>
+        </article>
+
+        <article class="world-tile" onclick="goToLessons()">
+            <h3>Counting Lanterns</h3>
+            <p>Count softly glowing lanterns in the Tanuki forest.</p>
+            <span class="badge badge-free">FREE</span>
+        </article>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- MORE LEARNING WORLDS -->
+    <section class="section-header">More Learning Worlds</section>
+
+    <section class="world-selector-grid">
+        <article class="world-tile" onclick="goToLessons()">
+            <h3>Adding Fireflies</h3>
+            <p>Combine tiny firefly groups to discover new totals.</p>
+            <span class="badge badge-premium">PREMIUM 🔒</span>
+        </article>
+
+        <article class="world-tile" onclick="goToLessons()">
+            <h3>Shape Runes</h3>
+            <p>Match glowing shapes to learn early geometry.</p>
+            <span class="badge badge-premium">PREMIUM 🔒</span>
+        </article>
+
+        <article class="world-tile" onclick="goToLessons()">
+            <h3>Pattern Paths</h3>
+            <p>Follow magical patterns through the forest.</p>
+            <span class="badge badge-premium">PREMIUM 🔒</span>
+        </article>
+    </section>
 
     <footer class="world-footer">
         <a href="https://www.purpletanuki.com" class="home-btn">🏠 Home</a>
@@ -25,6 +75,5 @@
     <script src="mathskills.js"></script>
 </body>
 </html>
-
 
 
