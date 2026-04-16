@@ -16,11 +16,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden; /* no scrolling */
+  overflow: hidden;
   padding-top: 10px;
 }
 
-/* HEADER BOX — Akinator-style */
+/* HEADER BOX */
 .world-header-box {
   background: linear-gradient(180deg, #2A155A, #3A1C7A);
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -48,7 +48,6 @@
   overflow: hidden;
 }
 
-/* Tanuki image */
 .tanuki-img {
   width: 100%;
   height: auto;
@@ -58,92 +57,59 @@
   animation: tanuki-breathe 4.5s ease-in-out infinite;
 }
 
-/* BUTTON GRID — Akinator geometry */
-.world-buttons {
-  position: relative;
-  margin-top: -8vh;
+/* ---------------------------------------------------------
+   NEW VERTICAL WORLD MENU — PREMIUM IOS STYLE
+--------------------------------------------------------- */
+
+#worldMenu {
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  max-width: 480px;
-  z-index: 30;
+  padding: 20px 0 30px 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.25) 30%,
+    rgba(0,0,0,0.45) 100%
+  );
 }
 
-/* TOP ROW — 2 cards */
-.row-two {
-  display: flex;
-  gap: 10px;
-}
-
-.row-two .btn-world {
-  flex: 1;
-}
-
-/* BOTTOM ROW — 3 cards */
-.row-three {
-  display: flex;
-  gap: 10px;
-}
-
-.row-three .btn-world {
-  flex: 1;
-}
-
-/* HYBRID CARD TYPOGRAPHY */
-.card-title {
-  font-size: 0.95rem;
-  font-weight: 800;
-  color: #F8F5FF;
-  margin-bottom: 2px;
-  text-align: center;
-}
-
-.card-sub {
-  font-size: 0.70rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.75);
-  text-align: center;
-  line-height: 1.1;
-}
-
-/* BASE CARD STYLE */
-.btn-world {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 2px;
-  padding: 10px 6px;
-  height: 70px; /* compact premium */
-  border-radius: 12px;
-  background: linear-gradient(180deg, #0D071A, #1B0E3A);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #F8F5FF;
+.worldTab {
+  width: 90%;
+  margin: 0 auto;
+  padding: 18px 20px;
+  background: rgba(255,255,255,0.92);
+  border-radius: 16px;
   text-decoration: none;
-  box-shadow:
-    0 4px 10px rgba(0, 0, 0, 0.45),
-    0 0 10px rgba(244, 213, 126, 0.25);
+  color: #3a2a7a;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* HOVER */
-.btn-world:hover {
-  transform: scale(1.03);
-  box-shadow:
-    0 6px 16px rgba(0, 0, 0, 0.55),
-    0 0 16px rgba(244, 213, 126, 0.45);
+.worldTab span {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.7;
+  margin-top: 4px;
 }
 
-/* HYBRID FEATURED MATH BUTTON */
-.btn-math {
-  border: 2px solid #A06BFF;
-  box-shadow:
-    0 0 12px rgba(160, 107, 255, 0.7),
-    0 4px 10px rgba(0, 0, 0, 0.45);
-  background: linear-gradient(180deg, #1B0E3A, #3A1C7A);
+.worldTab:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-/* PARENT BUTTON */
+/* ---------------------------------------------------------
+   PARENT BUTTON
+--------------------------------------------------------- */
+
 .parent-btn {
   position: fixed;
   right: 14px;
@@ -162,7 +128,10 @@
   z-index: 50;
 }
 
-/* ANIMATIONS */
+/* ---------------------------------------------------------
+   ANIMATIONS
+--------------------------------------------------------- */
+
 @keyframes tanuki-breathe {
   0%   { transform: translateY(0) scale(1); }
   50%  { transform: translateY(-4px) scale(1.01); }
@@ -170,4 +139,7 @@
 }
 
 @keyframes sparkle-drift {
-  0%   { transform: translate3d(0, 0, 0); opacity:
+  0%   { transform: translate3d(0, 0, 0); opacity: 1; }
+  100% { transform: translate3d(0, -20px, 0); opacity: 0; }
+}
+
