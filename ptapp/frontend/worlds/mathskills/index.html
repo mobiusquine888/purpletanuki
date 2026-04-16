@@ -3,76 +3,107 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Math Skills – Purple Tanuki</title>
+    <title>Math Skills</title>
 
+    <!-- Selector Page Stylesheet -->
     <link rel="stylesheet" href="mathskills.css" />
 </head>
 
 <body class="mathskills-world">
 
-    <!-- HERO GAME BLOCK -->
+    <!-- HEADER -->
+    <header class="world-header">
+        <img src="../../img/tanuki_math.png" alt="Tanuki" class="tanuki-img" />
+        <h1>Math Skills</h1>
+        <p class="world-subtitle">Explore magical math adventures</p>
+    </header>
+
+    <!-- HERO GAME -->
     <section class="hero-game">
         <iframe 
-            src="games/adding-fireflies/index.html" 
+            src="../../games/adding-fireflies/index.html"
             class="hero-game-frame"
             title="Adding Fireflies Game"
             loading="lazy">
         </iframe>
     </section>
 
-    <header class="world-header">
-        <img src="../../img/tanuki_math.png" alt="Tanuki" class="tanuki-img" />
-        <h1>Math Skills</h1>
-        <p class="world-subtitle">Number runes, glowing puzzles, tiny math adventures.</p>
-    </header>
+    <hr class="section-divider" />
 
     <!-- FREE LEARNING WORLDS -->
-    <section class="section-header">Free Learning Worlds</section>
+    <h2 class="section-header">Free Learning Worlds</h2>
 
     <section class="world-selector-grid">
-        <article class="world-tile" onclick="goToLessons()">
-            <h3>Meet the Glowing Numbers</h3>
-            <p>Explore magical number runes that float in the air.</p>
-            <span class="badge badge-free">FREE</span>
+        <article class="world-tile">
+            <h3>Number Sense</h3>
+            <p>Meet glowing numbers and count magical lanterns.</p>
+            <div class="badge badge-free">FREE</div>
         </article>
 
-        <article class="world-tile" onclick="goToLessons()">
-            <h3>Counting Lanterns</h3>
-            <p>Count softly glowing lanterns in the Tanuki forest.</p>
-            <span class="badge badge-free">FREE</span>
+        <article class="world-tile">
+            <h3>Addition</h3>
+            <p>Combine fireflies and add glowing runes.</p>
+            <div class="badge badge-free">FREE</div>
+        </article>
+
+        <article class="world-tile">
+            <h3>Patterns</h3>
+            <p>Follow magical patterns across the forest.</p>
+            <div class="badge badge-free">FREE</div>
+        </article>
+
+        <article class="world-tile">
+            <h3>Shapes</h3>
+            <p>Discover ancient Tanuki shape stones.</p>
+            <div class="badge badge-free">FREE</div>
+        </article>
+
+        <article class="world-tile">
+            <h3>Fractions</h3>
+            <p>See how lanterns split into halves and quarters.</p>
+            <div class="badge badge-free">FREE</div>
         </article>
     </section>
 
     <hr class="section-divider" />
 
-    <!-- MORE LEARNING WORLDS -->
-    <section class="section-header">More Learning Worlds</section>
+    <!-- PREMIUM LEARNING WORLDS -->
+    <h2 class="section-header">Premium Learning Worlds</h2>
 
     <section class="world-selector-grid">
-        <article class="world-tile" onclick="goToLessons()">
-            <h3>Adding Fireflies</h3>
-            <p>Combine tiny firefly groups to discover new totals.</p>
-            <span class="badge badge-premium">PREMIUM 🔒</span>
+        <article class="world-tile">
+            <h3>Advanced Addition</h3>
+            <p>Unlock floating stones with rune addition.</p>
+            <div class="badge badge-premium">PREMIUM</div>
         </article>
 
-        <article class="world-tile" onclick="goToLessons()">
-            <h3>Shape Runes</h3>
-            <p>Match glowing shapes to learn early geometry.</p>
-            <span class="badge badge-premium">PREMIUM 🔒</span>
+        <article class="world-tile">
+            <h3>Advanced Patterns</h3>
+            <p>Open shimmering portals with pattern mastery.</p>
+            <div class="badge badge-premium">PREMIUM</div>
         </article>
 
-        <article class="world-tile" onclick="goToLessons()">
-            <h3>Pattern Paths</h3>
-            <p>Follow magical patterns through the forest.</p>
-            <span class="badge badge-premium">PREMIUM 🔒</span>
+        <article class="world-tile">
+            <h3>Advanced Shapes</h3>
+            <p>Match floating shape runes to magical outlines.</p>
+            <div class="badge badge-premium">PREMIUM</div>
+        </article>
+
+        <article class="world-tile">
+            <h3>Advanced Fractions</h3>
+            <p>Divide glowing rune circles into equal parts.</p>
+            <div class="badge badge-premium">PREMIUM</div>
         </article>
     </section>
 
+    <!-- FOOTER -->
     <footer class="world-footer">
-        <a href="https://www.purpletanuki.com" class="home-btn">🏠 Home</a>
+        <a href="../../index.html" class="home-btn">Back to Home</a>
     </footer>
 
+    <!-- Selector Page Logic -->
     <script src="mathskills.js"></script>
+
 </body>
 </html>
 
