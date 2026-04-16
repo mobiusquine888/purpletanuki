@@ -1,35 +1,67 @@
-body {
+/* ---------------------------------------------------------
+   Breathing Crystals – Purple Tanuki
+   Reforged, production‑ready CSS
+--------------------------------------------------------- */
+
+html, body {
     margin: 0;
-    background: radial-gradient(circle at center, #dcd6ff, #b8b0ff, #8f6bff);
+    padding: 0;
     overflow: hidden;
-    touch-action: manipulation;
+    background: radial-gradient(circle at center,
+        #c8b8ff 0%,
+        #a48dff 40%,
+        #7a5cff 100%
+    );
     font-family: "Nunito", sans-serif;
+    height: 100%;
 }
 
+/* Fullscreen canvas */
 #crystalCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
     display: block;
+    touch-action: none;
 }
 
+/* Focus meter container */
 #focusMeter {
     position: absolute;
-    bottom: 20px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     width: 70%;
     height: 14px;
-    background: rgba(255,255,255,0.25);
+    background: rgba(255, 255, 255, 0.25);
     border-radius: 10px;
     overflow: hidden;
+    --focus: 0;
 }
 
+/* Focus meter fill */
 #focusMeter::after {
     content: "";
-    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
-    width: 0%;
-    background: #7affd1;
-    box-shadow: 0 0 12px #7affd1;
-    transition: width 0.3s ease;
+    width: calc(var(--focus) * 100%);
+    background: linear-gradient(
+        90deg,
+        #b8ffe7,
+        #7affd1,
+        #4ee8b8
+    );
+    border-radius: 10px;
+    transition: width 0.25s ease-out;
+    box-shadow: 0 0 12px rgba(122, 255, 209, 0.8);
 }
+
+/* Smooth tap highlight (mobile) */
+body:active {
+    background-color: transparent;
+}
+
