@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Adding Fireflies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="game.css" />
+</head>
+<body>
+    <div id="game-root">
+        <div id="hud">
+            <div class="hud-item">Goal: <span id="goalValue">0</span></div>
+            <div class="hud-item">Score: <span id="scoreValue">0</span></div>
+            <div class="hud-item">Time: <span id="timeValue">60</span>s</div>
+        </div>
+
+        <div id="playfield"></div>
+
+        <div id="messageOverlay" class="hidden">
+            <div class="message-box">
+                <h2 id="messageTitle">Great job!</h2>
+                <p id="messageBody">You reached a score of <span id="finalScore">0</span>.</p>
+                <button id="playAgainBtn">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
