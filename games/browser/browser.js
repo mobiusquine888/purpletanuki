@@ -1,104 +1,107 @@
-// ===============================
-//  TANUKI BROWSER — REFORGED
-// ===============================
-
-// DOM references
+const urlForm = document.getElementById("urlForm");
 const urlInput = document.getElementById("urlInput");
-const goBtn = document.getElementById("goBtn");
-const backBtn = document.getElementById("backBtn");
-const forwardBtn = document.getElementById("forwardBtn");
 const browserFrame = document.getElementById("browserFrame");
+const lockOverlay = document.getElementById("lockOverlay");
+const startRitualBtn = document.getElementById("startRitualBtn");
+const timerBar = document.getElementById("timerBar");
+const timerText = document.getElementById("timerText");
+const lockIcon = document.getElementById("lockIcon");
 
-// ===============================
-//  LOAD PARENT SETTINGS
-// ===============================
+const BLOCKED_DOMAINS = ["youtube.com", "www.youtube.com", "tiktok.com", "www.tiktok.com"];
+const SESSION_SECONDS = 600; // 10 minutes
 
-const parentSettings = JSON.parse(localStorage.getItem("pt_parent_settings")) || {
-  unlockDuration: 7
-};
+let unlocked = false;
+let timerId = null;
+let remaining = 0;
+let pendingTarget = null;
 
-const UNLOCK_MINUTES = Number(parentSettings.unlockDuration || 7);
-
-// ===============================
-//  LOAD THE URL FROM ARCADE
-// ===============================
-
-const activeUrl = localStorage.getItem("pt_active_url");
-
-if (!activeUrl) {
-  alert("No site selected. Returning to Arcade.");
-  window.location.href = "/games/arcade/index.html";
-} else {
-  urlInput.value = activeUrl;
-  browserFrame.src = activeUrl;
-}
-
-// ===============================
-//  URL CLEANER
-// ===============================
-
-function cleanUrl(raw) {
-  let url = raw.trim();
-  if (!url.startsWith("http://") && !url.startsWith("https://")) {
-    url = "https://" + url;
+function normalizeUrl(input) {
+  let value = input.trim();
+  if (!value) return "";
+  if (!value.startsWith("http://") && !value.startsWith("https://")) {
+    value = "https://" + value;
   }
-  return url;
+  return value;
 }
 
-// ===============================
-//  LOAD URL INTO IFRAME
-// ===============================
-
-function loadUrl() {
-  const raw = urlInput.value;
-  const url = cleanUrl(raw);
-
+function isBlocked(url) {
   try {
-    browserFrame.src = url;
-    localStorage.setItem("pt_active_url", url);
-  } catch (e) {
-    alert("Invalid URL");
+    const u = new URL(url);
+    return BLOCKED_DOMAINS.includes(u.hostname);
+  } catch {
+    return false;
   }
 }
 
-goBtn.onclick = loadUrl;
+function startTimer() {
+  remaining = SESSION_SECONDS;
+  timerBar.hidden = false;
+  updateTimerText();
+  timerId = setInterval(() => {
+    remaining -= 1;
+    if (remaining <= 0) {
+      clearInterval(timerId);
+      timerId = null;
+      relockBrowser();
+    } else {
+      updateTimerText();
+    }
+  }, 1000);
+}
 
-urlInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") loadUrl();
+function updateTimerText() {
+  const m = String(Math.floor(remaining / 60)).padStart(2, "0");
+  const s = String(remaining % 60).padStart(2, "0");
+  timerText.textContent = `${m}:${s}`;
+}
+
+function relockBrowser() {
+  unlocked = false;
+  lockOverlay.style.display = "flex";
+  lockIcon.textContent = "🔒";
+  browserFrame.src = "about:blank";
+  timerBar.hidden = true;
+}
+
+function unlockBrowser(targetUrl) {
+  unlocked = true;
+  lockOverlay.style.display = "none";
+  lockIcon.textContent = "🔓";
+  browserFrame.src = targetUrl || "https://www.youtube.com";
+  if (timerId) clearInterval(timerId);
+  startTimer();
+}
+
+urlForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const raw = urlInput.value;
+  const url = normalizeUrl(raw);
+  if (!url) return;
+
+  if (isBlocked(url) && !unlocked) {
+    pendingTarget = url;
+    const params = new URLSearchParams({ target: url });
+    window.location.href = `/games/ritual/index.html?${params.toString()}`;
+    return;
+  }
+
+  browserFrame.src = url;
 });
 
-// ===============================
-//  BACK / FORWARD
-// ===============================
+startRitualBtn.addEventListener("click", () => {
+  const target = pendingTarget || "https://www.youtube.com";
+  const params = new URLSearchParams({ target });
+  window.location.href = `/games/ritual/index.html?${params.toString()}`;
+});
 
-backBtn.onclick = () => browserFrame.contentWindow.history.back();
-forwardBtn.onclick = () => browserFrame.contentWindow.history.forward();
-
-// ===============================
-//  7-MINUTE TIMER
-// ===============================
-
-let timeLeft = UNLOCK_MINUTES * 60; // seconds
-
-const timer = setInterval(() => {
-  timeLeft--;
-
-  // 1-minute warning
-  if (timeLeft === 60) {
-    alert("The portal flickers… your time is almost up.");
+(function checkUnlockFromQuery() {
+  const params = new URLSearchParams(window.location.search);
+  const unlockedFlag = params.get("unlocked");
+  const target = params.get("target");
+  if (unlockedFlag === "1" && target) {
+    unlockBrowser(target);
+    urlInput.value = target;
+    window.history.replaceState({}, "", "/games/browser/index.html");
   }
-
-  // Time expired
-  if (timeLeft <= 0) {
-    clearInterval(timer);
-
-    // Lock the portal again
-    localStorage.removeItem("pt_portal_unlocked");
-
-    alert("The portal closes. Return to the ritual to reopen it.");
-
-    // Return to Gate Ritual
-    window.location.href = "/games/ritual/index.html";
-  }
-}, 1000);
+})();
 
