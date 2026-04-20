@@ -1,0 +1,55 @@
+.bi-root {
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+
+  /* STORYBOOK GRADIENT */
+  background: radial-gradient(
+    circle at top,
+    #A46CFF 0%,
+    #7B3FE0 40%,
+    #4A1A8F 75%,
+    #1E073F 100%
+  );
+
+  color: #f8f5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bi-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-align: center;
+}
+
+.bi-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.bi-text {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.bi-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffb347, #ff6b6b);
+  color: #fff;
+  cursor: pointer;
+}
