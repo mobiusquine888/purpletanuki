@@ -1,0 +1,43 @@
+.rg-root {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #3a1c7a 0%, #140821 55%, #05020a 100%);
+  color: #f8f5ff;
+  font-family: system-ui, sans-serif;
+}
+
+.rg-card {
+  width: 80%;
+  max-width: 360px;
+  padding: 16px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #1b0e3a, #3a1c7a);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-align: center;
+}
+
+.rg-title {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.rg-text {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+.rg-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #5c3bff, #c27bff);
+  color: #fff;
+  cursor: pointer;
+}
