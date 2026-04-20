@@ -1,95 +1,137 @@
-/* ===============================
-   TANUKI BROWSER — STYLES
-   =============================== */
-
-:root {
-  --bg: #0a0518;
-  --surface: #140b33;
-  --surface-soft: #1b1042;
-  --accent: #a86bff;
-  --accent-soft: rgba(168, 107, 255, 0.25);
-  --text-main: #f7f2ff;
-  --text-soft: #c9bde8;
-  --radius: 14px;
-}
-
-/* PAGE BACKGROUND */
-body {
+.tb-root {
+  min-height: 100vh;
   margin: 0;
-  padding: 0;
-  background: radial-gradient(circle at top, #2a145a 0, #070317 45%, #02000a 100%);
-  font-family: system-ui, "Nunito", sans-serif;
-  color: var(--text-main);
-  height: 100vh;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+  background: radial-gradient(circle at top, #4b2a8a 0%, #140821 55%, #05020a 100%);
+  color: #f8f5ff;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-/* ===============================
-   TOP BROWSER BAR
-   =============================== */
+.tb-header {
+  text-align: center;
+  margin-bottom: 8px;
+}
 
-.browser-bar {
+.tb-title {
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.tb-subtitle {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.tb-main {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* URL BAR */
+.tb-url-bar {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px;
-  background: rgba(20, 10, 50, 0.9);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.browser-bar button {
-  background: var(--surface-soft);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: var(--text-main);
-  padding: 6px 10px;
-  border-radius: var(--radius);
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.browser-bar button:hover {
-  background: var(--accent-soft);
-  border-color: var(--accent);
+.tb-lock-icon {
+  font-size: 0.9rem;
 }
 
 #urlInput {
   flex: 1;
-  padding: 7px 10px;
-  border-radius: var(--radius);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(5, 2, 18, 0.9);
-  color: var(--text-main);
-  font-size: 14px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #f8f5ff;
+  font-size: 0.85rem;
 }
 
-#urlInput::placeholder {
-  color: var(--text-soft);
+.tb-go-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #5c3bff, #c27bff);
+  color: #fff;
+  cursor: pointer;
 }
 
-/* ===============================
-   MAIN BROWSER WINDOW
-   =============================== */
-
-#browserFrame {
-  flex: 1;
+/* FRAME + OVERLAY */
+.tb-frame-wrap {
+  position: relative;
   width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.tb-frame {
+  width: 100%;
+  height: 100%;
   border: none;
   background: #000;
 }
 
-/* ===============================
-   MOBILE FRIENDLY
-   =============================== */
+.tb-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(20, 8, 33, 0.95), rgba(5, 2, 10, 0.98));
+  z-index: 2;
+}
 
-@media (max-width: 600px) {
-  .browser-bar {
-    flex-wrap: wrap;
-  }
+.tb-overlay-card {
+  width: 80%;
+  max-width: 320px;
+  padding: 12px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #1b0e3a, #3a1c7a);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-align: center;
+}
 
-  #urlInput {
-    width: 100%;
-    order: 3;
-  }
+.tb-overlay-title {
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.tb-overlay-text {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.tb-ritual-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffb347, #ff6b6b);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* TIMER */
+.tb-timer {
+  font-size: 0.8rem;
+  text-align: center;
+  opacity: 0.9;
 }
