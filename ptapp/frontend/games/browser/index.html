@@ -11,7 +11,6 @@
 
   <header class="tb-header">
     <div class="tb-title">PurpleTanuki Browser</div>
-    <div class="tb-subtitle">A little magic before the internet.</div>
   </header>
 
   <main class="tb-main">
@@ -23,21 +22,21 @@
       <button type="submit" class="tb-go-btn">Go</button>
     </form>
 
-    <!-- FRAME + OVERLAY -->
+    <!-- FRAME + SIMPLE LOCK OVERLAY -->
     <section class="tb-frame-wrap">
 
       <div id="lockOverlay" class="tb-overlay">
         <div class="tb-overlay-card">
           <div class="tb-overlay-title">Portal Locked</div>
-          <div class="tb-overlay-text">Complete a Tanuki ritual to open this portal.</div>
-          <button id="startRitualBtn" class="tb-ritual-btn">Begin Ritual</button>
+          <div class="tb-overlay-text">Complete a quick challenge to open this portal.</div>
+          <button id="startLessonBtn" class="tb-ritual-btn">Begin Challenge</button>
         </div>
       </div>
 
       <iframe id="browserFrame" class="tb-frame" src="about:blank"></iframe>
     </section>
 
-    <!-- TIMER -->
+    <!-- TIMER (hidden until unlocked) -->
     <section id="timerBar" class="tb-timer" hidden>
       Time remaining: <span id="timerText">00:00</span>
     </section>
@@ -47,4 +46,5 @@
   <script src="browser.js"></script>
 </body>
 </html>
+
 
