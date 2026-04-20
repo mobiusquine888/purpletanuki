@@ -2,19 +2,19 @@ const urlForm = document.getElementById("urlForm");
 const urlInput = document.getElementById("urlInput");
 const browserFrame = document.getElementById("browserFrame");
 const lockOverlay = document.getElementById("lockOverlay");
-const startRitualBtn = document.getElementById("startRitualBtn");
+const startLessonBtn = document.getElementById("startLessonBtn");
 const timerBar = document.getElementById("timerBar");
 const timerText = document.getElementById("timerText");
 const lockIcon = document.getElementById("lockIcon");
 
-const BLOCKED_DOMAINS = ["youtube.com", "www.youtube.com", "tiktok.com", "www.tiktok.com"];
-const SESSION_SECONDS = 600; // 10 minutes
+const SESSION_SECONDS = 60; // MVP: 1 minute unlock window
 
-let unlocked = false;
 let timerId = null;
 let remaining = 0;
-let pendingTarget = null;
 
+/* ------------------------------
+   Normalize URL
+------------------------------ */
 function normalizeUrl(input) {
   let value = input.trim();
   if (!value) return "";
@@ -24,19 +24,14 @@ function normalizeUrl(input) {
   return value;
 }
 
-function isBlocked(url) {
-  try {
-    const u = new URL(url);
-    return BLOCKED_DOMAINS.includes(u.hostname);
-  } catch {
-    return false;
-  }
-}
-
+/* ------------------------------
+   Start Timer
+------------------------------ */
 function startTimer() {
   remaining = SESSION_SECONDS;
   timerBar.hidden = false;
   updateTimerText();
+
   timerId = setInterval(() => {
     remaining -= 1;
     if (remaining <= 0) {
@@ -55,52 +50,65 @@ function updateTimerText() {
   timerText.textContent = `${m}:${s}`;
 }
 
+/* ------------------------------
+   Relock Browser
+------------------------------ */
 function relockBrowser() {
-  unlocked = false;
   lockOverlay.style.display = "flex";
   lockIcon.textContent = "🔒";
   browserFrame.src = "about:blank";
   timerBar.hidden = true;
+  localStorage.removeItem("unlockToken");
 }
 
+/* ------------------------------
+   Unlock Browser
+------------------------------ */
 function unlockBrowser(targetUrl) {
-  unlocked = true;
   lockOverlay.style.display = "none";
   lockIcon.textContent = "🔓";
-  browserFrame.src = targetUrl || "https://www.youtube.com";
-  if (timerId) clearInterval(timerId);
+  browserFrame.src = targetUrl;
   startTimer();
 }
 
+/* ------------------------------
+   URL Form Submit
+------------------------------ */
 urlForm.addEventListener("submit", (e) => {
   e.preventDefault();
+
   const raw = urlInput.value;
   const url = normalizeUrl(raw);
   if (!url) return;
 
-  if (isBlocked(url) && !unlocked) {
-    pendingTarget = url;
-    const params = new URLSearchParams({ target: url });
-    window.location.href = `/games/ritual/index.html?${params.toString()}`;
+  // If token matches → unlock
+  if (localStorage.unlockToken === url) {
+    unlockBrowser(url);
     return;
   }
 
-  browserFrame.src = url;
+  // Otherwise → go to micro-lesson
+  window.location.href = `/games/lesson/index.html?return=${encodeURIComponent(url)}`;
 });
 
-startRitualBtn.addEventListener("click", () => {
-  const target = pendingTarget || "https://www.youtube.com";
-  const params = new URLSearchParams({ target });
-  window.location.href = `/games/ritual/index.html?${params.toString()}`;
+/* ------------------------------
+   Begin Challenge Button
+------------------------------ */
+startLessonBtn.addEventListener("click", () => {
+  const raw = urlInput.value;
+  const url = normalizeUrl(raw) || "https://www.youtube.com";
+  window.location.href = `/games/lesson/index.html?return=${encodeURIComponent(url)}`;
 });
 
-(function checkUnlockFromQuery() {
-  const params = new URLSearchParams(window.location.search);
-  const unlockedFlag = params.get("unlocked");
-  const target = params.get("target");
-  if (unlockedFlag === "1" && target) {
-    unlockBrowser(target);
-    urlInput.value = target;
-    window.history.replaceState({}, "", "/games/browser/index.html");
-  }
+/* ------------------------------
+   Check for Unlock Token on Load
+------------------------------ */
+(function checkUnlock() {
+  const token = localStorage.unlockToken;
+  if (!token) return;
+
+  // Auto-load the unlocked URL
+  urlInput.value = token;
+  unlockBrowser(token);
 })();
+
