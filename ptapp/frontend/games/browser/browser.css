@@ -4,7 +4,13 @@
   padding: 10px;
   box-sizing: border-box;
   font-family: system-ui, sans-serif;
-  background: radial-gradient(circle at top, #4b2a8a 0%, #140821 55%, #05020a 100%);
+  background: radial-gradient(
+    circle at top,
+    #7D3FB2 0%,
+    #4B1E78 45%,
+    #2A103F 75%,
+    #12051F 100%
+  );
   color: #f8f5ff;
   display: flex;
   flex-direction: column;
@@ -135,3 +141,4 @@
   text-align: center;
   opacity: 0.9;
 }
+
