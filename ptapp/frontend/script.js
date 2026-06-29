@@ -32,7 +32,7 @@ if (notifyForm && notifyEmail) {
     });
 }
 
-// Wiggle animation for Tanuki loop
+// Wiggle animation
 document.addEventListener('DOMContentLoaded', () => {
     const loopImg = document.querySelector('.tanuki-loop');
     if (loopImg) {
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Sun/Moon theme toggle (corrected for your HTML)
+// Sun/Moon theme toggle — FIXED
 const themeIcon = document.getElementById('theme-icon');
 if (themeIcon) {
     themeIcon.addEventListener('click', () => {
@@ -51,7 +51,7 @@ if (themeIcon) {
     });
 }
 
-// Mobile hamburger menu (corrected to use your actual icons)
+// Mobile hamburger menu — FIXED (no extra button created)
 const navLinks = document.querySelector('.nav-links');
 const navMenuIcon = document.getElementById('nav-menu-icon');
 const navCloseIcon = document.getElementById('nav-close-icon');
