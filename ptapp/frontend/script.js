@@ -16,13 +16,11 @@ if (notifyForm && notifyEmail) {
         e.preventDefault();
         const email = notifyEmail.value.trim();
 
-        // Basic validation
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             alert("Please enter a valid email address.");
             return;
         }
 
-        // Send to Google Sheets backend
         await fetch("https://script.google.com/macros/s/AKfycbys0qW5EiSPdWDqxKp55nPJ_q6RbU8ddS6lkIWkB-1dQqz_zcRVJC67IUZFbvP1QSawKg/exec", {
             method: "POST",
             body: JSON.stringify({ email }),
@@ -43,15 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Dark mode toggle
-const themeButton = document.createElement('button');
-themeButton.className = 'theme-toggle';
-themeButton.textContent = 'Dark Mode';
-document.querySelector('.nav').appendChild(themeButton);
-
-themeButton.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-});
+// Sun/Moon theme toggle (restored)
+const themeIcon = document.querySelector('.theme-icon');
+if (themeIcon) {
+    themeIcon.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        themeIcon.src = document.body.classList.contains('dark')
+            ? 'images/moon.png'
+            : 'images/sun.png';
+    });
+}
 
 // Hamburger menu
 const navLinks = document.querySelector('.nav-links');
