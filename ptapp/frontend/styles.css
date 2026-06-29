@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    font-family: 'PurpleTanuki', sans-serif;
+    background-color: #4B0082;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+section {
+    padding: 40px 20px;
+}
+
+.hero {
+    padding-top: 60px;
+}
+
+.hero-img {
+    width: 180px;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #6A0DAD;
+    color: #FFFFFF;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.demo-video {
+    width: 90%;
+    max-width: 500px;
+    border-radius: 12px;
+}
+
+.value-list {
+    list-style: none;
+    padding: 0;
+    font-size: 1.1rem;
+    line-height: 2rem;
+}
+
+.tanuki-loop {
+    width: 200px;
+    margin: 20px 0;
+}
+
+.plushie-img {
+    width: 200px;
+    margin: 20px 0;
+}
+
+.notify form {
+    margin-top: 20px;
+}
+
+.notify input {
+    padding: 12px;
+    width: 70%;
+    max-width: 300px;
+    border-radius: 8px;
+    border: none;
+}
+
+.notify button {
+    padding: 12px 24px;
+    margin-left: 10px;
+    background-color: #F4C542;
+    color: #4B0082;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+footer {
+    padding: 20px;
+    opacity: 0.7;
+}
