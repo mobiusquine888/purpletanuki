@@ -9,30 +9,30 @@ body {
 }
 
 section {
-    padding: 40px 20px;
+    padding: 20px 20px; /* tightened from 40px */
     max-width: 900px;
     margin: 0 auto;
 }
 
 /* HERO */
 .hero {
-    padding-top: 60px;
+    padding-top: 10px; /* tightened from 20px */
 }
 
 .hero-img {
     width: 200px;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* tightened */
 }
 
 .subtitle {
     font-size: 1.3rem;
     opacity: 0.9;
-    margin-top: 10px;
+    margin-top: 5px; /* tightened */
 }
 
 .cta-button {
     display: inline-block;
-    margin-top: 25px;
+    margin-top: 15px; /* tightened */
     padding: 14px 28px;
     background-color: #6A0DAD;
     color: #FFFFFF;
@@ -47,7 +47,11 @@ section {
     transform: translateY(-2px);
 }
 
-/* DEMO VIDEO */
+/* DEMO SECTION — tightened spacing */
+.demo {
+    padding-top: 5px !important; /* major tightening */
+}
+
 .demo-video {
     width: 95%;
     max-width: 550px;
@@ -60,14 +64,14 @@ section {
     list-style: none;
     padding: 0;
     font-size: 1.2rem;
-    line-height: 2.2rem;
-    margin-top: 20px;
+    line-height: 2rem; /* tightened */
+    margin-top: 10px; /* tightened */
 }
 
 /* TANUKI LOOP */
 .tanuki-loop {
     width: 220px;
-    margin: 25px 0;
+    margin: 15px 0; /* tightened */
     transition: transform 0.2s ease;
 }
 
@@ -78,18 +82,22 @@ section {
 /* PLUSHIE */
 .plushie-img {
     width: 240px;
-    margin: 25px 0;
+    margin: 20px 0; /* tightened */
     border-radius: 12px;
     box-shadow: 0px 0px 20px rgba(0,0,0,0.25);
 }
 
-/* NOTIFY FORM */
+/* NOTIFY SECTION — tightened spacing */
+.notify {
+    padding-top: 5px !important; /* major tightening */
+}
+
 .notify form {
-    margin-top: 25px;
+    margin-top: 15px; /* tightened */
 }
 
 .notify input {
-    padding: 14px;
+    padding: 12px; /* tightened */
     width: 75%;
     max-width: 320px;
     border-radius: 10px;
@@ -98,7 +106,7 @@ section {
 }
 
 .notify button {
-    padding: 14px 28px;
+    padding: 12px 24px; /* tightened */
     margin-left: 10px;
     background-color: #F4C542;
     color: #4B0082;
@@ -117,7 +125,7 @@ section {
 
 /* FOOTER */
 footer {
-    padding: 30px;
+    padding: 20px; /* tightened */
     opacity: 0.7;
     font-size: 0.9rem;
 }
