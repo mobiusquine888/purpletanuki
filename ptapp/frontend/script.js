@@ -7,7 +7,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Notify form
+// Notify form → Google Sheets backend
 const notifyForm = document.getElementById('notify-form');
 const notifyEmail = document.getElementById('notify-email');
 
@@ -32,7 +32,7 @@ if (notifyForm && notifyEmail) {
     });
 }
 
-// Wiggle animation
+// Wiggle animation for Tanuki loop
 document.addEventListener('DOMContentLoaded', () => {
     const loopImg = document.querySelector('.tanuki-loop');
     if (loopImg) {
@@ -41,27 +41,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Sun/Moon theme toggle (restored)
-const themeIcon = document.querySelector('.theme-icon');
+// Sun/Moon theme toggle (corrected for your HTML)
+const themeIcon = document.getElementById('theme-icon');
 if (themeIcon) {
     themeIcon.addEventListener('click', () => {
         document.body.classList.toggle('dark');
-        themeIcon.src = document.body.classList.contains('dark')
-            ? 'images/moon.png'
-            : 'images/sun.png';
+        const isDark = document.body.classList.contains('dark');
+        themeIcon.src = isDark ? 'icons/moon.svg' : 'icons/sun.svg';
     });
 }
 
-// Hamburger menu
+// Mobile hamburger menu (corrected to use your actual icons)
 const navLinks = document.querySelector('.nav-links');
-const navToggle = document.createElement('button');
-navToggle.className = 'nav-toggle';
-navToggle.textContent = '☰';
-document.querySelector('.nav').insertBefore(navToggle, navLinks);
+const navMenuIcon = document.getElementById('nav-menu-icon');
+const navCloseIcon = document.getElementById('nav-close-icon');
 
-navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-});
+if (navLinks && navMenuIcon && navCloseIcon) {
+    const openNav = () => {
+        navLinks.classList.add('open');
+        navMenuIcon.classList.add('hidden');
+        navCloseIcon.classList.remove('hidden');
+    };
+
+    const closeNav = () => {
+        navLinks.classList.remove('open');
+        navMenuIcon.classList.remove('hidden');
+        navCloseIcon.classList.add('hidden');
+    };
+
+    navMenuIcon.addEventListener('click', openNav);
+    navCloseIcon.addEventListener('click', closeNav);
+}
 
 // Fade-in scroll animations
 const fadeSections = document.querySelectorAll('.section, .hero');
