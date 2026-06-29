@@ -12,6 +12,12 @@
 <!-- NAVIGATION -->
 <header class="nav">
     <div class="nav-brand">PurpleTanuki</div>
+
+    <!-- ICONS -->
+    <img src="icons/menu.svg" class="icon nav-icon" id="nav-menu-icon">
+    <img src="icons/close.svg" class="icon nav-icon hidden" id="nav-close-icon">
+    <img src="icons/moon.svg" class="icon nav-icon" id="theme-icon">
+
     <nav class="nav-links">
         <a href="#demo">See It In Action</a>
         <a href="#founder">Why I Built It</a>
@@ -22,7 +28,7 @@
 <main>
 
 <!-- HERO SECTION -->
-<section class="hero">
+<section class="hero fade-in">
     <div class="hero-grid">
         <div class="hero-text">
             <h1>Meet the Purple Tanuki</h1>
@@ -41,7 +47,7 @@
 </section>
 
 <!-- DEMO VIDEO -->
-<section class="section two-column" id="demo">
+<section class="section two-column fade-in" id="demo">
     <div class="section-text">
         <h2>See It In Action</h2>
         <p>
@@ -60,7 +66,7 @@
 </section>
 
 <!-- VALUE FOR PARENTS + KIDS -->
-<section class="section card-grid">
+<section class="section card-grid fade-in">
     <div class="card">
         <h2>Built for Parents Who Want Calm, Not Chaos</h2>
         <p>
@@ -68,16 +74,21 @@
             emotional safety, and confidence — without pressure, guilt, or overwhelm.
         </p>
         <ul class="checklist">
-            <li>Micro‑lessons that fit real life</li>
-            <li>Daily rituals that build habits</li>
-            <li>Emotionally safe design</li>
-            <li>No ads, no noise, no chaos</li>
+            <li><img src="icons/check.svg" class="icon"> Micro‑lessons that fit real life</li>
+            <li><img src="icons/check.svg" class="icon"> Daily rituals that build habits</li>
+            <li><img src="icons/check.svg" class="icon"> Emotionally safe design</li>
+            <li><img src="icons/check.svg" class="icon"> No ads, no noise, no chaos</li>
         </ul>
     </div>
 
     <div class="card">
         <h2>Kids Love the Tanuki</h2>
+
+        <!-- ANIMATION SYSTEM -->
+        <div id="tanuki-lottie" class="tanuki-lottie"></div>
+        <div class="tanuki-sprite hidden"></div>
         <img src="assets/tanuki-loop.gif" alt="Tanuki Animation" class="tanuki-loop">
+
         <p>
             The Tanuki teaches in <strong>tiny bursts</strong>, celebrates progress,
             and makes learning feel like play instead of homework.
@@ -86,7 +97,7 @@
 </section>
 
 <!-- FOUNDER STORY -->
-<section class="section two-column" id="founder">
+<section class="section two-column fade-in" id="founder">
     <div class="section-text">
         <h2>Why I Built PurpleTanuki</h2>
         <p>
@@ -108,7 +119,7 @@
 </section>
 
 <!-- PLUSHIE TEASER -->
-<section class="section plushie-section">
+<section class="section plushie-section fade-in">
     <div class="plushie-card">
         <div class="plushie-grid">
             <img src="assets/tanuki-plushie.png" alt="Tanuki Plushie" class="plushie-img">
@@ -125,7 +136,7 @@
 </section>
 
 <!-- NOTIFY FORM -->
-<section class="section notify-section" id="notify">
+<section class="section notify-section fade-in" id="notify">
     <div class="notify-card">
         <h2>Join the Tanuki Tribe</h2>
         <p>Get notified when the app launches on Google Play.</p>
