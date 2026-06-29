@@ -6,88 +6,146 @@
     <title>PurpleTanuki – Micro‑Learning for Modern Kids</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+
+<!-- NAVIGATION -->
+<header class="nav">
+    <div class="nav-brand">PurpleTanuki</div>
+    <nav class="nav-links">
+        <a href="#demo">See It In Action</a>
+        <a href="#founder">Why I Built It</a>
+        <a href="#notify">Notify Me</a>
+    </nav>
+</header>
+
+<main>
+
 <!-- HERO SECTION -->
 <section class="hero">
-    <img src="assets/tanuki-hero.png" alt="Purple Tanuki" class="hero-img">
-    <h1>Meet the Purple Tanuki</h1>
-    <p class="subtitle">A gentle learning companion for modern kids.</p>
-    <a href="#notify" class="cta-button">Notify Me When It’s Ready</a>
+    <div class="hero-grid">
+        <div class="hero-text">
+            <h1>Meet the Purple Tanuki</h1>
+            <p class="subtitle">A gentle learning companion for modern kids.</p>
+
+            <div class="hero-buttons">
+                <a href="#notify" class="btn primary">Notify Me When It’s Ready</a>
+                <a href="#demo" class="btn ghost">See It In Action</a>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <img src="assets/tanuki-hero.png" alt="Purple Tanuki" class="hero-img">
+        </div>
+    </div>
 </section>
 
 <!-- DEMO VIDEO -->
-<section class="demo">
-    <h2>See It In Action</h2>
-    <video controls class="demo-video">
-        <source src="assets/app-demo.mp4" type="video/mp4">
-    </video>
+<section class="section two-column" id="demo">
+    <div class="section-text">
+        <h2>See It In Action</h2>
+        <p>
+            Watch a short demo of the Tanuki guiding kids through tiny learning rituals—
+            calm, playful, and designed for real family life.
+        </p>
+    </div>
+
+    <div class="section-media">
+        <div class="video-card">
+            <video controls class="demo-video">
+                <source src="assets/app-demo.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
 </section>
 
-<!-- VALUE FOR PARENTS -->
-<section class="parents">
-    <h2>Built for Parents Who Want Calm, Not Chaos</h2>
-    <p>
-        PurpleTanuki turns screen time into <strong>tiny learning rituals</strong> that build habits,
-        emotional safety, and confidence — without pressure, guilt, or overwhelm.
-    </p>
-    <ul class="value-list">
-        <li>✔ Micro‑lessons that fit real life</li>
-        <li>✔ Daily rituals that build habits</li>
-        <li>✔ Emotionally safe design</li>
-        <li>✔ No ads, no noise, no chaos</li>
-    </ul>
-</section>
+<!-- VALUE FOR PARENTS + KIDS -->
+<section class="section card-grid">
+    <div class="card">
+        <h2>Built for Parents Who Want Calm, Not Chaos</h2>
+        <p>
+            PurpleTanuki turns screen time into <strong>tiny learning rituals</strong> that build habits,
+            emotional safety, and confidence — without pressure, guilt, or overwhelm.
+        </p>
+        <ul class="checklist">
+            <li>Micro‑lessons that fit real life</li>
+            <li>Daily rituals that build habits</li>
+            <li>Emotionally safe design</li>
+            <li>No ads, no noise, no chaos</li>
+        </ul>
+    </div>
 
-<!-- VALUE FOR KIDS -->
-<section class="kids">
-    <h2>Kids Love the Tanuki</h2>
-    <img src="assets/tanuki-loop.gif" alt="Tanuki Animation" class="tanuki-loop">
-    <p>
-        The Tanuki teaches in <strong>tiny bursts</strong>, celebrates progress,
-        and makes learning feel like play instead of homework.
-    </p>
+    <div class="card">
+        <h2>Kids Love the Tanuki</h2>
+        <img src="assets/tanuki-loop.gif" alt="Tanuki Animation" class="tanuki-loop">
+        <p>
+            The Tanuki teaches in <strong>tiny bursts</strong>, celebrates progress,
+            and makes learning feel like play instead of homework.
+        </p>
+    </div>
 </section>
 
 <!-- FOUNDER STORY -->
-<section class="founder">
-    <h2>Why I Built PurpleTanuki</h2>
-    <p>
-        Modern kids are drowning in overstimulation. Parents are drowning in guilt.
-        I built PurpleTanuki to create <strong>emotionally safe micro‑learning rituals</strong>
-        that help kids grow without pressure — and help parents feel good about screen time.
-    </p>
-    <p>
-        The Tanuki is a gentle companion who teaches kids in tiny bursts,
-        builds habits through rituals, and makes learning feel like play.
-    </p>
+<section class="section two-column" id="founder">
+    <div class="section-text">
+        <h2>Why I Built PurpleTanuki</h2>
+        <p>
+            Modern kids are drowning in overstimulation. Parents are drowning in guilt.
+            I built PurpleTanuki to create <strong>emotionally safe micro-learning rituals</strong>
+            that help kids grow without pressure — and help parents feel good about screen time.
+        </p>
+        <p>
+            The Tanuki is a gentle companion who teaches kids in tiny bursts,
+            builds habits through rituals, and makes learning feel like play.
+        </p>
+    </div>
+
+    <div class="section-media">
+        <div class="founder-tag">
+            Designed by a dad who lives this reality every day.
+        </div>
+    </div>
 </section>
 
 <!-- PLUSHIE TEASER -->
-<section class="plushie">
-    <h2>The Tanuki Plushie 
-        (Coming Soon)</h2>
-    <img src="assets/tanuki-plushie.png" alt="Tanuki Plushie" class="plushie-img">
-    <p>
-        A soft, magical companion for bedtime stories, daily rituals,
-        and future Kickstarter rewards.
-    </p>
+<section class="section plushie-section">
+    <div class="plushie-card">
+        <div class="plushie-grid">
+            <img src="assets/tanuki-plushie.png" alt="Tanuki Plushie" class="plushie-img">
+
+            <div class="plushie-text">
+                <h2>The Tanuki Plushie (Coming Soon)</h2>
+                <p>
+                    A soft, magical companion for bedtime stories, daily rituals,
+                    and future Kickstarter rewards.
+                </p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- NOTIFY FORM -->
-<section id="notify" class="notify">
-    <h2>Join the Tanuki Tribe</h2>
-    <p>Get notified when the app launches on Google Play.</p>
-    <form>
-        <input type="email" placeholder="Your email" required>
-        <button type="submit">Notify Me</button>
-    </form>
+<section class="section notify-section" id="notify">
+    <div class="notify-card">
+        <h2>Join the Tanuki Tribe</h2>
+        <p>Get notified when the app launches on Google Play.</p>
+
+        <form id="notify-form">
+            <input type="email" id="notify-email" placeholder="Your email" required>
+            <button type="submit" class="btn primary">Notify Me</button>
+        </form>
+
+        <p class="notify-note">No spam. Just launch updates and Tanuki magic.</p>
+    </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
-<footer>
+<footer class="footer">
     <p>© 2026 PurpleTanuki</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
-
