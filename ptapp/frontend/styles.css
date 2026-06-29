@@ -50,6 +50,22 @@ main {
     padding: 0 16px 40px;
 }
 
+/* ICONS */
+.icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+.nav-icon {
+    cursor: pointer;
+    margin-left: 12px;
+}
+
+.hidden {
+    display: none;
+}
+
 /* NAV */
 .nav {
     position: sticky;
@@ -85,26 +101,6 @@ main {
 
 .nav-links a:hover {
     opacity: 1;
-}
-
-/* DARK MODE BUTTON */
-.theme-toggle {
-    border: none;
-    background: transparent;
-    color: var(--accent-gold);
-    cursor: pointer;
-    font-size: 0.95rem;
-    padding: 4px 8px;
-}
-
-/* HAMBURGER */
-.nav-toggle {
-    display: none;
-    border: none;
-    background: transparent;
-    color: var(--text-main);
-    font-size: 1.4rem;
-    cursor: pointer;
 }
 
 /* HERO */
@@ -256,24 +252,17 @@ main {
     margin-bottom: 12px;
 }
 
-/* CHECKLIST */
+/* CHECKLIST (SVG version) */
 .checklist {
     list-style: none;
     margin-top: 8px;
 }
 
 .checklist li {
-    position: relative;
-    padding-left: 26px;
-    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-size: 1.02rem;
-}
-
-.checklist li::before {
-    content: "✔";
-    position: absolute;
-    left: 0;
-    color: var(--accent-gold);
 }
 
 /* TANUKI LOOP */
@@ -445,10 +434,6 @@ main {
 
     .nav-links {
         display: none;
-    }
-
-    .nav-toggle {
-        display: block;
     }
 
     .nav-links.open {
