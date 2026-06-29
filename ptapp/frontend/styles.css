@@ -66,6 +66,16 @@ main {
     display: none;
 }
 
+/* THEME ICON */
+#theme-icon {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#theme-icon:hover {
+    opacity: 0.85;
+    transform: scale(1.08);
+}
+
 /* NAV */
 .nav {
     position: sticky;
@@ -85,6 +95,7 @@ main {
     font-size: 1rem;
 }
 
+/* NAV LINKS */
 .nav-links {
     display: flex;
     align-items: center;
@@ -96,11 +107,16 @@ main {
     text-decoration: none;
     color: var(--accent-gold);
     opacity: 0.9;
-    transition: opacity 0.18s ease;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    transition: opacity 0.18s ease, background 0.18s ease;
 }
 
 .nav-links a:hover {
     opacity: 1;
+    background: rgba(255,255,255,0.14);
 }
 
 /* HERO */
@@ -170,6 +186,10 @@ main {
 .btn.primary:hover {
     background-color: var(--accent-gold-soft);
     transform: translateY(-2px);
+}
+
+body.dark .btn.primary {
+    color: #2B004A;
 }
 
 .btn.ghost {
@@ -252,7 +272,7 @@ main {
     margin-bottom: 12px;
 }
 
-/* CHECKLIST (SVG version) */
+/* CHECKLIST */
 .checklist {
     list-style: none;
     margin-top: 8px;
@@ -274,6 +294,10 @@ main {
 
 .tanuki-loop:hover {
     transform: scale(1.05);
+}
+
+.tanuki-loop.wiggle:hover {
+    transform: none;
 }
 
 /* FOUNDER TAG */
@@ -358,7 +382,8 @@ main {
     flex: 1 1 180px;
     padding: 10px 12px;
     border-radius: 999px;
-    border: none;
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
     font-size: 0.98rem;
 }
 
@@ -408,7 +433,7 @@ main {
     transform: translateY(0);
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 @media (max-width: 800px) {
     .hero-grid {
         grid-template-columns: 1fr;
@@ -446,5 +471,11 @@ main {
         display: flex;
         flex-direction: column;
         gap: 8px;
+        animation: fadeMenu 0.25s ease forwards;
     }
+}
+
+@keyframes fadeMenu {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
 }
